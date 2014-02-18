@@ -34,15 +34,15 @@
                             <effect type="zoom" end="100,0" start="100,100" time="320" tween="cubic" center="960,755" />
                         </animation>
                         <control type="image">
-                            <left>333</left>
-                            <top>667</top>
+                            <posx>333</posx>
+                            <posy>667</posy>
                             <width>1173</width>
                             <height>87</height>
                             <texture border="150,0,150,0">osd/osd_bottom_bar.png</texture>
                         </control>
                         <control type="label">
-                            <left>453</left>
-                            <top>385</top>
+                            <posx>453</posx>
+                            <posy>385</posy>
                             <width>985</width>
                             <label>$INFO[ListItem.Tagline]</label>
                             <font>Font_Reg33_Caps</font>
@@ -52,43 +52,73 @@
                     </control>
                     <control type="group">
                         <animation effect="slide" end="-655,0" time="120" condition="!Control.IsVisible(9900) + !Control.HasFocus(7002)">Conditional</animation>
-                        <control type="image">
-                            <top>710</top>
-                            <width>1920</width>
-                            <height>651</height>
-                            <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <texture>views/lowlist_panelback.png</texture>
-                            <animation effect="fade" start="100" end="80" time="40" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
-                            <animation effect="fade" start="100" end="35" time="40" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
-                        </control>
-                        <control type="image">
-                            <left>1420</left>
-                            <top>473</top>
-                            <width>500</width>
-                            <height>281</height>
-                            <aspectratio>keep</aspectratio>
-                            <texture background="true">$VAR[TVShowClearArtVar]</texture>
-                            <fadetime>400</fadetime>
-                            <visible>Skin.HasSetting(lowlistclearart)</visible>
-                            <include>Animation_VisibleChange400</include>
-                            <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
-                        </control>
-                        <include>Neon_LowList</include>
-                        <control type="image">
-                            <left>1510</left>
-                            <top>600</top>
-                            <width>400</width>
-                            <height>155</height>
-                            <aspectratio>keep</aspectratio>
-                            <texture background="true">$VAR[LogoVar]</texture>
-                            <fadetime>400</fadetime>
-                            <include>Animation_VisibleChange400</include>
-                            <visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)]</visible>
-                        </control>
+                    <control type="image">
+                        <posy>710</posy>
+                        <width>1920</width>
+                        <height>651</height>
+                        <aspectratio scalediffuse="false">stretch</aspectratio>
+                        <texture>views/lowlist_panelback.png</texture>
+                        <animation effect="fade" start="100" end="80" time="40" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
+                        <animation effect="fade" start="100" end="35" time="40" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
                     </control>
                     <control type="image">
-                        <left>1128</left>
-                        <top>754</top>
+                        <posx>1420</posx>
+                        <posy>473</posy>
+                        <width>500</width>
+                        <height>281</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[TVShowClearArtVar]</texture>
+                        <fadetime>400</fadetime>
+                        <visible>Skin.HasSetting(lowlistclearart)</visible>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+                    </control>
+                    <include>Neon_LowList</include>
+                    <control type="image">
+                        <posx>1510</posx>
+                        <posy>600</posy>
+                        <width>400</width>
+                        <height>155</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[LogoVar]</texture>
+                        <fadetime>400</fadetime>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>!Player.HasVideo+!Skin.HasSetting(lowlistclearart) + [!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)]</visible>
+                        </control>
+					<!--sergiu: logo si banner ep--> <control type="image">
+						<posx>33</posx>
+						<posy>915</posy>
+						<width>380</width>
+						<height>149</height>
+						<texture background="true">$VAR[LogoVar]</texture>
+						<visible>Container.Content(episodes)</visible>
+						<fadetime>300</fadetime>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+					</control>
+					<control type="image">
+                        <posx>1275</posx>
+                        <posy>640</posy>
+                        <width>629,28</width>
+                        <height>118,56</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture background="true" diffuse="thumbs/banner_mask.png">$VAR[BannerVar]</texture>
+						<visible>Container.Content(episodes)+!Player.HasVideo</visible>
+                    </control>
+					<control type="image">
+                            <posx>1262.4</posx>
+                            <posy>628</posy>
+                            <width>653.7</width>
+                            <height>142</height>
+                            <texture diffuse="thumbs/banner_mask.png">common/blank.png</texture>
+                            <bordersize>12</bordersize>
+                            <bordertexture border="12">thumbs/banner_shadow.png</bordertexture>
+                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							<visible>Container.Content(episodes)+!Player.HasVideo</visible>
+                        </control><!--sergiu: logo si banner ep-->
+                    </control>
+                    <control type="image">
+                        <posx>1128</posx>
+                        <posy>754</posy>
                         <width>66</width>
                         <height>490</height>
                         <texture>views/listpanel_detailwide.png</texture>
@@ -98,8 +128,8 @@
                     </control>
                 </control>
                 <control type="spincontrol" id="7002">
-                    <left>1815</left>
-                    <top>525</top>
+                    <posx>1815</posx>
+                    <posy>525</posy>
                     <onup>Control.Move(511,-1)</onup>
                     <onleft>50</onleft>
                     <onright condition="!Skin.HasSetting(kioskmode)">9000</onright>
@@ -110,48 +140,48 @@
                 <control type="group">
                     <visible>Control.HasFocus(7002)</visible>
                     <control type="image">
-                        <left>450</left>
-                        <top>600</top>
+                        <posx>450</posx>
+                        <posy>600</posy>
                         <width>1440</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
                         <colordiffuse>66FFFFFF</colordiffuse>
                     </control>
                     <control type="image">
-                        <left>450</left>
-                        <top>975</top>
+                        <posx>450</posx>
+                        <posy>975</posy>
                         <width>1440</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
                         <colordiffuse>66FFFFFF</colordiffuse>
                     </control>
                     <control type="image">
-                        <left>450</left>
-                        <top>675</top>
+                        <posx>450</posx>
+                        <posy>675</posy>
                         <width>398</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
                         <colordiffuse>66FFFFFF</colordiffuse>
                     </control>
                     <control type="image">
-                        <left>450</left>
-                        <top>750</top>
+                        <posx>450</posx>
+                        <posy>750</posy>
                         <width>398</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
                         <colordiffuse>66FFFFFF</colordiffuse>
                     </control>
                     <control type="image">
-                        <left>450</left>
-                        <top>825</top>
+                        <posx>450</posx>
+                        <posy>825</posy>
                         <width>398</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
                         <colordiffuse>66FFFFFF</colordiffuse>
                     </control>
                     <control type="image">
-                        <left>450</left>
-                        <top>900</top>
+                        <posx>450</posx>
+                        <posy>900</posy>
                         <width>398</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
@@ -160,8 +190,8 @@
                     <control type="group">
                         <visible>!Container.Content(episodes)</visible>
                         <control type="image">
-                            <left>855</left>
-                            <top>607</top>
+                            <posx>855</posx>
+                            <posy>607</posy>
                             <width>628</width>
                             <height>360</height>
                             <aspectratio>scale</aspectratio>
@@ -170,20 +200,34 @@
                             <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
                             <bordersize>7</bordersize>
                         </control>
+						<!--sergiu: landscape for tvshows-->
+						 <control type="image">
+							<posx>855</posx>
+							<posy>607</posy>
+							<width>628</width>
+							<height>360</height>
+							<aspectratio>scale</aspectratio>
+							<fadetime>400</fadetime>
+							<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+							<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+							<bordersize>7</bordersize>
+							<visible>!Container.Content(episodes) + !Container.Content(movies)</visible>
+						</control>
                         <control type="multiimage">
-                            <left>862</left>
-                            <top>614</top>
+                            <posx>862</posx>
+                            <posy>614</posy>
                             <width>614</width>
                             <height>346</height>
                             <aspectratio>scale</aspectratio>
                             <imagepath background="true">$INFO[ListItem.Path]/extrathumbs/</imagepath>
                             <fadetime>1000</fadetime>
                             <timeperimage>8000</timeperimage>
+							<visible>Container.Content(movies)</visible>
                         </control>
                     </control>
                     <control type="image">
-                        <left>855</left>
-                        <top>607</top>
+                        <posx>855</posx>
+                        <posy>607</posy>
                         <width>628</width>
                         <height>360</height>
                         <aspectratio>scale</aspectratio>
@@ -194,8 +238,8 @@
                         <visible>Container.Content(episodes)</visible>
                     </control>
                     <control type="fadelabel">
-                        <left>460</left>
-                        <top>540</top>
+                        <posx>460</posx>
+                        <posy>540</posy>
                         <width>1390</width>
                         <height>60</height>
                         <align>center</align>
@@ -204,8 +248,8 @@
                         <textcolor>white3</textcolor>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>600</top>
+                        <posx>450</posx>
+                        <posy>600</posy>
                         <width>398</width>
                         <height>38</height>
                         <label>$VAR[FanartPanelDetail1Var]</label>
@@ -213,8 +257,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>638</top>
+                        <posx>450</posx>
+                        <posy>638</posy>
                         <width>398</width>
                         <height>38</height>
                         <aligny>top</aligny>
@@ -223,8 +267,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>675</top>
+                        <posx>450</posx>
+                        <posy>675</posy>
                         <width>398</width>
                         <height>38</height>
                         <label>$VAR[FanartPanelDetail2Var]</label>
@@ -232,8 +276,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>712</top>
+                        <posx>450</posx>
+                        <posy>712</posy>
                         <width>398</width>
                         <height>38</height>
                         <aligny>top</aligny>
@@ -242,8 +286,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>750</top>
+                        <posx>450</posx>
+                        <posy>750</posy>
                         <width>398</width>
                         <height>38</height>
                         <label>$VAR[FanartPanelDetail4Var]</label>
@@ -251,8 +295,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>788</top>
+                        <posx>450</posx>
+                        <posy>788</posy>
                         <width>398</width>
                         <height>38</height>
                         <aligny>top</aligny>
@@ -262,8 +306,8 @@
                         <visible>IsEmpty(ListItem.Top250)</visible>
                     </control>
                     <control type="fadelabel">
-                        <left>450</left>
-                        <top>788</top>
+                        <posx>450</posx>
+                        <posy>788</posy>
                         <width>398</width>
                         <height>38</height>
                         <aligny>top</aligny>
@@ -273,8 +317,8 @@
                         <visible>!IsEmpty(ListItem.Top250)</visible>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>825</top>
+                        <posx>450</posx>
+                        <posy>825</posy>
                         <width>398</width>
                         <height>38</height>
                         <label>$VAR[FanartPanelDetail5Var]</label>
@@ -282,8 +326,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>862</top>
+                        <posx>450</posx>
+                        <posy>862</posy>
                         <width>398</width>
                         <height>38</height>
                         <aligny>top</aligny>
@@ -292,8 +336,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>900</top>
+                        <posx>450</posx>
+                        <posy>900</posy>
                         <width>398</width>
                         <height>38</height>
                         <label>$VAR[FanartPanelDetail6Var]</label>
@@ -301,8 +345,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
-                        <left>450</left>
-                        <top>938</top>
+                        <posx>450</posx>
+                        <posy>938</posy>
                         <width>398</width>
                         <height>38</height>
                         <aligny>top</aligny>
@@ -311,8 +355,8 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="textbox">
-                        <left>1500</left>
-                        <top>606</top>
+                        <posx>1500</posx>
+                        <posy>606</posy>
                         <width>405</width>
                         <height>367</height>
                         <label>$VAR[GlobalPlotVar]</label>
@@ -323,31 +367,67 @@
                     </control>
                 </control>
                 <control type="group">
+                    <visible>Control.IsVisible(9900)</visible>
+                    <control type="group">
+                        <visible>Container.Content(tvshows) | [Container.Content(seasons) + !IsEmpty(ListItem.TVShowTitle)]</visible>
+                        <visible>!Skin.HasSetting(DisableNextAiredInfo)</visible>	
+                    <control type="label">  	
+                       <posx>1912</posx>	  	
+                        <posy>979</posy>	  	
+                        <width>330</width>	  	
+                        <height>90</height>	  	
+                        <align>right</align>	  	
+                        <font>Font_Reg32</font>	  	
+                        <label>recent: [B]$VAR[LastEpisodeVar][/B]</label>	  	
+                    </control>  	
+                    <control type="label">	  	
+                        <posx>1912</posx>	  	
+                        <posy>1008</posy>	  	
+                        <width>330</width>	  	
+                        <height>90</height>	  	
+                        <align>right</align>	  	
+                        <font>Font_Reg32</font>	  	
+                        <label>următorul: [B]$VAR[NextEpisodeVar][/B]</label>	  	
+						<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)</visible>	  	
+                    </control> 	
+					<control type="label">	  	
+                        <posx>1912</posx>  	
+                        <posy>1008</posy>	  	
+                        <width>330</width>	  	
+                        <height>90</height>	  	
+                       <align>right</align>	  	
+                        <font>Font_Reg32</font>
+	  	                <label>$INFO[Window(Home).Property(NextAired.Status)]</label>
+						<visible>IsEmpty(Window(Home).Property(NextAired.NextDate)</visible>
+                        </control>
+                    </control>
+                </control>
+                <control type="group">
                     <visible>!Control.HasFocus(7002) + Control.IsVisible(9900)</visible>
                     <animation effect="fade" time="160">VisibleChange</animation>
                     <control type="image">
-                        <left>1275</left>
-                        <top>994</top>
+                        <posx>1275</posx>
+                        <posy>994</posy>
                         <width>615</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
                         <colordiffuse>66FFFFFF</colordiffuse>
                     </control>
                     <control type="group">
-                        <top>15</top>
+                        <posy>15</posy>
                         <visible>!Skin.HasSetting(nohighlist) + !IsEmpty(ListItem.Title) + Skin.HasSetting(LowListPlotOnly) + ![Container.Content(seasons) + ListItem.IsFolder]</visible>
                         <animation effect="fade" time="320">VisibleChange</animation>
                         <control type="image">
-                            <left>1275</left>
-                            <top>785</top>
+                            <posx>1275</posx>
+                            <posy>785</posy>
                             <width>615</width>
                             <height>1</height>
                             <texture>views/lowlistpanel_line.png</texture>
                             <colordiffuse>66FFFFFF</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>1275</left>
-                            <top>788</top>
+                            <posx>1275</posx>
+                            <posy>788</posy>
                             <width>180</width>
                             <height>20</height>
                             <label>$VAR[FanartPanelDetail1Var]</label>
@@ -355,8 +435,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1462</left>
-                            <top>788</top>
+                            <posx>1462</posx>
+                            <posy>788</posy>
                             <width>420</width>
                             <height>20</height>
                             <label fallback="31006">$VAR[FanartPanelValue1Var]</label>
@@ -364,8 +444,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1275</left>
-                            <top>825</top>
+                            <posx>1275</posx>
+                            <posy>825</posy>
                             <width>180</width>
                             <height>20</height>
                             <label>$VAR[FanartPanelDetail2Var]</label>
@@ -373,8 +453,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1462</left>
-                            <top>825</top>
+                            <posx>1462</posx>
+                            <posy>825</posy>
                             <width>420</width>
                             <height>20</height>
                             <label fallback="31006">$VAR[FanartPanelValue2Var]</label>
@@ -382,8 +462,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1275</left>
-                            <top>862</top>
+                            <posx>1275</posx>
+                            <posy>862</posy>
                             <width>180</width>
                             <height>20</height>
                             <label>$VAR[LowListInfoDetail3]</label>
@@ -391,8 +471,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1462</left>
-                            <top>862</top>
+                            <posx>1462</posx>
+                            <posy>862</posy>
                             <width>420</width>
                             <height>20</height>
                             <label fallback="31006">$VAR[LowListInfoValue3]</label>
@@ -400,8 +480,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1275</left>
-                            <top>900</top>
+                            <posx>1275</posx>
+                            <posy>900</posy>
                             <width>180</width>
                             <height>20</height>
                             <label>$VAR[LowListInfoDetail5]</label>
@@ -409,8 +489,8 @@
                             <scroll>false</scroll>
                         </control>
                         <control type="label">
-                            <left>1462</left>
-                            <top>900</top>
+                            <posx>1462</posx>
+                            <posy>900</posy>
                             <width>420</width>
                             <height>20</height>
                             <label fallback="31006">$VAR[LowListInfoValue5]</label>
@@ -418,8 +498,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1275</left>
-                            <top>938</top>
+                            <posx>1275</posx>
+                            <posy>938</posy>
                             <width>180</width>
                             <height>20</height>
                             <label>$VAR[LowListInfoDetail4]</label>
@@ -427,8 +507,8 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
-                            <left>1462</left>
-                            <top>938</top>
+                            <posx>1462</posx>
+                            <posy>938</posy>
                             <width>420</width>
                             <height>20</height>
                             <label fallback="31006">$VAR[LowListInfoValue4]</label>
@@ -439,8 +519,8 @@
                     <control type="group">
                         <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
                         <control type="textbox">
-                            <left>1275</left>
-                            <top>756</top>
+                            <posx>1275</posx>
+                            <posy>756</posy>
                             <width>633</width>
                             <height>237</height>
                             <label>$VAR[GlobalPlotVar]</label>
@@ -450,8 +530,8 @@
                             <visible>Skin.HasSetting(nohighlist)</visible>
                         </control>
                         <control type="textbox">
-                            <left>1275</left>
-                            <top>760</top>
+                            <posx>1275</posx>
+                            <posy>760</posy>
                             <width>633</width>
                             <height>196</height>
                             <label>$VAR[GlobalPlotVar]</label>
@@ -461,8 +541,8 @@
                             <visible>Skin.HasSetting(LowListPlotOnly) + !Skin.HasSetting(nohighlist)</visible>
                         </control>
                         <control type="textbox">
-                            <left>1275</left>
-                            <top>760</top>
+                            <posx>1275</posx>
+                            <posy>760</posy>
                             <width>633</width>
                             <height>399</height>
                             <label>$VAR[GlobalPlotVar]</label>
@@ -475,15 +555,15 @@
                 </control>
             </control>
             <control type="group">
-                <left>38</left>
-                <top>232</top>
+                <posx>38</posx>
+                <posy>232</posy>
                 <visible>Player.HasVideo</visible>
                 <animation effect="slide" tween="cubic" easing="inout" time="1040" start="-1200,0" end="0,0" delay="800">Visible</animation>
                 <animation effect="slide" tween="cubic" easing="inout" time="1040" start="-1200,0" end="0,0" delay="800">WindowOpen</animation>
                 <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist) | Control.HasFocus(7002)">Conditional</animation>
                 <include>Animation_CommonFade</include>
                 <control type="image">
-                    <left>405</left>
+                    <posx>405</posx>
                     <width>1110</width>
                     <height>480</height>
                     <texture>common/black.png</texture>
@@ -492,15 +572,15 @@
                     <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 </control>
                 <control type="videowindow">
-                    <left>420</left>
-                    <top>15</top>
+                    <posx>420</posx>
+                    <posy>15</posy>
                     <width>1080</width>
                     <height>450</height>
                 </control>
             </control>
             <control type="image">
-                <left>42</left>
-                <top>235</top>
+                <posx>42</posx>
+                <posy>235</posy>
                 <width>400</width>
                 <height>400</height>
                 <aspectratio align="right">keep</aspectratio>
@@ -514,8 +594,8 @@
                 <animation effect="rotate" end="-360" center="auto" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
             </control>
             <control type="group">
-                <left>40</left>
-                <top>572</top>
+                <posx>40</posx>
+                <posy>572</posy>
                 <animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
                 <animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
                 <control type="group">
@@ -524,8 +604,8 @@
                     <animation effect="fade" time="120" end="100">Visible</animation>
                     <animation effect="fade" time="120" start="100" end="0">Hidden</animation>
                     <control type="image">
-                        <left>-34</left>
-                        <top>-172</top>
+                        <posx>-34</posx>
+                        <posy>-172</posy>
                         <width>467</width>
                         <height>682</height>
                         <align>center</align>
@@ -538,22 +618,22 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     </control>
                     <control type="image">
-                        <top>-130</top>
+                        <posy>-130</posy>
                         <width>399</width>
                         <height>600</height>
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
                     </control>
                     <control type="image">
-                        <top>-130</top>
+                        <posy>-130</posy>
                         <width>399</width>
                         <height>600</height>
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
                     </control>
                     <control type="image">
-                        <left>-19.5</left>
-                        <top>-149.5</top>
+                        <posx>-19.5</posx>
+                        <posy>-149.5</posy>
                         <width>438</width>
                         <height>639</height>
                         <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -562,8 +642,8 @@
                         <bordersize>19.5</bordersize>
                     </control>
                     <control type="image">
-                        <left>2</left>
-                        <top>472</top>
+                        <posx>2</posx>
+                        <posy>472</posy>
                         <width>395</width>
                         <height>300</height>
                         <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
@@ -572,8 +652,8 @@
                         <animation effect="slide" end="0,23" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
                     </control>
                     <control type="image">
-                        <left>-71</left>
-                        <top>-182</top>
+                        <posx>-71</posx>
+                        <posy>-182</posy>
                         <width>490</width>
                         <height>684</height>
                         <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -584,8 +664,8 @@
                     </control>
                 </control>
                 <control type="group">
-                    <left>-25</left>
-                    <top>194</top>
+                    <posx>-25</posx>
+                    <posy>94</posy>
                     <animation effect="slide" end="-21,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
                     <animation type="Visible">
                         <effect type="fade" time="120" end="100" />
@@ -605,7 +685,7 @@
                         <texture diffuse="thumbs/multiplex_tvmask.png" background="true">thumbs/multiplex_tv_glass.png</texture>
                     </control>
                     <control type="image">
-                        <top>240</top>
+                        <posy>240</posy>
                         <width>420</width>
                         <height>237</height>
                         <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
@@ -614,7 +694,7 @@
                     <control type="group">
                         <visible>!Skin.HasSetting(nohighlist)</visible>
                         <control type="image" id="2244">
-                            <top>-135</top>
+                            <posy>-135</posy>
                             <width>420</width>
                             <height>90</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
@@ -623,14 +703,14 @@
                             <visible>Skin.HasSetting(lowlistbanner)</visible>
                         </control>
                         <control type="image">
-                            <top>-135</top>
+                            <posy>-135</posy>
                             <width>420</width>
                             <height>90</height>
                             <texture diffuse="thumbs/banner_mask.png">featured/panel_featured_overlay.png</texture>
                             <visible>Skin.HasSetting(lowlistbanner)</visible>
                         </control>
                         <control type="image">
-                            <top>-135</top>
+                            <posy>-135</posy>
                             <width>420</width>
                             <height>90</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -642,8 +722,8 @@
                 </control>
             </control>
             <control type="fixedlist" id="511">
-                <left>450</left>
-                <top>754</top>
+                <posx>450</posx>
+                <posy>754</posy>
                 <width>976</width>
                 <include condition="!Skin.HasSetting(nohighlist)">LowListHeightHigh</include>
                 <include condition="Skin.HasSetting(nohighlist)">LowListHeightLow</include>
@@ -664,15 +744,15 @@
                 <animation effect="fade" start="100" end="0" time="40" condition="Control.HasFocus(7002)">Conditional</animation>
                 <itemlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
                     <control type="image">
-                        <left>1</left>
-                        <top>64</top>
+                        <posx>1</posx>
+                        <posy>64</posy>
                         <width>795</width>
                         <height>1</height>
                         <texture>views/lowlistpanel_line.png</texture>
                         <colordiffuse>66FFFFFF</colordiffuse>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <posx>30</posx>
                         <width>645</width>
                         <height>66</height>
                         <label>$INFO[ListItem.Label]</label>
@@ -680,7 +760,7 @@
                         <textcolor>grey2</textcolor>
                     </control>
                     <control type="label">
-                        <left>710</left>
+                        <posx>710</posx>
                         <width>80</width>
                         <height>66</height>
                         <align>center</align>
@@ -689,8 +769,8 @@
                         <textcolor>$VAR[SubTitleColorVar]</textcolor>
                     </control>
                     <control type="image">
-                        <left>750</left>
-                        <top>8</top>
+                        <posx>750</posx>
+                        <posy>8</posy>
                         <width>52</width>
                         <height>52</height>
                         <texture>$VAR[WatchedIconVar]</texture>
@@ -698,38 +778,34 @@
                     </control>
                 </itemlayout>
                 <focusedlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
+					<!--sergiu: bara custom-->				
                     <control type="image">
-                        <left>1</left>
-                        <top>64</top>
-                        <width>795</width>
-                        <height>1</height>
-                        <texture>views/lowlistpanel_line.png</texture>
-                    </control>
-                    <control type="image">
+						<posx>0</posx>
+						<posy>-10</posy>
                         <width>814</width>
-                        <height>66</height>
-                        <texture border="8">views/tripanel/listselect_fo.png</texture>
+                        <height>81</height>
+                        <texture>views/lowlistpanel_selectbar.png</texture>
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                         <include>PanelGlowFade</include>
                         <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(511)">Conditional</animation>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <posx>30</posx>
                         <width>645</width>
                         <height>33</height>
                         <label>$INFO[ListItem.Label]</label>
                         <font>Font_Bold28_Caps</font>
                     </control>
                     <control type="label">
-                        <left>30</left>
-                        <top>30</top>
+                        <posx>30</posx>
+                        <posy>30</posy>
                         <width>645</width>
                         <height>33</height>
                         <label>$VAR[LowListSubTitleVar]</label>
                         <font>Font_Info</font>
                     </control>
                     <control type="label">
-                        <left>710</left>
+                        <posx>710</posx>
                         <width>80</width>
                         <height>33</height>
                         <align>center</align>
@@ -737,8 +813,8 @@
                         <font>Font_Bold28</font>
                     </control>
                     <control type="label">
-                        <left>710</left>
-                        <top>33</top>
+                        <posx>710</posx>
+                        <posy>33</posy>
                         <width>80</width>
                         <height>33</height>
                         <align>center</align>
@@ -746,8 +822,8 @@
                         <font>Font_Info</font>
                     </control>
                     <control type="image">
-                        <left>750</left>
-                        <top>8</top>
+                        <posx>750</posx>
+                        <posy>8</posy>
                         <width>52</width>
                         <height>52</height>
                         <texture>$VAR[WatchedIconVar]</texture>
@@ -756,7 +832,7 @@
                 </focusedlayout>
                 <itemlayout height="155" width="825" condition="Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)">
                     <control type="group">
-                        <left>3</left>
+                        <posx>3</posx>
                         <control type="image">
                             <width>798</width>
                             <height>155</height>
@@ -765,8 +841,8 @@
                             <bordersize>5</bordersize>
                         </control>
                         <control type="label">
-                            <left>416</left>
-                            <top>8</top>
+                            <posx>416</posx>
+                            <posy>8</posy>
                             <width>816</width>
                             <height>146</height>
                             <align>center</align>
@@ -781,8 +857,8 @@
                             <bordersize>5</bordersize>
                         </control>
                         <control type="image">
-                            <left>703</left>
-                            <top>6</top>
+                            <posx>703</posx>
+                            <posy>6</posy>
                             <width>90</width>
                             <height>90</height>
                             <include>OverlayVisibility0</include>
@@ -800,7 +876,7 @@
                 </itemlayout>
                 <focusedlayout height="155" width="825" condition="Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)">
                     <control type="group">
-                        <left>3</left>
+                        <posx>3</posx>
                         <control type="image">
                             <width>798</width>
                             <height>155</height>
@@ -811,8 +887,8 @@
                             <bordersize>5</bordersize>
                         </control>
                         <control type="label">
-                            <left>416</left>
-                            <top>8</top>
+                            <posx>416</posx>
+                            <posy>8</posy>
                             <width>816</width>
                             <height>146</height>
                             <align>center</align>
@@ -828,8 +904,8 @@
                         </control>
                         <include>UnwatchedIcon</include>
                         <control type="image">
-                            <left>703</left>
-                            <top>5</top>
+                            <posx>703</posx>
+                            <posy>5</posy>
                             <width>90</width>
                             <height>90</height>
                             <include>OverlayVisibility0</include>
@@ -838,11 +914,11 @@
                 </focusedlayout>
             </control>
             <control type="group">
-                <left>413</left>
+                <posx>413</posx>
                 <animation effect="fade" start="100" end="0" time="160" condition="!Control.HasFocus(69)">Conditional</animation>
                 <visible>Control.IsVisible(511)</visible>
                 <control type="scrollbar" id="69">
-                    <top>626</top>
+                    <posy>626</posy>
                     <width>46</width>
                     <height>410</height>
                     <visible>!Skin.HasSetting(nohighlist)</visible>
@@ -852,7 +928,7 @@
                     <onright>511</onright>
                 </control>
                 <control type="scrollbar" id="69">
-                    <top>791</top>
+                    <posy>791</posy>
                     <width>46</width>
                     <height>270</height>
                     <include>Animation_VerticalScrollBar</include>

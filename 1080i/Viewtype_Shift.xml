@@ -264,9 +264,9 @@
                     <colordiffuse>floor</colordiffuse>
                 </control>
                 <control type="label">
-                    <left>560</left>
-                    <top>950</top>
-                    <width>1245</width>
+                    <left>185</left>
+                    <top>990</top>
+                    <width>980</width>
                     <label>$VAR[SecondLabelVar]</label>
                     <font>Font_Reg28_Caps</font>
                     <shadowcolor>floorshadow</shadowcolor>
@@ -275,10 +275,10 @@
                     <include>Animation_VisibleChange200</include>
                 </control>
                 <control type="label">
-                    <left>560</left>
-                    <top>850</top>
-                    <width>1245</width>
-                    <label>$VAR[FirstLabelVar]</label>
+                    <left>185</left>
+                    <top>910</top>
+                    <width>980</width>
+                    <label>[B]$VAR[FirstLabelVar][/B]</label>
                     <font>Font_ShowcaseMainLabel2_Caps</font>
                     <shadowcolor>floorshadow</shadowcolor>
                     <textcolor>floor</textcolor>

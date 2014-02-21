@@ -233,7 +233,7 @@
         <value condition="substring(Window(home).Property(mpaa),전체)">KR_Certificate_All</value>
         <value condition="substring(Window(home).Property(mpaa),12세)">KR_Certificate_12</value>
         <value condition="substring(Window(home).Property(mpaa),15세)">KR_Certificate_15</value>
-        <value condition="substring(Window(home).Property(mpaa),불가)">KR_Certificate_18</value>
+        <value condition="substring(Window(home).Property(mpaa),�?가)">KR_Certificate_18</value>
         <value condition="substring(Window(home).Property(mpaa),제한)">KR_Certificate_R</value>
         <value condition="substring(Window(home).Property(mpaa),Brazil:Livre) | substring(Window(home).Property(mpaa),Livre)">MPAA_Brazil_Livre</value>
         <value condition="substring(Window(home).Property(mpaa),Brazil:10) | substring(Window(home).Property(mpaa),10 anos)">MPAA_Brazil_10</value>
@@ -242,6 +242,23 @@
         <value condition="substring(Window(home).Property(mpaa),Brazil:16) | substring(Window(home).Property(mpaa),16 anos)">MPAA_Brazil_16</value>
         <value condition="substring(Window(home).Property(mpaa),Brazil:18) | substring(Window(home).Property(mpaa),18 anos)">MPAA_Brazil_18</value>
     </variable>
+	<variable name="TvGuideVarTxt">
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),3)">$LOCALIZE[32979]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),5)">$LOCALIZE[32981]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),7)">$LOCALIZE[32983]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),8)">$LOCALIZE[32984]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),9)">$LOCALIZE[32985]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),10)">$LOCALIZE[32986]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),11)">$LOCALIZE[32987]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),airing)">$LOCALIZE[32988]</value>
+		<value condition="substring(Window(Home).Property(NextAired.StatusID),-1)">$LOCALIZE[32989]</value>
+		<value>Unknown</value>
+	</variable>
     <variable name="RatingFlagVar">
         <value condition="substring(ListItem.mpaa,TV-G)">TV-G_Certificate_US</value>
         <value condition="substring(ListItem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
@@ -278,7 +295,7 @@
         <value condition="substring(ListItem.mpaa,전체)">KR_Certificate_All</value>
         <value condition="substring(ListItem.mpaa,12세)">KR_Certificate_12</value>
         <value condition="substring(ListItem.mpaa,15세)">KR_Certificate_15</value>
-        <value condition="substring(ListItem.mpaa,불가)">KR_Certificate_18</value>
+        <value condition="substring(ListItem.mpaa,�?가)">KR_Certificate_18</value>
         <value condition="substring(ListItem.mpaa,제한)">KR_Certificate_R</value>
         <value condition="substring(ListItem.mpaa,Brazil:Livre) | substring(ListItem.mpaa,Livre)">MPAA_Brazil_Livre</value>
         <value condition="substring(ListItem.mpaa,Brazil:10) | substring(ListItem.mpaa,10 anos)">MPAA_Brazil_10</value>
@@ -323,7 +340,7 @@
         <value condition="substring(VideoPlayer.mpaa,전체)">KR_Certificate_All</value>
         <value condition="substring(VideoPlayer.mpaa,12세)">KR_Certificate_12</value>
         <value condition="substring(VideoPlayer.mpaa,15세)">KR_Certificate_15</value>
-        <value condition="substring(VideoPlayer.mpaa,불가)">KR_Certificate_18</value>
+        <value condition="substring(VideoPlayer.mpaa,�?가)">KR_Certificate_18</value>
         <value condition="substring(VideoPlayer.mpaa,제한)">KR_Certificate_R</value>
         <value condition="substring(VideoPlayer.mpaa,Brazil:Livre) | substring(VideoPlayer.mpaa,Livre)">MPAA_Brazil_Livre</value>
         <value condition="substring(VideoPlayer.mpaa,Brazil:10) | substring(VideoPlayer.mpaa,10 anos)">MPAA_Brazil_10</value>
@@ -1092,7 +1109,7 @@
     </variable>
     <variable name="PlayerTimeLabelVar">
         <value condition="Player.HasDuration">$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</value>
-        <value>$INFO[MusicPlayer.Time,, / ]∞</value>
+        <value>$INFO[MusicPlayer.Time,, / ]�?�</value>
     </variable>
     <variable name="SettingsFanartVar">
         <value condition="IsEmpty(Skin.String(SettingsBackground))">special://skin/backgrounds/system/</value>

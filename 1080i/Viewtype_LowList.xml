@@ -373,30 +373,30 @@
                         <visible>!Skin.HasSetting(DisableNextAiredInfo)</visible>	
                     <control type="label">  	
                        <posx>1912</posx>	  	
-                        <posy>979</posy>	  	
+                        <posy>966</posy>	  	
                         <width>330</width>	  	
                         <height>90</height>	  	
                         <align>right</align>	  	
-                        <font>Font_Reg28</font>	  	
-                        <label>recent: [B]$VAR[LastEpisodeVar][/B]</label>	  	
+                        <font>Font_Reg26</font>	  	
+                        <label>recent: [LOWERCASE][B]$VAR[LastEpisodeVar][/B][/LOWERCASE]</label>	  	
                     </control>  	
                     <control type="label">	  	
                         <posx>1912</posx>	  	
-                        <posy>1008</posy>	  	
+                        <posy>996</posy>	  	
                         <width>330</width>	  	
                         <height>90</height>	  	
                         <align>right</align>	  	
-                        <font>Font_Reg28</font>	  	
-                        <label>următorul: [B]$VAR[NextEpisodeVar][/B]</label>	  	
+                        <font>Font_Reg26</font>	  	
+                        <label>următorul: [LOWERCASE][B]$VAR[NextEpisodeVar][/B][/LOWERCASE]</label>	  	
 						<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)</visible>	  	
                     </control> 	
 					<control type="label">	  	
                         <posx>1912</posx>  	
-                        <posy>1008</posy>	  	
+                        <posy>996</posy>	  	
                         <width>330</width>	  	
                         <height>90</height>	  	
                        <align>right</align>	  	
-                        <font>Font_Reg32</font>
+                        <font>Font_Reg26</font>
 	  	                <label>$INFO[Window(Home).Property(NextAired.Status)]</label>
 						<visible>IsEmpty(Window(Home).Property(NextAired.NextDate)</visible>
                         </control>

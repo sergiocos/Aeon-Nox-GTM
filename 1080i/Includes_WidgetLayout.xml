@@ -140,7 +140,7 @@
                 <label>[COLOR grey]$INFO[System.Date(ddd)] • $INFO[System.Date(D)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)]  •[/COLOR]  $INFO[System.Time]</label>
                 <font>Font_Reg28_Caps</font>
                 <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
-				<visible>!Skin.HasSetting(shorterhomebars)</visible>
+				<visible>!Skin.HasSetting(shorterhomebars) + Skin.HasSetting(W_condition_image)</visible>
             </control>
             <control type="label">
                 <left>150</left>
@@ -151,13 +151,24 @@
                 <font>Font_Reg28_Caps</font>
                 <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
 				<visible>Skin.HasSetting(shorterhomebars)</visible>
-            </control>			
+            </control>		
+            <control type="label">
+                <left>150</left>
+                <width>600</width>
+                <height>36</height>
+                <align>right</align>
+                <label>[COLOR grey]$INFO[System.Date(DDD)] • $INFO[System.Date(D)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)]  •[/COLOR]  $INFO[System.Time]</label>
+                <font>Font_Reg28_Caps</font>
+                <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+				<visible>!Skin.HasSetting(W_condition_image)</visible>
+            </control>					
             <control type="grouplist">
                 <left>30</left>
                 <visible>Weather.IsFetched + !Skin.HasSetting(shorterhomebars)</visible>
                 <include>Animation_VisibleChange400</include>
                 <orientation>horizontal</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
+				<animation effect="slide" end="130" time="240" condition="!Skin.HasSetting(W_condition_image)">Conditional</animation>
                 <control type="label">
                     <width min="0" max="700">auto</width>
                     <height>36</height>
@@ -166,10 +177,10 @@
                     <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
                 </control>
                 <control type="image">
-                    <left>-10</left>
-                    <top>-8</top>
-                    <width>55</width>
-                    <height>55</height>
+                    <left>-25</left>
+                    <top>-20</top>
+                    <width>80</width>
+                    <height>80</height>
                     <colordiffuse>white2</colordiffuse>
                     <texture>weather/small/$INFO[Weather.FanartCode].png</texture>
 					<visible>!Skin.HasSetting(W_condition_image)</visible>
@@ -4750,8 +4761,8 @@
                 <itemlayout width="532" height="340" condition="Substring(Control.GetLabel(4321),landscape)">
                     <include condition="Substring(Skin.String(widgetlist),landscape) | Window.IsActive(1124)">WidgetLandscapeLayout</include>
                 </itemlayout>
-                <focusedlayout width="532" height="340" condition="Substring(Control.GetLabel(4321),keepar)">
-                    <include condition="Substring(Skin.String(widgetlist),keepar) | Window.IsActive(1124)">WidgetRCBLayout</include>
+                <focusedlayout width="532" height="340" condition="Substring(Control.GetLabel(4321),roms)">
+                    <include condition="Substring(Skin.String(widgetlist),panel) | Window.IsActive(1124)">WidgetRCBLayout</include>
                     <control type="image">
                         <width>532</width>
                         <height>350</height>
@@ -4760,8 +4771,8 @@
                         <visible>Control.HasFocus(5010)</visible>
                     </control>
                 </focusedlayout>
-                <itemlayout width="532" height="340" condition="Substring(Control.GetLabel(4321),keepar)">
-                    <include condition="Substring(Skin.String(widgetlist),keepar) | Window.IsActive(1124)">WidgetRCBLayout</include>
+                <itemlayout width="532" height="340" condition="Substring(Control.GetLabel(4321),roms)">
+                    <include condition="Substring(Skin.String(widgetlist),panel) | Window.IsActive(1124)">WidgetRCBLayout</include>
                 </itemlayout>
 				<itemlayout width="228" height="340" condition="Substring(Control.GetLabel(4321),panelcoverposter)">
                     <control type="image">
@@ -5193,8 +5204,9 @@
                 <itemlayout width="532" height="340" condition="Substring(Control.GetLabel(4325),landscape)">
                     <include condition="Substring(Skin.String(widget2list),landscape) | Window.IsActive(1124)">WidgetLandscapeLayout</include>
                 </itemlayout>
-                <focusedlayout width="532" height="340" condition="Substring(Control.GetLabel(4325),keepar)">
-                    <include condition="Substring(Skin.String(widget2list),keepar) | Window.IsActive(1124)">WidgetRCBLayout</include>
+				<!-- RCB WIdgets -->   
+                <focusedlayout width="532" height="340" condition="Substring(Control.GetLabel(4325),roms)">
+                    <include condition="Substring(Skin.String(widgetlist),panel) | Window.IsActive(1124)">WidgetRCBLayout</include>
                     <control type="image">
                         <width>532</width>
                         <height>350</height>
@@ -5203,9 +5215,10 @@
                         <visible>Control.HasFocus(6010)</visible>
                     </control>
                 </focusedlayout>
-                <itemlayout width="532" height="340" condition="Substring(Control.GetLabel(4325),keepar)">
-                    <include condition="Substring(Skin.String(widget2list),keepar) | Window.IsActive(1124)">WidgetRCBLayout</include>
-                </itemlayout>
+                <itemlayout width="532" height="340" condition="Substring(Control.GetLabel(4325),roms)">
+                    <include condition="Substring(Skin.String(widgetlist),panel) | Window.IsActive(1124)">WidgetRCBLayout</include>
+                </itemlayout>  
+				<!-- RCB WIdgets --> 
                 <focusedlayout width="798" height="170" condition="Substring(Control.GetLabel(4325),bannerlayout)">
                     <include condition="Substring(Skin.String(widget2list),banner) | Window.IsActive(1124)">WidgetBannerLayout</include>
                     <control type="image">
@@ -6575,7 +6588,16 @@
             <height>340</height>
             <aspectratio align="center">keep</aspectratio>
             <texture background="true">$INFO[ListItem.Icon]</texture>
+			<visible>IsEmpty(ListItem.Property(Fanart))</visible>
         </control>
+        <control type="image">
+            <left>10</left>
+            <top>5</top>
+            <width>512</width>
+            <height>340</height>
+            <aspectratio align="center">keep</aspectratio>
+            <texture background="true">$INFO[ListItem.Property(Fanart)]</texture>
+        </control>		
         <control type="image">
             <left>0</left>
             <top>285</top>

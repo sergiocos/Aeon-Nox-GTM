@@ -1786,7 +1786,6 @@
     <include name="LiveTVVideoOSD">
         <control type="group">
             <visible>!Skin.HasSetting(ClassicOSD)</visible>
-            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
             <control type="grouplist">
                 <left>50</left>
                 <top>11</top>
@@ -1799,17 +1798,18 @@
                 <onright>70004</onright>
                 <onup>-</onup>
                 <ondown>-</ondown>
+          		<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>				
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/Speaker.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                 </control>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/Camcorder.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                 </control>
             </control>
             <control type="grouplist">
@@ -1825,25 +1825,26 @@
                 <onright>70011</onright>
                 <onup>-</onup>
                 <ondown>-</ondown>
+				<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/Arrowup.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                     <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
                 </control>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/Arrowdown.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                     <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
                 </control>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonFRW.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                     <enable>Player.SeekEnabled</enable>
                     <animation effect="fade" start="100" end="50" time="80" condition="!Player.SeekEnabled">Conditional</animation>
                 </control>
@@ -1852,20 +1853,20 @@
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonPause.png</texturenofocus>
                     <alttexturenofocus>special://skin/extras/BigIcons/ButtonPlay.png</alttexturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                     <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
                 </control>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonStop.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                 </control>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonFFW.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                     <enable>Player.SeekEnabled</enable>
                     <animation effect="fade" start="100" end="50" time="80" condition="!Player.SeekEnabled">Conditional</animation>
                 </control>
@@ -1874,7 +1875,7 @@
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonRecord.png</texturenofocus>
                     <alttexturenofocus>special://skin/extras/BigIcons/ButtonRecord.png</alttexturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                     <usealttexture>Player.Recording</usealttexture>
                     <enable>Player.CanRecord</enable>
                     <animation effect="fade" start="100" end="50" time="80" condition="!Player.CanRecord">Conditional</animation>
@@ -1883,7 +1884,7 @@
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonEPG.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                 </control>
             </control>
             <control type="grouplist">
@@ -1899,24 +1900,25 @@
                 <onright>70001</onright>
                 <onup>-</onup>
                 <ondown>-</ondown>
+				<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
                 <animation effect="slide" end="412" time="160" condition="Skin.HasSetting(RemoveVideoPlayerControls)">Conditional</animation>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonTxt.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                 </control>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonPlaylist.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                 </control>
                 <control type="button">
                     <width>100</width>
                     <height>100</height>
                     <texturenofocus>special://skin/extras/BigIcons/Gears.png</texturenofocus>
-                    <colordiffuse>white</colordiffuse>
+                    <colordiffuse>gray</colordiffuse>
                 </control>
             </control>
             <control type="group" id="703">
@@ -1993,7 +1995,7 @@
                         <height>100</height>
                         <texturefocus>special://skin/extras/BigIcons/ButtonFRW.png</texturefocus>
                         <texturenofocus>-</texturenofocus>
-                        <label>31352</label>
+                        <label>31354</label>
                         <font>-</font>
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                         <enable>Player.SeekEnabled</enable>
@@ -2028,7 +2030,7 @@
                         <height>100</height>
                         <texturefocus>special://skin/extras/BigIcons/ButtonFFW.png</texturefocus>
                         <texturenofocus>-</texturenofocus>
-                        <label>31352</label>
+                        <label>31353</label>
                         <font>-</font>
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                         <enable>Player.SeekEnabled</enable>
@@ -2309,11 +2311,12 @@
                 </control>
             </control>
             <control type="grouplist">
-                <left>480</left>
+                <left>450</left>
                 <top>11</top>
                 <width>960</width>
                 <height>135</height>
                 <align>center</align>
+				<itemgap>-7</itemgap>
                 <visible>!Skin.HasSetting(RemoveVideoPlayerControls)</visible>
                 <scrolltime tween="sine">200</scrolltime>
                 <orientation>horizontal</orientation>
@@ -2443,11 +2446,12 @@
                 </control>
             </control>
             <control type="grouplist" id="651">
-                <left>480</left>
+                <left>450</left>
                 <top>11</top>
                 <width>960</width>
                 <height>135</height>
                 <align>center</align>
+				<itemgap>-7</itemgap>
                 <visible>!Skin.HasSetting(RemoveVideoPlayerControls)</visible>
                 <scrolltime tween="sine">200</scrolltime>
                 <orientation>horizontal</orientation>
@@ -2802,5 +2806,13 @@
 	<include name="autoratote_extendedinfo_Playlist">
 		<onunfocus>CancelAlarm(MusicInfo5PanelsPlaylist,true)</onunfocus>
  		<onfocus>AlarmClock(MusicInfo5PanelsArtists,SetFocus(5012),00:10,silent)</onfocus>
-	</include>		
+	</include>	
+	<include name="BigFontPlot">
+		<top>209</top>
+		<width>652</width>
+		<height>220</height>
+		<label>$VAR[FanartPanelPlotVar]</label>
+		<textcolor>white6</textcolor>
+		<autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>	
+	</include>			
 </includes>

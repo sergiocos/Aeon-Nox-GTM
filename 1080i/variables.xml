@@ -15,7 +15,7 @@
     <variable name="NewsFeedVar">
         <value condition="Stringcompare(System.Language,German)">http://pipes.yahoo.com/pipes/pipe.run?_id=5cc10db1ae3a763e4919c6de8fb58551&amp;_render=json&amp;youtubeid=tagesschau</value>
         <!--       <value condition="Stringcompare(System.Language,Australia)">http://pipes.yahoo.com/pipes/pipe.run?_id=5cc10db1ae3a763e4919c6de8fb58551&amp;_render=rss&amp;youtubeid=7NEWS</value> -->
-        <value>http://pipes.yahoo.com/pipes/pipe.run?_id=5cc10db1ae3a763e4919c6de8fb58551&amp;_render=json&amp;youtubeid=Channel4News</value>
+        <value>http://pipes.yahoo.com/pipes/pipe.run?_id=2547d7359c1c48b74498130dec548ed3&amp;_render=json</value>
     </variable>
     <variable name="QuickConfigIconVar">
         <value condition="!IsEmpty(Window(home).Property(quicknavsetup))">special://skin/extras/BigIcons/ButtonStop.png</value>
@@ -198,6 +198,7 @@
         <value condition="Player.Forwarding32x | Player.Rewinding32x">32x</value>
     </variable>
     <variable name="WidgetRatingFlagVar">
+		<value condition="substring(Window(home).Property(mpaa),X)">MPAA_X_Certificate_US</value> 
         <value condition="substring(Window(home).Property(mpaa),TV-G)">TV-G_Certificate_US</value>
         <value condition="substring(Window(home).Property(mpaa),TV-PG)">TV-PG_Certificate_US</value>
         <value condition="substring(Window(home).Property(mpaa),TV-14)">TV-14_Certificate_US</value>
@@ -241,6 +242,7 @@
         <value condition="substring(Window(home).Property(mpaa),Brazil:14) | substring(Window(home).Property(mpaa),14 anos)">MPAA_Brazil_14</value>
         <value condition="substring(Window(home).Property(mpaa),Brazil:16) | substring(Window(home).Property(mpaa),16 anos)">MPAA_Brazil_16</value>
         <value condition="substring(Window(home).Property(mpaa),Brazil:18) | substring(Window(home).Property(mpaa),18 anos)">MPAA_Brazil_18</value>
+		<value condition="substring(ListItem.mpaa,X)">MPAA_X_Certificate_US</value> 
     </variable>
 	<variable name="TvGuideVarTxt">
 		<value condition="substring(Window(Home).Property(NextAired.StatusID),0)">$LOCALIZE[32976]</value>
@@ -432,6 +434,7 @@
         <value condition="substring(ListItem.mpaa,Brazil:18) | substring(ListItem.mpaa,18 anos)">MPAA_Brazil_18</value>
     </variable>
     <variable name="VideoRatingFlagVar">
+		<value condition="substring(VideoPlayer.mpaa,X)">MPAA_X_Certificate_US</value>
         <value condition="substring(VideoPlayer.mpaa,TV-G)">TV-G_Certificate_US</value>
         <value condition="substring(VideoPlayer.mpaa,TV-PG)">TV-PG_Certificate_US</value>
         <value condition="substring(VideoPlayer.mpaa,TV-14)">TV-14_Certificate_US</value>
@@ -824,17 +827,30 @@
         <value condition="!Container.Content(songs) + !IsEmpty(ListItem.Property(Album_Description))">defaulticons/DefaultAddonAlbumInfo.png</value>
         <value condition="!Container.Content(songs) + !IsEmpty(ListItem.Property(Artist_Description))">defaulticons/DefaultAddonArtistInfo.png</value>
         <value condition="Container.Content(songs)">$INFO[ListItem.DiscNumber,flags/discnumber/,.png]</value>
-        <value condition="Container.ListItem.IsResumable + !IsEmpty(ListItem.Top250)">dialogs/circletop250/$INFO[ListItem.PercentPlayed].png</value>
+		<value condition="Container.ListItem.IsResumable + !IsEmpty(ListItem.Top250) + StringCompare(ListItem.Top250,1)">dialogs/circletop250-1/$INFO[ListItem.PercentPlayed].png</value>
+        <value condition="Container.ListItem.IsResumable + !IsEmpty(ListItem.Top250) + !StringCompare(ListItem.Top250,1)">dialogs/circletop250/$INFO[ListItem.PercentPlayed].png</value>
         <value condition="Container.ListItem.IsResumable + !StringCompare(ListItem.Overlay,OverlayWatched.png)">dialogs/circle/$INFO[ListItem.PercentPlayed].png</value>
         <value condition="Container.ListItem.IsResumable">dialogs/circlewatched/$INFO[ListItem.PercentPlayed].png</value>
         <value condition="!Stringcompare(ListItem.Label,..) + Container.Content(tvshows) + [[Stringcompare(Window(Home).Property(RecommendedEpisode.1.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.2.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.3.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.4.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.5.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.6.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.7.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.8.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.9.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.10.TvShowTitle),ListItem.TvShowTitle)]]">common/inprogress.png</value>
         <value condition="!Stringcompare(ListItem.Label,..) + !StringCompare(ListItem.Overlay,OverlayWatched.png) + [[Container.Content(movies) + [StringCompare(Window(Home).Property(RecentMovie.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.10.DBID),ListItem.DBID)]] | [Container.Content(tvshows) + [StringCompare(Window(Home).Property(RecentEpisode.1.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.2.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.3.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.4.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.5.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.6.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.7.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.8.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.9.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.10.TVshowTitle),ListItem.TvShowTitle)]] | [Container.Content(episodes) + [StringCompare(Window(Home).Property(RecentEpisode.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.10.DBID),ListItem.DBID)]]]">common/new.png</value>
         <value condition="!Stringcompare(ListItem.Label,..) + [[Container.Content(movies) + [StringCompare(Window(Home).Property(RecentMovie.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.10.DBID),ListItem.DBID)]] | [Container.Content(tvshows) + [StringCompare(Window(Home).Property(RecentEpisode.1.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.2.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.3.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.4.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.5.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.6.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.7.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.8.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.9.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.10.TVshowTitle),ListItem.TvShowTitle)]] | [Container.Content(episodes) + [StringCompare(Window(Home).Property(RecentEpisode.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.10.DBID),ListItem.DBID)]]]">common/starwatched.png</value>
-        <value condition="!StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Top250)">common/imdb.png</value>
+		<value condition="!StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Top250) + StringCompare(ListItem.Top250,1)">common/imdb-1.png</value>
+		<value condition="!StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Top250) + StringCompare(ListItem.Top250,2)">common/imdb-2.png</value>
+		<value condition="!StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Top250) + StringCompare(ListItem.Top250,3)">common/imdb-3.png</value>
+		<value condition="!IsEmpty(ListItem.Top250) + StringCompare(ListItem.Top250,1)">common/imdb-1-w.png</value>
+		<value condition="!IsEmpty(ListItem.Top250) + StringCompare(ListItem.Top250,2)">common/imdb-2-w.png</value>
+		<value condition="!IsEmpty(ListItem.Top250) + StringCompare(ListItem.Top250,3)">common/imdb-3-w.png</value>
+        <value condition="!StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Top250)">common/imdb.png</value>		
         <value condition="!IsEmpty(ListItem.Top250)">common/imdbwatched.png</value>
         <value condition="!IsEmpty(ListItem.Property(Addon.Broken))">common/wrench.png</value>
         <value>$INFO[ListItem.Overlay]</value>
     </variable>
+    <variable name="Imdb_250">
+        <value condition="StringCompare(ListItem.Top250,1)">common/imdb-1.png</value>
+        <value condition="StringCompare(ListItem.Top250,2)">common/imdb-2.png</value>
+        <value condition="StringCompare(ListItem.Top250,3)">common/imdb-3.png</value>					
+        <value>common/imdb.png</value>
+    </variable>	
     <variable name="CountryFlagVar">
         <value condition="!IsEmpty(ListItem.Country)">$INFO[ListItem.Country,flags/language/,.png]</value>
         <value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Window(home).Property(NextAired.Country),flags/language/,.png]</value>
@@ -1602,7 +1618,8 @@
         <value>$INFO[ListItem(9).Icon]</value>
     </variable>
     <variable name="ShowcaseCasePathVar">
-        <value condition="!Skin.HasSetting(clearcases)">tvshows</value>
+        <value condition="!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)">tvshows</value>
+		<value condition="!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)">colorcases</value>
         <value>movies</value>
     </variable>
     <variable name="ShowcaseCaseLabelVar">
@@ -3091,9 +3108,59 @@
         <value condition="Substring(ListItem.Path),BDMV">$INFO[ListItem.Art(fanart),../,]</value>
         <value>$INFO[ListItem.Art(fanart)]</value>
     </variable>	
+    <variable name="VideoextrasOverlay-1">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(-1).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(-1).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(-1).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
     <variable name="VideoextrasOverlay">
-       <value condition="Container.Content(Movies)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
-       <value condition="Container.Content(TVShows)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
-       <value condition="Container.Content(MusicVideos)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+    <variable name="VideoextrasOverlay1">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(1).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(1).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(1).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+	<variable name="VideoextrasOverlay2">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(2).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(2).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(2).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+	<variable name="VideoextrasOverlay3">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(3).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(3).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(3).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+	<variable name="VideoextrasOverlay4">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(4).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(4).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(4).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+	    <variable name="VideoextrasOverlay5">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(5).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(5).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(5).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+	<variable name="VideoextrasOverlay6">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(6).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(6).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(6).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+	<variable name="VideoextrasOverlay7">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(7).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(7).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(7).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>
+	<variable name="VideoextrasOverlay8">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(8).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(8).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(8).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
     </variable>	
+	<variable name="VideoextrasOverlay9">
+       <value condition="Container.Content(Movies) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(9).DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
+       <value condition="Container.Content(TVShows) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(9).DBID,special://profile/addon_data/script.videoextras/TVShows/,.png]</value>
+       <value condition="Container.Content(MusicVideos) + Skin.HasSetting(VideoExtrasFlag)">$INFO[ListItem(9).DBID,special://profile/addon_data/script.videoextras/MusicVideos/,.png]</value>
+    </variable>		
 </includes>

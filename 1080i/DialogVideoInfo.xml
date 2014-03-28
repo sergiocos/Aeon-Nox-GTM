@@ -5,8 +5,8 @@
     <onload>AlarmClock(ActorFade,SetProperty(ActorFade,true),00:02,silent)</onload>
     <onload condition="Skin.HasSetting(TVTunes.Enabled) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)
 </onload>	
-    <onload condition="System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">XBMC.RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
-	<onload condition="System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,hasExtras,flag,"$INFO[ListItem.FilenameAndPath]")</onload>
+	<onload condition="System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">XBMC.RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>   
+	<onload condition="System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
     <onunload>ClearProperty(FanartZoom,movieinformation)</onunload>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -116,19 +116,20 @@
                                 <left>-20</left>
                                 <width>120</width>
                                 <height>120</height>
-                                <texture>common/imdb.png</texture>
+                                <texture>$VAR[Imdb_250]</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <include>AudioFlagsVars</include>
-                            </control>
+                            </control>						
                             <control type="label">
                                 <left>-20</left>
-                                <top>-13</top>
+                                <top>-11</top>
                                 <width>120</width>
                                 <height>120</height>
                                 <label>$INFO[ListItem.Top250]</label>
                                 <textcolor>black</textcolor>
                                 <align>center</align>
                                 <font>Font_Bold28</font>
+								<visible>IntegerGreaterThan(ListItem.Top250,3)</visible>
                             </control>
                         </control>
                         <control type="grouplist">
@@ -873,7 +874,7 @@
                     <onup>5000</onup>
                     <onleft>60</onleft>
                     <onright>60</onright>
-                    <ondown>5055</ondown>
+                    <ondown>150</ondown>
                     <visible>!ControlGroup(6000).HasFocus</visible>
                 </control>
                 <control type="image">
@@ -894,7 +895,7 @@
                         <effect type="slide" start="0,0" end="4600" time="700" tween="quadratic" easing="out" />
                         <effect type="rotate" start="0" center="1760,810" end="-720" time="700" tween="quadratic" easing="out" />
                     </animation>
-                </control>
+                </control>			
                 <control type="list" id="50">
                     <left>875</left>
                     <top>326</top>
@@ -1583,8 +1584,8 @@ ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=
 								<onright>11</onright>
 								<onclick>XBMC.RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
 								<animation effect="zoom" start="100,0" end="100,100" time="300" easing="out" tween="cubic">VisibleChange</animation>
-								<visible>System.HasAddon(script.videoextras) + !IsEmpty(Window.Property(flag)) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
 								<visible>ControlGroup(20).HasFocus</visible>
+								<visible>System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
 							</control>
 							<control type="button" id="70023">
 								<label>$LOCALIZE[31365]</label>
@@ -1609,8 +1610,8 @@ ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=
 						<include>DialogVideoInfoButton</include>
 						<label>Video $LOCALIZE[31020]</label>
 						<onclick>XBMC.RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
-						<visible>System.HasAddon(script.videoextras) + !IsEmpty(Window.Property(flag)) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
 						<visible>!Skin.HasSetting(Extra.Disable)</visible>
+						<visible>System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
 					</control>						
                     <control type="button" id="11">
                         <label>$LOCALIZE[20410]</label>
@@ -1798,5 +1799,17 @@ ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=
                 <visible>!Skin.HasSetting(DisableGlowbar) + IsEmpty(Window(movieinformation).Property(FanartZoom))</visible>
             </control>
         </control>
+		        <control type="button" id="150">
+                    <left>40r</left>
+                    <top>40r</top>
+                    <width>40</width>
+                    <height>40</height>
+					<onup>60</onup>
+                    <ondown>5000</ondown>
+                    <texturefocus>defaulticons/DefaultScript2.png</texturefocus>
+					<texturenofocus>defaulticons/DefaultScript.png</texturenofocus>
+					<onclick>ActivateWindow(1165)</onclick>
+                    <include>Animation_VisibleChange200</include>
+                </control>	
     </controls>
 </window>

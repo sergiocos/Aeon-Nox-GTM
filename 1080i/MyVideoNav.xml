@@ -5,7 +5,7 @@
     <onload condition="System.HasAddon(script.metadata.actors) + !IsEmpty(Window(home).Property(BrowseActors))">RunScript(script.metadata.actors,backend)</onload>
     <onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(TVTunes.Enabled) + IsEmpty(Window(Home).Property(DontRunTVShowScripts))">RunScript(script.tvtunes,backend=True)</onload>
     <backgroundcolor>backgroundcolor</backgroundcolor>
-    <onload condition="System.HasAddon(script.tv.show.next.aired) + IsEmpty(Window(Home).Property(DontRunTVShowScripts))">RunScript(script.tv.show.next.aired,backend=True)</onload>
+    <onload condition="System.HasAddon(script.tv.show.next.aired) + IsEmpty(Window(Home).Property(DontRunTVShowScripts))">RunScript(script.tv.show.next.aired,backend=-3 7&infolog=6)</onload>
     <onload>ClearProperty(BrowseActors,home)</onload>
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
     <onload condition="!Skin.HasSetting(ExplainMediaMenu)">ActivateWindow(1123)</onload>
@@ -52,10 +52,7 @@
             <!-- no info-->
             <include>HiddenObject</include>
             <visible>!Container.Content()</visible>
-            <!--             <visible>!SubString(ListItem.Path,videodb://movies/sets/,left)</visible>
- -->
             <visible>!SubString(ListItem.Path,videodb://movies/sets/,left) | skin.hassetting(backendmode)</visible>
-            <!--             <visible>!SubString(Container.FolderPath,library://,left)</visible> -->
             <visible>!Stringcompare(ListItem.Label,..)</visible>
             <visible>!Container.Content(years)</visible>
             <visible>!Container.Content(genres)</visible>
@@ -282,7 +279,7 @@
                     <fadetime>200</fadetime>
                     <animation effect="fade" delay="240" time="240" reversible="false">Hidden</animation>
                     <visible>Control.IsVisible(57) | Control.IsVisible(508) | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube)] | Control.IsVisible(501)</visible>
-                    <visible>[[Skin.HasSetting(movielogosfloor) + Container.Content(movies)] | [Skin.HasSetting(tvshowlogosfloor) + Container.Content(tvshows)]]</visible>
+                    <visible>[[Skin.HasSetting(movielogosfloor) + Container.Content(movies)] | [Skin.HasSetting(tvshowlogosfloor) + Container.Content(tvshows)] | [Skin.HasSetting(movielogosfloor) + Container.Content(sets)]]</visible>
                 </control>
             </control>
             <include>Furniture_DarkGradient</include>

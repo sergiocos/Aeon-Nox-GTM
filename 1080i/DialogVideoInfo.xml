@@ -22,6 +22,7 @@
                 <height>1080</height>
                 <texture>info/info_rightpanelbottom.png</texture>
                 <visible>IsEmpty(ListItem.Art(fanart))</visible>
+				<animation effect="rotatey" center="1324" end="180"  time="0" condition="Skin.HasSetting(VideoInfoInverse)">Conditional</animation>
             </control>
             <control type="image">
                 <left>729</left>
@@ -29,6 +30,7 @@
                 <height>1080</height>
                 <aspectratio align="center">scale</aspectratio>
                 <texture background="true">$VAR[DialogVideoInfoFanartVar]</texture>
+				<animation effect="rotatey" center="1324" end="180"  time="0" condition="Skin.HasSetting(VideoInfoInverse)">Conditional</animation>
             </control>
             <control type="image">
                 <left>729</left>
@@ -36,6 +38,7 @@
                 <height>1080</height>
                 <texture>info/info_rightpaneltop.png</texture>
                 <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				<animation effect="rotatey" center="1324" end="180"  time="0" condition="Skin.HasSetting(VideoInfoInverse)">Conditional</animation>
             </control>
             <!-- Buttons -->
             <control type="group">
@@ -349,7 +352,7 @@
 									<width>155</width>
 									<height>68</height>
 									<aspectratio>keep</aspectratio>
-									<texture>$VAR[ColortvguideFlags]/$INFO[Window(Home).Property(NextAired.StatusID)].png</texture>
+									<texture>$VAR[ColortvguideFlags]$INFO[Window(Home).Property(NextAired.StatusID)].png</texture>
 									<colordiffuse>white2</colordiffuse>
 								</control>
 							</control>	
@@ -420,7 +423,7 @@
                                     <width>150</width>
                                     <height>74</height>
                                     <aspectratio aligny="center" align="center">keep</aspectratio>
-                                    <texture>$VAR[ColorFlagsStudio]/Studios/$INFO[ListItem.Studio,,.png]</texture>
+                                    <texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
                                     <colordiffuse>white2</colordiffuse>
                                     <visible>!IsEmpty(Control.GetLabel(800011))</visible>
                                 </control>
@@ -465,7 +468,7 @@
                                 <top>2</top>
                                 <aspectratio align="center">keep</aspectratio>
                                 <colordiffuse>white</colordiffuse>
-                                <texture>$VAR[Colortdefaulticons]/DefaultCountry.png</texture>
+                                <texture>$VAR[Colortdefaulticons]DefaultCountry.png</texture>
                             </control>
                             <control type="label">
                                 <width>840</width>
@@ -520,7 +523,7 @@
                                 <height>45</height>
                                 <aspectratio align="center">keep</aspectratio>
                                 <colordiffuse>white</colordiffuse>
-                                <texture>$VAR[Colortdefaulticons]/DefaultInProgressShows.png</texture>
+                                <texture>$VAR[Colortdefaulticons]DefaultInProgressShows.png</texture>
                             </control>
                             <control type="label">
                                 <width>840</width>
@@ -559,7 +562,7 @@
                         <height>40</height>
                         <aspectratio align="right">keep</aspectratio>
                         <colordiffuse>white</colordiffuse>
-                        <texture>$VAR[Colortdefaulticons]/DefaultActor.png</texture>
+                        <texture>$VAR[Colortdefaulticons]DefaultActor.png</texture>
                     </control>
                     <control type="group">
                         <!--                         <visible>!ControlGroup(6000).HasFocus</visible>
@@ -633,7 +636,7 @@
                                 <width>100</width>
                                 <height>62</height>
                                 <aspectratio>keep</aspectratio>
-                                <texture>$VAR[ColorFlagsSource]/Source/$VAR[SourceFlagVar,,.png]</texture>
+                                <texture>$VAR[ColorFlagsSource]Source/$VAR[SourceFlagVar,,.png]</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <visible>!IsEmpty(Control.GetLabel(900011))</visible>
                             </control>
@@ -642,7 +645,7 @@
                                 <width>100</width>
                                 <height>62</height>
                                 <aspectratio>keep</aspectratio>
-                                <texture>$VAR[ColorFlagsSource]/Source/$INFO[ListItem.VideoCodec,,.png]</texture>
+                                <texture>$VAR[ColorFlagsSource]Source/$INFO[ListItem.VideoCodec,,.png]</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <visible>IsEmpty(Control.GetLabel(900011))</visible>
                                 <visible>!IsEmpty(Control.GetLabel(900012))</visible>
@@ -656,7 +659,7 @@
                                 <width>126</width>
                                 <height>62</height>
                                 <aspectratio>keep</aspectratio>
-                                <texture>$VAR[ColorFlagsAudio]/audio/$VAR[AudioFlagVar,,.png]</texture>
+                                <texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <visible>!IsEmpty(Control.GetLabel(900013))</visible>
                             </control>
@@ -669,7 +672,7 @@
                                 <width>126</width>
                                 <height>62</height>
                                 <aspectratio>keep</aspectratio>
-                                <texture>$VAR[ColorFlagsAudio]/audio/$INFO[Window.Property(AudioCodec.2)]$INFO[Window.Property(AudioChannels.2),,.png]</texture>
+                                <texture>$VAR[ColorFlagsAudio]audio/$INFO[Window.Property(AudioCodec.2)]$INFO[Window.Property(AudioChannels.2),,.png]</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <visible>!IsEmpty(Control.GetLabel(90013)) + ![Stringcompare(Window.Property(AudioCodec.1),Window.Property(AudioCodec.2)) + Stringcompare(Window.Property(AudioChannels.1),Window.Property(AudioChannels.2))]</visible>
                             </control>
@@ -682,7 +685,7 @@
                                 <width>80</width>
                                 <height>62</height>
                                 <aspectratio>keep</aspectratio>
-                                <texture>$VAR[ColorFlagsResolution]/resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
+                                <texture>$VAR[ColorFlagsResolution]resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <visible>!IsEmpty(Control.GetLabel(900014))</visible>
                             </control>
@@ -695,7 +698,7 @@
                                 <width>80</width>
                                 <height>62</height>
                                 <aspectratio>keep</aspectratio>
-                                <texture>$VAR[ColorFlagsAspectRatio]/aspectratio/$INFO[ListItem.VideoAspect,,.png]</texture>
+                                <texture>$VAR[ColorFlagsAspectRatio]aspectratio/$INFO[ListItem.VideoAspect,,.png]</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <visible>!IsEmpty(Control.GetLabel(900015))</visible>
                             </control>
@@ -708,7 +711,7 @@
                                 <width>100</width>
                                 <height>62</height>
                                 <aspectratio aligny="center" align="center">keep</aspectratio>
-                                <texture>$VAR[ColorFlags]/cc.png</texture>
+                                <texture>$VAR[ColorFlags]cc.png</texture>
                                 <colordiffuse>white2</colordiffuse>
                                 <visible>!IsEmpty(ListItem.SubtitleLanguage) + IsEmpty(Window.Property(SubtitleLanguage.1))</visible>
                             </control>
@@ -848,7 +851,7 @@
 								<width>97</width>
 								<height>75</height>
 								<aspectratio aligny="top" align="right">keep</aspectratio>
-								<texture>$VAR[Colortdefaulticons]/DefaultTVShows.png</texture>
+								<texture>$VAR[Colortdefaulticons]DefaultTVShows.png</texture>
 								<colordiffuse>white</colordiffuse>
 							</control>
 							<control type="group">

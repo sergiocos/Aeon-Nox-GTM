@@ -281,16 +281,22 @@
                             <font>Font_Reg22_Caps</font>
                             <textcolor>grey</textcolor>
                             <wrapmultiline>true</wrapmultiline>
-                            <visible>IsEmpty(Control.GetLabel(76))</visible>
+                            <visible>IsEmpty(Control.GetLabel(76)) + !Skin.HasSetting(DisableStudiosColorFlag)</visible>
                         </control>													
                     </control>
-                    <control type="image">
-                        <!--Rating logo-->
+                    <control type="image" id="1110">
                         <left>285</left>
-                        <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+                        <texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
                         <include>AudioFlagsVars</include>
                         <animation effect="slide" end="138" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-                    </control>				
+                    </control>	
+                    <control type="image">
+                        <left>285</left>
+                        <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+                        <include>AudioFlagsVars</include>
+                        <animation effect="slide" end="138" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+						<visible>IsEmpty(Control.GetLabel(1110))</visible>
+                    </control>									
                 </control>
                 <control type="group">
                     <!--right part -->
@@ -363,7 +369,7 @@
                     <animation effect="slide" end="980" condition="Control.IsVisible(516)">Conditional</animation>
                     <control type="image">
                         <left>60</left>
-                        <texture fallback="flags/studios/default-studio.png">$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
+                        <texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
                         <width>150</width>
                         <height>84</height>
                         <top>-8</top>
@@ -372,6 +378,18 @@
                         <colordiffuse>white2</colordiffuse>
                         <animation effect="fade" time="200">VisibleChange</animation>
                     </control>
+					<control type="image">
+                        <top>-8</top>					
+                        <left>60</left>
+                        <width>150</width>
+                        <height>84</height>
+                        <aspectratio>keep</aspectratio>
+                        <fadetime>IconCrossfadeTime2</fadetime>
+                        <colordiffuse>white2</colordiffuse>
+                        <animation effect="fade" time="200">VisibleChange</animation>					
+						<texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
+						<visible>IsEmpty(ListItem.Studio)</visible>
+					</control>					
                     <control type="group">
                         <top>-5</top>
                         <left>200</left>
@@ -483,13 +501,22 @@
                         <colordiffuse>floor</colordiffuse>
                     </control>
 					</control>
-                    <control type="image">
+					
+                    <control type="image" id="1115">
                         <left>1745</left>
-                        <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+                        <texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
                         <include>AudioFlagsVars</include>
                         <animation effect="slide" time="560" start="0,300" end="0,0" tween="cubic">Visible</animation>
                         <animation effect="slide" time="250" end="0,400" tween="cubic" easing="in">Hidden</animation>
                     </control>
+                    <control type="image">
+                        <left>1745</left>
+                        <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+                        <include>AudioFlagsVars</include>
+                        <animation effect="slide" time="560" start="0,300" end="0,0" tween="cubic">Visible</animation>
+                        <animation effect="slide" time="250" end="0,400" tween="cubic" easing="in">Hidden</animation>
+						<visible>IsEmpty(Control.GetLabel(1115))</visible>
+                    </control>					
                 </control>
             </control>
             <control type="group">
@@ -544,6 +571,21 @@
                 <visible>Container.Content(tvshows) | [Container.Content(seasons) + ListItem.IsFolder]</visible>
             </control>
             <control type="image">
+                <left>1255</left>
+                <top>-9</top>
+                <texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
+                <width>150</width>
+                <height>84</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>IconCrossfadeTime2</fadetime>
+                <colordiffuse>white2</colordiffuse>
+                <animation effect="fade" time="200">VisibleChange</animation>
+                <visible>!IsEmpty(ListItem.Thumb)</visible>
+                <visible>![Control.IsVisible(50) + !Skin.HasSetting(slimlist)]</visible>
+                <visible>Container.Content(tvshows) | [Container.Content(seasons) + ListItem.IsFolder]</visible>
+				<visible>IsEmpty(ListItem.Studio)</visible>
+            </control>			
+            <control type="image">
                 <left>1425</left>
                 <texture>$VAR[ColorFlagsSource]Source/$VAR[SourceFlagVar,,.png]</texture>
                 <include>OSDFlagVars</include>
@@ -569,11 +611,17 @@
             </control>
             <control type="group">
                 <visible>Container.Content(tvshows) | [Container.Content(seasons) + !IsEmpty(ListItem.TVShowTitle)]</visible>
-                <control type="image">
+                <control type="image" id="1116">
                     <left>1375</left>
-                    <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+                    <texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
                     <include>OSDFlagVars</include>
                 </control>
+                <control type="image">
+                    <left>1375</left>
+                    <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+                    <include>OSDFlagVars</include>
+					<visible>IsEmpty(Control.GetLabel(1116))</visible>
+                </control>				
 			<control type="group">	
 				<control type="label">
 					<top>-10</top>	
@@ -1026,13 +1074,18 @@
                         <textcolor>floor</textcolor>
                     </control>
                 </control>
-                <control type="image">
-                    <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+                <control type="image" id="1117">
+                    <texture >$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
                     <include>AudioFlagsVars</include>
                 </control>
                 <control type="image">
+                    <texture >$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+                    <include>AudioFlagsVars</include>
+					<visible>IsEmpty(Control.GetLabel(1117))</visible>
+                </control>				
+                <control type="image">
                     <top>-10</top>
-                    <texture fallback="flags/studios/default-studio.png">$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
+                    <texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
                     <width>125</width>
                     <height>90</height>
                     <aspectratio>keep</aspectratio>
@@ -1042,6 +1095,19 @@
                     <visible>!Control.IsVisible(57)</visible>
                     <visible>Container.Content(tvshows) | SubString(Container.FolderPath,plugin.video.the.trailers)</visible>
                 </control>
+                <control type="image">
+                    <top>-10</top>
+                    <texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
+                    <width>125</width>
+                    <height>90</height>
+                    <aspectratio>keep</aspectratio>
+                    <fadetime>IconCrossfadeTime2</fadetime>
+                    <colordiffuse>floor</colordiffuse>
+                    <animation effect="fade" time="200">VisibleChange</animation>
+                    <visible>!Control.IsVisible(57)</visible>
+                    <visible>Container.Content(tvshows) | SubString(Container.FolderPath,plugin.video.the.trailers)</visible>
+					<visible>IsEmpty(ListItem.Studio)</visible>
+                </control>				
             </control>
             <control type="label">
                 <left>1890</left>

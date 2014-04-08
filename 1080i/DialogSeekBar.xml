@@ -89,6 +89,10 @@
                     <top>57</top>
                     <width>630</width>
                     <height>20</height>
+                    <texturebg>osd/seek/progress_back.png</texturebg>
+                    <lefttexture>osd/seek/progresscache_left.png</lefttexture>
+                    <midtexture>osd/seek/progresscache_mid.png</midtexture>
+                    <righttexture>osd/seek/progresscache_right.png</righttexture>
                     <info>Player.ProgressCache</info>
                 </control>
                 <control type="progress" id="20">
@@ -96,6 +100,10 @@
                     <top>57</top>
                     <width>630</width>
                     <height>20</height>
+                    <texturebg>osd/seek/progresscache_back.png</texturebg>
+                    <lefttexture>osd/seek/progress_left.png</lefttexture>
+                    <midtexture>osd/seek/progress_mid.png</midtexture>
+                    <righttexture>osd/seek/progress_right.png</righttexture>
                     <info>Player.Progress</info>
                 </control>
                 <control type="label">
@@ -223,6 +231,10 @@
                         <top>57</top>
                         <width>630</width>
                         <height>20</height>
+                        <texturebg>osd/seek/progress_back.png</texturebg>
+                        <lefttexture>osd/seek/progresscache_left.png</lefttexture>
+                        <midtexture>osd/seek/progresscache_mid.png</midtexture>
+                        <righttexture>osd/seek/progresscache_right.png</righttexture>
                         <info>Player.ProgressCache</info>
                     </control>
                     <control type="progress" id="20">
@@ -230,6 +242,10 @@
                         <top>57</top>
                         <width>630</width>
                         <height>20</height>
+                        <texturebg>osd/seek/progresscache_back.png</texturebg>
+                        <lefttexture>osd/seek/progress_left.png</lefttexture>
+                        <midtexture>osd/seek/progress_mid.png</midtexture>
+                        <righttexture>osd/seek/progress_right.png</righttexture>
                         <info>Player.Progress</info>
                     </control>
                     <control type="label">
@@ -513,7 +529,7 @@
             <aspectratio>keep</aspectratio>
                             <include>OSDFlagVars</include>
             <animation effect="fade" time="250">VisibleChange</animation>
-            <texture fallback="flags/source/defaultsource.png">$VAR[ColorFlagsSource]/Source/$VAR[VideoSourceFlagVar,,.png]</texture>
+            <texture fallback="flags/source/defaultsource.png">$VAR[VideoSourceFlagVar,flags/source/,.png]</texture>
           </control>
           <control type="image">
             <posx>165</posx>
@@ -522,13 +538,8 @@
             <aspectratio>keep</aspectratio>
                             <include>OSDFlagVars</include>
             <animation effect="fade" time="250">VisibleChange</animation>
-            <texture>$VAR[ColorFlagsStudio]/Studios/$INFO[VideoPlayer.Studio,,.png]</texture>
+            <texture fallback="flags/studios/default-studio.png">$INFO[VideoPlayer.Studio,flags/studios/,.png]</texture>
             <visible>!Skin.HasSetting(nostudioratingflags)</visible>
-          </control>
-		  <control type="image">
-            <texture>$VAR[ColorFlagsStudio]/Studios/default-studio.png</texture>
-            <include>OSDFlagVars</include>
-            <visible>IsEmpty(VideoPlayer.Studio)</visible>
           </control>
           <control type="image">
             <description>Rating Flags</description>
@@ -537,7 +548,7 @@
             <aspectratio>keep</aspectratio>
                             <include>OSDFlagVars</include>
             <animation effect="fade" time="250">VisibleChange</animation>
-            <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[ColorFlagsRating]/rating/$VAR[VideoRatingFlagVar,,.png]</texture>>
+            <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[VideoRatingFlagVar,flags/rating/,.png]</texture>
             <visible>!Skin.HasSetting(nostudioratingflags)</visible>
           </control>
           <control type="image">
@@ -546,7 +557,7 @@
             <aspectratio>keep</aspectratio>
                             <include>OSDFlagVars</include>
             <animation effect="fade" time="250">VisibleChange</animation>
-            <texture>$VAR[ColorFlagsAspectRatio]/aspectratio/$INFO[VideoPlayer.VideoAspect,,.png]</texture>
+            <texture fallback="flags/aspectratio/defaultaspect.png">$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
             <animation effect="slide" start="0" end="-1200" reversible="false" condition="Skin.HasSetting(nostudioratingflags)">Conditional</animation>
           </control>
           <control type="image">
@@ -555,7 +566,7 @@
             <aspectratio>keep</aspectratio>
                             <include>OSDFlagVars</include>
             <animation effect="fade" time="250">VisibleChange</animation>
-            <texture fallback="flags/resolution/defaultscreen.png">$VAR[ColorFlagsResolution]/resolution/$INFO[VideoPlayer.VideoResolution,,.png]</texture>
+            <texture fallback="flags/resolution/defaultscreen.png">$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
             <animation effect="slide" start="0" end="-105" reversible="false" condition="Skin.HasSetting(nostudioratingflags)">Conditional</animation>
           </control>
           <control type="image">
@@ -566,7 +577,7 @@
             <aspectratio>keep</aspectratio>
                             <include>OSDFlagVars</include>me>
             <animation effect="fade" time="250">VisibleChange</animation>
-             <texture fallback="flags/audio/defaultsound.png">$VAR[ColorFlagsAudio]/audio/$INFO[VideoPlayer.AudioCodec]$INFO[VideoPlayer.AudioChannels,,.png]</texture>
+                    <texture fallback="flags/audio/defaultsound.png">$INFO[VideoPlayer.AudioCodec,flags/audio/]$INFO[VideoPlayer.AudioChannels,,.png]</texture>
           </control>
         </control>
             <control type="group" id="4004">

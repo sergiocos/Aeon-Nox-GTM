@@ -182,7 +182,7 @@
         <aspectratio>keep</aspectratio>
 <include>OSDFlagVars</include>
         <animation effect="fade" time="250">VisibleChange</animation>
-        <texture fallback="flags/source/defaultsource.png">$VAR[ColorFlagsSource]/Source/$VAR[VideoSourceFlagVar,,.png]</texture>
+        <texture fallback="flags/source/defaultsource.png">$VAR[VideoSourceFlagVar,flags/source/,.png]</texture>
       </control>
       <control type="image">
         <posx>1765</posx>
@@ -191,13 +191,8 @@
         <aspectratio>keep</aspectratio>
 		<include>OSDFlagVars</include>
         <animation effect="fade" time="250">VisibleChange</animation>
-        <texture>$VAR[ColorFlagsStudio]/Studios/$INFO[VideoPlayer.Studio,,.png]</texture>
+        <texture fallback="flags/studios/default-studio.png">$INFO[VideoPlayer.Studio,flags/studios/,.png]</texture>
         <visible>!Skin.HasSetting(nostudioratingflags)</visible>
-      </control>
-      <control type="image">
-        <texture>$VAR[ColorFlagsStudio]/Studios/default-studio.png</texture>
-        <include>OSDFlagVars</include>
-        <visible>IsEmpty(VideoPlayer.Studio)</visible>
       </control>
       <control type="progress" id="23">
         <description>Progressbar</description>
@@ -432,7 +427,7 @@
                     <width>249</width>
                     <height>57</height>
                     <aspectratio>keep</aspectratio>
-                    <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[ColorFlagsRating]/rating/$VAR[VideoRatingFlagVar,,.png]</texture>
+                    <texture fallback="flags/rating/info/MPAA_NR_Certificate_US.png">$VAR[RatingFlagVar,flags/rating/info/,.png]</texture>
                     <animation effect="fade" time="200">VisibleChange</animation>
                     <colordiffuse>grey</colordiffuse>
                     <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(MusicVideos)</visible>
@@ -478,7 +473,7 @@
                         <width>135</width>
                         <height>90</height>
                         <aspectratio align="center">keep</aspectratio>
-                        <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[ColorFlagsRating]/rating/$VAR[VideoRatingFlagVar,,.png]</texture>
+                        <texture fallback="flags/rating/MPAA_NR_Certificate_US.png">$VAR[RatingFlagVar,flags/rating/,.png]</texture>
                         <animation effect="fade" time="200">VisibleChange</animation>
                         <colordiffuse>grey</colordiffuse>
                     </control>
@@ -721,7 +716,7 @@
                         <width>121</width>
                         <height>70</height>
                         <aspectratio aligny="center" align="center">keep</aspectratio>
-                        <texture fallback="flags/audio/defaultsound.png">$VAR[ColorFlagsAudio]/audio/$INFO[VideoPlayer.AudioCodec]$INFO[VideoPlayer.AudioChannels,,.png]</texture>
+                        <texture fallback="flags/audio/defaultsound.png">$INFO[VideoPlayer.AudioCodec,flags/audio/]$INFO[VideoPlayer.AudioChannels,,.png]</texture>
                         <colordiffuse>FF7c7c7c</colordiffuse>
                         <visible>!IsEmpty(Control.GetLabel(900013))</visible>
                     </control>
@@ -734,7 +729,7 @@
                         <height>85</height>
                         <animation effect="slide" end="0,-7" condition="true">Conditional</animation>
                         <aspectratio aligny="center" align="center">keep</aspectratio>
-                        <texture fallback="flags/resolution/defaultscreen.png">$VAR[ColorFlagsResolution]/resolution/$INFO[VideoPlayer.VideoResolution,,.png]</texture>
+                        <texture>$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
                         <colordiffuse>FF7c7c7c</colordiffuse>
                         <visible>!IsEmpty(Control.GetLabel(900014))</visible>
                     </control>

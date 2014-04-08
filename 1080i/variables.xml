@@ -505,7 +505,8 @@
         <value condition="Container.Content(addons)">$INFO[Skin.String(InfoPanelAddons)]</value>
     </variable>
     <variable name="SecondLabelVar">
-        <value condition="SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)">$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.RatingAndVotes, • ]</value>
+		<!-- MikeBZH44 change movieset Years to Genres -->
+        <value condition="SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)">$INFO[Window(home).Property(Set.Movies.Genre)]$INFO[Window(home).Property(Set.Movies.RunTime), • , $LOCALIZE[12391]]$INFO[ListItem.RatingAndVotes, • ]</value>
         <value condition="Container.Content(movies) + Skin.HasSetting(FloorLabelTagline) + !ListItem.IsFolder">$INFO[ListItem.Tagline]</value>
         <value condition="[Container.Content(movies) + !Skin.HasSetting(wallgenre) + !ListItem.IsFolder] | [Container.Content(seasons) + IsEmpty(ListItem.TVShowTitle)]">$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.RatingAndVotes, • ]</value>
         <value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Genre]</value>
@@ -1617,8 +1618,8 @@
         <value>$INFO[ListItem(9).Icon]</value>
     </variable>
     <variable name="ShowcaseCasePathVar">
-        <value condition="!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)">tvshows</value>
-		<value condition="!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)">colorcases</value>
+        <value condition="[!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)]">tvshows</value>
+		<value condition="[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]">colorcases</value>
         <value>movies</value>
     </variable>
     <variable name="addonwallCasePathVar">
@@ -3233,12 +3234,12 @@
        <value>defaulticons/</value>
     </variable>	
 	<variable name="RatingLabelVar">
-       <value condition="Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(RatingColorFlagreloaded)">Color</value>
-	   <value condition="Skin.HasSetting(RatingColorFlagreloaded)">Reloaded</value>
-       <value>Original</value>	   
+       <value condition="Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(RatingColorFlagreloaded)">$LOCALIZE[31182]</value>
+	   <value condition="Skin.HasSetting(RatingColorFlagreloaded)">$LOCALIZE[33004]</value>
+       <value>$LOCALIZE[32995]</value>	   
     </variable>	
 	<variable name="RatingLabelVarTvshows">
-	   <value condition="Skin.HasSetting(RatingColorFlagreloaded)">Reloaded</value>
-       <value>Original</value>	   
+	   <value condition="Skin.HasSetting(RatingColorFlagreloaded)">$LOCALISE[33004]</value>
+       <value>$LOCALIZE[32995]</value>	   
     </variable>		
 </includes>

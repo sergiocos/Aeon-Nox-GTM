@@ -102,6 +102,13 @@
                     <selected>Skin.HasSetting(noflowtv)</selected>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
                 </control>
+                <control type="radiobutton" id="1201">
+                    <label>31018</label>
+                    <include>Objects_MediaMenuButtonAlt2</include>
+                    <onclick>Skin.ToggleSetting(showcasezoom)</onclick>
+                    <selected>Skin.HasSetting(showcasezoom)</selected>
+                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+                </control>					
                 <control type="button" id="1641">
                     <label>$LOCALIZE[31248]</label>
                     <include>Objects_MediaMenuButtonAlt2</include>
@@ -417,8 +424,15 @@
                     <include>Objects_MediaMenuButtonAlt2</include>
                     <onclick>Skin.ToggleSetting(usecasescd)</onclick>
                     <selected>Skin.HasSetting(usecasescd)</selected>
-                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + [Container.Content(albums) | Container.Content(songs)]</visible>
-                </control>
+                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + [Container.Content(albums) | Container.Content(songs) | Container.Content(artists)]</visible>
+                </control>				
+                <control type="radiobutton" id="16520">
+                    <label>31018</label>
+                    <include>Objects_MediaMenuButtonAlt2</include>
+                    <onclick>Skin.ToggleSetting(showcasesquarezoom)</onclick>
+                    <selected>Skin.HasSetting(showcasesquarezoom)</selected>
+                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare)</visible>
+                </control>				
                 <control type="radiobutton" id="16840">
                     <label>31812</label>
                     <include>Objects_MediaMenuButtonAlt2</include>
@@ -426,12 +440,20 @@
                     <selected>Skin.HasSetting(showcasecdartmusic)</selected>
                     <visible>[Substring(Window(home).Property(actualViewtype),Showcase) + Container.Content(albums) | Container.Content(songs)]</visible>
                 </control>
+                <control type="radiobutton" id="1787">
+                    <label>$LOCALIZE[31812]</label>
+                    <include>Objects_MediaMenuButtonAlt2</include>
+                    <onclick>Skin.ToggleSetting(showcMultiCdart)</onclick>
+                    <selected>Skin.HasSetting(showcMultiCdart)</selected>
+                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + [Container.Content(artists)]</visible>
+                </control>									
                 <control type="radiobutton" id="16841">
                     <label>Open Case</label>
                     <include>Objects_MediaMenuButtonAlt2</include>
                     <onclick>Skin.ToggleSetting(Openshowcasemusic)</onclick>
                     <selected>Skin.HasSetting(Openshowcasemusic)</selected>
                     <visible>[Substring(Window(home).Property(actualViewtype),Showcase) + Container.Content(albums)] + !Skin.HasSetting(noflowalbum)</visible>
+					<enable>Skin.HasSetting(usecasescd)</enable>
                 </control>				
                 <control type="radiobutton" id="1683">
                     <label>$LOCALIZE[31169]</label>

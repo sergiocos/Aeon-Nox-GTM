@@ -525,7 +525,7 @@
         <value>$INFO[ListItem.Label]</value>
     </variable>
     <variable name="DialogVideoInfoFanartVar">
-        <value condition="!IsEmpty(ListItem.Art(season.fanart)) + Container.Content(seasons)">$INFO[ListItem.Art(season.fanart)]</value>
+        <value condition="!IsEmpty(ListItem.Art(season.fanart)) + [Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Art(season.fanart)]</value>
 		<value condition="Container.Content(tvshows)">$INFO[ListItem.Art(fanart)]</value>
         <value>$INFO[ListItem.Art(fanart)]</value>
     </variable>
@@ -1846,7 +1846,7 @@
         <value condition="Container.Content(episodes)">$INFO[ListItem.Episode]</value>
     </variable>
     <variable name="ListImage1Var">
-        <value condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | [Window.IsActive(programs) + !Container.Content(addons)]">$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</value>
+        <value condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | [Window.IsActive(programs) + !Container.Content(addons)]">flags/studios/$INFO[ListItem.Studio,,.png]</value>
         <value condition="Container.Content(albums)">flags/music/recordlabel/$INFO[ListItem.Property(Album_Label),,.png]</value>
     </variable>
     <variable name="ListImage2Var">
@@ -2324,7 +2324,6 @@
     <variable name="cdARTVar">
         <value condition="Stringcompare(ListItem.Artist,Musicplayer.Artist) + Stringcompare(ListItem.Album,MusicPlayer.Album)">$INFO[Player.FolderPath]cdart.png</value>
         <value condition="[Window.IsActive(musicfiles) + IsEmpty(ListItem.FileExtension)]">$INFO[ListItem.Path]$INFO[ListItem.Label,,/cdart.png]</value>
-<!--change-->		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),1)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album,,.png]</value><!-- end change -->
         <value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),2)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Year] - $INFO[ListItem.Album,,\cdart.png]</value>
         <value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),3)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart.png]</value>
         <value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),4)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist] - $INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart.png]</value>
@@ -3245,5 +3244,9 @@
 	<variable name="RatingLabelVarTvshows">
 	   <value condition="Skin.HasSetting(RatingColorFlagreloaded)">$LOCALIZE[31988]</value>
        <value>$LOCALIZE[32995]</value>	   
+    </variable>		
+	<variable name="Realweatherimg">
+	   <value condition="Skin.HasSetting(W_real_image)">weather/real/</value>
+       <value>weather/small/</value>	   
     </variable>		
 </includes>

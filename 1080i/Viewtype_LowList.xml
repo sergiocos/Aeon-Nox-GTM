@@ -387,7 +387,7 @@
                         <height>90</height>	  	
                         <align>right</align>	  	
                         <font>Font_Reg32</font>	  	
-                        <label>următorul: [LOWERCASE][B]$VAR[NextEpisodeVar][/B][/LOWERCASE]</label>	  	
+                        <label>nou: [LOWERCASE][B]$VAR[NextEpisodeVar][/B][/LOWERCASE]</label>	  	
 						<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)</visible>	  	
                     </control> 	
 					<control type="label">	  	

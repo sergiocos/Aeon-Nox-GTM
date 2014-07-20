@@ -1,3 +1,105 @@
+[B]4.1.9.9a[/B]
+mikebzh44 Fix case resolution and poster for #2 widget
+Amelandor - 
+ -fix tripanel
+ -disable rotating plot on pause
+ -fixed cdart conflicting variables
+ -Fix plot outline FullscreenPanel
+ -Add support for pseudotv live
+ -Add scolling filename subtitlesdialog
+ -Added fadelabel to poster
+ -mikebzh44 Banner on season & no floor label
+ -Aditional InfoPanel
+
+[B]4.1.9.9[/B]
+bug fixes
+extra settings
+cases on widgets
+weather real icons
+BoxSet mod
+Next aired script to service update
+plot on VideoInfo when playing
+change name to Aeon Nox Gotham Plus
+
+[B]4.1.9.8[/B]
+progress flag
+progress bar on home and breadcrumbs
+Color icon mod (neurosis13)
+bugs fix
+showcase mod (mikebzh44)
+cases for widgets
+add up to 10cdart for movies set 
+
+
+[B]4.1.9.7[/B]
+NextAired Secon Layout (Based on Today)
+New Update TV-Guide on Context Menu
+MostPlayed Roms Panel Widget Fix
+Video Extras Integration Update
+Duth Language
+InfoWall Art for Sets
+% Cache Label
+More Studio Flags
+Video Extra Flag
+Top250 Movies Gold, Silver Copper medal
+adding Rating X for old movies
+Aditional Color cases for movies
+Clear cases for TvShows and Seasons
+Fix Bugs 
+
+
+[B]4.1.9.6[/B]
+Russian translation Buzzzzer
+media filter fix
+Season Landscape and missing img
+fix bugs
+new layout for tv next aired next version
+italian translation Hangy
+Amazon and NHK studio logos
+Autoscroll on infoPanel
+weather condition on breadcrumbs
+remove few strings unused
+multiimage for bigfan
+infowall tracklist setting
+clear type on Playlist chooser
+audio subtitle flag setting on videoosd
+
+
+[B]4.1.9.5[/B]
+Missing status for TvSHows Next aired
+Extra FanArt
+Logo fix for SeasonFanart
+SeasonLandscape
+Landscape Overlay Whatch statusFix
++ 5 Favorites on widgets
+Some Bugs and alingments
+Change TvShow Classification for Genre
+Next Version of Tv Show Next Aired Script
+Add more colors
+Playlist fix for In Progress
+Add video Language and Subtitle language on Fullvideoscreen
+Add 4k Flag for UHDTV
+Disable Extended info
+extra studio logos 
+Update Translations
+ 
+
+
+[B]4.1.9.4[/B]
+cosmetic changes on Wall view for music
+better focus for music, tvshow on infowall
+separate clear case on tvshow and movies infowall
+pvr improvement from anti2k and fixes
+weather fix from sveni_lee
+fix fanart on tvshow thanks to FrenZee
+support font for frensh language thanks to mikebzh44
+label for artist on infowall
+bugs fix
+new status for tv shows
+
+
+
+
 [B]4.1.9.3[/B]
 bug fixes
 add hdtv case
@@ -856,3 +958,4 @@ add one live background (Babe of Today)
 [B]0.0.1[/B]
 
 - Alpha version, removed all Confluence graphics and fonts.
+

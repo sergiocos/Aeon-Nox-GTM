@@ -10,28 +10,27 @@
                 <width>1920</width>
                 <height>135</height>
                 <texture flipy="true">osd/osd_back.png</texture>
-                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                <colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
             </control>
             <control type="group">
-                <top>84</top>
+                <posy>84</posy>
                 <include>Neon_Topbar</include>
             </control>
             <include condition="VideoPlayer.Content(LiveTV)">LiveTVVideoOSD</include>
             <include condition="!VideoPlayer.Content(LiveTV)">DefaultVideoOSD</include>
             <control type="label">
-                <left>400</left>
+                <posx>400</posx>
                 <width>300</width>
                 <height>125</height>
                 <label>$INFO[System.CurrentControl]</label>
                 <font>Font_Reg32</font>
                 <textcolor>grey</textcolor>
                 <animation effect="slide" end="-40,-4" time="0" tween="quadratic" condition="ControlGroup(201).HasFocus | VideoPlayer.Content(LiveTV)">Conditional</animation>
-				<animation effect="slide" end="-90,-4" time="0" tween="quadratic" condition="ControlGroup(703).HasFocus | VideoPlayer.Content(LiveTV)">Conditional</animation>
                 <wrapmultiline>true</wrapmultiline>
-                <visible>ControlGroup(650).HasFocus | ControlGroup(201).HasFocus | ControlGroup(703).HasFocus</visible>
+                <visible>ControlGroup(650).HasFocus | ControlGroup(201).HasFocus</visible>
             </control>
             <control type="label">
-                <left>690r</left>
+                <posx>400r</posx>
                 <width>200</width>
                 <height>125</height>
                 <align>right</align>

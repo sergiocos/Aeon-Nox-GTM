@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
     <!-- Common -->
-    <include name="Animation_WindowFade250">
+    <include name="Animation_WindowFade200">
         <animation effect="fade" time="200">WindowOpen</animation>
         <animation effect="fade" time="200">WindowClose</animation>
-        <animation effect="fade" time="200">Visible</animation>
-        <animation effect="fade" time="200">Hidden</animation>
     </include>
     <include name="Animation_VerticalScrollBar">
         <animation type="Focus" reversible="false">
@@ -20,53 +18,46 @@
         <animation effect="fade" time="160">WindowClose</animation>
     </include>
     <include name="Animation_VisibleChange200">
-        <animation effect="fade" time="160">Visible</animation>
-        <animation effect="fade" time="160">Hidden</animation>
+        <animation effect="fade" time="200">Visible</animation>
+        <animation effect="fade" time="200">Hidden</animation>
     </include>
     <include name="Animation_VisibleChangeDelayed">
-        <animation effect="fade" time="320" delay="168">Visible</animation>
+        <animation effect="fade" time="320" delay="160">Visible</animation>
         <animation effect="fade" time="160">Hidden</animation>
     </include>
     <include name="Animation_VisibleChange400">
         <animation effect="fade" time="320">Visible</animation>
         <animation effect="fade" time="320">Hidden</animation>
     </include>
-    <include name="Animation_WindowFade200">
-        <animation effect="fade" time="160">WindowOpen</animation>
-        <animation effect="fade" time="160">WindowClose</animation>
-    </include>
     <include name="Animation_OpenCloseZoom">
         <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
             <effect type="zoom" start="100,0" end="100,100" center="auto" delay="400" time="800" tween="cubic" />
         </animation>
-        <animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+        <animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup) + !Window.IsActive(skinsettings)">
             <effect type="zoom" start="150" end="100" center="960,540" time="240" tween="cubic" />
             <effect type="fade" start="50" end="100" time="240" />
+        </animation>
+        <animation type="WindowClose" reversible="false" condition="!Window.IsActive(skinsettings)">
+            <effect type="fade" start="100" end="0" time="240" />
+            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+        </animation>
+    </include>
+    <include name="Animation_OpenCloseZoom_New">
+        <animation type="WindowOpen" reversible="false">
+            <effect type="zoom" start="150" end="100" center="960,540" time="480" tween="cubic" />
+            <effect type="fade" end="100" time="80" />
         </animation>
         <animation type="WindowClose" reversible="false">
             <effect type="fade" start="100" end="0" time="240" />
             <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
         </animation>
     </include>
-    <include name="Animation_DialogPopup2">
-        <animation type="WindowOpen" reversible="false">
-            <effect type="zoom" start="80" end="100" center="960,540" tween="back" time="240" />
-            <effect type="fade" end="100" time="240" />
-        </animation>
-        <animation type="WindowClose" reversible="false">
-            <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
-            <effect type="fade" start="100" end="0" time="240" />
-        </animation>
+    <include name="Animation_OpenClose_Furniture">
+        <animation effect="fade" time="200" condition="[Window.Previous(home) | Window.Previous(fullscreenvideo) | Window.Previous(visualisation) | Window.Previous(slideshow)]">WindowOpen</animation>
+        <animation effect="fade" time="200" condition="[Window.Next(home) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow)]">WindowClose</animation>
+        <animation effect="fade" time="200" delay="1120" condition="Control.IsVisible(510) + [Window.Next(home) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow)]">WindowClose</animation>
     </include>
-    <include name="Animation_DialogPopup">
-        <animation type="WindowOpen" reversible="false">
-            <effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="back" time="240" />
-            <effect type="fade" delay="160" end="100" time="240" />
-        </animation>
-        <animation type="WindowClose" reversible="false">
-            <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
-            <effect type="fade" start="100" end="0" time="240" />
-        </animation>
+    <include name="Animation_DialogPopupVisibleChange">
         <animation type="Visible" reversible="false">
             <effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="back" time="240" />
             <effect type="fade" delay="160" end="100" time="240" />
@@ -75,9 +66,15 @@
             <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
             <effect type="fade" start="100" end="0" time="240" />
         </animation>
-        <animation type="Focus" reversible="false">
+    </include>
+    <include name="Animation_DialogPopupOpenClose">
+        <animation type="WindowOpen" reversible="false">
             <effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="back" time="240" />
             <effect type="fade" delay="160" end="100" time="240" />
+        </animation>
+        <animation type="WindowClose" reversible="false">
+            <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
+            <effect type="fade" start="100" end="0" time="240" />
         </animation>
     </include>
     <include name="Animation_MediaMenuSlide2">
@@ -100,16 +97,6 @@
             <effect type="fade" start="100" end="0" time="400" />
         </animation>
     </include>
-    <include name="Animation_DialogZoom">
-        <animation type="WindowOpen" reversible="false">
-            <effect type="zoom" start="150" end="100" center="960,540" time="720" tween="cubic" />
-            <effect type="fade" end="100" time="720" />
-        </animation>
-        <animation type="WindowClose" reversible="false">
-            <effect type="fade" start="100" end="0" time="240" />
-            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
-        </animation>
-    </include>
     <include name="Animation_ListSlideRight">
         <animation effect="slide" time="560" start="750,0" end="0,0" tween="cubic">WindowOpen</animation>
         <animation effect="slide" time="240" end="750,0" tween="cubic" easing="in">WindowClose</animation>
@@ -126,16 +113,11 @@
         <animation effect="slide" time="560" start="0,300" end="0,0" tween="cubic">Visible</animation>
         <animation effect="slide" time="250" end="0,400" tween="cubic" easing="in">Hidden</animation>
     </include>
-    <include name="Animation_HideStripShow">
-        <animation type="Conditional" condition="Control.HasFocus(109)">
-            <effect type="slide" end="0,450" time="320" tween="cubic" easing="in" />
-        </animation>
-    </include>
     <include name="Animation_HideBreadCrumbs">
         <animation type="Conditional" condition="Control.HasFocus(109) | [Control.IsVisible(503) + Skin.HasSetting(landscapeonelogo) + [Container.Content(movies) | Container.Content(tvshows)]]">
             <effect type="slide" end="0,-52" time="240" tween="cubic" easing="in" />
         </animation>
-        <animation type="WindowClose" condition="Window.Next(home) | Window.Next(1124) | Window.Next(1115) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow) | Window.Next(videolibrary)">
+        <animation type="WindowClose" condition="Window.Next(home) | [Window.Next(skinsettings) + !Window.IsActive(settings)] | Window.Next(1115) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow) | Window.Next(videolibrary)">
             <effect type="slide" end="0,-52" time="240" tween="cubic" easing="in" />
         </animation>
         <animation type="WindowOpen" condition="[Window.Previous(home) | Window.Previous(fullscreenvideo) | Window.Previous(visualisation) | Window.Previous(slideshow) | [Window.Previous(settings) + Window.Next(videolibrary)]]">
@@ -158,21 +140,6 @@
     </include>
     <include name="TopbarPulseAnimationRight">
         <animation effect="fade" start="20" end="100" time="1600" pulse="true" condition="true">Conditional</animation>
-    </include>
-    <include name="Animation_OpenCloseZoom_New">
-        <animation type="WindowOpen" reversible="false">
-            <effect type="zoom" start="150" end="100" center="960,540" time="480" tween="cubic" />
-            <effect type="fade" end="100" time="80" />
-        </animation>
-        <animation type="WindowClose" reversible="false">
-            <effect type="fade" start="100" end="0" time="240" />
-            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
-        </animation>
-    </include>
-    <include name="Animation_OpenClose_Furniture">
-        <animation effect="fade" time="200" condition="[Window.Previous(home) | Window.Previous(fullscreenvideo) | Window.Previous(visualisation) | Window.Previous(slideshow)]">WindowOpen</animation>
-        <animation effect="fade" time="200" condition="[Window.Next(home) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow)]">WindowClose</animation>
-        <animation effect="fade" time="200" delay="1120" condition="Control.IsVisible(510) + [Window.Next(home) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow)]">WindowClose</animation>
     </include>
     <include name="Animation_TriPanelRight">
         <animation type="WindowOpen" reversible="false">

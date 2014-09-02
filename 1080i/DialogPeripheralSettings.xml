@@ -2,28 +2,28 @@
 <window>
     <defaultcontrol>5</defaultcontrol>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
     <animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
     <animation effect="fade" end="100" time="160">WindowOpen</animation>
     <controls>
         <control type="group">
-            <left>240</left>
-            <top>82</top>
+            <posx>240</posx>
+            <posy>82</posy>
             <animation effect="fade" start="100" end="0" time="320" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
             <control type="label" id="3">
-                <left>30</left>
-                <top>270</top>
+                <posx>30</posx>
+                <posy>270</posy>
                 <width>1140</width>
                 <align>center</align>
                 <label>35004</label>
                 <font>Font_Reg31_Caps</font>
             </control>
             <control type="grouplist" id="5">
-                <left>274</left>
-                <top>60</top>
+                <posx>274</posx>
+                <posy>60</posy>
                 <width>1144</width>
                 <height>798</height>
                 <pagecontrol>60</pagecontrol>
@@ -33,8 +33,8 @@
                 <ondown>5</ondown>
             </control>
             <control type="image">
-                <left>740</left>
-                <top>855</top>
+                <posx>740</posx>
+                <posy>855</posy>
                 <width>30</width>
                 <height>20</height>
                 <texture>arrowdown.png</texture>
@@ -43,8 +43,8 @@
                 <visible>Container(5).HasNext+ ControlGroup(5).HasFocus</visible>
             </control>
             <control type="scrollbar" id="60">
-                <left>1369</left>
-                <top>120</top>
+                <posx>1369</posx>
+                <posy>120</posy>
                 <width>98</width>
                 <height>680</height>
                 <texturesliderbackground>-</texturesliderbackground>
@@ -72,17 +72,17 @@
                 <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
                 <font>Font_Info</font>
                 <textcolor>white3</textcolor>
-                <radioleft>1005</radioleft>
+                <radioposx>1005</radioposx>
                 <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
             </control>
             <control type="spincontrolex" id="9">
                 <height>62</height>
                 <textoffsetx>40</textoffsetx>
-                <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
-                <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
+                <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+                <texturenofocus colordiffuse="$VAR[FocusTextureColorVar]">settings/settings_radiobuttonoff.png</texturenofocus>
                 <font>Font_Info</font>
                 <textcolor>white3</textcolor>
-                <spinleft>8</spinleft>
+                <spinposx>8</spinposx>
                 <alignx>center</alignx>
                 <subtype>text</subtype>
             </control>
@@ -91,10 +91,10 @@
                 <texture>home/nowplaying/nowplayline.png</texture>
             </control>
             <control type="group" id="9000">
-                <top>25</top>
+                <posy>25</posy>
                 <control type="button" id="28">
-                    <left>22</left>
-                    <top>39</top>
+                    <posx>22</posx>
+                    <posy>39</posy>
                     <width>252</width>
                     <height>96</height>
                     <textoffsetx>40</textoffsetx>
@@ -112,8 +112,8 @@
                     <ondown>29</ondown>
                 </control>
                 <control type="button" id="29">
-                    <left>22</left>
-                    <top>124</top>
+                    <posx>22</posx>
+                    <posy>124</posy>
                     <width>252</width>
                     <height>96</height>
                     <textoffsetx>40</textoffsetx>
@@ -131,8 +131,8 @@
                     <ondown>50</ondown>
                 </control>
                 <control type="button" id="50">
-                    <left>22</left>
-                    <top>210</top>
+                    <posx>22</posx>
+                    <posy>210</posy>
                     <width>252</width>
                     <height>96</height>
                     <textoffsetx>40</textoffsetx>

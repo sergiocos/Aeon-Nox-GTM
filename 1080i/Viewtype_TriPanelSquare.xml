@@ -2,12 +2,12 @@
 <includes>
     <include name="TriPanelSquare">
         <control type="group">
-            <top>100</top>
+            <posy>100</posy>
             <control type="group" id="5301">
-                <left>1263</left>
-                <top>265</top>
+                <posx>1263</posx>
+                <posy>265</posy>
                 <visible>Control.IsVisible(53)</visible>
-                <visible>[Stringcompare(Skin.String(TriPanelSquarePosition),1) | Stringcompare(Skin.String(TriPanelSquarePosition),3) | IsEmpty(Skin.String(TriPanelSquarePosition))]</visible>
+                <visible>[Stringcompare(Skin.String(TriPanelSquarePosition),1) | Stringcompare(Skin.String(TriPanelSquarePosition),3)]</visible>
                 <animation effect="slide" end="-5,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelSquarePosition),3)">Conditional</animation>
                 <include>Animation_TriPanelRight</include>
                 <visible>!IsEmpty(Container.FolderPath)</visible>
@@ -25,8 +25,8 @@
                     <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
                 </control>
                 <control type="grouplist">
-                    <left>140</left>
-                    <top>125</top>
+                    <posx>140</posx>
+                    <posy>125</posy>
                     <width>445</width>
                     <itemgap>5</itemgap>
                     <orientation>horizontal</orientation>
@@ -45,8 +45,8 @@
                     </control>
                 </control>
                 <control type="grouplist">
-                    <left>140</left>
-                    <top>170</top>
+                    <posx>140</posx>
+                    <posy>170</posy>
                     <width>445</width>
                     <itemgap>5</itemgap>
                     <visible>!Container.Content(addons)</visible>
@@ -66,8 +66,8 @@
                     </control>
                 </control>
                 <control type="textbox">
-                    <left>145</left>
-                    <top>220</top>
+                    <posx>145</posx>
+                    <posy>220</posy>
                     <width>432</width>
                     <height>365</height>
                     <label>$VAR[InfoWallTextboxVar]</label>
@@ -76,16 +76,16 @@
                 </control>
             </control>
             <control type="group" id="5302">
-                <left>800</left>
-                <top>315</top>
+                <posx>800</posx>
+                <posy>315</posy>
                 <width>640</width>
                 <height>980</height>
                 <visible>Control.IsVisible(53)</visible>
                 <include>Animation_TriPanelMid</include>
-                <visible>[Stringcompare(Skin.String(TriPanelSquarePosition),1) | IsEmpty(Skin.String(TriPanelSquarePosition))]</visible>
+                <visible>[Stringcompare(Skin.String(TriPanelSquarePosition),1)]</visible>
                 <control type="image">
-                    <left>18</left>
-                    <top>-46</top>
+                    <posx>18</posx>
+                    <posy>-46</posy>
                     <width>606</width>
                     <height>813</height>
                     <texture border="0,100,0,300">views/tripanel/info_panel_glow.png</texture>
@@ -93,13 +93,13 @@
                     <visible>!Skin.HasSetting(DisableGlowbar)</visible>
                 </control>
                 <control type="group">
-                    <left>-1225</left>
-                    <top>-370</top>
+                    <posx>-1225</posx>
+                    <posy>-370</posy>
                     <include condition="Window.IsActive(musiclibrary) | Window.IsActive(musicplaylist)">CDArtFlip</include>
                 </control>
                 <control type="image">
-                    <left>55</left>
-                    <top>562</top>
+                    <posx>55</posx>
+                    <posy>562</posy>
                     <width>530</width>
                     <height>530</height>
                     <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
@@ -107,8 +107,8 @@
                     <fadetime>400</fadetime>
                 </control>
                 <control type="image">
-                    <left>55</left>
-                    <top>31</top>
+                    <posx>55</posx>
+                    <posy>31</posy>
                     <width>530</width>
                     <height>530</height>
                     <aspectratio scalediffuse="false">scale</aspectratio>
@@ -117,8 +117,8 @@
                     <colordiffuse>FF000000</colordiffuse>
                 </control>
                 <control type="image">
-                    <left>55</left>
-                    <top>31</top>
+                    <posx>55</posx>
+                    <posy>31</posy>
                     <width>530</width>
                     <height>530</height>
                     <aspectratio align="center" scalediffuse="false">scale</aspectratio>
@@ -133,8 +133,8 @@
                 </control>
             </control>
             <control type="group" id="5303">
-                <left>1335</left>
-                <top>330</top>
+                <posx>1335</posx>
+                <posy>330</posy>
                 <width>590</width>
                 <height>903</height>
                 <visible>Control.IsVisible(53)</visible>
@@ -143,8 +143,8 @@
                 <animation effect="slide" end="-1320,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelSquarePosition),3)">Conditional</animation>
                 <visible>[Stringcompare(Skin.String(TriPanelSquarePosition),2) | Stringcompare(Skin.String(TriPanelSquarePosition),3)] + !Container.Content(years)</visible>
                 <control type="image">
-                    <left>-20</left>
-                    <top>-45</top>
+                    <posx>-20</posx>
+                    <posy>-45</posy>
                     <width>595</width>
                     <height>719</height>
                     <texture>views/tripanel/info_panel_alt_glow.png</texture>
@@ -152,14 +152,14 @@
                     <visible>!Skin.HasSetting(DisableGlowbar)</visible>
                 </control>
                 <control type="group">
-                    <left>-1325</left>
-                    <top>-420</top>
+                    <posx>-1325</posx>
+                    <posy>-420</posy>
                     <include condition="Window.IsActive(musiclibrary) | Window.IsActive(musicplaylist)">CDArtFlip</include>
                     <animation effect="zoom" start="100" end="90" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
                 </control>
                 <control type="image">
-                    <left>53</left>
-                    <top>517</top>
+                    <posx>53</posx>
+                    <posy>517</posy>
                     <width>487</width>
                     <height>487</height>
                     <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
@@ -167,8 +167,8 @@
                     <fadetime>400</fadetime>
                 </control>
                 <control type="image">
-                    <left>53</left>
-                    <top>31</top>
+                    <posx>53</posx>
+                    <posy>31</posy>
                     <width>486</width>
                     <height>486</height>
                     <aspectratio scalediffuse="false">scale</aspectratio>
@@ -177,8 +177,8 @@
                     <colordiffuse>FF000000</colordiffuse>
                 </control>
                 <control type="image">
-                    <left>53</left>
-                    <top>31</top>
+                    <posx>53</posx>
+                    <posy>31</posy>
                     <width>486</width>
                     <height>486</height>
                     <aspectratio align="center" scalediffuse="false">scale</aspectratio>
@@ -201,8 +201,8 @@
                 </control>
             </control>
             <control type="group" id="5304">
-                <left>817</left>
-                <top>245</top>
+                <posx>817</posx>
+                <posy>245</posy>
                 <visible>Control.IsVisible(53)</visible>
                 <include>Animation_TriPanelMid</include>
                 <visible>Stringcompare(Skin.String(TriPanelSquarePosition),2)</visible>
@@ -222,8 +222,8 @@
                 </control>
                 <!-- Runtime label -->
                 <control type="grouplist">
-                    <left>100</left>
-                    <top>120</top>
+                    <posx>100</posx>
+                    <posy>120</posy>
                     <width>480</width>
                     <itemgap>5</itemgap>
                     <orientation>horizontal</orientation>
@@ -242,8 +242,8 @@
                     </control>
                 </control>
                 <control type="grouplist">
-                    <left>100</left>
-                    <top>165</top>
+                    <posx>100</posx>
+                    <posy>165</posy>
                     <width>485</width>
                     <itemgap>5</itemgap>
                     <visible>!Container.Content(addons)</visible>
@@ -263,8 +263,8 @@
                     </control>
                 </control>
                 <control type="textbox">
-                    <left>102</left>
-                    <top>220</top>
+                    <posx>102</posx>
+                    <posy>220</posy>
                     <width>480</width>
                     <height>400</height>
                     <label>$VAR[InfoWallTextboxVar]</label>
@@ -279,7 +279,7 @@
                 </control>
             </control>
             <control type="group">
-                <top>245</top>
+                <posy>245</posy>
                 <animation effect="slide" end="485,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelSquarePosition),3)">Conditional</animation>
                 <animation effect="slide" time="560" start="-1275,0" end="0,0" tween="cubic">WindowOpen</animation>
                 <visible>Control.IsVisible(53)</visible>
@@ -287,8 +287,8 @@
                 <animation effect="slide" time="560" start="-1375,0" end="0,0" tween="cubic">VisibleChange</animation>
                 <animation effect="fade" time="160" start="100" end="0">Hidden</animation>
                 <control type="image">
-                    <left>42</left>
-                    <top>44</top>
+                    <posx>42</posx>
+                    <posy>44</posy>
                     <width>864</width>
                     <height>737</height>
                     <texture border="33,33,33,148">wall/wall_bg_glow.png</texture>
@@ -297,23 +297,23 @@
                     <visible>!Skin.HasSetting(DisableGlowbar)</visible>
                 </control>
                 <control type="image">
-                    <left>42</left>
-                    <top>44</top>
+                    <posx>42</posx>
+                    <posy>44</posy>
                     <width>864</width>
                     <height>737</height>
                     <texture border="33,33,33,148">wall/wall_bg.png</texture>
                     <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
                 </control>
                 <control type="image">
-                    <left>42</left>
-                    <top>44</top>
+                    <posx>42</posx>
+                    <posy>44</posy>
                     <width>864</width>
                     <height>737</height>
                     <texture border="33,33,33,148">wall/wall_bg_reflection.png</texture>
                 </control>
                 <control type="list" id="53">
-                    <left>54</left>
-                    <top>92</top>
+                    <posx>54</posx>
+                    <posy>92</posy>
                     <width>842</width>
                     <height>525</height>
                     <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(addons) | Container.Content(songs) | Window.IsActive(musicfiles) | Window.IsActive(musicplaylist)</visible>
@@ -327,31 +327,28 @@
                     <scrolltime tween="sine">200</scrolltime>
                     <itemlayout condition="!Skin.HasSetting(tripanelsquarebiglist)" height="52">
                         <control type="image">
-                            <top>-8</top>
+                            <posy>-8</posy>
                             <width>842</width>
                             <height>60</height>
                             <texture border="1">settings/listselect_nf.png</texture>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="group">
                             <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
                             <control type="image">
-                                <left>24</left>
+                                <posx>24</posx>
                                 <width>2</width>
                                 <height>52</height>
                                 <texture>views/tripanel/upright.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                             <control type="image">
-                                <left>109</left>
+                                <posx>109</posx>
                                 <width>2</width>
                                 <height>52</height>
                                 <texture>views/tripanel/upright.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                         </control>
                         <control type="label">
-                            <left>68</left>
+                            <posx>68</posx>
                             <width>75</width>
                             <height>52</height>
                             <align>center</align>
@@ -361,15 +358,25 @@
                             <scroll>false</scroll>
                         </control>
                         <control type="label">
-                            <left>120</left>
+                            <posx>120</posx>
                             <width>680</width>
                             <height>52</height>
+                            <textcolor>grey2</textcolor>
                             <label>$VAR[ListLabel1Var]</label>
                             <font>Font_Reg30_2</font>
-                            <textcolor>grey2</textcolor>
+                            <visible>!Container.Content(albums)</visible>
                         </control>
                         <control type="label">
-                            <left>795</left>
+                            <posx>120</posx>
+                            <width>610</width>
+                            <height>52</height>
+                            <textcolor>grey2</textcolor>
+                            <label>$VAR[ListLabel1Var]</label>
+                            <font>Font_Reg30_2</font>
+                            <visible>Container.Content(albums)</visible>
+                        </control>
+                        <control type="label">
+                            <posx>795</posx>
                             <width>680</width>
                             <height>52</height>
                             <align>right</align>
@@ -380,43 +387,50 @@
                             <visible>!Container.Content(albums) + [!Container.Content(addons) | Window.IsActive(addonbrowser)]</visible>
                         </control>
                         <control type="image">
-                            <left>803</left>
-                            <top>7</top>
+                            <posx>798</posx>
+                            <posy>8</posy>
                             <width>35</width>
                             <height>35</height>
                             <texture>$VAR[WatchedIconVar]</texture>
                             <aspectratio>keep</aspectratio>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                            <colordiffuse>grey</colordiffuse>
                             <visible>!Container.Content(songs)</visible>
+                        </control>
+                        <control type="image">
+                            <posx>685</posx>
+                            <posy>3</posy>
+                            <width>150</width>
+                            <height>46</height>
+                            <aspectratio>keep</aspectratio>
+                            <texture>$INFO[ListItem.StarRating,flags/music/rating/]</texture>
+                            <colordiffuse>grey</colordiffuse>
+                            <visible>Container.Content(albums)</visible>
                         </control>
                     </itemlayout>
                     <focusedlayout condition="!Skin.HasSetting(tripanelsquarebiglist)" height="52">
                         <control type="image">
-                            <top>-8</top>
+                            <posy>-8</posy>
                             <width>842</width>
                             <height>60</height>
                             <texture border="1">settings/listselect_nf.png</texture>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="group">
                             <animation effect="fade" start="100" end="50" time="40" condition="true">Conditional</animation>
                             <control type="image">
-                                <left>24</left>
+                                <posx>24</posx>
                                 <width>2</width>
                                 <height>52</height>
                                 <texture>views/tripanel/upright.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                             <control type="image">
-                                <left>109</left>
+                                <posx>109</posx>
                                 <width>2</width>
                                 <height>52</height>
                                 <texture>views/tripanel/upright.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                         </control>
                         <control type="image">
-                            <top>0</top>
+                            <posy>0</posy>
                             <width>842</width>
                             <height>52</height>
                             <texture border="8">views/tripanel/listselect_fo.png</texture>
@@ -424,7 +438,7 @@
                             <animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(53)">Conditional</animation>
                         </control>
                         <control type="label">
-                            <left>68</left>
+                            <posx>68</posx>
                             <width>75</width>
                             <height>52</height>
                             <align>center</align>
@@ -433,14 +447,23 @@
                             <scroll>false</scroll>
                         </control>
                         <control type="label">
-                            <left>120</left>
+                            <posx>120</posx>
                             <width>680</width>
                             <height>52</height>
                             <label>$VAR[ListLabel1Var]</label>
                             <font>Font_Reg30_2</font>
+                            <visible>!Container.Content(albums)</visible>
                         </control>
                         <control type="label">
-                            <left>795</left>
+                            <posx>120</posx>
+                            <width>610</width>
+                            <height>52</height>
+                            <label>$VAR[ListLabel1Var]</label>
+                            <font>Font_Reg30_2</font>
+                            <visible>Container.Content(albums)</visible>
+                        </control>
+                        <control type="label">
+                            <posx>795</posx>
                             <width>680</width>
                             <height>52</height>
                             <align>right</align>
@@ -450,42 +473,50 @@
                             <visible>!Container.Content(albums) + [!Container.Content(addons) | Window.IsActive(addonbrowser)]</visible>
                         </control>
                         <control type="image">
-                            <left>803</left>
-                            <top>7</top>
+                            <posx>685</posx>
+                            <posy>3</posy>
+                            <width>150</width>
+                            <height>46</height>
+                            <aspectratio>keep</aspectratio>
+                            <texture>$INFO[ListItem.StarRating,flags/music/rating/]</texture>
+                            <colordiffuse>grey</colordiffuse>
+                            <visible>Container.Content(albums)</visible>
+                        </control>
+                        <control type="image">
+                            <posx>798</posx>
+                            <posy>8</posy>
                             <width>35</width>
                             <height>35</height>
                             <texture>$VAR[WatchedIconVar]</texture>
+                            <colordiffuse>grey</colordiffuse>
                             <aspectratio>keep</aspectratio>
                             <visible>!Container.Content(songs)</visible>
                         </control>
                     </focusedlayout>
                     <itemlayout condition="Skin.HasSetting(tripanelsquarebiglist)" height="104">
                         <control type="image">
-                            <top>44</top>
+                            <posy>44</posy>
                             <width>842</width>
                             <height>60</height>
                             <texture border="1">settings/listselect_nf.png</texture>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="group">
                             <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
                             <control type="image">
-                                <left>24</left>
+                                <posx>24</posx>
                                 <width>2</width>
                                 <height>104</height>
                                 <texture>views/tripanel/upright.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                             <control type="image">
-                                <left>109</left>
+                                <posx>109</posx>
                                 <width>2</width>
                                 <height>104</height>
                                 <texture>views/tripanel/upright.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                         </control>
                         <control type="label">
-                            <left>68</left>
+                            <posx>68</posx>
                             <width>75</width>
                             <height>49</height>
                             <align>center</align>
@@ -495,7 +526,7 @@
                             <scroll>false</scroll>
                         </control>
                         <control type="label">
-                            <left>120</left>
+                            <posx>120</posx>
                             <width>680</width>
                             <height>49</height>
                             <label>$VAR[ListLabel1Var]</label>
@@ -503,8 +534,8 @@
                             <textcolor>white6</textcolor>
                         </control>
                         <control type="label">
-                            <left>120</left>
-                            <top>50</top>
+                            <posx>120</posx>
+                            <posy>50</posy>
                             <width>680</width>
                             <height>49</height>
                             <label>$VAR[ListLabel2Var]</label>
@@ -512,7 +543,7 @@
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>795</left>
+                            <posx>795</posx>
                             <width>680</width>
                             <height>51</height>
                             <align>right</align>
@@ -523,19 +554,19 @@
                             <visible>!Container.Content(albums) + !Container.Content(addons)</visible>
                         </control>
                         <control type="image">
-                            <left>803</left>
-                            <top>7</top>
+                            <posx>803</posx>
+                            <posy>7</posy>
                             <width>35</width>
                             <height>35</height>
                             <texture>$VAR[WatchedIconVar]</texture>
+                            <colordiffuse>grey</colordiffuse>
                             <aspectratio>keep</aspectratio>
                             <animation effect="slide" end="-57,35" time="0" condition="Container.Content(songs)">Conditional</animation>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                     </itemlayout>
                     <focusedlayout condition="Skin.HasSetting(tripanelsquarebiglist)" height="104">
                         <control type="image">
-                            <top>44</top>
+                            <posy>44</posy>
                             <width>842</width>
                             <height>60</height>
                             <texture border="1">settings/listselect_nf.png</texture>
@@ -544,14 +575,14 @@
                         <control type="group">
                             <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
                             <control type="image">
-                                <left>24</left>
+                                <posx>24</posx>
                                 <width>2</width>
                                 <height>104</height>
                                 <texture>views/tripanel/upright.png</texture>
                                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                             <control type="image">
-                                <left>109</left>
+                                <posx>109</posx>
                                 <width>2</width>
                                 <height>104</height>
                                 <texture>views/tripanel/upright.png</texture>
@@ -559,7 +590,7 @@
                             </control>
                         </control>
                         <control type="image">
-                            <top>0</top>
+                            <posy>0</posy>
                             <width>842</width>
                             <height>103</height>
                             <texture border="8">views/tripanel/listselect_fo.png</texture>
@@ -567,7 +598,7 @@
                             <animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(53)">Conditional</animation>
                         </control>
                         <control type="label">
-                            <left>68</left>
+                            <posx>68</posx>
                             <width>75</width>
                             <height>49</height>
                             <align>center</align>
@@ -576,22 +607,22 @@
                             <scroll>false</scroll>
                         </control>
                         <control type="label">
-                            <left>120</left>
+                            <posx>120</posx>
                             <width>680</width>
                             <height>49</height>
                             <label>$VAR[ListLabel1Var]</label>
                             <font>Font_Reg30_2</font>
                         </control>
                         <control type="label">
-                            <left>120</left>
-                            <top>50</top>
+                            <posx>120</posx>
+                            <posy>50</posy>
                             <width>680</width>
                             <height>49</height>
                             <label>$VAR[ListLabel2Var]</label>
                             <font>Font_Reg30_2</font>
                         </control>
                         <control type="label">
-                            <left>795</left>
+                            <posx>795</posx>
                             <width>680</width>
                             <height>51</height>
                             <align>right</align>
@@ -601,19 +632,20 @@
                             <visible>!Container.Content(albums) + !Container.Content(addons)</visible>
                         </control>
                         <control type="image">
-                            <left>803</left>
-                            <top>7</top>
+                            <posx>803</posx>
+                            <posy>7</posy>
                             <width>35</width>
                             <height>35</height>
                             <texture>$VAR[WatchedIconVar]</texture>
+                            <colordiffuse>grey</colordiffuse>
                             <animation effect="slide" end="-57,35" time="0" condition="Container.Content(songs)">Conditional</animation>
                             <aspectratio>keep</aspectratio>
                         </control>
                     </focusedlayout>
                 </control>
                 <control type="scrollbar" id="70">
-                    <left>872</left>
-                    <top>126</top>
+                    <posx>872</posx>
+                    <posy>126</posy>
                     <width>46</width>
                     <height>480</height>
                     <include>Animation_VerticalScrollBar</include>
@@ -621,31 +653,8 @@
                     <ondown>70</ondown>
                     <onright>9000</onright>
                     <onleft>53</onleft>
-                </control>			
+                </control>
             </control>
-				<control type="group">	
-				<animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="320" />
-                    <effect type="zoom" end="180,100" time="320" tween="cubic" />
-                </animation>	
-				<animation type="WindowOpen">
-                    <effect type="fade" start="0" end="100" time="320" delay="500" />
-                </animation>								
-					<control type="image"> 
-						<left>1420</left>
-						<top>170</top>             
-						<width>400</width>
-						<height>250</height>
-						<aspectratio>keep</aspectratio>
-						<fadetime>300</fadetime>
-						<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
-						<visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
-						<visible>Control.IsVisible(53)</visible>
-						<visible>!Container.Content(Artists)</visible>
-						<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
-						<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
-					</control>		
-				</control>			
         </control>
     </include>
 </includes>

@@ -5,8 +5,11 @@
     <backgroundcolor>backgroundcolor</backgroundcolor>
     <views>50,52,53,57,500,509,501,505,511,512,560,518</views>
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
-    <onload condition="!Skin.HasSetting(ExplainMediaMenu)">ActivateWindow(1123)</onload>
     <controls>
+        <control type="label" id="4420">
+            <label fallback="fanart">fourthumbs</label>
+            <include>HiddenObject</include>
+        </control>
         <control type="label" id="4421">
             <label>$VAR[InfoPanelVar]</label>
             <include>HiddenObject</include>
@@ -19,7 +22,7 @@
         <include>VideoBackground</include>
         <control type="group">
             <visible>Control.IsVisible(501) | Control.IsVisible(509)</visible>
-            <include>ShowcaseInfoPaneMusic</include>
+            <include>ShowcaseSquareInfoPanel</include>
         </control>
         <include>Furniture_Glow</include>
         <include>Furniture_Showcase</include>
@@ -28,6 +31,7 @@
             <include>HiddenObject</include>
             <visible>[!Container.OnNext + !Container.OnPrevious + [Window.IsActive(programs) + !Container.Content(addons)] + Skin.HasSetting(infopaneautolauncher)] | [!Skin.HasSetting(infopaneautolauncher) + [Window.IsActive(programs) + !Container.Content(addons)]]</visible>
             <include>DelayAnimations</include>
+            <visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
         </control>
         <control type="group">
             <animation effect="slide" end="0,650" time="560" tween="quadratic" condition="Control.HasFocus(109)">Conditional</animation>
@@ -55,6 +59,8 @@
                 <onright>50</onright>
                 <ondown>50</ondown>
                 <onback>50</onback>
+                <visible>!Container.Content() + !Stringcompare(Control.GetLabel(4421),infopaneloff)</visible>
+                <visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
             </control>
             <include>FloorLabels</include>
             <include>Furniture_DarkGradient</include>

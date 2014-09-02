@@ -5,18 +5,21 @@
     <allowoverlay>no</allowoverlay>
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
     <onload>RunScript(script.favourites)</onload>
-    <onload condition="System.HasAddon(script.extendedinfo) + [Substring(Skin.String(widgetlist),xkcd) | Substring(Skin.String(widget2list),xkcd)]">RunScript(script.extendedinfo,info=xkcd)</onload>
-    <onload condition="System.HasAddon(script.extendedinfo) + Substring(Skin.String(backgroundlist),flickr)">RunScript(script.extendedinfo,info=flickr)</onload>
-    <onload condition="System.HasAddon(script.extendedinfo) + [Substring(Skin.String(widgetlist),cyanide) | Substring(Skin.String(widget2list),cyanide)]">RunScript(script.extendedinfo,info=cyanide)</onload>
-    <onload condition="System.HasAddon(script.extendedinfo)">AlarmClock(News,RunScript(script.extendedinfo,info=json,feed=$VAR[NewsFeedVar],prefix=News),00:01,silent)</onload>
+    <onload condition="Substring(Skin.String(widgetlist),xkcd) | Substring(Skin.String(widget2list),xkcd)">RunScript(script.extendedinfo,info=xkcd)</onload>
+    <onload condition="Substring(Skin.String(backgroundlist),flickr)">RunScript(script.extendedinfo,info=flickr)</onload>
+    <onload condition="Substring(Skin.String(widgetlist),cyanide) | Substring(Skin.String(widget2list),cyanide)">RunScript(script.extendedinfo,info=cyanide)</onload>
+    <onload>AlarmClock(News,RunScript(script.extendedinfo,info=json,feed=$VAR[NewsFeedVar],prefix=News),00:01,silent)</onload>
+    <onload>RunScript(script.extendedinfo,info=NearEvents,info=incinema,info=trendingshows,info=trendingmovies,info=premiereshows)</onload>
+    <onload>RunScript(script.extendedinfo,info=NearEvents,prefix=Festivals,festivalsonly=true)</onload>
+    <onload condition="[Substring(Skin.String(widgetlist),rss1) | Substring(Skin.String(widget2list),rss1)]">RunScript(script.extendedinfo,info=json,feed=$INFO[Skin.String(CustomHomeFeedURL1)],prefix=RSS1)</onload>
+    <onload condition="[Substring(Skin.String(widgetlist),rss2) | Substring(Skin.String(widget2list),rss2)]">RunScript(script.extendedinfo,info=json,feed=$INFO[Skin.String(CustomHomeFeedURL2)],prefix=RSS2)</onload>
+    <onload condition="[Substring(Skin.String(widgetlist),rss3) | Substring(Skin.String(widget2list),rss3)]">RunScript(script.extendedinfo,info=json,feed=$INFO[Skin.String(CustomHomeFeedURL3)],prefix=RSS3)</onload>
+    <onload>RunScript(script.skin.info.service)</onload>
     <onload condition="Substring(Skin.String(widgetlist),actors) | Substring(Skin.String(widget2list),actors) | Skin.HasSetting(ActorBirthdayRSS)">RunScript(script.metadata.actors,borntoday,10,random)</onload>
-    <onload condition="Substring(Skin.String(backgroundlist),weatherworldbackground) + System.HasAddon(script.widget.weatherworld)">RunScript(script.widget.weatherworld,time=10&amp;limit=9&amp;mapsize=1920x1080&amp;tilesize=360x60&amp;window=10000&amp;condition=StringCompare(Control.GetLabel(4322),weatherworldbackground))</onload>
-    <onload condition="System.HasAddon(script.extendedinfo) + [Substring(Skin.String(widgetlist),rss1) | Substring(Skin.String(widget2list),rss1)]">RunScript(script.extendedinfo,info=json,feed=$INFO[Skin.String(CustomHomeFeedURL1)],prefix=RSS1)</onload>
-    <onload condition="System.HasAddon(script.extendedinfo) + [Substring(Skin.String(widgetlist),rss2) | Substring(Skin.String(widget2list),rss2)]">RunScript(script.extendedinfo,info=json,feed=$INFO[Skin.String(CustomHomeFeedURL2)],prefix=RSS2)</onload>
-    <onload condition="System.HasAddon(script.extendedinfo) + [Substring(Skin.String(widgetlist),rss3) | Substring(Skin.String(widget2list),rss3)]">RunScript(script.extendedinfo,info=json,feed=$INFO[Skin.String(CustomHomeFeedURL3)],prefix=RSS3)</onload>
-    <onload condition="Substring(Skin.String(widgetlist),concerts) | Substring(Skin.String(widget2list),concerts)">RunScript(script.extendedinfo,info=NearEvents)</onload>
+    <onload condition="Library.HasContent(tvshows)">RunScript(script.tv.show.next.aired,silent=True)</onload>
+    <onload condition="Substring(Skin.String(widgetlist),recentpics) | Substring(Skin.String(widget2list),recentpics) | Substring(Skin.String(backgroundlist),recentpics)">RunScript(plugin.image.mypicsdb,0,?action='setproperties'&amp;method='Latest'&amp;sort='Added'&amp;limit=10)</onload>
+    <onload condition="System.HasAddon(plugin.image.mypicsdb)">RunScript(plugin.image.mypicsdb,0,?action='setproperties'&amp;method='Random'&amp;sort='Added'&amp;limit=10)</onload>
     <onload condition="Substring(Skin.String(widgetlist),roms) | Substring(Skin.String(widget2list),roms)">RunScript(script.games.rom.collection.browser,limit=10)</onload>
-    <onload condition="skin.hassetting(backendmode)">RunScript(script.extendedinfo,backend=true)</onload>
     <onload condition="!IsEmpty(Skin.String(SmartPlaylist1.Call))">$INFO[Skin.String(SmartPlaylist1.Call)]</onload>
     <onload condition="!IsEmpty(Skin.String(SmartPlaylist2.Call))">$INFO[Skin.String(SmartPlaylist2.Call)]</onload>
     <onload condition="!IsEmpty(Skin.String(SmartPlaylist3.Call))">$INFO[Skin.String(SmartPlaylist3.Call)]</onload>
@@ -33,7 +36,6 @@
     <onunload>Skin.SetString(widgetlist,$INFO[Control.GetLabel(11111)])</onunload>
     <onunload>Skin.SetString(widget2list,$INFO[Control.GetLabel(11112)])</onunload>
     <onunload>Skin.SetString(backgroundlist,$INFO[Control.GetLabel(11113)])</onunload>
-    <onunload>Skin.SetString(submenulist,$INFO[Control.GetLabel(11114)])</onunload>
     <animation type="WindowClose" reversible="false">
         <effect type="fade" start="100" end="0" time="640" />
     </animation>
@@ -45,8 +47,6 @@
             <animation effect="fade" start="100" end="0" time="0" condition="true">conditional</animation>
             <include>InvisibleIncludeLabels</include>
             <control type="button" id="10">
-                <onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + !SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">PlayMedia($ESCINFO[Skin.String(Startup_Playlist_Path)])</onfocus>
-                <onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">$ESCINFO[Skin.String(Startup_Playlist_Path)]</onfocus>
                 <onfocus condition="!System.HasAddon(script.xbmc.intro.movie)">SetFocus(11)</onfocus>
                 <onclick>noop</onclick>
             </control>
@@ -63,8 +63,8 @@
             <colordiffuse>black</colordiffuse>
         </control>
         <control type="image">
-            <left>923</left>
-            <top>603</top>
+            <posx>923</posx>
+            <posy>603</posy>
             <width>74</width>
             <height>74</height>
             <texture>loader.gif</texture>
@@ -72,8 +72,8 @@
             <animation effect="fade" start="70" time="1200" condition="true" pulse="true">Conditional</animation>
         </control>
         <control type="image">
-            <left>704</left>
-            <top>300</top>
+            <posx>704</posx>
+            <posy>300</posy>
             <width>512</width>
             <height>180</height>
             <aspectratio>keep</aspectratio>

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
     <include name="FeaturedTopLabel">
-        <width min="15" max="980">auto</width>
+        <width min="15" max="1920">auto</width>
         <height>38</height>
         <font>Font_Reg37_Caps</font>
         <shadowcolor>bcshadow</shadowcolor>
         <textcolor>white2</textcolor>
-        <scroll>true</scroll>
+        <scroll>false</scroll>
         <include condition="![Window.IsActive(skinsettings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(settings)]">Animation_WindowFade200</include>
     </include>
     <include name="BreadcrumbsLabel">
-		<left>10</left>
-        <width min="15" max="530">auto</width>
+        <width min="15" max="1920">auto</width>
         <height>38</height>
         <font>Font_Reg30_Caps</font>
         <shadowcolor>bcshadow</shadowcolor>
         <textcolor>$VAR[BreadCrumbsContentColorVar]</textcolor>
-        <scroll>true</scroll>
+        <scroll>false</scroll>
         <include condition="![Window.IsActive(skinsettings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(settings)]">Animation_WindowFade200</include>
     </include>
     <include name="Breadcrumbs_BackBar">
@@ -30,8 +29,8 @@
                 <colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
             </control>
             <control type="image">
-                <top>-40</top>
-                <width>2100</width>
+                <posy>-40</posy>
+                <width>1920</width>
                 <height>115</height>
                 <texture>views/logo_tagline_gradient.png</texture>
                 <visible>Skin.HasSetting(FadedTopBar)</visible>
@@ -39,7 +38,7 @@
         </control>
         <!--left widget -->
         <control type="image">
-            <left>-140</left>
+            <posx>-140</posx>
             <width>794</width>
             <height>87</height>
             <texture flipy="true" flipx="true">home/timepanel_mid.png</texture>
@@ -53,7 +52,7 @@
     </include>
     <include name="BreadcrumbsContent">
         <control type="grouplist">
-            <left>5</left>
+            <posx>5</posx>
             <include condition="!Skin.HasSetting(ClassicTopBar)">TopBarWidthLeftSide</include>
             <include condition="Skin.HasSetting(ClassicTopBar)">ClassicTopBarWidthLeftSide</include>
             <orientation>horizontal</orientation>
@@ -63,8 +62,8 @@
             <control type="image">
                 <width>36</width>
                 <height>36</height>
-                <top>-2</top>
-                <texture>$VAR[Colortdefaulticons]DefaultFolderBack.png</texture>
+                <posy>-2</posy>
+                <texture>defaulticons/DefaultFolderBack.png</texture>
                 <animation effect="slide" end="-9,4" center="auto" time="0" condition="true">Conditional</animation>
                 <animation effect="rotate" end="-90" center="auto" delay="240" time="640" condition="Window.IsActive(musicinformation) | Control.HasFocus(7000) | Control.IsVisible(508) | Control.IsVisible(501) | Control.IsVisible(503) | Control.IsVisible(510) | Control.IsVisible(57) | Control.IsVisible(516) | Control.IsVisible(509) | [Control.IsVisible(500) + !Skin.HasSetting(WallVertical)]">Conditional</animation>
                 <animation effect="rotate" end="-180" center="auto" delay="240" time="640" condition="ControlGroup(9000).HasFocus">Conditional</animation>
@@ -103,8 +102,8 @@
             <visible>Skin.HasSetting(GlobalNowPlaying) + Player.HasMedia</visible>
             <include condition="Window.isActive(videos) + system.hasaddon(script.tvtunes)">TvTunesVisibleCondition</include>
             <control type="multiimage">
-                <left>12</left>
-                <top>9</top>
+                <posx>12</posx>
+                <posy>9</posy>
                 <width>30</width>
                 <height>24</height>
                 <imagepath>VisualEqu/</imagepath>
@@ -115,23 +114,9 @@
                 <visible>Player.HasAudio + Player.Playing</visible>
                 <colordiffuse>$VAR[TitleColorVar]</colordiffuse>
             </control>
-			<control type="progress">
-					<left>0</left>
-					<top>0</top>
-					<width>660</width>
-					<height>45</height>
-					<info>Player.Progress</info>
-					<texturebg>osd/info/osd_progress_back_cache.png</texturebg>
-					<lefttexture></lefttexture>
-					<midtexture>osd/info/osd_progress_mid.png</midtexture>
-					<righttexture></righttexture>	
-					<colordiffuse>$VAR[HomeMenuTextFocusVar]</colordiffuse>						
-					<visible>Player.HasMedia + Skin.HasSetting(ProgressNowPlaying)</visible>
-					<animation effect="fade" end="35" time="600" condition="Player.HasMedia">Conditional</animation>
-				</control>				
             <control type="image">
-                <left>12</left>
-                <top>9</top>
+                <posx>12</posx>
+                <posy>9</posy>
                 <width>30</width>
                 <height>24</height>
                 <texture>VisualEqu/static/0.png</texture>
@@ -149,11 +134,11 @@
                 <include condition="![Window.IsActive(skinsettings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(settings)]">Animation_WindowFade200</include>
             </control>
             <control type="grouplist">
-                <left>68</left>
+                <posx>68</posx>
                 <width>600</width>
                 <height>118</height>
                 <orientation>horizontal</orientation>
-                <itemgap>22</itemgap>								
+                <itemgap>22</itemgap>
                 <control type="label">
                     <width min="15" max="200">auto</width>
                     <height>38</height>
@@ -162,7 +147,7 @@
                     <textcolor>grey</textcolor>
                 </control>
                 <control type="fadelabel">
-                    <left>280</left>
+                    <posx>280</posx>
                     <width>470</width>
                     <height>38</height>
                     <label>[COLOR white2]$INFO[MusicPlayer.Title][/COLOR]</label>
@@ -173,7 +158,7 @@
                     <visible>Player.HasAudio</visible>
                 </control>
                 <control type="fadelabel">
-                    <left>310</left>
+                    <posx>310</posx>
                     <width>480</width>
                     <height>38</height>
                     <label>[COLOR white2]$INFO[Videoplayer.Title][/COLOR]</label>
@@ -184,7 +169,7 @@
                     <visible>!IsEmpty(Videoplayer.TVShowTitle) + Player.HasVideo</visible>
                 </control>
                 <control type="fadelabel">
-                    <left>310</left>
+                    <posx>310</posx>
                     <width>480</width>
                     <height>38</height>
                     <label>$INFO[Videoplayer.Title]</label>
@@ -194,7 +179,7 @@
                     <visible>IsEmpty(Videoplayer.TVShowTitle) + Player.HasVideo + IsEmpty(VideoPlayer.ChannelName)</visible>
                 </control>
                 <control type="fadelabel">
-                    <left>310</left>
+                    <posx>310</posx>
                     <width>480</width>
                     <height>38</height>
                     <label>$INFO[Videoplayer.ChannelName]</label>
@@ -217,28 +202,24 @@
                 <animation effect="fade" time="400">Hidden</animation>
             </control>
             <!--right widget -->
-			<control type="group">
-				<left>770r</left>
-			    <animation effect="slide" end="145" time="320" condition="!Skin.HasSetting(breadcrumbsweather)">Conditional</animation>
-				<animation effect="slide" end="175" time="320" condition="Skin.HasSetting(shorterhomebars)">Conditional</animation>
-				<control type="image">
-					<width>904</width>
-					<height>87</height>
-					<texture flipy="true">home/timepanel_mid.png</texture>
-					<colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
-					<include>Animation_VisibleChange400</include>
-					<visible>Skin.HasSetting(ClassicTopBar)</visible>
-					<animation effect="slide" start="750" end="0" time="240">VisibleChange</animation>
-					<animation effect="slide" end="65" time="320" condition="!Skin.HasSetting(W_condition_image)">Conditional</animation>
-				</control>
-			</control>				
+            <control type="image">
+                <posx>674r</posx>
+                <width>794</width>
+                <height>87</height>
+                <texture flipy="true">home/timepanel_mid.png</texture>
+                <animation effect="slide" end="145" time="320" condition="!Skin.HasSetting(breadcrumbsweather)">Conditional</animation>
+                <colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
+                <include>Animation_VisibleChange400</include>
+                <visible>Skin.HasSetting(ClassicTopBar)</visible>
+                <animation effect="slide" start="750" end="0" time="240">VisibleChange</animation>
+            </control>
             <control type="group">
                 <animation effect="slide" start="0,-300" end="0" time="540" tween="cubic">VisibleChange</animation>
                 <visible>!IsEmpty(Container.NumItems)</visible>
                 <visible>Control.HasFocus(60) | Control.HasFocus(61) | Control.HasFocus(62) | Control.HasFocus(71) | Control.HasFocus(70) | !Control.IsVisible(4051) | [!Skin.HasSetting(FadedTopBar) + !Skin.HasSetting(ClassicTopBar)]</visible>
                 <control type="image">
-                    <left>645</left>
-                    <top>0</top>
+                    <posx>645</posx>
+                    <posy>0</posy>
                     <width>600</width>
                     <height>87</height>
                     <visible>Skin.HasSetting(ClassicTopBar)</visible>
@@ -293,74 +274,33 @@
                 </control>
             </control>
             <control type="group">
-				<left>780r</left>
-				<animation effect="slide" end="80" time="320" condition="!Skin.HasSetting(W_condition_image)">Conditional</animation>
-                 <control type="label">
-				 	<left>100</left>
-                    <width>500</width>
-                    <height>36</height>
-                    <label>$INFO[Window(weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits] [COLOR grey]• [/COLOR]</label>
-                    <font>Font_Reg28_Caps</font>
-                    <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
-					<visible>!Skin.HasSetting(shorterhomebars) + Skin.HasSetting(breadcrumbsweather)</visible>
-					<animation effect="slide" end="-10" time="320" condition="!Skin.HasSetting(W_condition_image)">Conditional</animation>
+                <control type="grouplist">
+                    <width>1900</width>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width min="15" max="1920">auto</width>
+                        <height>38</height>
+                        <label>[COLOR $VAR[BreadCrumbsContentColorVar]]$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]  •[/COLOR]</label>
+                        <font>Font_Reg30_Caps</font>
+                        <shadowcolor>bcshadow</shadowcolor>
+                        <textcolor>$VAR[BreadCrumbsContentColorVar]</textcolor>
+                        <scroll>false</scroll>
+                        <visible>Skin.HasSetting(breadcrumbsweather)</visible>
+                        <visible>Weather.IsFetched</visible>
+                        <include>Animation_VisibleChange400</include>
+                    </control>
+                    <control type="label">
+                        <width min="15" max="1920">auto</width>
+                        <height>38</height>
+                        <label>[COLOR $VAR[BreadCrumbsContentColorVar]] $INFO[System.Date(DDD)], $INFO[System.Date(d)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)]  •  [/COLOR][COLOR=$VAR[TitleColorVar]]$INFO[System.Time][/COLOR]</label>
+                        <font>Font_Reg30_Caps</font>
+                        <shadowcolor>bcshadow</shadowcolor>
+                        <textcolor>$VAR[BreadCrumbsContentColorVar]</textcolor>
+                        <scroll>false</scroll>
+                    </control>
                 </control>
-                <control type="image">
-					<left>190</left>
-                    <top>-15</top>
-                    <width>70</width>
-                    <height>70</height>
-                    <colordiffuse>white2</colordiffuse>
-                    <texture>$VAR[Realweatherimg]$INFO[Weather.FanartCode].png</texture>
-					<visible>!Skin.HasSetting(W_condition_image)</visible>
-					<visible>!Skin.HasSetting(shorterhomebars) + Skin.HasSetting(breadcrumbsweather)</visible>
-					<animation effect="slide" end="-20" time="320" condition="!Skin.HasSetting(W_condition_image)">Conditional</animation>
-					<animation effect="slide" end="5" time="320" condition="Skin.HasSetting(W_real_image)">Conditional</animation>
-                </control>
-				<control type="label">
-					<left>210</left>
-					<top>-3</top>
-					<width>210</width>
-					<height>40</height>
-					<aligny>top</aligny>
-					<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
-					<font>Font_Reg33_Caps</font>
-					<textcolor>grey</textcolor>
-					<scroll>true</scroll>
-					<visible>Skin.HasSetting(W_condition_image)</visible>
-					<visible>!Skin.HasSetting(shorterhomebars) + Skin.HasSetting(breadcrumbsweather)</visible>
-					<animation effect="slide" end="-20" time="320" condition="Skin.HasSetting(W_condition_image)">Conditional</animation>
-				</control>
-            <control type="label">
-                <left>170</left>
-                <width>600</width>
-                <height>36</height>
-                <align>right</align>
-                <label>[COLOR grey]$INFO[System.Date(ddd)] • $INFO[System.Date(D)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)]  •[/COLOR]  $INFO[System.Time]</label>
-                <font>Font_Reg28_Caps</font>
-                <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
-				<visible>!Skin.HasSetting(shorterhomebars) + Skin.HasSetting(W_condition_image)</visible>
-            </control>
-            <control type="label">
-                <left>90</left>
-                <width>600</width>
-                <height>36</height>
-                <align>right</align>
-                <label>[COLOR grey]$INFO[System.Date(DDD)] • $INFO[System.Date(D)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)]  •[/COLOR]  $INFO[System.Time]</label>
-                <font>Font_Reg28_Caps</font>
-                <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
-				<visible>Skin.HasSetting(shorterhomebars)</visible>
-            </control>
-            <control type="label">
-                <left>90</left>
-                <width>600</width>
-                <height>36</height>
-                <align>right</align>
-                <label>[COLOR grey]$INFO[System.Date(DDD)] • $INFO[System.Date(D)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)]  •[/COLOR]  $INFO[System.Time]</label>
-                <font>Font_Reg28_Caps</font>
-                <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
-				<visible>!Skin.HasSetting(shorterhomebars) + !Skin.HasSetting(W_condition_image)</visible>
-            </control>			
             </control>
         </control>
     </include>

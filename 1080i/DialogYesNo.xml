@@ -3,17 +3,17 @@
     <defaultcontrol>10</defaultcontrol>
     <zorder>8</zorder>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
-    <include>Animation_DialogPopup</include>
+    <include>Animation_DialogPopupOpenClose</include>
     <controls>
         <include>InvisibleIncludeLabels</include>
         <include>DialogBackFade</include>
         <control type="group">
-            <left>570</left>
-            <top>375</top>
+            <posx>570</posx>
+            <posy>375</posy>
             <control type="image">
                 <width>780</width>
                 <height>330</height>
@@ -29,7 +29,7 @@
                 <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
             <control type="image">
-                <left>15</left>
+                <posx>15</posx>
                 <width>750</width>
                 <height>60</height>
                 <texture border="1">osd/osd_settings_buttonnf.png</texture>
@@ -42,25 +42,19 @@
                 <textcolor>$VAR[FontColorVar]</textcolor>
                 <scroll>true</scroll>
             </control>
-            <control type="grouplist">
-                <top>68</top>
+            <control type="textbox" id="9">
+                <posy>68</posy>
                 <width>780</width>
-                <height>330</height>
-				<control type="textbox" id="9">
-					<description>text</description>
-                    <width>780</width>
-                    <height>330</height>
-                    <textoffsetx>45</textoffsetx>
-                    <align>center</align>
-                    <textcolor>white3</textcolor>
-                    <wrapmultiline>true</wrapmultiline>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
-				</control>
+                <height>135</height>
+                <textoffsetx>45</textoffsetx>
+                <align>center</align>
+                <textcolor>white3</textcolor>
+                <scroll>true</scroll>
             </control>
             <control type="button" id="10">
                 <textoffsety></textoffsety>
-                <left>390</left>
-                <top>228</top>
+                <posx>390</posx>
+                <posy>258</posy>
                 <width>225</width>
                 <height>45</height>
                 <textoffsetx>30</textoffsetx>
@@ -76,8 +70,8 @@
             </control>
             <control type="button" id="11">
                 <textoffsety></textoffsety>
-                <left>165</left>
-                <top>228</top>
+                <posx>165</posx>
+                <posy>258</posy>
                 <width>225</width>
                 <height>45</height>
                 <textoffsetx>30</textoffsetx>

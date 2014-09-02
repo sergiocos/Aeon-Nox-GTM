@@ -19,14 +19,14 @@
         <control type="group">
             <include>Animation_OpenClose_Furniture</include>
             <control type="image">
-                <top>472</top>
+                <posy>472</posy>
                 <width>1920</width>
                 <height>608</height>
                 <texture>views/showcase_floor.png</texture>
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
             </control>
             <control type="image">
-                <top>-207</top>
+                <posy>-207</posy>
                 <width>1920</width>
                 <height>1080</height>
                 <texture>common/bgcolor.png</texture>
@@ -36,14 +36,14 @@
                 <visible>Skin.HasSetting(darkinfopane)</visible>
             </control>
             <control type="image">
-                <left>-105</left>
+                <posx>-105</posx>
                 <width>696</width>
                 <height>1080</height>
                 <texture>views/showcase_vignette.png</texture>
                 <colordiffuse>vignette</colordiffuse>
             </control>
             <control type="image">
-                <left>1329</left>
+                <posx>1329</posx>
                 <width>696</width>
                 <height>1080</height>
                 <texture flipx="true">views/showcase_vignette.png</texture>
@@ -55,7 +55,7 @@
         <include condition="Skin.HasSetting(ClassicNextAired)">NextAired_Layout1</include>
         <include condition="!Skin.HasSetting(ClassicNextAired)">NextAired_Layout2</include>
         <control type="image">
-            <top>1012</top>
+            <posy>1012</posy>
             <width>1920</width>
             <height>72</height>
             <texture>views/showcase_gradient.png</texture>
@@ -113,16 +113,6 @@
                         <label>5</label>
                         <include>Objects_MediaMenuButtonAlt</include>
                     </control>
-                    <control type="button" id="9">
-                        <label>24069</label>
-						<onclick>RunScript(script.tv.show.next.aired,force=True)</onclick>
-                        <include>Objects_MediaMenuButtonAlt</include>
-                    </control>	
-                    <control type="button" id="10">
-                        <label>$LOCALIZE[10035] & $LOCALIZE[24069]</label>
-						<onclick>RunScript(script.tv.show.next.aired,reset=True)</onclick>
-                        <include>Objects_MediaMenuButtonAlt</include>
-                    </control>										
                     <control type="button" id="1601">
                         <label>$LOCALIZE[31383]</label>
                         <font>Font_Bold26_Caps</font>
@@ -138,21 +128,6 @@
                         <selected>Skin.HasSetting(darkinfopane)</selected>
                         <visible>!Skin.HasSetting(hideoptions) + Skin.HasSetting(DisableGlowbar)</visible>
                     </control>
-                    <control type="radiobutton" id="1764">
-                        <label>$LOCALIZE[31086]</label>
-                        <include>Objects_MediaMenuButtonAlt</include>
-                        <onclick>Skin.ToggleSetting(NextAiredclearart)</onclick>
-                        <selected>Skin.HasSetting(NextAiredclearart)</selected>
-						<enable>IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))</enable>
-						<visible>!Skin.HasSetting(ClassicNextAired)</visible>
-                    </control>		
-                    <control type="radiobutton" id="1765">
-                        <label>$LOCALIZE[31059]</label>
-                        <include>Objects_MediaMenuButtonAlt</include>
-                        <onclick>Skin.ToggleSetting(NextAiredLogo)</onclick>
-                        <selected>Skin.HasSetting(NextAiredLogo)</selected>
-						<visible>!Skin.HasSetting(ClassicNextAired)</visible>
-                    </control>					
                     <control type="button" id="1604">
                         <label>$LOCALIZE[31185]</label>
                         <font>Font_Bold26_Caps</font>

@@ -2,26 +2,15 @@
 <window id="1115" type="dialog">
     <defaultcontrol>40</defaultcontrol>
     <backgroundcolor>backgroundcolor</backgroundcolor>
-    <onload condition="!IsEmpty(Window(home).Property(FeaturedSetup))">ActivateWindow(1128)</onload>
-    <onload condition="ControlGroup(5000).HasFocus">AlarmClock(Tile,Control.Move(5002,1),00:04,silent,loop)</onload>
-    <onload condition="ControlGroup(5000).HasFocus">AlarmClock(TileTwo,Control.Move(5003,1),00:07,silent,loop)</onload>
-    <onload condition="ControlGroup(6000).HasFocus">AlarmClock(Tile,Control.Move(6002,1),00:04,silent,loop)</onload>
-    <onload condition="ControlGroup(6000).HasFocus">AlarmClock(TileTwo,Control.Move(6003,1),00:07,silent,loop)</onload>
-    <onload condition="ControlGroup(7000).HasFocus">AlarmClock(Tile,Control.Move(7002,1),00:04,silent,loop)</onload>
-    <onload condition="ControlGroup(8000).HasFocus">AlarmClock(Tile,Control.Move(8002,1),00:04,silent,loop)</onload>
-    <onload condition="ControlGroup(9000).HasFocus">AlarmClock(Tile,Control.Move(9002,1),00:04,silent,loop)</onload>
     <onload condition="Window.Previous(home)">SetFocus(5012)</onload>
     <onload>SetFocus(9000)</onload>
-    <onunload>CancelAlarm(Tile,true)</onunload>
-    <onunload>CancelAlarm(TileTwo,true)</onunload>
     <onload>SetProperty(DisableWidgets,true,home)</onload>
     <onunload>ClearProperty(DisableWidgets,home)</onunload>
-    <onunload>ClearProperty(FeaturedSetup,home)</onunload>
     <onunload>ClearProperty(PanelWidgetInfo,Home)</onunload>
     <onunload condition="Window.IsActive(1147)">Action(PreviousMenu)</onunload>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
     <controls>
@@ -67,13 +56,9 @@
             <onfocus>SetProperty(VideoCodec,$ESCINFO[Container(5002).ListItem.Property(VideoCodec)],home)</onfocus>
             <onfocus>SetProperty(VideoAspect,$ESCINFO[Container(5002).ListItem.Property(VideoAspect)],home)</onfocus>
             <onfocus>SetProperty(VideoResolution,$ESCINFO[Container(5002).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrafanart,$ESCINFO[Container(5002).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrathumb,$ESCINFO[Container(5002).ListItem.Property(extrathumb)],home)</onfocus>
             <onfocus>SetProperty(mpaa,$ESCINFO[Container(5002).ListItem.Property(mpaa)],home)</onfocus>
             <onfocus>SetProperty(Id,$ESCINFO[Container(5002).ListItem.Property(Id)],home)</onfocus>
-            <onfocus>SetProperty(Media,$ESCINFO[Container(5002).ListItem.Property(Media)],home)</onfocus>
             <onfocus>SetProperty(Channel,$ESCINFO[Container(5002).ListItem.Property(Channel)],home)</onfocus>
-            <onfocus>SetProperty(Date,$ESCINFO[Container(5002).ListItem.Property(Date)],home)</onfocus>
             <onfocus>SetProperty(Publisher,$ESCINFO[Container(5002).ListItem.Property(Publisher)],home)</onfocus>
             <onfocus>SetProperty(Description,$ESCINFO[Container(5002).ListItem.Property(Description)],home)</onfocus>
             <onfocus>SetProperty(Genre,$ESCINFO[Container(5002).ListItem.Property(Genre)],home)</onfocus>
@@ -135,10 +120,7 @@
             <onfocus>SetProperty(VideoCodec,$ESCINFO[Container(5003).ListItem.Property(VideoCodec)],home)</onfocus>
             <onfocus>SetProperty(VideoAspect,$ESCINFO[Container(5003).ListItem.Property(VideoAspect)],home)</onfocus>
             <onfocus>SetProperty(VideoResolution,$ESCINFO[Container(5003).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrafanart,$ESCINFO[Container(5003).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrathumb,$ESCINFO[Container(5003).ListItem.Property(extrathumb)],home)</onfocus>
             <onfocus>SetProperty(mpaa,$ESCINFO[Container(5003).ListItem.Property(mpaa)],home)</onfocus>
-            <onfocus>SetProperty(Date,$ESCINFO[Container(5003).ListItem.Property(Date)],home)</onfocus>
             <onfocus>SetProperty(Publisher,$ESCINFO[Container(5003).ListItem.Property(Publisher)],home)</onfocus>
             <onfocus>SetProperty(Description,$ESCINFO[Container(5003).ListItem.Property(Description)],home)</onfocus>
             <onfocus>SetProperty(Genre,$ESCINFO[Container(5003).ListItem.Property(Genre)],home)</onfocus>
@@ -188,13 +170,9 @@
             <onfocus>SetProperty(VideoCodec,$ESCINFO[Container(6002).ListItem.Property(VideoCodec)],home)</onfocus>
             <onfocus>SetProperty(VideoAspect,$ESCINFO[Container(6002).ListItem.Property(VideoAspect)],home)</onfocus>
             <onfocus>SetProperty(VideoResolution,$ESCINFO[Container(6002).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrafanart,$ESCINFO[Container(6002).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrathumb,$ESCINFO[Container(6002).ListItem.Property(extrathumb)],home)</onfocus>
             <onfocus>SetProperty(mpaa,$ESCINFO[Container(6002).ListItem.Property(mpaa)],home)</onfocus>
             <onfocus>SetProperty(Id,$ESCINFO[Container(6002).ListItem.Property(Id)],home)</onfocus>
-            <onfocus>SetProperty(Media,$ESCINFO[Container(6002).ListItem.Property(Media)],home)</onfocus>
             <onfocus>SetProperty(Channel,$ESCINFO[Container(6002).ListItem.Property(Channel)],home)</onfocus>
-            <onfocus>SetProperty(Date,$ESCINFO[Container(6002).ListItem.Property(Date)],home)</onfocus>
             <onfocus>SetProperty(Publisher,$ESCINFO[Container(6002).ListItem.Property(Publisher)],home)</onfocus>
             <onfocus>SetProperty(Description,$ESCINFO[Container(6002).ListItem.Property(Description)],home)</onfocus>
             <onfocus>SetProperty(Genre,$ESCINFO[Container(6002).ListItem.Property(Genre)],home)</onfocus>
@@ -247,13 +225,9 @@
             <onfocus>SetProperty(VideoCodec,$ESCINFO[Container(6003).ListItem.Property(VideoCodec)],home)</onfocus>
             <onfocus>SetProperty(VideoAspect,$ESCINFO[Container(6003).ListItem.Property(VideoAspect)],home)</onfocus>
             <onfocus>SetProperty(VideoResolution,$ESCINFO[Container(6003).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrafanart,$ESCINFO[Container(6003).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrathumb,$ESCINFO[Container(6003).ListItem.Property(extrathumb)],home)</onfocus>
             <onfocus>SetProperty(mpaa,$ESCINFO[Container(6003).ListItem.Property(mpaa)],home)</onfocus>
             <onfocus>SetProperty(Id,$ESCINFO[Container(6003).ListItem.Property(Id)],home)</onfocus>
-            <onfocus>SetProperty(Media,$ESCINFO[Container(6003).ListItem.Property(Media)],home)</onfocus>
             <onfocus>SetProperty(Channel,$ESCINFO[Container(6003).ListItem.Property(Channel)],home)</onfocus>
-            <onfocus>SetProperty(Date,$ESCINFO[Container(6003).ListItem.Property(Date)],home)</onfocus>
             <onfocus>SetProperty(Publisher,$ESCINFO[Container(6003).ListItem.Property(Publisher)],home)</onfocus>
             <onfocus>SetProperty(Description,$ESCINFO[Container(6003).ListItem.Property(Description)],home)</onfocus>
             <onfocus>SetProperty(Genre,$ESCINFO[Container(6003).ListItem.Property(Genre)],home)</onfocus>
@@ -306,13 +280,9 @@
             <onfocus>SetProperty(VideoCodec,$ESCINFO[Container(7002).ListItem.Property(VideoCodec)],home)</onfocus>
             <onfocus>SetProperty(VideoAspect,$ESCINFO[Container(7002).ListItem.Property(VideoAspect)],home)</onfocus>
             <onfocus>SetProperty(VideoResolution,$ESCINFO[Container(7002).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrafanart,$ESCINFO[Container(7002).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrathumb,$ESCINFO[Container(7002).ListItem.Property(extrathumb)],home)</onfocus>
             <onfocus>SetProperty(mpaa,$ESCINFO[Container(7002).ListItem.Property(mpaa)],home)</onfocus>
             <onfocus>SetProperty(Id,$ESCINFO[Container(7002).ListItem.Property(Id)],home)</onfocus>
-            <onfocus>SetProperty(Media,$ESCINFO[Container(7002).ListItem.Property(Media)],home)</onfocus>
             <onfocus>SetProperty(Channel,$ESCINFO[Container(7002).ListItem.Property(Channel)],home)</onfocus>
-            <onfocus>SetProperty(Date,$ESCINFO[Container(7002).ListItem.Property(Date)],home)</onfocus>
             <onfocus>SetProperty(Publisher,$ESCINFO[Container(7002).ListItem.Property(Publisher)],home)</onfocus>
             <onfocus>SetProperty(Description,$ESCINFO[Container(7002).ListItem.Property(Description)],home)</onfocus>
             <onfocus>SetProperty(Genre,$ESCINFO[Container(7002).ListItem.Property(Genre)],home)</onfocus>
@@ -366,13 +336,9 @@
             <onfocus>SetProperty(VideoCodec,$ESCINFO[Container(7003).ListItem.Property(VideoCodec)],home)</onfocus>
             <onfocus>SetProperty(VideoAspect,$ESCINFO[Container(7003).ListItem.Property(VideoAspect)],home)</onfocus>
             <onfocus>SetProperty(VideoResolution,$ESCINFO[Container(7003).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrafanart,$ESCINFO[Container(7003).ListItem.Property(VideoResolution)],home)</onfocus>
-            <onfocus>SetProperty(extrathumb,$ESCINFO[Container(7003).ListItem.Property(extrathumb)],home)</onfocus>
             <onfocus>SetProperty(mpaa,$ESCINFO[Container(7003).ListItem.Property(mpaa)],home)</onfocus>
             <onfocus>SetProperty(Id,$ESCINFO[Container(7003).ListItem.Property(Id)],home)</onfocus>
-            <onfocus>SetProperty(Media,$ESCINFO[Container(7003).ListItem.Property(Media)],home)</onfocus>
             <onfocus>SetProperty(Channel,$ESCINFO[Container(7003).ListItem.Property(Channel)],home)</onfocus>
-            <onfocus>SetProperty(Date,$ESCINFO[Container(7003).ListItem.Property(Date)],home)</onfocus>
             <onfocus>SetProperty(Publisher,$ESCINFO[Container(7003).ListItem.Property(Publisher)],home)</onfocus>
             <onfocus>SetProperty(Description,$ESCINFO[Container(7003).ListItem.Property(Description)],home)</onfocus>
             <onfocus>SetProperty(Genre,$ESCINFO[Container(7003).ListItem.Property(Genre)],home)</onfocus>
@@ -527,10 +493,8 @@
             <onfocus>SetProperty(Director,$ESCINFO[Container(9002).ListItem.Property(Director)],home)</onfocus>
             <onfocus>SetProperty(Rating,$ESCINFO[Container(9002).ListItem.Property(Rating)],home)</onfocus>
             <onfocus>SetProperty(Country,$ESCINFO[Container(9002).ListItem.Property(Country)],home)</onfocus>
-            <onfocus>SetProperty(extrafanart,$ESCINFO[Container(9002).ListItem.Property(extrafanart)],home)</onfocus>
             <onfocus>SetProperty(mpaa,$ESCINFO[Container(9002).ListItem.Property(mpaa)],home)</onfocus>
             <onfocus>SetProperty(Id,$ESCINFO[Container(9002).ListItem.Property(Id)],home)</onfocus>
-            <onfocus>SetProperty(Media,$ESCINFO[Container(9002).ListItem.Property(Media)],home)</onfocus>
             <onfocus>SetProperty(Mood,$ESCINFO[Container(9002).ListItem.Property(Mood)],home)</onfocus>
             <onfocus>SetProperty(Style,$ESCINFO[Container(9002).ListItem.Property(Style)],home)</onfocus>
             <onfocus>SetProperty(Theme,$ESCINFO[Container(9002).ListItem.Property(Theme)],home)</onfocus>
@@ -541,7 +505,6 @@
             <onfocus>SetProperty(Disbanded,$ESCINFO[Container(9002).ListItem.Property(Disbanded)],home)</onfocus>
             <onfocus>SetProperty(YearsActive,$ESCINFO[Container(9002).ListItem.Property(YearsActive)],home)</onfocus>
             <onfocus>SetProperty(Channel,$ESCINFO[Container(9002).ListItem.Property(Channel)],home)</onfocus>
-            <onfocus>SetProperty(Date,$ESCINFO[Container(9002).ListItem.Property(Date)],home)</onfocus>
             <onfocus>SetProperty(Publisher,$ESCINFO[Container(9002).ListItem.Property(Publisher)],home)</onfocus>
             <onfocus>SetProperty(Description,$ESCINFO[Container(9002).ListItem.Property(Description)],home)</onfocus>
             <onfocus>SetProperty(Plot,$ESCINFO[Container(9002).ListItem.Property(Plot)],home)</onfocus>
@@ -568,8 +531,8 @@
         </control>
         <!-- Main Group -->
         <control type="grouplist" id="40">
-            <left>-135</left>
-            <top>105</top>
+            <posx>-135</posx>
+            <posy>105</posy>
             <width>2325</width>
             <height>780</height>
             <animation effect="slide" end="0,300" time="0" condition="Window.IsActive(1147)">Conditional</animation>
@@ -603,10 +566,10 @@
                     <onclick>RunScript(script.globalsearch)</onclick>
                 </control>
                 <control type="group">
-                    <left>450</left>
-                    <top>-30</top>
+                    <posx>450</posx>
+                    <posy>-30</posy>
                     <control type="image">
-                        <top>450</top>
+                        <posy>450</posy>
                         <width>1332</width>
                         <height>160</height>
                         <texture border="50">featured/panel_featured_shadow.png</texture>
@@ -615,22 +578,22 @@
                         <include>PanelGlowFade</include>
                     </control>
                     <control type="image">
-                        <top>450</top>
+                        <posy>450</posy>
                         <width>1332</width>
                         <height>160</height>
                         <texture border="50">featured/panel_featured.png</texture>
                         <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
                     </control>
                     <control type="image">
-                        <left>21</left>
-                        <top>593</top>
+                        <posx>21</posx>
+                        <posy>593</posy>
                         <width>1290</width>
                         <height>119</height>
                         <texture>featured/panel_featured_reflect.png</texture>
                     </control>
                     <control type="grouplist">
-                        <left>73</left>
-                        <top>471</top>
+                        <posx>73</posx>
+                        <posy>471</posy>
                         <width>1179</width>
                         <height>118</height>
                         <orientation>horizontal</orientation>
@@ -658,35 +621,31 @@
                         </control>
                     </control>
                     <control type="image">
-                        <left>1180</left>
-                        <top>482</top>
+                        <posx>1180</posx>
+                        <posy>482</posy>
                         <width>100</width>
                         <height>100</height>
                         <texture>common/DefaultSearch.png</texture>
                         <colordiffuse>white</colordiffuse>
                     </control>
-                    <control type="image">
-                        <left>21</left>
-                        <top>471</top>
+                    <control type="button" id="3001">
+                        <posx>21</posx>
+                        <posy>471</posy>
                         <width>1290</width>
                         <height>118</height>
-                        <texture border="10">featured/search_tile_fo.png</texture>
-                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                        <visible>Control.HasFocus(3001)</visible>
-                    </control>
-                    <control type="button" id="3001">
-                        <include>HiddenObject</include>
                         <onup>3012</onup>
                         <ondown>3012</ondown>
                         <onright>5001</onright>
                         <onleft>4003</onleft>
+                        <texturefocus colordiffuse="$VAR[ColorDiffuseVar]" border="10">featured/search_tile_fo.png</texturefocus>
+                        <texturenofocus>-</texturenofocus>
                         <onunfocus>ClearProperty(HomeSearch,Home)</onunfocus>
                         <onfocus>SetProperty(HomeSearch,1)</onfocus>
                         <onclick>RunScript(script.globalsearch)</onclick>
                     </control>
                     <control type="image">
-                        <left>21</left>
-                        <top>471</top>
+                        <posx>21</posx>
+                        <posy>471</posy>
                         <width>1290</width>
                         <height>118</height>
                         <texture border="21">featured/panel_featured_overlay.png</texture>
@@ -698,8 +657,6 @@
             <control type="group" id="5000">
                 <width>2325</width>
                 <height>825</height>
-                <onfocus>AlarmClock(Tile,Control.Move(5002,1),00:04,silent,loop)</onfocus>
-                <onfocus>AlarmClock(TileTwo,Control.Move(5003,1),00:07,silent,loop)</onfocus>
                 <animation type="Conditional" condition="!IsEmpty(Window(Home).Property(PanelWidgetInfo))" reversible="false">
                     <include>Animation_PanelFlipUp2</include>
                 </animation>
@@ -717,34 +674,31 @@
                     <onright>6012</onright>
                     <onleft>3012</onleft>
                     <ondown>5001</ondown>
-                    <onfocus>AlarmClock(Tile,Control.Move(5002,1),00:04,silent,loop)</onfocus>
-                    <onfocus>AlarmClock(TileTwo,Control.Move(5003,1),00:07,silent,loop)</onfocus>
                     <onclick>Action(Close)</onclick>
                     <onclick>ActivateWindow(videos,root,return)</onclick>
                 </control>
                 <control type="group" id="5001">
-                    <left>450</left>
+                    <posx>450</posx>
                     <include>FeaturedPanel</include>
                     <control type="group">
-                        <left>31</left>
-                        <top>31</top>
+                        <posx>31</posx>
+                        <posy>31</posy>
                         <control type="button" id="5009">
                             <include>HiddenObject</include>
                             <onup>5012</onup>
                             <onleft>3001</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(5002,1),00:04,silent,loop)</onright>
                             <onright>5011</onright>
                             <ondown>Control.Move(5002,1)</ondown>
                             <onfocus>SetProperty(WidgetType,watchlisttv,home)</onfocus>
                             <onclick>SetFocus(5014)</onclick>
-                            <onfocus>CancelAlarm(Tile,true)</onfocus>
                         </control>
                         <control type="wraplist" id="5002">
                             <width>894</width>
                             <height>550</height>
                             <orientation>horizontal</orientation>
                             <focusposition>0</focusposition>
-                            <scrolltime tween="quadratic">1200</scrolltime>
+                            <autoscroll time="6000">!Control.HasFocus(5009)</autoscroll>
+                            <scrolltime tween="quadratic">800</scrolltime>
                             <preloaditems>2</preloaditems>
                             <itemlayout width="894" height="550">
                                 <control type="image">
@@ -756,7 +710,7 @@
                                     <info>ListItem.Property(Fanart)</info>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>894</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -773,7 +727,7 @@
                                     <info>ListItem.Property(Fanart)</info>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>894</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -786,7 +740,7 @@
                             </content>
                         </control>
                         <control type="label">
-                            <top>510</top>
+                            <posy>510</posy>
                             <width>746</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
@@ -794,34 +748,31 @@
                             <font>Font_Reg26</font>
                         </control>
                         <control type="image">
-                            <left>746</left>
-                            <top>525</top>
+                            <posx>746</posx>
+                            <posy>525</posy>
                             <width>138</width>
                             <height>12</height>
                             <texture>$INFO[Container(5002).ListItem.Property(NavItem),featured/panel_mid/]</texture>
                         </control>
                     </control>
                     <control type="group">
-                        <left>935</left>
-                        <top>31</top>
+                        <posx>935</posx>
+                        <posy>31</posy>
                         <control type="button" id="5011">
                             <include>HiddenObject</include>
                             <onup>5012</onup>
-                            <onleft>AlarmClock(TileTwo,Control.Move(5003,1),00:07,silent,loop)</onleft>
                             <onleft>5009</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(6002,1),00:04,silent,loop)</onright>
-                            <onright>AlarmClock(TileTwo,Control.Move(6003,1),00:07,silent,loop)</onright>
                             <onright>6010</onright>
                             <ondown>Control.Move(5003,1)</ondown>
                             <onfocus>SetProperty(WidgetType,watchlistmovies,home)</onfocus>
                             <onclick>SetFocus(5014)</onclick>
-                            <onfocus>CancelAlarm(TileTwo,true)</onfocus>
                         </control>
                         <control type="wraplist" id="5003">
                             <width>366</width>
                             <height>550</height>
                             <orientation>horizontal</orientation>
                             <focusposition>0</focusposition>
+                            <autoscroll time="4000">!Control.HasFocus(5011)</autoscroll>
                             <scrolltime tween="quadratic">800</scrolltime>
                             <preloaditems>2</preloaditems>
                             <itemlayout width="366" height="550">
@@ -833,7 +784,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>366</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -849,7 +800,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>366</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -861,7 +812,7 @@
                             </content>
                         </control>
                         <control type="label">
-                            <top>510</top>
+                            <posy>510</posy>
                             <width>272</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
@@ -869,16 +820,16 @@
                             <font>Font_Reg26</font>
                         </control>
                         <control type="image">
-                            <left>272</left>
-                            <top>525</top>
+                            <posx>272</posx>
+                            <posy>525</posy>
                             <width>84</width>
                             <height>12</height>
                             <texture>$INFO[Container(5003).ListItem.Property(NavItem),featured/panel_right/]</texture>
                         </control>
                     </control>
                     <control type="image">
-                        <left>26</left>
-                        <top>26</top>
+                        <posx>26</posx>
+                        <posy>26</posy>
                         <width>904</width>
                         <height>560</height>
                         <texture border="6">views/addonwall_select.png</texture>
@@ -887,8 +838,8 @@
                         <visible>Control.HasFocus(5009)</visible>
                     </control>
                     <control type="image">
-                        <left>930</left>
-                        <top>26</top>
+                        <posx>930</posx>
+                        <posy>26</posy>
                         <width>376</width>
                         <height>560</height>
                         <texture border="6">views/addonwall_select.png</texture>
@@ -897,8 +848,8 @@
                         <visible>Control.HasFocus(5011)</visible>
                     </control>
                     <control type="image">
-                        <left>21</left>
-                        <top>21</top>
+                        <posx>21</posx>
+                        <posy>21</posy>
                         <width>1290</width>
                         <height>570</height>
                         <texture>featured/panel_featured_overlay.png</texture>
@@ -927,33 +878,30 @@
                     <onright>7012</onright>
                     <onleft>5012</onleft>
                     <ondown>6001</ondown>
-                    <onfocus>AlarmClock(Tile,Control.Move(6002,1),00:04,silent,loop)</onfocus>
-                    <onfocus>AlarmClock(TileTwo,Control.Move(6003,1),00:07,silent,loop)</onfocus>
                     <onclick>Action(Close)</onclick>
                     <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
                 </control>
                 <control type="group">
-                    <left>450</left>
+                    <posx>450</posx>
                     <include>FeaturedPanel</include>
                     <control type="group" id="6001">
-                        <left>31</left>
-                        <top>31</top>
+                        <posx>31</posx>
+                        <posy>31</posy>
                         <control type="button" id="6010">
                             <include>HiddenObject</include>
                             <onup>6012</onup>
                             <onleft>5011</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(6002,1),00:04,silent,loop)</onright>
                             <onright>6011</onright>
                             <ondown>Control.Move(6002,1)</ondown>
                             <onfocus>SetProperty(WidgetType,recentmovies,home)</onfocus>
                             <onclick>SetFocus(5014)</onclick>
-                            <onfocus>CancelAlarm(Tile,true)</onfocus>
                         </control>
                         <control type="wraplist" id="6002">
                             <width>894</width>
                             <height>550</height>
                             <orientation>horizontal</orientation>
                             <focusposition>0</focusposition>
+                            <autoscroll time="7000">!Control.HasFocus(6010)</autoscroll>
                             <scrolltime tween="quadratic">800</scrolltime>
                             <preloaditems>2</preloaditems>
                             <itemlayout width="894" height="550">
@@ -965,7 +913,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>894</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -981,7 +929,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>894</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -993,7 +941,7 @@
                             </content>
                         </control>
                         <control type="label">
-                            <top>510</top>
+                            <posy>510</posy>
                             <width>746</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
@@ -1001,33 +949,31 @@
                             <font>Font_Reg26</font>
                         </control>
                         <control type="image">
-                            <left>746</left>
-                            <top>525</top>
+                            <posx>746</posx>
+                            <posy>525</posy>
                             <width>138</width>
                             <height>12</height>
                             <texture>$INFO[Container(6002).ListItem.Property(NavItem),featured/panel_mid/]</texture>
                         </control>
                     </control>
                     <control type="group">
-                        <left>935</left>
-                        <top>31</top>
+                        <posx>935</posx>
+                        <posy>31</posy>
                         <control type="button" id="6011">
                             <include>HiddenObject</include>
                             <onup>6012</onup>
-                            <onleft>AlarmClock(TileTwo,Control.Move(6003,1),00:07,silent,loop)</onleft>
                             <onleft>6010</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(7002,1),00:04,silent,loop)</onright>
                             <onright>7010</onright>
                             <ondown>Control.Move(6003,1)</ondown>
                             <onfocus>SetProperty(WidgetType,randommovies,home)</onfocus>
                             <onclick>SetFocus(5014)</onclick>
-                            <onfocus>CancelAlarm(TileTwo,true)</onfocus>
                         </control>
                         <control type="wraplist" id="6003">
                             <width>366</width>
                             <height>550</height>
                             <orientation>horizontal</orientation>
                             <focusposition>0</focusposition>
+                            <autoscroll time="5500">!Control.HasFocus(6011)</autoscroll>
                             <scrolltime tween="quadratic">800</scrolltime>
                             <preloaditems>2</preloaditems>
                             <itemlayout width="366" height="550">
@@ -1039,7 +985,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>366</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1055,7 +1001,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>366</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1067,7 +1013,7 @@
                             </content>
                         </control>
                         <control type="label">
-                            <top>510</top>
+                            <posy>510</posy>
                             <width>272</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
@@ -1075,16 +1021,16 @@
                             <font>Font_Reg26</font>
                         </control>
                         <control type="image">
-                            <left>272</left>
-                            <top>525</top>
+                            <posx>272</posx>
+                            <posy>525</posy>
                             <width>84</width>
                             <height>12</height>
                             <texture>$INFO[Container(6003).ListItem.Property(NavItem),featured/panel_right/]</texture>
                         </control>
                     </control>
                     <control type="image">
-                        <left>26</left>
-                        <top>26</top>
+                        <posx>26</posx>
+                        <posy>26</posy>
                         <width>904</width>
                         <height>560</height>
                         <texture border="6">views/addonwall_select.png</texture>
@@ -1093,8 +1039,8 @@
                         <visible>Control.HasFocus(6010)</visible>
                     </control>
                     <control type="image">
-                        <left>930</left>
-                        <top>26</top>
+                        <posx>930</posx>
+                        <posy>26</posy>
                         <width>376</width>
                         <height>560</height>
                         <texture border="6">views/addonwall_select.png</texture>
@@ -1103,8 +1049,8 @@
                         <visible>Control.HasFocus(6011)</visible>
                     </control>
                     <control type="image">
-                        <left>21</left>
-                        <top>21</top>
+                        <posx>21</posx>
+                        <posy>21</posy>
                         <width>1290</width>
                         <height>570</height>
                         <texture>featured/panel_featured_overlay.png</texture>
@@ -1135,31 +1081,28 @@
                     <ondown>7001</ondown>
                     <onclick>Action(Close)</onclick>
                     <onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
-                    <onfocus>AlarmClock(Tile,Control.Move(7002,1),00:04,silent,loop)</onfocus>
-                    <onfocus>CancelAlarm(TileTwo,true)</onfocus>
                 </control>
                 <control type="group">
-                    <left>450</left>
+                    <posx>450</posx>
                     <include>FeaturedPanel</include>
                     <control type="group" id="7001">
-                        <left>31</left>
-                        <top>31</top>
+                        <posx>31</posx>
+                        <posy>31</posy>
                         <control type="button" id="7010">
                             <include>HiddenObject</include>
                             <onup>7012</onup>
                             <onleft>6011</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(7002,1),00:04,silent,loop)</onright>
                             <onright>7003</onright>
                             <ondown>Control.Move(7002,1)</ondown>
                             <onfocus>SetProperty(WidgetType,recenttv,home)</onfocus>
                             <onclick>SetFocus(5014)</onclick>
-                            <onfocus>CancelAlarm(Tile,true)</onfocus>
                         </control>
                         <control type="wraplist" id="7002">
                             <width>894</width>
                             <height>550</height>
                             <orientation>horizontal</orientation>
                             <focusposition>0</focusposition>
+                            <autoscroll time="6000">!Control.HasFocus(7010)</autoscroll>
                             <scrolltime tween="quadratic">800</scrolltime>
                             <preloaditems>2</preloaditems>
                             <itemlayout width="894" height="550">
@@ -1171,7 +1114,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>894</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1187,7 +1130,7 @@
                                     <animation effect="fade" time="480">Focus</animation>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>894</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1200,7 +1143,7 @@
                             </content>
                         </control>
                         <control type="label">
-                            <top>510</top>
+                            <posy>510</posy>
                             <width>746</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
@@ -1208,24 +1151,23 @@
                             <font>Font_Reg26</font>
                         </control>
                         <control type="image">
-                            <left>746</left>
-                            <top>525</top>
+                            <posx>746</posx>
+                            <posy>525</posy>
                             <width>138</width>
                             <height>12</height>
                             <texture>$INFO[Container(7002).ListItem.Property(NavItem),featured/panel_mid/]</texture>
                         </control>
                     </control>
                     <control type="group">
-                        <left>935</left>
-                        <top>31</top>
+                        <posx>935</posx>
+                        <posy>31</posy>
                         <control type="list" id="7003">
-                            <left>-5</left>
-                            <top>-5</top>
+                            <posx>-5</posx>
+                            <posy>-5</posy>
                             <width>380</width>
                             <height>560</height>
                             <onup>7012</onup>
                             <onleft>7010</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(8002,1),00:04,silent,loop)</onright>
                             <onright>8001</onright>
                             <orientation>vertical</orientation>
                             <focusposition>0</focusposition>
@@ -1246,10 +1188,10 @@
                                     <colordiffuse>60FFFFFF</colordiffuse>
                                 </control>
                                 <control type="group">
-                                    <top>5</top>
+                                    <posy>5</posy>
                                     <animation effect="fade" end="80" start="100" time="0" condition="true">Conditional</animation>
                                     <control type="label">
-                                        <top>5</top>
+                                        <posy>5</posy>
                                         <width>360</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1258,7 +1200,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>40</top>
+                                        <posy>40</posy>
                                         <width>360</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1267,7 +1209,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>75</top>
+                                        <posy>75</posy>
                                         <width>360</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1292,10 +1234,10 @@
                                     <colordiffuse>60FFFFFF</colordiffuse>
                                 </control>
                                 <control type="group">
-                                    <top>5</top>
+                                    <posy>5</posy>
                                     <animation effect="fade" end="80" start="100" time="0" condition="!Control.HasFocus(7003)">Conditional</animation>
                                     <control type="label">
-                                        <top>5</top>
+                                        <posy>5</posy>
                                         <width>360</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1305,7 +1247,7 @@
                                         <scroll>true</scroll>
                                     </control>
                                     <control type="label">
-                                        <top>40</top>
+                                        <posy>40</posy>
                                         <width>360</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1315,7 +1257,7 @@
                                         <scroll>true</scroll>
                                     </control>
                                     <control type="label">
-                                        <top>75</top>
+                                        <posy>75</posy>
                                         <width>360</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1325,7 +1267,7 @@
                                     </control>
                                 </control>
                                 <control type="image">
-                                    <top>-5</top>
+                                    <posy>-5</posy>
                                     <width>376</width>
                                     <height>140</height>
                                     <texture>common/blank.png</texture>
@@ -1342,8 +1284,8 @@
                         </control>
                     </control>
                     <control type="image">
-                        <left>26</left>
-                        <top>26</top>
+                        <posx>26</posx>
+                        <posy>26</posy>
                         <width>904</width>
                         <height>560</height>
                         <texture border="6">views/addonwall_select.png</texture>
@@ -1352,8 +1294,8 @@
                         <visible>Control.HasFocus(7010)</visible>
                     </control>
                     <control type="image">
-                        <left>21</left>
-                        <top>21</top>
+                        <posx>21</posx>
+                        <posy>21</posy>
                         <width>1290</width>
                         <height>570</height>
                         <texture>featured/panel_featured_overlay.png</texture>
@@ -1384,30 +1326,28 @@
                     <ondown>8001</ondown>
                     <onclick>Action(Close)</onclick>
                     <onclick>ActivateWindow(musiclibrary,Albums,return)</onclick>
-                    <onfocus>AlarmClock(Tile,Control.Move(8002,1),00:04,silent,loop)</onfocus>
                 </control>
                 <control type="group" id="8001">
-                    <left>450</left>
+                    <posx>450</posx>
                     <include>FeaturedPanel</include>
                     <control type="group">
-                        <left>31</left>
-                        <top>31</top>
+                        <posx>31</posx>
+                        <posy>31</posy>
                         <control type="button" id="8010">
                             <include>HiddenObject</include>
                             <onup>8012</onup>
                             <onleft>7003</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(8002,1),00:04,silent,loop)</onright>
                             <onright>8003</onright>
                             <ondown>Control.Move(8002,1)</ondown>
                             <onfocus>SetProperty(WidgetType,randomalbums,home)</onfocus>
                             <onclick>SetFocus(5014)</onclick>
-                            <onfocus>CancelAlarm(Tile,true)</onfocus>
                         </control>
                         <control type="wraplist" id="8002">
                             <width>550</width>
                             <height>550</height>
                             <orientation>horizontal</orientation>
                             <focusposition>0</focusposition>
+                            <autoscroll time="5000">!Control.HasFocus(8010)</autoscroll>
                             <scrolltime tween="quadratic">800</scrolltime>
                             <preloaditems>2</preloaditems>
                             <itemlayout width="550" height="550">
@@ -1420,7 +1360,7 @@
                                     <info>ListItem.Icon</info>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>550</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1437,7 +1377,7 @@
                                     <info>ListItem.Icon</info>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>550</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1450,7 +1390,7 @@
                             </content>
                         </control>
                         <control type="label">
-                            <top>510</top>
+                            <posy>510</posy>
                             <width>402</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
@@ -1458,24 +1398,23 @@
                             <font>Font_Reg26</font>
                         </control>
                         <control type="image">
-                            <left>402</left>
-                            <top>525</top>
+                            <posx>402</posx>
+                            <posy>525</posy>
                             <width>138</width>
                             <height>12</height>
                             <texture>$INFO[Container(8002).ListItem.Property(NavItem),featured/panel_mid/]</texture>
                         </control>
                     </control>
                     <control type="group">
-                        <left>591</left>
-                        <top>31</top>
+                        <posx>591</posx>
+                        <posy>31</posy>
                         <control type="list" id="8003">
-                            <left>-5</left>
-                            <top>-5</top>
+                            <posx>-5</posx>
+                            <posy>-5</posy>
                             <width>724</width>
                             <height>560</height>
                             <onup>8012</onup>
                             <onleft>8010</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(9002,1),00:04,silent,loop)</onright>
                             <onright>9001</onright>
                             <orientation>vertical</orientation>
                             <focusposition>0</focusposition>
@@ -1496,10 +1435,10 @@
                                     <colordiffuse>60FFFFFF</colordiffuse>
                                 </control>
                                 <control type="group">
-                                    <top>5</top>
+                                    <posy>5</posy>
                                     <animation effect="fade" end="80" start="100" time="0" condition="true">Conditional</animation>
                                     <control type="label">
-                                        <top>5</top>
+                                        <posy>5</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1508,7 +1447,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>40</top>
+                                        <posy>40</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1517,7 +1456,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>75</top>
+                                        <posy>75</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1542,10 +1481,10 @@
                                     <colordiffuse>60FFFFFF</colordiffuse>
                                 </control>
                                 <control type="group">
-                                    <top>5</top>
+                                    <posy>5</posy>
                                     <animation effect="fade" end="80" start="100" time="0" condition="!Control.HasFocus(8003)">Conditional</animation>
                                     <control type="image">
-                                        <top>-5</top>
+                                        <posy>-5</posy>
                                         <width>720</width>
                                         <height>140</height>
                                         <texture>common/blank.png</texture>
@@ -1555,7 +1494,7 @@
                                         <visible>Control.HasFocus(8003)</visible>
                                     </control>
                                     <control type="label">
-                                        <top>5</top>
+                                        <posy>5</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1564,7 +1503,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>40</top>
+                                        <posy>40</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1573,7 +1512,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>75</top>
+                                        <posy>75</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1590,8 +1529,8 @@
                         </control>
                     </control>
                     <control type="image">
-                        <left>26</left>
-                        <top>26</top>
+                        <posx>26</posx>
+                        <posy>26</posy>
                         <width>560</width>
                         <height>560</height>
                         <texture border="6">views/addonwall_select.png</texture>
@@ -1600,8 +1539,8 @@
                         <visible>Control.HasFocus(8010)</visible>
                     </control>
                     <control type="image">
-                        <left>21</left>
-                        <top>21</top>
+                        <posx>21</posx>
+                        <posy>21</posy>
                         <width>1290</width>
                         <height>570</height>
                         <texture>featured/panel_featured_overlay.png</texture>
@@ -1632,31 +1571,28 @@
                     <ondown>9001</ondown>
                     <onclick>Action(Close)</onclick>
                     <onclick>ActivateWindow(musiclibrary,root,return)</onclick>
-                    <onfocus>AlarmClock(Tile,Control.Move(9002,1),00:04,silent,loop)</onfocus>
                 </control>
                 <control type="group" id="9001">
-                    <left>450</left>
+                    <posx>450</posx>
                     <include>FeaturedPanel</include>
                     <control type="group">
-                        <left>31</left>
-                        <top>31</top>
+                        <posx>31</posx>
+                        <posy>31</posy>
                         <control type="button" id="9010">
                             <include>HiddenObject</include>
                             <onup>9012</onup>
-                            <onleft>AlarmClock(Tile,Control.Move(8002,1),00:04,silent,loop)</onleft>
                             <onleft>8003</onleft>
-                            <onright>AlarmClock(Tile,Control.Move(9002,1),00:04,silent,loop)</onright>
                             <onright>9003</onright>
                             <ondown>Control.Move(9002,1)</ondown>
                             <onfocus>SetProperty(WidgetType,randomartists,home)</onfocus>
                             <onclick>SetFocus(5014)</onclick>
-                            <onfocus>CancelAlarm(Tile,true)</onfocus>
                         </control>
                         <control type="wraplist" id="9002">
                             <width>550</width>
                             <height>550</height>
                             <orientation>horizontal</orientation>
                             <focusposition>0</focusposition>
+                            <autoscroll time="7000">!Control.HasFocus(9010)</autoscroll>
                             <scrolltime tween="quadratic">800</scrolltime>
                             <preloaditems>2</preloaditems>
                             <itemlayout width="550" height="550">
@@ -1669,7 +1605,7 @@
                                     <info>ListItem.Icon</info>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>550</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1686,7 +1622,7 @@
                                     <info>ListItem.Icon</info>
                                 </control>
                                 <control type="image">
-                                    <top>510</top>
+                                    <posy>510</posy>
                                     <width>550</width>
                                     <height>40</height>
                                     <texture>common/bgcolor.png</texture>
@@ -1699,7 +1635,7 @@
                             </content>
                         </control>
                         <control type="label">
-                            <top>510</top>
+                            <posy>510</posy>
                             <width>402</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
@@ -1707,19 +1643,19 @@
                             <font>Font_Reg26</font>
                         </control>
                         <control type="image">
-                            <left>402</left>
-                            <top>525</top>
+                            <posx>402</posx>
+                            <posy>525</posy>
                             <width>138</width>
                             <height>12</height>
                             <texture>$INFO[Container(9002).ListItem.Property(NavItem),featured/panel_mid/]</texture>
                         </control>
                     </control>
                     <control type="group">
-                        <left>591</left>
-                        <top>31</top>
+                        <posx>591</posx>
+                        <posy>31</posy>
                         <control type="list" id="9003">
-                            <left>-5</left>
-                            <top>-5</top>
+                            <posx>-5</posx>
+                            <posy>-5</posy>
                             <width>724</width>
                             <height>560</height>
                             <onup>9012</onup>
@@ -1744,10 +1680,10 @@
                                     <colordiffuse>60FFFFFF</colordiffuse>
                                 </control>
                                 <control type="group">
-                                    <top>5</top>
+                                    <posy>5</posy>
                                     <animation effect="fade" end="80" start="100" time="0" condition="true">Conditional</animation>
                                     <control type="label">
-                                        <top>5</top>
+                                        <posy>5</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1756,7 +1692,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>40</top>
+                                        <posy>40</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1765,7 +1701,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>75</top>
+                                        <posy>75</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1790,10 +1726,10 @@
                                     <colordiffuse>60FFFFFF</colordiffuse>
                                 </control>
                                 <control type="group">
-                                    <top>5</top>
+                                    <posy>5</posy>
                                     <animation effect="fade" end="80" start="100" time="0" condition="!Control.HasFocus(9003)">Conditional</animation>
                                     <control type="label">
-                                        <top>5</top>
+                                        <posy>5</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1802,7 +1738,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>40</top>
+                                        <posy>40</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1811,7 +1747,7 @@
                                         <textcolor>white2</textcolor>
                                     </control>
                                     <control type="label">
-                                        <top>75</top>
+                                        <posy>75</posy>
                                         <width>710</width>
                                         <height>45</height>
                                         <textoffsetx>15</textoffsetx>
@@ -1821,7 +1757,7 @@
                                     </control>
                                 </control>
                                 <control type="image">
-                                    <top>-5</top>
+                                    <posy>-5</posy>
                                     <width>720</width>
                                     <height>140</height>
                                     <texture>common/blank.png</texture>
@@ -1838,8 +1774,8 @@
                         </control>
                     </control>
                     <control type="image">
-                        <left>26</left>
-                        <top>26</top>
+                        <posx>26</posx>
+                        <posy>26</posy>
                         <width>560</width>
                         <height>560</height>
                         <texture border="6">views/addonwall_select.png</texture>
@@ -1848,8 +1784,8 @@
                         <visible>Control.HasFocus(9010)</visible>
                     </control>
                     <control type="image">
-                        <left>21</left>
-                        <top>21</top>
+                        <posx>21</posx>
+                        <posy>21</posy>
                         <width>1290</width>
                         <height>570</height>
                         <texture>featured/panel_featured_overlay.png</texture>
@@ -1859,8 +1795,8 @@
             </control>
         </control>
         <control type="group">
-            <left>135</left>
-            <top>405</top>
+            <posx>135</posx>
+            <posy>405</posy>
             <animation type="Conditional" condition="true">
                 <effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
             </animation>
@@ -1884,14 +1820,14 @@
             </control>
             <control type="group">
                 <control type="grouplist">
-                    <left>0</left>
+                    <posx>0</posx>
                     <width>1920</width>
                     <align>center</align>
                     <itemgap>50</itemgap>
                     <orientation>horizontal</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
                     <control type="image">
-                        <top>1</top>
+                        <posy>1</posy>
                         <width>40</width>
                         <height>40</height>
                         <aspectratio>keep</aspectratio>
@@ -1911,13 +1847,13 @@
                         <animation effect="zoom" start="100" end="120" time="240" center="auto" tween="cubic" easing="inout" condition="ControlGroup(5000).HasFocus">Conditional</animation>
                     </control>
                     <control type="label">
-                        <label>$LOCALIZE[31502]</label>
+                        <label>$LOCALIZE[342]</label>
                         <include>FeaturedTopLabel</include>
                         <animation effect="fade" start="100" end="50" time="240" tween="cubic" easing="inout" condition="!Control.HasFocus(6012)">Conditional</animation>
                         <animation effect="zoom" start="100" end="120" time="240" center="auto" tween="cubic" easing="inout" condition="ControlGroup(6000).HasFocus">Conditional</animation>
                     </control>
                     <control type="label">
-                        <label>$LOCALIZE[31503]</label>
+                        <label>$LOCALIZE[20343]</label>
                         <include>FeaturedTopLabel</include>
                         <animation effect="fade" start="100" end="50" time="240" tween="cubic" easing="inout" condition="!Control.HasFocus(7012)">Conditional</animation>
                         <animation effect="zoom" start="100" end="120" time="240" center="auto" tween="cubic" easing="inout" condition="ControlGroup(7000).HasFocus">Conditional</animation>
@@ -1929,7 +1865,7 @@
                         <animation effect="zoom" start="100" end="120" time="240" center="auto" tween="cubic" easing="inout" condition="ControlGroup(8000).HasFocus">Conditional</animation>
                     </control>
                     <control type="label">
-                        <label>$LOCALIZE[31501]</label>
+                        <label>$LOCALIZE[2]</label>
                         <include>FeaturedTopLabel</include>
                         <animation effect="fade" start="100" end="50" time="240" tween="cubic" easing="inout" condition="!Control.HasFocus(9012)">Conditional</animation>
                         <animation effect="zoom" start="100" end="120" time="240" center="auto" tween="cubic" easing="inout" condition="ControlGroup(9000).HasFocus">Conditional</animation>

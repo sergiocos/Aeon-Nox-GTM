@@ -14,19 +14,15 @@
     <onunload>Skin.SetString($INFO[Window(home).Property(MenuItem)].Icon,$ESCINFO[Skin.String(ItemToEdit.Icon)])</onunload>
     <onunload>Skin.SetString($INFO[Window(home).Property(MenuItem)].InfoLine,$INFO[Skin.String(ItemToEdit.InfoLine)])</onunload>
     <onunload>Skin.SetString($INFO[Window(home).Property(MenuItem)].SubMenu,$INFO[Skin.String(ItemToEdit.SubMenu)])</onunload>
-    <onunload condition="IsEmpty(Window(1124).Property(ResetItem))">ClearProperty(MenuItem,home)</onunload>
-    <onunload condition="Skin.HasSetting(mainmenuicons) | !IsEmpty(Window(1124).Property(ResetItem))">Control.Move(9000,12)</onunload>
-    <onunload condition="Skin.HasSetting(mainmenuicons) | !IsEmpty(Window(1124).Property(ResetItem))">AlarmClock(Test3,Dialog.Close(1156),00:01,silent)</onunload>
-    <onunload condition="Skin.HasSetting(mainmenuicons) | !IsEmpty(Window(1124).Property(ResetItem))">ActivateWindow(1156)</onunload>
-	<onunload>SetFocus(9000)</onunload>
+    <include>Animation_DialogPopupOpenClose</include>
     <controls>
         <control type="group">
-            <top>-40</top>
-            <visible>!Window.IsActive(script-RSS_Editor-rssEditor.xml) + !Window.IsActive(1137) + !Window.IsActive(1150) + !Window.IsActive(1160) + !Window.IsActive(1162) + !Window.IsActive(1133) + !Window.IsActive(1134) + !Window.IsActive(1138) + !Window.IsActive(1142) + !Window.IsActive(1143) + !Window.IsActive(1144) + !Window.IsActive(1145) + !Window.IsActive(1146) + !Window.IsActive(1155) + !Window.IsVisible(DialogKeyboard.xml)</visible>
-            <include>Animation_DialogPopup</include>
+            <posy>-40</posy>
+            <visible>!Window.IsActive(script-RSS_Editor-rssEditor.xml) + !Window.IsActive(1137) + !Window.IsActive(1160) + !Window.IsActive(1162) + !Window.IsActive(1133) + !Window.IsActive(1134) + !Window.IsActive(1138) + !Window.IsActive(1144) + !Window.IsActive(1146) + !Window.IsActive(1155) + !Window.IsVisible(DialogKeyboard.xml)</visible>
+            <include>Animation_DialogPopupVisibleChange</include>
             <control type="image">
-                <left>456</left>
-                <top>200</top>
+                <posx>456</posx>
+                <posy>200</posy>
                 <width>1010</width>
                 <height>810</height>
                 <texture>osd/osd_settings_back_glow.png</texture>
@@ -36,8 +32,8 @@
                 <include>Animation_VisibleChange400</include>
             </control>
             <control type="image">
-                <left>456</left>
-                <top>200</top>
+                <posx>456</posx>
+                <posy>200</posy>
                 <width>1010</width>
                 <height>810</height>
                 <texture>osd/osd_settings_back.png</texture>
@@ -45,18 +41,18 @@
             </control>
             <control type="group">
                 <control type="grouplist">
-                    <left>875</left>
-                    <top>240</top>
+                    <posx>875</posx>
+                    <posy>240</posy>
                     <width>1172</width>
                     <height>720</height>
                     <aligny>center</aligny>
-                    <scrolltime>0</scrolltime>
+                    <scrolltime tween="sine">200</scrolltime>
                     <orientation>vertical</orientation>
                     <visible>!Window.IsActive(1134)</visible>
                     <include>Animation_VisibleChange200</include>
                     <control type="button">
-                        <label>$LOCALIZE[31008]:</label>
-                        <label2>[COLOR white]$VAR[CustomItemTypeNameVar][/COLOR]</label2>
+                        <label>$LOCALIZE[467]:</label>
+                        <label2>[COLOR white]$INFO[Skin.String(ItemToEdit.Type)][/COLOR]</label2>
                         <include>Objects_CustomizerInfoButton</include>
                     </control>
                     <control type="button">
@@ -65,7 +61,7 @@
                         <include>Objects_CustomizerInfoButton</include>
                     </control>
                     <control type="button">
-                        <label>$LOCALIZE[31958]:</label>
+                        <label>$LOCALIZE[21899]:</label>
                         <label2>[COLOR white]$INFO[Skin.String(ItemToEdit.Label)][/COLOR]</label2>
                         <include>Objects_CustomizerInfoButton</include>
                     </control>
@@ -96,12 +92,17 @@
                         <include>Objects_CustomizerInfoButton</include>
                     </control>
                     <control type="button">
-                        <label>$LOCALIZE[31695]:</label>
+                        <label>$LOCALIZE[1034]:</label>
                         <label2>[COLOR white]$VAR[CustomItemSubmenuLabelVar] $VAR[CustomSubMenuItemsVar][/COLOR]</label2>
                         <include>Objects_CustomizerInfoButton</include>
                     </control>
+                    <control type="button">
+                        <label>Startup Focus Item: </label>
+                        <label2>[COLOR white]$INFO[Skin.String(CustomFocusOffset)][/COLOR]</label2>
+                        <include>Objects_CustomizerInfoButton</include>
+                    </control>
                     <control type="image">
-                        <left>100</left>
+                        <posx>100</posx>
                         <width>600</width>
                         <height>100</height>
                         <align>center</align>
@@ -111,7 +112,7 @@
                         <visible>!Substring(Skin.String(ItemToEdit.Icon),/BigIcons/)</visible>
                     </control>
                     <control type="image">
-                        <left>100</left>
+                        <posx>100</posx>
                         <width>600</width>
                         <height>100</height>
                         <align>center</align>
@@ -122,14 +123,14 @@
                     </control>
                 </control>
                 <control type="grouplist" id="4">
-                    <left>475</left>
-                    <top>240</top>
+                    <posx>475</posx>
+                    <posy>240</posy>
                     <width>1172</width>
                     <height>720</height>
                     <aligny>center</aligny>
-                    <scrolltime>0</scrolltime>
+                    <scrolltime tween="sine">200</scrolltime>
                     <orientation>vertical</orientation>
-					<visible>!Window.IsActive(1134)</visible>
+                    <visible>!Window.IsActive(1134)</visible>
                     <include>Animation_VisibleChange200</include>
                     <control type="radiobutton" id="7">
                         <label>$LOCALIZE[24021]</label>
@@ -143,7 +144,7 @@
                     <control type="button" id="20">
                         <label>$LOCALIZE[31956]</label>
                         <include>Objects_CustomizerSettingsButton</include>
-                        <onclick>ActivateWindow(1142)</onclick>
+                        <onclick>RunScript(script.skinshortcuts,type=shortcuts&amp;skinLabel=ItemToEdit.Label&amp;skinAction=ItemToEdit.Path&amp;skinType=ItemToEdit.Type&amp;skinThumbnail=ItemToEdit.Icon)</onclick>
                     </control>
                     <control type="button" id="23">
                         <label>$LOCALIZE[31679]</label>
@@ -154,13 +155,13 @@
                     <control type="button" id="24">
                         <label>$LOCALIZE[31681]</label>
                         <include>Objects_CustomizerSettingsButton</include>
-                        <onclick>Setproperty(WidgetSelection,Widget,1124)</onclick>
+                        <onclick>Setproperty(WidgetSelection,Widget,skinsettings)</onclick>
                         <onclick>ActivateWindow(1133)</onclick>
                     </control>
                     <control type="button" id="25">
                         <label>$LOCALIZE[31957]</label>
                         <include>Objects_CustomizerSettingsButton</include>
-                        <onclick>Setproperty(WidgetSelection,Widget2,1124)</onclick>
+                        <onclick>Setproperty(WidgetSelection,Widget2,skinsettings)</onclick>
                         <onclick>ActivateWindow(1133)</onclick>
                     </control>
                     <control type="button" id="26">
@@ -176,13 +177,18 @@
                     <control type="button" id="270">
                         <label>31704</label>
                         <include>Objects_CustomizerSettingsButton</include>
-                        <onclick>ActivateWindow(1150)</onclick>
+                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=$INFO[Skin.String(ItemToEdit.SubMenu)])</onclick>
                     </control>
                     <control type="button" id="28">
                         <label>31807</label>
                         <include>Objects_CustomizerSettingsButton</include>
-                        <onclick>SetProperty(IconTarget,Icon,1124)</onclick>
-                        <onclick>ActivateWindow(1145)</onclick>
+                        <onclick>Skin.SetFile(ItemToEdit.Icon,.png|.bmp|.gif|.jpg|.jpeg|.ico,special://skin/extras/BigIcons)</onclick>
+                    </control>
+                    <control type="button" id="35">
+                        <label>Focus Item on Startup</label>
+                        <include>Objects_CustomizerSettingsButton</include>
+                        <enable>!Stringcompare(Skin.String(CustomFocusOffset),Skin.String(ItemToEdit.Label))</enable>
+                          <onclick>Skin.SetString(CustomFocusOffset,$INFO[Skin.String(ItemToEdit.Label)])</onclick>
                     </control>
                     <control type="button" id="30">
                         <label>31808</label>
@@ -204,9 +210,8 @@
                         <onclick>Skin.Reset(ItemToEdit.Disable)</onclick>
                         <onclick>Skin.Reset(ItemToEdit.InfoLine)</onclick>
                         <onclick>Skin.Reset(ItemToEdit.SubMenu)</onclick>
-                        <onclick>SetProperty(ResetItem,true,1124)</onclick>
                         <onclick>Dialog.Close(1122)</onclick>
-                    </control>					
+                    </control>
                 </control>
             </control>
         </control>

@@ -4,7 +4,6 @@
     <allowoverlay>no</allowoverlay>
     <views>50,57,500,505,509,511,512,53,518</views>
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
-    <onload condition="!Skin.HasSetting(ExplainMediaMenu)">ActivateWindow(1123)</onload>
     <controls>
         <control type="label" id="4420">
             <label fallback="fanart">$VAR[InfoPanelStyleVar]</label>
@@ -38,7 +37,7 @@
             <animation effect="fade" start="100" end="0" time="80">Hidden</animation>
             <visible>[Control.IsVisible(512) + Skin.HasSetting(addonwallaltbackground)] | [Control.IsVisible(500) + Skin.HasSetting(wallfullscreen)]</visible>
         </control>
-        <include>ShowcaseInfoPaneMusic</include>
+        <include>ShowcaseSquareInfoPanel</include>
         <include>Furniture_Showcase</include>
         <include>Furniture_Glow</include>
         <include>WallPanel</include>

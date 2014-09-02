@@ -19,10 +19,16 @@
             </animation>
             <animation effect="zoom" end="91" center="960,360" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
             <include>Furniture_SettingsBackPanel2</include>
-            <include>Furniture_SettingsInternalBackPanel</include>
+            <control type="image">
+                <posx>34</posx>
+                <posy>34</posy>
+                <width>1850</width>
+                <height>1010</height>
+                <texture background="true">settings/settings_intframe_bottom.png</texture>
+            </control>
             <control type="list" id="9000">
-                <left>62</left>
-                <top>190</top>
+                <posx>62</posx>
+                <posy>190</posy>
                 <width>570</width>
                 <height>819</height>
                 <onleft>ActivateWindow(1121)</onleft>
@@ -31,11 +37,11 @@
                 <ondown>9000</ondown>
                 <itemlayout height="74" width="570">
                     <control type="label">
-                        <left>30</left>
+                        <posx>30</posx>
                         <width>389</width>
                         <height>74</height>
                         <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Bold34_Caps</font>
+                        <font>Font_Bold34</font>
                         <textcolor>grey2</textcolor>
                     </control>
                 </itemlayout>
@@ -48,11 +54,11 @@
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <posx>30</posx>
                         <width>389</width>
                         <height>74</height>
                         <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Bold34_Caps</font>
+                        <font>Font_Bold34</font>
                     </control>
                 </focusedlayout>
                 <content>
@@ -128,22 +134,28 @@
                 </content>
             </control>
             <control type="image">
-                <left>498</left>
-                <top>87</top>
+                <posx>498</posx>
+                <posy>87</posy>
                 <width>1260</width>
                 <height>708</height>
                 <texture background="true">$INFO[Container(9000).ListItem.Icon]</texture>
                 <fadetime>600</fadetime>
             </control>
             <control type="textbox">
-                <left>555</left>
-                <top>810</top>
+                <posx>555</posx>
+                <posy>810</posy>
                 <width>1200</width>
                 <height>210</height>
                 <label>$INFO[Container(9000).ListItem.Property(description)]</label>
                 <font>Font_Reg32</font>
             </control>
-            <include>Furniture_SettingsInternalFrontPanel</include>
+            <control type="image">
+                <posx>34</posx>
+                <posy>34</posy>
+                <width>1850</width>
+                <height>1010</height>
+                <texture>settings/settings_intframe_top.png</texture>
+            </control>
         </control>
         <control type="group">
             <include>Animation_HideBreadCrumbs</include>

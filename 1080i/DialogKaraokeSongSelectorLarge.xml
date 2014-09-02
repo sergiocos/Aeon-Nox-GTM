@@ -2,8 +2,8 @@
 <window type="dialog" id="143">
     <include>Animation_WindowFade200</include>
     <coordinates>
-        <left>622</left>
-        <top>338</top>
+        <posx>622</posx>
+        <posy>338</posy>
         <system>1</system>
     </coordinates>
     <controls>
@@ -14,8 +14,8 @@
                 <texture border="30">OverlayDialogBackground.png</texture>
             </control>
             <control type="label" id="1">
-                <left>30</left>
-                <top>27</top>
+                <posx>30</posx>
+                <posy>27</posy>
                 <width>615</width>
                 <height>45</height>
                 <align>center</align>
@@ -24,8 +24,8 @@
                 <shadowcolor>black</shadowcolor>
             </control>
             <control type="label" id="401">
-                <left>30</left>
-                <top>98</top>
+                <posx>30</posx>
+                <posy>98</posy>
                 <width>615</width>
                 <height>45</height>
                 <align>center</align>
@@ -33,8 +33,8 @@
                 <textcolor>$VAR[FontColorVar]</textcolor>
             </control>
             <control type="label" id="402">
-                <left>30</left>
-                <top>158</top>
+                <posx>30</posx>
+                <posy>158</posy>
                 <width>615</width>
                 <height>30</height>
                 <align>center</align>

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-    <defaultcontrol always="true">9000</defaultcontrol>
+    <defaultcontrol always="true">10000</defaultcontrol>
     <backgroundcolor>backgroundcolor</backgroundcolor>
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+    <onload>SetProperty(MenuName,MenuItem,home)</onload>
+    <onunload>Skin.SetString(widgetlist,$INFO[Control.GetLabel(11111)])</onunload>
+    <onunload>Skin.SetString(widget2list,$INFO[Control.GetLabel(11112)])</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=weather|movies|settings|shutdown|tvshows|livetv|musicvideos|pictures|programs|dvd|videos|music)</onunload>
     <animation type="WindowOpen" reversible="false" condition="![Window.Previous(SettingsCategory.xml) | Window.Previous(1116) | Window.Previous(settings)]">
         <effect type="zoom" start="150" end="100" center="960,540" time="240" tween="cubic" />
         <effect type="fade" end="100" time="240" />
@@ -12,29 +16,48 @@
         <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
     </animation>
     <controls>
+        <control type="button" id="9006">
+            <include>HiddenObject</include>
+            <onfocus>Skin.Setstring(ItemToEdit.Label,$ESCINFO[Container(9000).ListItem.Label])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.MultiFanart,$ESCINFO[Container(9000).ListItem.Icon])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.Icon,$ESCINFO[Container(9000).ListItem.Property(BigIcon)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.Widget,$INFO[Container(9000).ListItem.Property(Widget)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.Widget2,$INFO[Container(9000).ListItem.Property(Widget2)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.WidgetTitle,$ESCINFO[Container(9000).ListItem.Property(WidgetTitle)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.Widget2Title,$ESCINFO[Container(9000).ListItem.Property(Widget2Title)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.InfoLine,$INFO[Container(9000).ListItem.Property(InfoLine)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.SubMenu,$INFO[Container(9000).ListItem.Property(submenuVisibility)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.Disable,$INFO[Container(9000).ListItem.Property(DisableIcon)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.Type,$INFO[Container(9000).ListItem.Property(Type)])</onfocus>
+            <onfocus>Skin.Setstring(ItemToEdit.Path,$ESCINFO[Container(9000).ListItem.Property(Path)])</onfocus>
+            <onfocus>SetFocus(9000)</onfocus>
+            <onfocus>ActivateWindow(1122)</onfocus>
+        </control>
         <include>CommonSettingsBackground</include>
         <include>CommonMediaPlayingBackground</include>
         <include>Furniture_SettingsFloor</include>
         <control type="group">
             <animation effect="zoom" end="91" center="960,360" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
             <include>Furniture_SettingsBackPanel</include>
-            <control type="list" id="9000">
-                <left>63</left>
-                <top>194</top>
+            <control type="list" id="10000">
+                <posx>63</posx>
+                <posy>194</posy>
                 <width>750</width>
                 <height>768</height>
                 <onleft>ActivateWindow(1121)</onleft>
-                <onright>9010</onright>
-                <onup>9000</onup>
-                <ondown>9000</ondown>
+                <onright condition="Container(10000).HasFocus(3)">SetProperty(FocusOnCustomizer,True,skinsettings)</onright>
+                <onright condition="Container(10000).HasFocus(3)">452</onright>
+                <onright condition="!Container(10000).HasFocus(3)">10010</onright>
+                <onup>10000</onup>
+                <ondown>10000</ondown>
                 <scrolltime tween="sine">300</scrolltime>
                 <itemlayout height="74" width="570">
                     <control type="label">
-                        <left>30</left>
+                        <posx>30</posx>
                         <width>306</width>
                         <height>74</height>
                         <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Bold34_Caps</font>
+                        <font>Font_Bold34</font>
                         <textcolor>grey2</textcolor>
                     </control>
                 </itemlayout>
@@ -43,15 +66,15 @@
                         <width>324</width>
                         <height>74</height>
                         <texture border="8">views/tripanel/listselect_fo.png</texture>
-                        <animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
+                        <animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(10000)">Conditional</animation>
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <posx>30</posx>
                         <width>306</width>
                         <height>74</height>
                         <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Bold34_Caps</font>
+                        <font>Font_Bold34</font>
                     </control>
                 </focusedlayout>
                 <content>
@@ -59,47 +82,44 @@
                         <label>128</label>
                         <onclick>noop</onclick>
                     </item>
-                    <item id="2">
-                        <label>31682</label>
+                    <item id="3">
+                        <label>Main Menu</label>
                         <onclick>noop</onclick>
                     </item>
                     <item id="8">
-                        <label>31870</label>
+                        <label>10043</label>
                         <onclick>noop</onclick>
                     </item>
                     <item id="9">
                         <label>470</label>
                         <onclick>noop</onclick>
                     </item>
-                    <item id="10">
-                        <label>31641</label>
-                        <onclick>noop</onclick>
-                    </item>
                 </content>
             </control>
             <control type="label">
-                <left>358</left>
-                <top>-800</top>
+                <posx>358</posx>
+                <posy>90</posy>
                 <width>1491</width>
                 <align>center</align>
-                <label>$LOCALIZE[20077] - $INFO[Container(9000).ListItem.Label] $INFO[Container(9000).ListItem.Label2]</label>
+                <aligny>top</aligny>
+                <label>$LOCALIZE[20077] - $INFO[Container(10000).ListItem.Label] $INFO[Container(10000).ListItem.Label2]</label>
                 <font>Font_ShowcaseMainLabel2</font>
                 <shadowcolor>black</shadowcolor>
-                <visible>!Container(9000).Hasfocus(5)</visible>
+                <visible>!Container(10000).Hasfocus(5)</visible>
             </control>
-            <control type="group" id="9010">
-                <control type="grouplist" id="9001">
-                    <left>387</left>
-                    <top>195</top>
+            <control type="group" id="10010">
+                <control type="grouplist" id="10001">
+                    <posx>387</posx>
+                    <posy>195</posy>
                     <width>1469</width>
                     <height>732</height>
-                    <visible>Container(9000).Hasfocus(1)</visible>
+                    <visible>Container(10000).Hasfocus(1)</visible>
                     <itemgap>-1</itemgap>
                     <pagecontrol>60</pagecontrol>
-                    <onleft>9000</onleft>
+                    <onleft>10000</onleft>
                     <onright>60</onright>
-                    <onup>9001</onup>
-                    <ondown>9001</ondown>					
+                    <onup>10001</onup>
+                    <ondown>10001</ondown>
                     <control type="radiobutton" id="101">
                         <label>20189</label>
                         <include>Default_SettingRadioButton</include>
@@ -107,10 +127,10 @@
                         <selected>Skin.HasSetting(AutoScroll)</selected>
                     </control>
                     <control type="radiobutton" id="298">
-                        <label>31279</label>
+                        <label>Activate QuickNav Menu</label>
                         <include>Default_SettingRadioButton</include>
-                        <onclick>Skin.ToggleSetting(fstrailer)</onclick>
-                        <selected>Skin.HasSetting(fstrailer)</selected>
+                        <onclick>Skin.ToggleSetting(quicknav)</onclick>
+                        <selected>Skin.HasSetting(quicknav)</selected>
                     </control>
                     <control type="radiobutton" id="290">
                         <label>31265</label>
@@ -133,422 +153,6 @@
                         <onclick condition="Skin.HasSetting(hideoptions)">Skin.Reset(hideoptions)</onclick>
                         <onclick condition="Skin.HasSetting(kioskmode)">Skin.Reset(kioskmode)</onclick>
                     </control>
-                    <control type="radiobutton" id="262">
-                        <label>31268</label>
-                        <include>Default_SettingRadioButton</include>
-                        <onclick>Skin.ToggleSetting(backendmode)</onclick>
-                        <onclick>RunScript(script.extendedinfo,backend=true)</onclick>
-                        <selected>Skin.HasSetting(backendmode)</selected>
-                        <visible>System.HasAddon(script.extendedinfo)</visible>
-                    </control>
-                    <control type="radiobutton" id="107">
-                        <label>21398</label>
-                        <include>Default_SettingRadioButton</include>
-                        <onclick>Skin.ToggleSetting(Use_Startup_Playlist)</onclick>
-                        <selected>Skin.HasSetting(Use_Startup_Playlist)</selected>
-                    </control>
-                    <control type="button" id="108">
-                        <label>- $LOCALIZE[559]:</label>
-                        <label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(Startup_Playlist_Path)][/COLOR]</label2>
-                        <include>Default_SettingRadioButton</include>
-                        <onclick>Skin.SetFile(Startup_Playlist_Path,.m3u|.xsp,special://profile/playlists/music/)</onclick>
-                        <enable>Skin.HasSetting(Use_Startup_Playlist)</enable>
-                    </control>
-					<control type="radiobutton" id="110">
-						<include>Default_SettingRadioButton</include>
-						<selected>Skin.HasSetting(UpdateArt.Enabled)</selected>
-						<onclick>Skin.ToggleSetting(UpdateArt.Enabled)</onclick>
-						<label>$LOCALIZE[32965]</label>
-						<visible>System.HasAddon(script.artwork.downloader)</visible>
-					</control>		
-					<control type="radiobutton" id="120">
-						<include>Default_SettingRadioButton</include>
-						<selected>Skin.HasSetting(CasesonWidgets)</selected>
-						<onclick>Skin.ToggleSetting(CasesonWidgets)</onclick>
-						<label>Cases on Widgets</label>
-					</control>																		
-                </control>
-                <control type="grouplist" id="9002">
-                    <left>387</left>
-                    <top>195</top>
-                    <width>1469</width>
-                    <height>732</height>
-                    <visible>Container(9000).Hasfocus(2)</visible>
-                    <itemgap>-1</itemgap>
-                    <pagecontrol>60</pagecontrol>
-                    <onleft>9000</onleft>
-                    <onright>60</onright>
-                    <onup>9002</onup>
-                    <ondown>9002</ondown>
-                    <control type="button" id="452">
-                        <label>$LOCALIZE[31643]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(home)</onclick>
-                        <onclick>ActivateWindow(1131)</onclick>
-                    </control>
-                    <control type="button" id="514">
-                        <label>$LOCALIZE[31600]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1124)</onclick>
-                    </control>
-                    <control type="button" id="526">
-                        <label>$LOCALIZE[31010]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>SetProperty(ReturnToHome,true,home)</onclick>
-                        <onclick>ActivateWindow(home)</onclick>
-                        <onclick>ActivateWindow(1120)</onclick>
-                    </control>
-                    <control type="button" id="457">
-                        <label>31877</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1158)</onclick>
-                    </control>
-                    <control type="button" id="453">
-                        <label>$LOCALIZE[31610]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(home)</onclick>
-                        <onclick>ActivateWindow(1128)</onclick>
-                    </control>
-                    <control type="button" id="455">
-                        <label>$LOCALIZE[31961]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>SetProperty(FeaturedSetup,true,home)</onclick>
-                        <onclick>ActivateWindow(1147)</onclick>
-                    </control>
-                    <control type="button" id="454">
-                        <label>$LOCALIZE[31962]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1128)</onclick>
-                    </control>
-                    <control type="button" id="516">
-                        <label>31675</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1116)</onclick>
-                    </control>
-                    <control type="button" id="520">
-                        <label>$LOCALIZE[32997]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1168)</onclick>
-                    </control>					
-                    <control type="button" id="517">
-                        <label>$LOCALIZE[31809]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1117)</onclick>
-                    </control>
-                    <control type="button" id="518">
-                        <label>$LOCALIZE[31637]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1118)</onclick>
-                    </control>
-                    <control type="button" id="519">
-                        <label>$LOCALIZE[32974]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1165)</onclick>
-                    </control>										
-                </control>			
-                <control type="grouplist" id="9004">
-                    <left>387</left>
-                    <top>200</top>
-                    <width>1469</width>
-                    <height>732</height>
-                    <visible>Container(9000).Hasfocus(8)</visible>
-                    <itemgap>-1</itemgap>
-                    <pagecontrol>60</pagecontrol>
-                    <onleft>9000</onleft>
-                    <onup>450</onup>
-                    <ondown>9004</ondown>
-					<onup>9004</onup>
-                    <onright>9009</onright>
-                    <control type="button" id="401">
-                        <label>script.color.picker</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31871])</onclick>
-                        <visible>!System.HasAddon(script.color.picker)</visible>
-                    </control>
-                    <control type="button" id="402">
-                        <label>script.color.picker</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.color.picker)</onclick>
-                        <visible>System.HasAddon(script.color.picker)</visible>
-                    </control>
-                    <control type="button" id="403">
-                        <label>service.skin.widgets</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(service.skin.widgets)</visible>
-                    </control>
-                    <control type="button" id="404">
-                        <label>service.skin.widgets</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(service.skin.widgets)</onclick>
-                        <visible>System.HasAddon(service.skin.widgets)</visible>
-                    </control>
-                    <control type="button" id="405">
-                        <label>script.tvtunes</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.tvtunes)</visible>
-                    </control>
-                    <control type="button" id="406">
-                        <label>script.tvtunes</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.tvtunes)</onclick>
-                        <visible>System.HasAddon(script.tvtunes)</visible>
-                    </control>
-                    <control type="button" id="407">
-                        <label>script.widget.weatherworld</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31871])</onclick>
-                        <visible>!System.HasAddon(script.widget.weatherworld)</visible>
-                    </control>
-                    <control type="button" id="408">
-                        <label>script.widget.weatherworld</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.widget.weatherworld)</onclick>
-                        <visible>System.HasAddon(script.widget.weatherworld)</visible>
-                    </control>
-                    <control type="button" id="409">
-                        <label>script.metadata.actors</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.metadata.actors)</visible>
-                    </control>
-                    <control type="button" id="410">
-                        <label>script.metadata.actors</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.metadata.actors)</onclick>
-                        <visible>System.HasAddon(script.metadata.actors)</visible>
-                    </control>
-                    <control type="button" id="432">
-                        <label>script.artistslideshow</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.artistslideshow)</visible>
-                    </control>
-                    <control type="button" id="433">
-                        <label>script.artistslideshow</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
-                        <visible>System.HasAddon(script.artistslideshow)</visible>
-                    </control>
-                    <control type="button" id="434">
-                        <label>script.tv.show.next.aired</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.tv.show.next.aired)</visible>
-                    </control>
-                    <control type="button" id="435">
-                        <label>script.tv.show.next.aired</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
-                        <visible>System.HasAddon(script.tv.show.next.aired)</visible>
-                    </control>								
-                </control>
-                <control type="grouplist" id="9009">
-                    <left>1121</left>
-                    <top>200</top>
-                    <width>734</width>
-                    <height>732</height>
-                    <visible>Container(9000).Hasfocus(8)</visible>
-                    <itemgap>-1</itemgap>
-                    <pagecontrol>61</pagecontrol>
-                    <onleft>9004</onleft>
-                    <onright>61</onright>
-                    <onup>9009</onup>
-                    <ondown>9009</ondown>
-                    <control type="button" id="411">
-                        <label>script.extendedinfo</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31871])</onclick>
-                        <visible>!System.HasAddon(script.extendedinfo)</visible>
-                    </control>
-                    <control type="button" id="412">
-                        <label>script.extendedinfo</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.extendedinfo)</onclick>
-                        <visible>System.HasAddon(script.extendedinfo)</visible>
-                    </control>
-                    <control type="button" id="417">
-                        <label>script.cinema.experience</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.cinema.experience)</visible>
-                    </control>
-                    <control type="button" id="418">
-                        <label>script.cinema.experience</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.cinema.experience)</onclick>
-                        <visible>System.HasAddon(script.cinema.experience)</visible>
-                    </control>
-                    <control type="button" id="419">
-                        <label>script.randommovie</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.randommovie)</visible>
-                    </control>
-                    <control type="button" id="420">
-                        <label>script.randommovie</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.randommovie)</onclick>
-                        <visible>System.HasAddon(script.randommovie)</visible>
-                    </control>
-                    <control type="button" id="421">
-                        <label>script.randomandlastitems</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.randomandlastitems)</visible>
-                    </control>
-                    <control type="button" id="422">
-                        <label>script.randomandlastitems</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.randomandlastitems)</onclick>
-                        <visible>System.HasAddon(script.randomandlastitems)</visible>
-                    </control>
-                    <control type="button" id="423">
-                        <label>script.artwork.downloader</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.artwork.downloader)</visible>
-                    </control>
-                    <control type="button" id="424">
-                        <label>script.artwork.downloader</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
-                        <visible>System.HasAddon(script.artwork.downloader)</visible>
-                    </control>
-                    <control type="button" id="436">
-                        <label>script.videoextras</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.videoextras)</visible>
-                    </control>					
-                    <control type="button" id="437">
-                        <label>script.videoextras</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.videoextras)</onclick>
-                        <visible>System.HasAddon(script.videoextras)</visible>
-                    </control>	
-                    <control type="button" id="438">
-                        <label>script.nox.coloricon.downloader</label>
-                        <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.nox.coloricon.downloader)</visible>
-                    </control>						
-                    <control type="button" id="439">
-                        <label>script.nox.coloricon.downloader</label>
-                        <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
-                        <include>Default_SettingRadioButtonShort</include>
-                        <visible>System.HasAddon(script.nox.coloricon.downloader)</visible>
-                    </control>	
-                </control>
-                <control type="grouplist" id="9005">
-                    <left>387</left>
-                    <top>200</top>
-                    <width>1469</width>
-                    <height>900</height>
-                    <visible>Container(9000).Hasfocus(9)</visible>
-                    <itemgap>5</itemgap>
-                    <pagecontrol>60</pagecontrol>
-                    <onleft>9000</onleft>
-                    <onright>60</onright>
-                    <onup>9001</onup>
-                    <ondown>9001</ondown>
-                    <control type="label">
-                        <width>1469</width>
-                        <height>74</height>
-                        <textoffsetx>70</textoffsetx>
-                        <aligny>bottom</aligny>
-                        <label>Aeon Nox 4.1.9 - Gotham</label>
-                        <font>Font_MainClassic3</font>
-                        <textcolor>grey2</textcolor>
-                    </control>
-                    <control type="label">
-                        <width>700</width>
-                        <height>54</height>
-                        <textoffsetx>70</textoffsetx>
-                        <aligny>bottom</aligny>
-                        <label>by BigNoid &amp; Phil65 Merge to Gotham by WarLion</label>
-                        <font>Font_Reg26</font>
-                        <textcolor>grey2</textcolor>
-                    </control>				
-                    <control type="label">
-                        <label>$LOCALIZE[31735][CR]$LOCALIZE[31736][CR]$LOCALIZE[31737][CR]</label>
-                        <include>Default_SettingRadioButton</include>
-                    </control>
-                    <control type="label">
-                        <label>31738</label>
-                        <include>Default_SettingRadioButton</include>
-                    </control>
-                    <control type="label">
-                        <label>$LOCALIZE[31739]][CR]$LOCALIZE[31740]][CR]$LOCALIZE[31741][CR]</label>
-                        <include>Default_SettingRadioButton</include>
-                    </control>
-					
-                    <control type="label">
-                        <label>[CR][B]mikebzh44[/B] for the [B]Showcase Mode and More[/B][CR][B]neurosis13[/B] for the [B]Colored Movie and TV-Show Icons and Mediaflags[/B]</label>
-                        <include>Default_SettingRadioButton</include>
-                    </control>
-                    <control type="label">
-                        <label>[B]rob_webset[/B] for [B]Video Extras Script[/B][CR][B]WayneD[/B] for the new [B]TV Show Next Aired Script[/B]</label>
-                        <include>Default_SettingRadioButton</include>
-                    </control>														
-                </control>
-                <control type="grouplist" id="9009">
-                    <left>387</left>
-                    <top>195</top>
-                    <width>1469</width>
-                    <height>732</height>
-                    <visible>Container(9000).Hasfocus(10)</visible>
-                    <itemgap>-1</itemgap>
-                    <pagecontrol>60</pagecontrol>
-                    <onleft>9000</onleft>
-                    <onright>60</onright>
-                    <onup>9009</onup>
-                    <ondown>9009</ondown>
-                    <control type="button" id="459">
-                        <label>$LOCALIZE[31456]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>Skin.SetPath(CDWall_Folder_Path)</onclick>
-                    </control>				
-                    <control type="button" id="462">
-                        <label>$LOCALIZE[192] $LOCALIZE[31456]</label>
-						<label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(CDWall_Folder_Path)][/COLOR]</label2>
-                        <include>Default_SettingButton</include>
-                        <onclick>Skin.Reset(CDWall_Folder_Path)</onclick>
-						<visible>!IsEmpty(Skin.String(CDWall_Folder_Path))</visible>
-                    </control>						
-                    <control type="button" id="460">
-                        <label>$LOCALIZE[31455]</label>
-                        <include>Default_SettingButton</include>
-                        <onclick>ActivateWindow(1164)</onclick>
-                    </control>				
                     <control type="button" id="303">
                         <label>$LOCALIZE[31678]</label>
                         <label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(WeatherFanartDir)][/COLOR]</label2>
@@ -562,7 +166,7 @@
                         <include>Default_SettingButton</include>
                         <onclick>Skin.Reset(ArtistsLogosPath)</onclick>
                         <onclick>Skin.SetPath(ArtistsLogosPath)</onclick>
-                    </control>				
+                    </control>
                     <control type="button" id="10">
                         <label>31459</label>
                         <label2>[COLOR $VAR[FontColorVar]]$VAR[LibraryStructureVar][/COLOR]</label2>
@@ -573,21 +177,308 @@
                         <onclick condition="Stringcompare(Skin.String(LibraryStructure),2)">Skin.SetString(LibraryStructure,3)</onclick>
                         <onclick condition="Stringcompare(Skin.String(LibraryStructure),1)">Skin.SetString(LibraryStructure,2)</onclick>
                     </control>
+                    <control type="button" id="516">
+                        <label>31675</label>
+                        <include>Default_SettingButton</include>
+                        <onclick>ActivateWindow(1116)</onclick>
+                    </control>                    
                 </control>
-            </control>			
+                <control type="grouplist" id="10002">
+                    <posx>387</posx>
+                    <posy>195</posy>
+                    <width>1469</width>
+                    <height>732</height>
+                    <visible>Container(10000).Hasfocus(2)</visible>
+                    <itemgap>-1</itemgap>
+                    <pagecontrol>60</pagecontrol>
+                    <onleft>10000</onleft>
+                    <onright>60</onright>
+                    <onup>10002</onup>
+                    <ondown>10002</ondown>
+
+
+
+                </control>
+                <control type="button" id="450">
+                    <posx>387</posx>
+                    <posy>195</posy>
+                    <width>1469</width>
+                    <height>74</height>
+                    <textoffsetx>70</textoffsetx>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
+                    <label>31869</label>
+                    <font>Font_Reg34_Caps</font>
+                    <textcolor>grey2</textcolor>
+                    <onup>10009</onup>
+                    <ondown>10004</ondown>
+                    <onleft>10000</onleft>
+                    <onright>10000</onright>
+                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                    <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search="Aeon Nox 3.5 Tutorial",return)</onclick>
+                    <visible>Container(10000).Hasfocus(8)</visible>
+                </control>
+                <control type="grouplist" id="10004">
+                    <posx>387</posx>
+                    <posy>275</posy>
+                    <width>1469</width>
+                    <height>732</height>
+                    <visible>Container(10000).Hasfocus(8)</visible>
+                    <itemgap>-1</itemgap>
+                    <pagecontrol>60</pagecontrol>
+                    <onleft>10000</onleft>
+                    <onup>450</onup>
+                    <ondown>450</ondown>
+                    <onright>10009</onright>
+                    <control type="radiobutton" id="402">
+                        <label>script.color.picker $INFO[System.AddonVersion(script.color.picker)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick condition="System.HasAddon(script.color.picker)">Addon.OpenSettings(script.color.picker)</onclick>
+                        <onclick condition="!System.HasAddon(script.color.picker)">Notification($LOCALIZE[31902],$LOCALIZE[31871])</onclick>
+                        <selected>System.HasAddon(script.color.picker)</selected>
+                    </control>
+                    <control type="radiobutton" id="404">
+                        <label>service.skin.widgets $INFO[System.AddonVersion(service.skin.widgets)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(service.skin.widgets)</onclick>
+                        <selected>System.HasAddon(service.skin.widgets)</selected>
+                    </control>
+                    <control type="radiobutton" id="406">
+                        <label>script.tvtunes $INFO[System.AddonVersion(script.tvtunes)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.tvtunes)</onclick>
+                        <selected>System.HasAddon(script.tvtunes)</selected>
+                    </control>
+                    <control type="radiobutton" id="410">
+                        <label>script.metadata.actors $INFO[System.AddonVersion(script.metadata.actors)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.metadata.actors)</onclick>
+                        <selected>System.HasAddon(script.metadata.actors)</selected>
+                    </control>
+                    <control type="radiobutton" id="433">
+                        <label>script.artistslideshow $INFO[System.AddonVersion(script.artistslideshow)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
+                        <selected>System.HasAddon(script.artistslideshow)</selected>
+                    </control>
+                    <control type="radiobutton" id="435">
+                        <label>script.tv.show.next.aired $INFO[System.AddonVersion(script.tv.show.next.aired)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
+                        <selected>System.HasAddon(script.tv.show.next.aired)</selected>
+                    </control>
+                </control>
+                <control type="grouplist" id="10009">
+                    <posx>1121</posx>
+                    <posy>275</posy>
+                    <width>734</width>
+                    <height>732</height>
+                    <visible>Container(10000).Hasfocus(8)</visible>
+                    <itemgap>-1</itemgap>
+                    <pagecontrol>61</pagecontrol>
+                    <onleft>10004</onleft>
+                    <onright>61</onright>
+                    <onup>450</onup>
+                    <ondown>450</ondown>
+                    <control type="radiobutton" id="412">
+                        <label>script.extendedinfo $INFO[System.AddonVersion(script.extendedinfo)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.extendedinfo)</onclick>
+                        <selected>System.HasAddon(script.extendedinfo)</selected>
+                    </control>
+                    <control type="radiobutton" id="414">
+                        <label>plugin.image.mypicsdb $INFO[System.AddonVersion(plugin.image.mypicsdb)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(plugin.image.mypicsdb)</onclick>
+                        <selected>System.HasAddon(plugin.image.mypicsdb)</selected>
+                    </control>
+                    <control type="radiobutton" id="418">
+                        <label>script.cinema.experience $INFO[System.AddonVersion(script.cinema.experience)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.cinema.experience)</onclick>
+                        <selected>System.HasAddon(script.cinema.experience)</selected>
+                    </control>
+                    <control type="radiobutton" id="420">
+                        <label>script.randommovie $INFO[System.AddonVersion(script.randommovie)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.randommovie)</onclick>
+                        <selected>System.HasAddon(script.randommovie)</selected>
+                    </control>
+                    <control type="radiobutton" id="422">
+                        <label>script.randomandlastitems $INFO[System.AddonVersion(script.randomandlastitems)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.randomandlastitems)</onclick>
+                        <selected>System.HasAddon(script.randomandlastitems)</selected>
+                    </control>
+                    <control type="radiobutton" id="424">
+                        <label>script.artwork.downloader $INFO[System.AddonVersion(script.artwork.downloader)]</label>
+                        <include>Default_SettingRadioButtonShort</include>
+                        <onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
+                        <selected>System.HasAddon(script.artwork.downloader)</selected>
+                    </control>
+                </control>
+                <control type="grouplist" id="10005">
+                    <posx>387</posx>
+                    <posy>160</posy>
+                    <width>1469</width>
+                    <height>900</height>
+                    <visible>Container(10000).Hasfocus(9)</visible>
+                    <itemgap>-1</itemgap>
+                    <pagecontrol>60</pagecontrol>
+                    <onleft>10000</onleft>
+                    <onright>60</onright>
+                    <onup>10001</onup>
+                    <ondown>10001</ondown>
+                    <control type="label">
+                        <width>1469</width>
+                        <height>74</height>
+                        <textoffsetx>70</textoffsetx>
+                        <aligny>bottom</aligny>
+                        <label>Aeon Nox $INFO[System.AddonVersion(skin.aeon.nox)]</label>
+                        <font>Font_MainClassic3</font>
+                        <textcolor>grey2</textcolor>
+                    </control>
+                    <control type="label">
+                        <width>1469</width>
+                        <height>54</height>
+                        <textoffsetx>70</textoffsetx>
+                        <aligny>bottom</aligny>
+                        <label>by BigNoid &amp; Phil65</label>
+                        <font>Font_Reg26</font>
+                        <textcolor>grey2</textcolor>
+                    </control>
+                    <control type="label">
+                        <label>31735</label>
+                        <include>Default_SettingRadioButton</include>
+                    </control>
+                    <control type="label">
+                        <label>31736</label>
+                        <include>Default_SettingRadioButton</include>
+                    </control>
+                    <control type="label">
+                        <label>31737</label>
+                        <include>Default_SettingRadioButton</include>
+                    </control>
+                    <control type="label">
+                        <label>31738</label>
+                        <include>Default_SettingRadioButton</include>
+                    </control>
+                    <control type="label">
+                        <label>31739</label>
+                        <include>Default_SettingRadioButton</include>
+                    </control>
+                    <control type="label">
+                        <label>31740</label>
+                        <include>Default_SettingRadioButton</include>
+                    </control>
+                    <control type="label">
+                        <height>148</height>
+                        <label>31741</label>
+                        <include>Default_SettingRadioButton</include>
+                    </control>
+                </control>
+                  <control type="grouplist" id="10105">
+                    <visible>Container(10000).Hasfocus(3) | Window.IsActive(1122) | Window.IsActive(1131) | Window.IsActive(1128) | Window.IsActive(1120)</visible>
+                    <posx>387</posx>
+                    <posy>170</posy>
+                    <width>1469</width>
+                 <orientation>horizontal</orientation>
+                        <onup>9000</onup>
+                        <ondown>9000</ondown>
+                        <onright>ClearProperty(FocusOnCustomizer)</onright>
+                        <onleft>ClearProperty(FocusOnCustomizer)</onleft>
+                        <onleft>10000</onleft>
+                        <onright>10000</onright>
+                    <control type="button" id="452">
+                        <label>Appearance</label>
+                       <width>367</width>
+                        <height>74</height>
+                        <textoffsetx>30</textoffsetx>
+                        <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+<texturenofocus>button-nofocus.png</texturenofocus>
+                        <font>Font_Reg32</font>
+                        <textcolor>grey2</textcolor>
+                        <onclick>ActivateWindow(1131)</onclick>
+                    </control>
+                    <control type="button" id="526">
+                        <label>General</label>
+                       <width>367</width>
+                        <height>74</height>
+                        <textoffsetx>30</textoffsetx>
+                        <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+<texturenofocus>button-nofocus.png</texturenofocus>
+                        <font>Font_Reg32</font>
+                        <textcolor>grey2</textcolor>
+                        <onclick>ActivateWindow(1120)</onclick>
+                    </control>
+                    <control type="button" id="453">
+                        <label>Color Settings</label>
+                       <width>367</width>
+                        <height>74</height>
+                        <textoffsetx>30</textoffsetx>
+                        <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+<texturenofocus>button-nofocus.png</texturenofocus>
+                        <font>Font_Reg32</font>
+                        <textcolor>grey2</textcolor>
+                        <onclick>ActivateWindow(1128)</onclick>
+                    </control>
+                                        <control type="button" id="457">
+                        <label>31877</label>
+                       <width>367</width>
+                        <height>74</height>
+                        <textoffsetx>30</textoffsetx>
+                        <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+<texturenofocus>button-nofocus.png</texturenofocus>
+                        <font>Font_Reg32</font>
+                        <textcolor>grey2</textcolor>
+                        <onclick>ActivateWindow(1158)</onclick>
+                    </control>
+                </control>
+                <control type="group" id="10011">
+                    <visible>Container(10000).Hasfocus(3) | !IsEmpty(Window(skinsettings).Property(FocusOnCustomizer))</visible>
+                    <posx>384</posx>
+                    <posy>265</posy>
+                    <animation effect="zoom" start="100,100" end="76.5,70" center="400,180" time="640" easing="inout" tween="circle" condition="true">Conditional</animation>
+                    <include>MainMenuCustomizer</include>
+                    <control type="group">
+                        <visible>Window.IsActive(1158)</visible>
+                        <include>Animation_VisibleChange200</include>
+                       <control type="group">
+                            <control type="multiimage">
+                                <aspectratio align="center" aligny="top">keep</aspectratio>
+                                <imagepath background="true">$VAR[NowPlayingBackGroundVar]</imagepath>
+                                <fadetime>600</fadetime>
+                            </control>
+                            <control type="image">
+                                <texture background="true">$INFO[Player.Art(fanart)]</texture>
+                                <include>FullscreenDimensions</include>
+                                <include>Animation_VisibleChangeDelayed</include>
+                                <visible>Player.HasAudio + Skin.HasSetting(musicfanarthome)</visible>
+                            </control>
+                            <include>cdwall-musicvisualisation</include>
+                            <include>MusicExtraFanartHome</include>
+                            <include>MusicArtistSlideshowHome</include>
+                        </control>
+                        <include>CommonMediaPlayingBackground</include>
+                        <!-- NowPlaying Info -->
+                        <include>Furniture_HomeNowPlaying</include>
+                    </control>
+
+                </control>
+            </control>
             <control type="group">
-                <left>1170</left>
-                <top>780</top>
-                <visible>Container(9000).Hasfocus(9)</visible>
+                <posx>620</posx>
+                <posy>840</posy>
+                <visible>Container(10000).Hasfocus(9)</visible>
                 <control type="image">
-                    <top>30</top>
+                    <posy>30</posy>
                     <width>400</width>
                     <aspectratio>keep</aspectratio>
                     <texture>fanarttv.png</texture>
                 </control>
                 <control type="image">
-                    <left>350</left>
-                    <width>300</width>
+                    <posx>520</posx>
+                    <width>400</width>
                     <aspectratio>keep</aspectratio>
                     <texture>xbmc.png</texture>
                 </control>

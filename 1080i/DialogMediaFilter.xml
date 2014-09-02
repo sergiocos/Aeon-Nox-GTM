@@ -2,14 +2,14 @@
 <window>
     <defaultcontrol always="true">5</defaultcontrol>
     <coordinates>
-        <left>550</left>
-        <top>15</top>
+        <posx>550</posx>
+        <posy>15</posy>
         <system>1</system>
     </coordinates>
-    <include>Animation_DialogPopup</include>
+    <include>Animation_DialogPopupOpenClose</include>
     <controls>
         <control type="image">
-            <left>23</left>
+            <posx>23</posx>
             <width>744</width>
             <height>650</height>
             <texture border="50">dialogs/dialog_back_shadow.png</texture>
@@ -18,15 +18,15 @@
             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
         </control>
         <control type="image">
-            <left>23</left>
+            <posx>23</posx>
             <width>744</width>
             <height>650</height>
             <texture border="50">dialogs/dialog_back.png</texture>
             <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
         </control>
         <control type="grouplist" id="5">
-            <left>42</left>
-            <top>75</top>
+            <posx>42</posx>
+            <posy>75</posy>
             <width>706</width>
             <height>540</height>
             <pagecontrol>6</pagecontrol>
@@ -54,8 +54,8 @@
         <control type="spincontrolex" id="9">
             <height>50</height>
             <aligny>center</aligny>
-            <texturefocus border="5">views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus border="5">button-nofocus.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">button-nofocus.png</texturenofocus>
             <font>Font_Reg29</font>
             <textcolor>grey2</textcolor>
         </control>
@@ -63,8 +63,8 @@
             <height>50</height>
             <textoffsetx>10</textoffsetx>
             <aligny>center</aligny>
-            <texturefocus border="5">views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus border="5">button-nofocus.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">button-nofocus.png</texturenofocus>
             <font>Font_Reg29</font>
             <textcolor>grey2</textcolor>
         </control>
@@ -77,8 +77,8 @@
             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
         </control>
         <control type="group" id="9001">
-            <left>95</left>
-            <top>540</top>
+            <posx>95</posx>
+            <posy>540</posy>
             <control type="button" id="28">
                 <width>300</width>
                 <height>60</height>
@@ -95,7 +95,7 @@
                 <ondown>5</ondown>
             </control>
             <control type="button" id="27">
-                <left>315</left>
+                <posx>315</posx>
                 <width>300</width>
                 <height>60</height>
                 <align>center</align>

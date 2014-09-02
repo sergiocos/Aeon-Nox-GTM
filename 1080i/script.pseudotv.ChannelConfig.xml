@@ -3,16 +3,16 @@
     <allowoverlay>no</allowoverlay>
     <zorder>1</zorder>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
     <controls>
         <control type="group">
             <visible>!Window.IsVisible(script.pseudotv.AdvancedConfig.xml)</visible>
             <control type="image">
-                <left>23</left>
-                <top>23</top>
+                <posx>23</posx>
+                <posy>23</posy>
                 <width>1233</width>
                 <height>673</height>
                 <texture>settings/settings_panelback_shadow.png</texture>
@@ -20,16 +20,16 @@
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
             </control>
             <control type="image">
-                <left>23</left>
-                <top>23</top>
+                <posx>23</posx>
+                <posy>23</posy>
                 <width>1233</width>
                 <height>673</height>
                 <texture>settings/settings_panelback.png</texture>
                 <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
             <control type="grouplist" id="9">
-                <left>42</left>
-                <top>120</top>
+                <posx>42</posx>
+                <posy>120</posy>
                 <width>258</width>
                 <height>720</height>
                 <onleft>106</onleft>
@@ -63,11 +63,11 @@
                 </control>
             </control>
             <control type="label">
-                <left>239</left>
-                <top>80</top>
+                <posx>239</posx>
+                <posy>80</posy>
                 <width>994</width>
                 <align>center</align>
-                <label>PseudoTV - Channel configuration$INFO[Control.GetLabel(104), - ]</label>
+                <label>$LOCALIZE[31932]$INFO[Control.GetLabel(104), - ]</label>
                 <font>Font_ShowcaseMainLabel2</font>
                 <shadowcolor>black</shadowcolor>
             </control>
@@ -75,23 +75,23 @@
                 <width>600</width>
                 <height>400</height>
                 <control type="label">
-                    <left>40</left>
-                    <top>7</top>
+                    <posx>40</posx>
+                    <posy>7</posy>
                     <width>160</width>
                     <height>49</height>
-                    <label>Channel</label>
+                    <label>$LOCALIZE[19029]</label>
                 </control>
                 <control type="label">
-                    <left>500</left>
-                    <top>7</top>
+                    <posx>500</posx>
+                    <posy>7</posy>
                     <width>100</width>
                     <height>49</height>
                     <align>right</align>
-                    <label>Content</label>
+                    <label>$LOCALIZE[31933]</label>
                 </control>
                 <control type="list" id="102">
-                    <left>258</left>
-                    <top>130</top>
+                    <posx>258</posx>
+                    <posy>130</posy>
                     <width>936</width>
                     <height>500</height>
                     <onup>102</onup>
@@ -107,7 +107,7 @@
                             <texture>settings/settings_radiobuttonoff.png</texture>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <font>Font_Reg32</font>
@@ -115,7 +115,7 @@
                             <info>ListItem.Label</info>
                         </control>
                         <control type="label">
-                            <left>916</left>
+                            <posx>916</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -132,14 +132,14 @@
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <font>Font_Reg32</font>
                             <info>ListItem.Label</info>
                         </control>
                         <control type="label">
-                            <left>916</left>
+                            <posx>916</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -149,8 +149,8 @@
                     </focusedlayout>
                 </control>
                 <control type="scrollbar" id="103">
-                    <left>1222</left>
-                    <top>100</top>
+                    <posx>1222</posx>
+                    <posy>100</posy>
                     <width>31</width>
                     <height>533</height>
                     <include>Animation_VerticalScrollBar</include>
@@ -166,8 +166,8 @@
             </control>
             <!-- Controls for configuring a single channel -->
             <control type="group" id="106">
-                <left>258</left>
-                <top>120</top>
+                <posx>258</posx>
+                <posy>120</posy>
                 <width>936</width>
                 <height>494</height>
                 <control type="group">
@@ -179,14 +179,14 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     </control>
                     <control type="label">
-                        <left>20</left>
+                        <posx>20</posx>
                         <width>936</width>
                         <height>49</height>
-                        <label>Channel Type</label>
+                        <label>$LOCALIZE[31934]</label>
                         <font>Font_Reg32</font>
                     </control>
                     <control type="label" id="109">
-                        <left>820</left>
+                        <posx>820</posx>
                         <width>786</width>
                         <height>49</height>
                         <align>right</align>
@@ -201,15 +201,15 @@
                         <texture>settings/settings_radiobuttonoff.png</texture>
                     </control>
                     <control type="label">
-                        <left>20</left>
+                        <posx>20</posx>
                         <width>936</width>
                         <height>49</height>
-                        <label>Channel Type</label>
+                        <label>$LOCALIZE[31934]</label>
                         <font>Font_Reg32</font>
                         <textcolor>grey2</textcolor>
                     </control>
                     <control type="label">
-                        <left>820</left>
+                        <posx>820</posx>
                         <width>786</width>
                         <height>49</height>
                         <align>right</align>
@@ -219,8 +219,8 @@
                     </control>
                 </control>
                 <control type="button" id="110">
-                    <left>840</left>
-                    <top>-6</top>
+                    <posx>840</posx>
+                    <posy>-6</posy>
                     <width>40</width>
                     <height>65</height>
                     <textoffsetx>20</textoffsetx>
@@ -233,8 +233,8 @@
                     <ondown>114</ondown>
                 </control>
                 <control type="button" id="111">
-                    <left>880</left>
-                    <top>-6</top>
+                    <posx>880</posx>
+                    <posy>-6</posy>
                     <width>40</width>
                     <height>65</height>
                     <textoffsetx>20</textoffsetx>
@@ -247,13 +247,13 @@
                     <ondown>114</ondown>
                 </control>
                 <control type="button" id="114">
-                    <top>49</top>
+                    <posy>49</posy>
                     <width>980</width>
                     <height>50</height>
                     <textoffsetx>70</textoffsetx>
                     <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
                     <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
-                    <label>Advanced Channel Rules</label>
+                    <label>$LOCALIZE[31935]</label>
                     <font>Font_Reg32</font>
                     <textcolor>grey2</textcolor>
                     <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
@@ -265,25 +265,25 @@
             <control type="group" id="107">
                 <!-- Controls for type Custom Playlist -->
                 <control type="group" id="120">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
                         <visible>IsEmpty(Control.GetLabel(130))</visible>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
-                            <label>Choose playlist</label>
+                            <label>$LOCALIZE[31936]</label>
                             <font>Font_Reg32</font>
                             <visible>Control.HasFocus(130)</visible>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
-                            <label>Choose playlist</label>
+                            <label>$LOCALIZE[31936]</label>
                             <font>Font_Reg32</font>
                             <textcolor>grey2</textcolor>
                             <visible>!Control.HasFocus(130)</visible>
@@ -299,8 +299,8 @@
                 </control>
                 <!-- Controls for type TV Network -->
                 <control type="group" id="121">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
@@ -312,14 +312,14 @@
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
-                            <label>Network</label>
+                            <label>$LOCALIZE[31937]</label>
                             <font>Font_Reg32</font>
                         </control>
                         <control type="label" id="142">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -334,15 +334,15 @@
                             <texture>settings/settings_radiobuttonoff.png</texture>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
-                            <label>Network</label>
+                            <label>$LOCALIZE[31937]</label>
                             <font>Font_Reg32</font>
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -352,8 +352,8 @@
                         </control>
                     </control>
                     <control type="button" id="140">
-                        <left>840</left>
-                        <top>-6</top>
+                        <posx>840</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -366,8 +366,8 @@
                         <ondown>110</ondown>
                     </control>
                     <control type="button" id="141">
-                        <left>880</left>
-                        <top>-6</top>
+                        <posx>880</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -382,8 +382,8 @@
                 </control>
                 <!-- Controls for type Movie Studio -->
                 <control type="group" id="122">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
@@ -395,14 +395,14 @@
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>572</label>
                             <font>Font_Reg32</font>
                         </control>
                         <control type="label" id="152">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -417,7 +417,7 @@
                             <texture>settings/settings_radiobuttonoff.png</texture>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>572</label>
@@ -425,7 +425,7 @@
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -435,8 +435,8 @@
                         </control>
                     </control>
                     <control type="button" id="150">
-                        <left>840</left>
-                        <top>-6</top>
+                        <posx>840</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -449,8 +449,8 @@
                         <ondown>114</ondown>
                     </control>
                     <control type="button" id="151">
-                        <left>880</left>
-                        <top>-6</top>
+                        <posx>880</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -465,8 +465,8 @@
                 </control>
                 <!-- Controls for type TV Genre -->
                 <control type="group" id="123">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
@@ -478,14 +478,14 @@
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>515</label>
                             <font>Font_Reg32</font>
                         </control>
                         <control type="label" id="162">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -500,7 +500,7 @@
                             <texture>settings/settings_radiobuttonoff.png</texture>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>515</label>
@@ -508,7 +508,7 @@
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -518,8 +518,8 @@
                         </control>
                     </control>
                     <control type="button" id="160">
-                        <left>840</left>
-                        <top>-6</top>
+                        <posx>840</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -532,8 +532,8 @@
                         <ondown>114</ondown>
                     </control>
                     <control type="button" id="161">
-                        <left>880</left>
-                        <top>-6</top>
+                        <posx>880</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -548,8 +548,8 @@
                 </control>
                 <!-- Controls for type Movie Genre -->
                 <control type="group" id="124">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
@@ -561,14 +561,14 @@
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>515</label>
                             <font>Font_Reg32</font>
                         </control>
                         <control type="label" id="172">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -583,7 +583,7 @@
                             <texture>settings/settings_radiobuttonoff.png</texture>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>515</label>
@@ -591,7 +591,7 @@
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -601,8 +601,8 @@
                         </control>
                     </control>
                     <control type="button" id="170">
-                        <left>840</left>
-                        <top>-6</top>
+                        <posx>840</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -615,8 +615,8 @@
                         <ondown>114</ondown>
                     </control>
                     <control type="button" id="171">
-                        <left>880</left>
-                        <top>-6</top>
+                        <posx>880</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -631,8 +631,8 @@
                 </control>
                 <!-- Controls for type Mixed Genre -->
                 <control type="group" id="125">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
@@ -644,14 +644,14 @@
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>515</label>
                             <font>Font_Reg32</font>
                         </control>
                         <control type="label" id="182">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -666,7 +666,7 @@
                             <texture>settings/settings_radiobuttonoff.png</texture>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>515</label>
@@ -674,7 +674,7 @@
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -684,8 +684,8 @@
                         </control>
                     </control>
                     <control type="button" id="180">
-                        <left>840</left>
-                        <top>-6</top>
+                        <posx>840</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -698,8 +698,8 @@
                         <ondown>114</ondown>
                     </control>
                     <control type="button" id="181">
-                        <left>880</left>
-                        <top>-6</top>
+                        <posx>880</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -714,8 +714,8 @@
                 </control>
                 <!-- Controls for type TV Show -->
                 <control type="group" id="126">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
@@ -727,14 +727,14 @@
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>20364</label>
                             <font>Font_Reg32</font>
                         </control>
                         <control type="label" id="192">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -749,7 +749,7 @@
                             <texture>settings/settings_radiobuttonoff.png</texture>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
                             <label>20364</label>
@@ -757,7 +757,7 @@
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>820</left>
+                            <posx>820</posx>
                             <width>786</width>
                             <height>49</height>
                             <align>right</align>
@@ -767,8 +767,8 @@
                         </control>
                     </control>
                     <control type="button" id="190">
-                        <left>840</left>
-                        <top>-6</top>
+                        <posx>840</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -781,8 +781,8 @@
                         <ondown>194</ondown>
                     </control>
                     <control type="button" id="191">
-                        <left>880</left>
-                        <top>-6</top>
+                        <posx>880</posx>
+                        <posy>-6</posy>
                         <width>40</width>
                         <height>65</height>
                         <textoffsetx>20</textoffsetx>
@@ -795,9 +795,9 @@
                         <ondown>194</ondown>
                     </control>
                     <control type="radiobutton" id="194">
-                        <top>49</top>
+                        <posy>49</posy>
                         <textoffsetx>20</textoffsetx>
-                        <label>Show in Order</label>
+                        <label>$LOCALIZE[31938]</label>
                         <include>Default_SettingRadioButton</include>
                         <onup>191</onup>
                         <ondown>107</ondown>
@@ -806,25 +806,25 @@
                 </control>
                 <!-- Controls for type Directory -->
                 <control type="group" id="127">
-                    <left>258</left>
-                    <top>218</top>
+                    <posx>258</posx>
+                    <posy>218</posy>
                     <width>936</width>
                     <height>494</height>
                     <control type="group">
                         <visible>IsEmpty(Control.GetLabel(200))</visible>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
-                            <label>Choose directory</label>
+                            <label>$LOCALIZE[31939]</label>
                             <font>Font_Reg32</font>
                             <visible>Control.HasFocus(200)</visible>
                         </control>
                         <control type="label">
-                            <left>20</left>
+                            <posx>20</posx>
                             <width>936</width>
                             <height>49</height>
-                            <label>Choose directory</label>
+                            <label>$LOCALIZE[31939]</label>
                             <font>Font_Reg32</font>
                             <textcolor>grey2</textcolor>
                             <visible>!Control.HasFocus(200)</visible>

@@ -2,8 +2,8 @@
 <window>
     <zorder>1</zorder>
     <coordinates>
-        <left>0</left>
-        <top>-870</top>
+        <posx>0</posx>
+        <posy>-870</posy>
         <system>1</system>
     </coordinates>
     <controls></controls>

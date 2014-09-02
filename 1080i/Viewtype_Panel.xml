@@ -5,15 +5,15 @@
             <visible>Control.IsVisible(550)</visible>
             <include>Animation_Widgets</include>
             <control type="image">
-                <left>49</left>
-                <top>112</top>
+                <posx>49</posx>
+                <posy>112</posy>
                 <width>1819</width>
                 <height>978</height>
                 <texture>wall/wall_bg_reflection.png</texture>
             </control>
             <control type="image">
-                <left>36</left>
-                <top>36</top>
+                <posx>36</posx>
+                <posy>36</posy>
                 <width>1846</width>
                 <height>956</height>
                 <texture>settings/settings_panelback_shadow.png</texture>
@@ -22,24 +22,24 @@
                 <include>Animation_VisibleChange400</include>
             </control>
             <control type="image">
-                <left>34</left>
-                <top>34</top>
+                <posx>34</posx>
+                <posy>34</posy>
                 <width>1850</width>
                 <height>960</height>
                 <texture>settings/settings_panelback2.png</texture>
                 <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
             <control type="image">
-                <left>34</left>
-                <top>34</top>
+                <posx>34</posx>
+                <posy>34</posy>
                 <width>1850</width>
                 <height>960</height>
                 <texture background="true">settings/settings_intframe_bottom.png</texture>
                 <visible>![Skin.HasSetting(panelinfo) + Container.Content(movies)]</visible>
             </control>
             <control type="group">
-                <left>497</left>
-                <top>84</top>
+                <posx>497</posx>
+                <posy>84</posy>
                 <visible>![Skin.HasSetting(panelinfo) + Container.Content(movies)] | Player.HasVideo</visible>
                 <control type="image">
                     <width>1260</width>
@@ -64,42 +64,24 @@
                         <fadetime>600</fadetime>
                     </control>
                     <control type="image">
-                        <left>1141</left>
-                        <top>1</top>
+                        <posx>1141</posx>
+                        <posy>1</posy>
                         <width>120</width>
                         <height>120</height>
                         <fadetime>IconCrossfadeTime2</fadetime>
                         <include>OverlayVisibility0</include>
                         <include>Animation_VisibleChange200</include>
                     </control>
-					<control type="image">
-						<left>1141</left>
-						<top>1</top>
-						<width>120</width>
-						<height>120</height>
-						<fadetime>IconCrossfadeTime2</fadetime>
-						<include>Animation_VisibleChange200</include>		
-						<texture>overlayprogress.png</texture>
-						<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-					</control>						
-					<control type="image">
-                        <left>1141</left>
-                        <top>1</top>
-                        <width>120</width>
-                        <height>120</height>
-						<texture>$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>						
                 </control>
                 <control type="videowindow">
-                    <top>84</top>
+                    <posy>84</posy>
                     <width>1260</width>
                     <height>589</height>
                     <visible>Player.HasVideo</visible>
                 </control>
                 <control type="textbox">
-                    <left>30</left>
-                    <top>686</top>
+                    <posx>30</posx>
+                    <posy>686</posy>
                     <width>1200</width>
                     <height>164</height>
                     <label>$VAR[GlobalPlotOutlineVar]</label>
@@ -111,51 +93,51 @@
                 <visible>[Skin.HasSetting(panelinfo) + Container.Content(movies)] + !Player.HasVideo</visible>
                 <include>Animation_VisibleChange200</include>
                 <control type="image">
-                    <left>498</left>
-                    <top>85</top>
+                    <posx>498</posx>
+                    <posy>85</posy>
                     <width>1260</width>
                     <height>1</height>
                     <texture>common/white.png</texture>
                     <colordiffuse>88000000</colordiffuse>
                 </control>
                 <control type="image">
-                    <left>498</left>
-                    <top>86</top>
+                    <posx>498</posx>
+                    <posy>86</posy>
                     <width>1260</width>
                     <height>1</height>
                     <texture>common/white.png</texture>
                     <colordiffuse>22ffffff</colordiffuse>
                 </control>
                 <control type="image">
-                    <left>498</left>
-                    <top>683</top>
+                    <posx>498</posx>
+                    <posy>683</posy>
                     <width>1260</width>
                     <height>1</height>
                     <texture>common/white.png</texture>
                     <colordiffuse>88000000</colordiffuse>
                 </control>
                 <control type="image">
-                    <left>498</left>
-                    <top>684</top>
+                    <posx>498</posx>
+                    <posy>684</posy>
                     <width>1260</width>
                     <height>1</height>
                     <texture>common/white.png</texture>
                     <colordiffuse>22ffffff</colordiffuse>
                 </control>
                 <control type="group">
-                    <left>540</left>
-                    <top>188</top>
+                    <posx>540</posx>
+                    <posy>188</posy>
                     <width>894</width>
                     <height>540</height>
                     <control type="label">
-                        <top>-650</top>
+                        <posy>-45</posy>
                         <width>800</width>
                         <label>$INFO[ListItem.Label]</label>
                         <font>Font_ShowcaseMainLabel2_Caps</font>
                         <scroll>true</scroll>
                     </control>
                     <control type="grouplist">
-                        <top>-20</top>
+                        <posy>-20</posy>
                         <width>1200</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -169,7 +151,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>45</top>
+                        <posy>45</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -190,7 +172,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>90</top>
+                        <posy>90</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -211,7 +193,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>135</top>
+                        <posy>135</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -232,7 +214,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>180</top>
+                        <posy>180</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -253,7 +235,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>225</top>
+                        <posy>225</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -274,7 +256,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>270</top>
+                        <posy>270</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -295,7 +277,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>315</top>
+                        <posy>315</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -316,7 +298,7 @@
                         </control>
                     </control>
                     <control type="grouplist">
-                        <top>360</top>
+                        <posy>360</posy>
                         <width>780</width>
                         <orientation>horizontal</orientation>
                         <itemgap>10</itemgap>
@@ -339,27 +321,19 @@
                     </control>
                 </control>
                 <control type="image">
-                    <left>1350</left>
-                    <top>80</top>
-					<width>417</width>
-					<height>610</height>
+                    <posx>1215</posx>
+                    <posy>80</posy>
+                    <width>550</width>
+                    <height>610</height>
                     <aspectratio aligny="top" align="right">keep</aspectratio>
-                    <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+                    <texture>$VAR[ListPosterVar]</texture>
                     <fadetime>200</fadetime>
-                    <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
-                	<bordersize>19</bordersize>
+                    <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+                    <bordersize>7</bordersize>
                 </control>
-				<control type="image">
-					<left>1599</left>
-					<top>98</top>
-					<width>150</width>
-					<height>150</height>
-					<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>				
                 <control type="textbox">
-                    <left>540</left>
-                    <top>700</top>
+                    <posx>540</posx>
+                    <posy>700</posy>
                     <width>1200</width>
                     <height>228</height>
                     <label>$VAR[GlobalPlotVar]</label>
@@ -368,8 +342,8 @@
                 </control>
             </control>
             <control type="list" id="550">
-                <left>63</left>
-                <top>82</top>
+                <posx>63</posx>
+                <posy>82</posy>
                 <width>570</width>
                 <height>874</height>
                 <onleft>9000</onleft>
@@ -382,36 +356,28 @@
                 <visible>![!IsEmpty(Skin.String(DisablePanelVL)) + Window.IsActive(videos)]</visible>
                 <itemlayout height="103" width="570" condition="![Skin.HasSetting(panellogo) + [Container.Content(movies) | Container.Content(tvshows)]]">
                     <control type="label">
-                        <left>20</left>
+                        <posx>20</posx>
                         <width>365</width>
                         <height>73</height>
                         <label>$VAR[FirstLabelVar]</label>
                         <font>Font_Bold30_Caps</font>
                     </control>
                     <control type="label">
-                        <left>20</left>
-                        <top>27</top>
-                        <width>365</width>
+                        <posx>20</posx>
+                        <posy>27</posy>
+                        <width>398</width>
                         <height>73</height>
                         <label>$VAR[SecondLabelVar]</label>
                         <font>Font_Reg22</font>
                     </control>
-					<control type="image">
-                        <left>380</left>
-                        <top>18</top>
-                        <width>52</width>
-                        <height>52</height>
-						<texture>$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>						
                     <control type="image">
-                        <left>386</left>
-                        <top>18</top>
+                        <posx>386</posx>
+                        <posy>18</posy>
                         <width>42</width>
                         <height>42</height>
                         <texture>$VAR[WatchedIconVar]</texture>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                    </control>				
+                    </control>
                 </itemlayout>
                 <focusedlayout height="103" width="570" condition="![Skin.HasSetting(panellogo) + [Container.Content(movies) | Container.Content(tvshows)]]">
                     <control type="image">
@@ -423,36 +389,28 @@
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                     </control>
                     <control type="label">
-                        <left>20</left>
+                        <posx>20</posx>
                         <width>365</width>
                         <height>73</height>
                         <label>$VAR[FirstLabelVar]</label>
                         <font>Font_Bold30_Caps</font>
                     </control>
                     <control type="label">
-                        <left>20</left>
-                        <top>27</top>
-                        <width>365</width>
+                        <posx>20</posx>
+                        <posy>27</posy>
+                        <width>398</width>
                         <height>73</height>
                         <label>$VAR[SecondLabelVar]</label>
                         <font>Font_Reg22</font>
                     </control>
-					<control type="image">
-                        <left>380</left>
-                        <top>18</top>
-                        <width>52</width>
-                        <height>52</height>
-						<texture>$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>					
                     <control type="image">
-                        <left>386</left>
-                        <top>18</top>
+                        <posx>386</posx>
+                        <posy>18</posy>
                         <width>42</width>
                         <height>42</height>
                         <texture>$VAR[WatchedIconVar]</texture>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                    </control>				
+                    </control>
                 </focusedlayout>
                 <itemlayout height="174" width="570" condition="Skin.HasSetting(panellogo) + [Container.Content(movies) | Container.Content(tvshows)]">
                     <include>PanelLogoLayout</include>
@@ -470,8 +428,8 @@
                 </focusedlayout>
             </control>
             <control type="scrollbar" id="60">
-                <left>477</left>
-                <top>87</top>
+                <posx>477</posx>
+                <posy>87</posy>
                 <width>40</width>
                 <height>888</height>
                 <include>Animation_VerticalScrollBar</include>
@@ -479,8 +437,8 @@
                 <onright>9000</onright>
             </control>
             <control type="image">
-                <left>34</left>
-                <top>34</top>
+                <posx>34</posx>
+                <posy>34</posy>
                 <width>1850</width>
                 <height>960</height>
                 <texture>settings/settings_intframe_top.png</texture>
@@ -491,8 +449,8 @@
     </include>
     <include name="PanelLogoLayout">
         <control type="image">
-            <left>40</left>
-            <top>10</top>
+            <posx>40</posx>
+            <posy>10</posy>
             <width>354</width>
             <height>154</height>
             <aspectratio aligny="center">keep</aspectratio>
@@ -501,8 +459,8 @@
         <control type="group">
             <visible>IsEmpty(ListItem.Art(clearlogo))</visible>
             <control type="label">
-                <left>216</left>
-                <top>110</top>
+                <posx>216</posx>
+                <posy>110</posy>
                 <width>420</width>
                 <align>center</align>
                 <label>$VAR[SecondLabelVar]</label>
@@ -510,8 +468,8 @@
                 <textcolor>white2</textcolor>
             </control>
             <control type="label">
-                <left>216</left>
-                <top>0</top>
+                <posx>216</posx>
+                <posy>76</posy>
                 <width>420</width>
                 <align>center</align>
                 <label>$VAR[FirstLabelVar]</label>
@@ -522,7 +480,7 @@
             </control>
         </control>
         <control type="group">
-            <left>380</left>
+            <posx>380</posx>
             <include>UnwatchedIcon</include>
         </control>
     </include>

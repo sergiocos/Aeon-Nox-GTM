@@ -2,17 +2,15 @@
 <window type="dialog" id="1120">
     <defaultcontrol always="true">20</defaultcontrol>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
-    <include>Animation_DialogPopup</include>
-    <onunload condition="!IsEmpty(Window(home).Property(ReturnToHome))">ActivateWindow(skinsettings)</onunload>
-    <onunload>ClearProperty(ReturnToHome,home)</onunload>
+    <include>Animation_DialogPopupOpenClose</include>
     <controls>
         <control type="image">
-            <left>356</left>
-            <top>180</top>
+            <posx>356</posx>
+            <posy>180</posy>
             <width>1210</width>
             <height>700</height>
             <texture>osd/osd_settings_back_glow.png</texture>
@@ -22,23 +20,23 @@
             <include>Animation_VisibleChange400</include>
         </control>
         <control type="image">
-            <left>356</left>
-            <top>180</top>
+            <posx>356</posx>
+            <posy>180</posy>
             <width>1210</width>
             <height>700</height>
             <texture>osd/osd_settings_back.png</texture>
             <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
         </control>
         <control type="image">
-            <left>375</left>
-            <top>232</top>
+            <posx>375</posx>
+            <posy>232</posy>
             <width>1172</width>
             <height>60</height>
             <texture border="1">osd/osd_settings_buttonnf.png</texture>
         </control>
         <control type="label">
-            <left>630</left>
-            <top>215</top>
+            <posx>630</posx>
+            <posy>215</posy>
             <width>572</width>
             <height>60</height>
             <textoffsety>10</textoffsety>
@@ -48,12 +46,12 @@
             <textcolor>$VAR[TitleColorVar]</textcolor>
         </control>
         <control type="grouplist" id="20">
-            <left>375</left>
-            <top>292</top>
+            <posx>375</posx>
+            <posy>292</posy>
             <width>1172</width>
             <height>540</height>
             <aligny>center</aligny>
-            <scrolltime>0</scrolltime>
+            <scrolltime tween="sine">200</scrolltime>
             <onleft>450</onleft>
             <onright>450</onright>
             <orientation>vertical</orientation>
@@ -62,12 +60,6 @@
                 <include>Objects_CommonSettingsButton</include>
                 <onclick>Skin.ToggleSetting(animatedbghome)</onclick>
                 <selected>Skin.HasSetting(animatedbghome)</selected>
-            </control>
-            <control type="radiobutton" id="312">
-                <label>31803</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(randomizehome)</onclick>
-                <selected>Skin.HasSetting(randomizehome)</selected>
             </control>
             <control type="radiobutton" id="313">
                 <label>31882</label>
@@ -82,20 +74,6 @@
                 <onclick>Skin.ToggleSetting(bottomindicator)</onclick>
                 <selected>Skin.HasSetting(bottomindicator)</selected>
             </control>
-            <control type="radiobutton" id="417">
-                <label>32992</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(bottomMenu)</onclick>
-                <selected>Skin.HasSetting(bottomMenu)</selected>
-				<visible>Skin.HasSetting(bottomindicator)</visible>
-            </control>				
-            <control type="button" id="314">
-                <label>$LOCALIZE[31613]</label>
-                <label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(CustomFocusOffset)][/COLOR]</label2>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>SetProperty(StartupFocus,1,home)</onclick>
-                <onclick>ActivateWindow(1151)</onclick>
-            </control>		
             <control type="button" id="315">
                 <label>31644</label>
                 <include>Objects_CommonSettingsButton</include>

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
     <defaultcontrol></defaultcontrol>
-    <include>Animation_DialogPopup</include>
-    <onload condition="Library.IsScanningVideo + Skin.HasSetting(UpdateArt.Enabled)">SetProperty(UpdateArt,1)</onload>
-    <onunload condition="!IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">XBMC.RunScript(script.artwork.downloader,silent=true)</onunload>
-    <onunload condition="!IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">ClearProperty(UpdateArt)</onunload>
+    <include>Animation_DialogPopupOpenClose</include>
     <onunload condition="!IsEmpty(Skin.String(SmartPlaylist1.Call))">$INFO[Skin.String(SmartPlaylist1.Call)]</onunload>
     <onunload condition="!IsEmpty(Skin.String(SmartPlaylist2.Call))">$INFO[Skin.String(SmartPlaylist2.Call)]</onunload>
     <onunload condition="!IsEmpty(Skin.String(SmartPlaylist3.Call))">$INFO[Skin.String(SmartPlaylist3.Call)]</onunload>
@@ -19,8 +16,8 @@
     <onunload condition="!IsEmpty(Skin.String(SmartPlaylist12.Call))">$INFO[Skin.String(SmartPlaylist12.Call)]</onunload>
     <controls>
         <control type="group">
-            <left>1140</left>
-            <top>57</top>
+            <posx>1140</posx>
+            <posy>57</posy>
             <width>764</width>
             <height>136</height>
             <include>Dialogs_Tablet</include>
@@ -31,11 +28,11 @@
             <animation effect="fade" start="100" end="0" time="160" condition="Window.Next(videolibrary) | Window.Next(musiclibrary) | Window.Next(videofiles) | Window.Next(musicfiles) | Window.Next(pictures) | Window.Next(scripts) | Window.Next(musicplaylist) | Window.Next(videoplaylist) | Window.Next(programs) | Window.Next(home) |[Window.Next(settings) + Window.IsActive(home)]" reversible="false">Conditional</animation>
             <include>Dialogs_HardDrive</include>
             <control type="label" id="30">
-                <top>18</top>
+                <posy>18</posy>
                 <include>Dialogs_LabelVars</include>
             </control>
             <control type="label" id="31">
-                <top>54</top>
+                <posy>54</posy>
                 <include>Dialogs_LabelVars</include>
             </control>
             <control type="progress" id="32">

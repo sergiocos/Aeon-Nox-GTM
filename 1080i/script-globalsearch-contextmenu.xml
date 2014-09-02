@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
     <defaultcontrol>1001</defaultcontrol>
-    <include>Animation_DialogZoom</include>
+    <include>Animation_DialogPopupOpenClose</include>
     <coordinates>
-        <left>269</left>
-        <top>200</top>
+        <posx>269</posx>
+        <posy>200</posy>
         <system>1</system>
     </coordinates>
     <controls>
         <control type="image">
-            <left>-2000</left>
-            <top>-1000</top>
+            <posx>-2000</posx>
+            <posy>-1000</posy>
             <width>6000</width>
             <height>3000</height>
             <texture>common/bgcolor.png</texture>
@@ -18,25 +18,25 @@
             <animation effect="fade" end="100" time="560">WindowOpen</animation>
             <animation effect="fade" start="100" end="0" time="240">WindowClose</animation>
         </control>
-        <control type="image" id="997">
-            <top>-39</top>
+        <!--      <control type="image" id="997">
+            <posy>-39</posy>
             <width>462</width>
             <height>39</height>
             <texture>dialogs/context_top.png</texture>
             <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
-        </control>
-        <control type="image" id="998">
-            <width>462</width>
-            <height>1080</height>
+        </control>-->
+        <control type="image" id="999">
+            <width>412</width>
+            <height>172</height>
             <texture>dialogs/context_middle.png</texture>
             <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
         </control>
-        <control type="image" id="999">
+        <!--     <control type="image" id="999">
             <width>462</width>
             <height>40</height>
             <texture>dialogs/context_bottom.png</texture>
             <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
-        </control>
+        </control>-->
         <control type="button" id="1001">
             <width>462</width>
             <height>58</height>

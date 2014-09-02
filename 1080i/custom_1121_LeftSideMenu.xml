@@ -3,9 +3,10 @@
     <defaultcontrol always="true">9011</defaultcontrol>
     <onunload>ClearProperty(quicknavsetup,home)</onunload>
     <onunload>ClearProperty(viewtypeselect,home)</onunload>
+    <onload condition="IsEmpty(Window(home).Property(viewtypeselect)) + !Skin.hasSetting(quicknav)">Dialog.Close(1121)</onload>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
     <animation type="WindowClose">
@@ -33,7 +34,7 @@
                 <effect type="slide" start="-450" end="0" time="320" tween="cubic" />
             </animation>
             <control type="image">
-                <left>-42</left>
+                <posx>-42</posx>
                 <width>462</width>
                 <height>1080</height>
                 <texture>dialogs/context_middle.png</texture>
@@ -44,7 +45,7 @@
                 </animation>
             </control>
             <control type="group">
-                <left>380</left>
+                <posx>380</posx>
                 <animation type="Conditional" condition="Window.IsActive(1121)">
                     <effect type="slide" end="-180" time="320" easing="in" tween="cubic" />
                 </animation>
@@ -68,7 +69,7 @@
                     <texture border="3">settings/listselect_nf.png</texture>
                 </control>
                 <control type="label">
-                    <left>15</left>
+                    <posx>15</posx>
                     <width>219</width>
                     <height>60</height>
                     <font>Font_Reg30_2</font>
@@ -77,7 +78,7 @@
                     <visible>!StringCompare(ListItem.Label,Container.Viewmode)</visible>
                 </control>
                 <control type="label">
-                    <left>15</left>
+                    <posx>15</posx>
                     <width>219</width>
                     <height>60</height>
                     <font>Font_Reg30_2</font>
@@ -108,7 +109,7 @@
                     <visible>Control.HasFocus(9011)</visible>
                 </control>
                 <control type="label">
-                    <left>15</left>
+                    <posx>15</posx>
                     <width>219</width>
                     <height>60</height>
                     <font>Font_Reg30_2</font>
@@ -117,7 +118,7 @@
                     <visible>!Control.HasFocus(9011)</visible>
                 </control>
                 <control type="label">
-                    <left>15</left>
+                    <posx>15</posx>
                     <width>219</width>
                     <height>60</height>
                     <font>Font_Reg30_2</font>
@@ -181,13 +182,14 @@
                     <label>$LOCALIZE[31283]</label>
                     <onclick>Container.SetViewMode(512)</onclick>
                     <visible>!IsEmpty(Container.FolderPath)</visible>
-                    <visible>!Container.Content(years)</visible>
+                    <visible>!Container.Content(years) + !Container.Content(songs)</visible>
                     <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableInfoWallVL))]</visible>
                     <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
                 <item>
                     <label>$LOCALIZE[31234]</label>
                     <onclick>Container.SetViewMode(500)</onclick>
+                    <visible>!Container.Content(songs)</visible>
                     <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableWallVL))] + [!IsEmpty(Container.FolderPath) | Window.IsActive(videoplaylist)]</visible>
                     <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
@@ -238,20 +240,21 @@
                     <onclick>Container.SetViewMode(57)</onclick>
                     <visible>[[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(musicplaylist) | Window.isActive(programs) | Window.isActive(addonbrowser) | [Window.IsActive(videos) + [!Container.Content(episodes) | SubString(Container.FolderPath,videodb://recentlyaddedepisodes/)]]] + !IsEmpty(Container.FolderPath) + !Container.Content(years)] | Window.IsActive(videoplaylist)</visible>
                     <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableShiftVL))]</visible>
-                    <visible>!Container.Content(countries)</visible>
+                    <visible>!Container.Content(countries) + !Container.Content(songs)</visible>
                     <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
                 <item>
                     <label>$LOCALIZE[31028]</label>
                     <onclick>Container.SetViewMode(501)</onclick>
-                    <visible>[[[Window.IsActive(videos) + [Container.Content(Movies) | Container.Content(sets) | Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(files)]] | [Window.IsActive(programs) + !Container.Content(addons)] | [Window.IsActive(videos) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)] | SubString(Container.FolderPath,videodb://recentlyaddedepisodes/) | Container.Content(musicvideos)] + !Container.Content(addons)] | Window.IsActive(videoplaylist)</visible>
+                    <visible>[[Window.IsActive(videos) + Container.Content(Movies) | Container.Content(sets) | Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(files) | [Window.IsActive(programs) + !Container.Content(addons)] | [Window.IsActive(videos) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)] | SubString(Container.FolderPath,videodb://recentlyaddedepisodes/) | Container.Content(musicvideos)] + !Container.Content(addons)] | Window.IsActive(videoplaylist)</visible>
                     <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableShowCaseVL))]</visible>
                     <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
                 <item>
-                    <label>$LOCALIZE[31029]</label>
+                    <label>$LOCALIZE[31028]</label>
                     <onclick>Container.SetViewMode(509)</onclick>
-                    <visible>[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(programs) | [Window.IsActive(pictures) + !Substring(Container.FolderPath,\comics\)] | Container.Content(addons) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + !Container.Content(years)</visible>
+                    <visible>!Container.Content(years) + !Container.Content(songs)</visible>
+                    <visible>Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(programs) | [Window.IsActive(pictures) + !Substring(Container.FolderPath,\comics\)] | Container.Content(addons) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)</visible>
                     <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
                 <item>
@@ -357,11 +360,7 @@
             <include>HiddenObject</include>
             <onfocus>SetFocus(9011)</onfocus>
             <onfocus>Action(Close)</onfocus>
-            <onfocus condition="Stringcompare(Container(9011).ListItem.Property(Path),ActivateWindow(Videos,MovieTitles,return)) | Stringcompare(Container(9011).ListItem.Property(Path),ActivateWindow(Videos,MusicVideoTitles,return)) | Substring(Container(9011).ListItem.Property(Path), 	videodb://movies/)">SetProperty(DontRunTVShowScripts,True,Home)</onfocus>
-            <onfocus condition="stringcompare(Container(9011).ListItem.Property(Type),0) | stringcompare(Container(9011).ListItem.Property(Type),1) | stringcompare(Container(9011).ListItem.Property(Type),2) | stringcompare(Container(9011).ListItem.Property(Type),3)">RunAddon($INFO[Container(9011).ListItem.Property(Path)])</onfocus>
-            <onfocus condition="stringcompare(Container(9011).ListItem.Property(Type),4)">ActivateWindow(Videos,$ESCINFO[Container(9011).ListItem.Property(Path)],return)</onfocus>
-            <onfocus condition="stringcompare(Container(9011).ListItem.Property(Type),5)">ActivateWindow(MusicLibrary,$ESCINFO[Container(9011).ListItem.Property(Path)],return)</onfocus>
-            <onfocus condition="stringcompare(Container(9011).ListItem.Property(Type),6) | Stringcompare(Container(9011).ListItem.Property(Type),7)  | Stringcompare(Container(9011).ListItem.Property(Type),custom)">$INFO[Container(9011).ListItem.Property(Path)]</onfocus>
+            <onfocus>$INFO[Container(9011).ListItem.Property(Path)]</onfocus>
             <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
         </control>
         <control type="button" id="810">
@@ -393,8 +392,8 @@
                     <texture border="0,0,0,4">settings/listselect_nf.png</texture>
                 </control>
                 <control type="image">
-                    <left>72</left>
-                    <top>5</top>
+                    <posx>72</posx>
+                    <posy>5</posy>
                     <width>75</width>
                     <height>75</height>
                     <aspectratio align="center">keep</aspectratio>
@@ -402,8 +401,8 @@
                     <colordiffuse>white3</colordiffuse>
                 </control>
                 <control type="label">
-                    <left>110</left>
-                    <top>53</top>
+                    <posx>110</posx>
+                    <posy>53</posy>
                     <width>219</width>
                     <height>60</height>
                     <align>center</align>
@@ -427,8 +426,8 @@
                     <include>PanelGlowFade</include>
                 </control>
                 <control type="image">
-                    <left>72</left>
-                    <top>5</top>
+                    <posx>72</posx>
+                    <posy>5</posy>
                     <width>75</width>
                     <height>75</height>
                     <aspectratio align="center">keep</aspectratio>
@@ -436,8 +435,8 @@
                     <colordiffuse>white2</colordiffuse>
                 </control>
                 <control type="label">
-                    <left>110</left>
-                    <top>53</top>
+                    <posx>110</posx>
+                    <posy>53</posy>
                     <width>219</width>
                     <height>60</height>
                     <align>center</align>
@@ -449,125 +448,32 @@
                 <include>QuickNavContent</include>
             </content>
         </control>
-        <control type="button" id="9012">
-            <top>1040</top>
-            <width>60</width>
-            <height>40</height>
-            <align>center</align>
-            <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus border="8">-</texturenofocus>
-            <label>-</label>
-            <textcolor>grey2</textcolor>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-            <onclick condition="IsEmpty(Window(home).Property(quicknavsetup))">SetProperty(quicknavsetup,1,home)</onclick>
-            <onclick condition="IsEmpty(Window(home).Property(quicknavsetup))">Notification($LOCALIZE[31902],$LOCALIZE[31881])</onclick>
-            <onclick condition="!IsEmpty(Window(home).Property(quicknavsetup))">ClearProperty(quicknavsetup,home)</onclick>
-            <onleft>Dialog.Close(1121)</onleft>
-            <onright>9013</onright>
-            <onup>SetFocus(9011,20)</onup>
-            <onup>9011</onup>
-            <ondown>SetFocus(9011,0)</ondown>
-            <ondown>9011</ondown>
-            <visible>!Skin.HasSetting(kioskmode)</visible>
-        </control>
-        <control type="image">
-            <left>10</left>
-            <top>1043</top>
-            <width>42</width>
-            <height>42</height>
-            <texture>$VAR[QuickConfigIconVar]</texture>
-            <animation effect="fade" start="100" end="75" time="100" condition="!Control.HasFocus(9012)">Conditional</animation>
-            <visible>Control.IsVisible(9012)</visible>
-        </control>
-        <control type="button" id="9013">
-            <left>65</left>
-            <top>1040</top>
-            <width>50</width>
-            <height>40</height>
-            <align>center</align>
-            <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus border="8">-</texturenofocus>
-            <label>-</label>
-            <textcolor>grey2</textcolor>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-            <onclick>Action(Close)</onclick>
-            <onclick>Fullscreen</onclick>
-            <onleft>9012</onleft>
-            <onright>9014</onright>
-            <onup>SetFocus(9011,20)</onup>
-            <onup>9011</onup>
-            <ondown>SetFocus(9011,0)</ondown>
-            <ondown>9011</ondown>
-            <visible>IsEmpty(Window(home).Property(viewtypeselect)) + Player.HasMedia</visible>
-        </control>
-        <control type="image">
-            <left>65</left>
-            <top>1043</top>
-            <width>42</width>
-            <height>42</height>
-            <texture>special://skin/extras/BigIcons/Fullscreen2.png</texture>
-            <animation effect="fade" start="100" end="75" time="100" condition="!Control.HasFocus(9013)">Conditional</animation>
-            <visible>Control.IsVisible(9013)</visible>
-        </control>
-        <control type="button" id="9014">
-            <left>110</left>
-            <top>1040</top>
-            <width>50</width>
-            <height>40</height>
-            <align>center</align>
-            <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus border="8">-</texturenofocus>
-            <label>-</label>
-            <textcolor>grey2</textcolor>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-            <onclick>Action(Close)</onclick>
-            <onclick>ActivateWindow(musicplaylist)</onclick>
-            <onleft>9013</onleft>
-            <onright>9015</onright>
-            <onup>SetFocus(9011,20)</onup>
-            <onup>9011</onup>
-            <ondown>SetFocus(9011,0)</ondown>
-            <ondown>9011</ondown>
-            <visible>IsEmpty(Window(home).Property(viewtypeselect)) + Player.HasAudio + !Window.IsActive(musicplaylist)</visible>
-        </control>
-        <control type="image">
-            <left>115</left>
-            <top>1043</top>
-            <width>42</width>
-            <height>42</height>
-            <texture>special://skin/extras/BigIcons/Format.png</texture>
-            <animation effect="fade" start="100" end="75" time="100" condition="!Control.HasFocus(9014)">Conditional</animation>
-            <visible>Control.IsVisible(9014)</visible>
-        </control>
-        <control type="button" id="9015">
-            <left>160</left>
-            <top>1040</top>
-            <width>60</width>
-            <height>40</height>
-            <align>center</align>
-            <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus border="8">-</texturenofocus>
-            <label>-</label>
-            <textcolor>grey2</textcolor>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-            <onclick>Action(Close)</onclick>
-            <onclick>PlayDVD()</onclick>
-            <onleft>9014</onleft>
-            <onright>Dialog.Close(1121)</onright>
-            <onup>SetFocus(9011,20)</onup>
-            <onup>9011</onup>
-            <ondown>SetFocus(9011,0)</ondown>
-            <ondown>9011</ondown>
-            <visible>IsEmpty(Window(home).Property(viewtypeselect)) + System.HasMediadvd</visible>
-        </control>
-        <control type="image">
-            <left>165</left>
-            <top>1043</top>
-            <width>42</width>
-            <height>42</height>
-            <texture>special://skin/extras/BigIcons/CD-DVD.png</texture>
-            <animation effect="fade" start="100" end="75" time="100" condition="!Control.HasFocus(9015)">Conditional</animation>
-            <visible>Control.IsVisible(9015)</visible>
+        <control type="group">
+            <posy>1035</posy>
+            <control type="radiobutton" id="9012">
+                <width>219</width>
+                <height>43</height>
+                <align>center</align>
+                <radioposx>90</radioposx>
+                <radioposy>-25</radioposy>
+                <radiowidth>45</radiowidth>
+                <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+                <texturenofocus border="8">-</texturenofocus>
+                <textureradioon colordiffuse="white2">special://skin/extras/BigIcons/Gears.png</textureradioon>
+                <textureradiooff colordiffuse="white2">special://skin/extras/BigIcons/ButtonStop.png</textureradiooff>
+                <selected>IsEmpty(Window(home).Property(quicknavsetup))</selected>
+                <label>-</label>
+                <onclick condition="IsEmpty(Window(home).Property(quicknavsetup))">SetProperty(quicknavsetup,1,home)</onclick>
+                <onclick condition="IsEmpty(Window(home).Property(quicknavsetup))">Notification($LOCALIZE[31902],$LOCALIZE[31881])</onclick>
+                <onclick condition="!IsEmpty(Window(home).Property(quicknavsetup))">ClearProperty(quicknavsetup,home)</onclick>
+                <onleft>Dialog.Close(1121)</onleft>
+                <onright>Dialog.Close(1121)</onright>
+                <onup>SetFocus(9011,20)</onup>
+                <onup>9011</onup>
+                <ondown>SetFocus(9011,0)</ondown>
+                <ondown>9011</ondown>
+                <visible>!Skin.HasSetting(kioskmode)</visible>
+            </control>
         </control>
     </controls>
 </window>

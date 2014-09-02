@@ -2,16 +2,16 @@
 <window>
     <defaultcontrol>5</defaultcontrol>
     <coordinates>
+        <posx>399</posx>
+        <posy>114</posy>
         <system>1</system>
-        <left>399</left>
-        <top>114</top>
     </coordinates>
-    <include>Animation_DialogPopup2</include>
+    <include>Animation_DialogPopupOpenClose</include>
     <controls>
         <control type="group">
-            <animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+            <animation effect="fade" start="100" end="0" time="320" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
             <control type="image">
-                <left>4</left>
+                <posx>4</posx>
                 <width>1114</width>
                 <height>852</height>
                 <texture>osd/osd_settings_back_glow.png</texture>
@@ -20,52 +20,52 @@
                 <include>PanelGlowFade</include>
             </control>
             <control type="image">
-                <left>4</left>
+                <posx>4</posx>
                 <width>1114</width>
                 <height>852</height>
-                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
                 <texture>osd/osd_settings_back.png</texture>
+                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
             <control type="image">
-                <left>22</left>
-                <top>42</top>
+                <posx>22</posx>
+                <posy>42</posy>
                 <width>1078</width>
                 <height>60</height>
-                <texture>osd/osd_settings_buttonnf.png</texture>
+                <texture border="1">osd/osd_settings_buttonnf.png</texture>
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
             </control>
             <control type="label">
-                <left>60</left>
-                <top>35</top>
+                <posx>60</posx>
+                <posy>35</posy>
                 <width>1080</width>
                 <height>60</height>
-                <textcolor>$VAR[TitleColorVar]</textcolor>
-                <font>Font_Bold22</font>
                 <label>$LOCALIZE[13396]</label>
+                <font>Font_Bold33</font>
+                <textcolor>$VAR[TitleColorVar]</textcolor>
                 <visible>Window.IsActive(OSDAudioSettings)</visible>
             </control>
             <control type="label">
-                <left>60</left>
-                <top>35</top>
+                <posx>60</posx>
+                <posy>35</posy>
                 <width>1080</width>
                 <height>60</height>
-                <textcolor>$VAR[TitleColorVar]</textcolor>
-                <font>Font_Bold22</font>
                 <label>$LOCALIZE[13395]</label>
+                <font>Font_Bold33</font>
+                <textcolor>$VAR[TitleColorVar]</textcolor>
                 <visible>Window.IsActive(OSDVideoSettings)</visible>
             </control>
             <control type="label" id="3">
-                <left>120</left>
-                <top>45</top>
+                <posx>60</posx>
+                <posy>35</posy>
                 <width>1080</width>
-                <height>45</height>
+                <height>60</height>
                 <label>$LOCALIZE[13390]</label>
-                <font>Font_Bold19</font>
-                <shadowcolor>black</shadowcolor>
+                <font>Font_Bold33</font>
+                <textcolor>$VAR[TitleColorVar]</textcolor>
             </control>
             <control type="grouplist" id="5">
-                <left>21</left>
-                <top>110</top>
+                <posx>21</posx>
+                <posy>110</posy>
                 <width>1080</width>
                 <height>700</height>
                 <aligny>center</aligny>
@@ -76,12 +76,11 @@
                 <ondown>5</ondown>
             </control>
             <control type="scrollbar" id="60">
-                <top>105</top>
+                <posx>1080</posx>
+                <posy>105</posy>
                 <width>46</width>
                 <height>540</height>
-                <left>1080</left>
-                <width>46</width>
-                <height>540</height>
+                <include>Animation_VerticalScrollBar</include>
                 <onleft>5</onleft>
                 <onright>5</onright>
                 <ondown>61</ondown>
@@ -90,41 +89,37 @@
         </control>
         <control type="sliderex" id="10">
             <width>1272</width>
-            <font>Font_Reg20</font>
-            <textcolor>grey2</textcolor>
             <textoffsetx>45</textoffsetx>
+            <font>Font_Reg32</font>
+            <textcolor>grey2</textcolor>
         </control>
         <control type="button" id="7">
             <width>1172</width>
             <height>60</height>
-            <font>Font_Reg20</font>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-            <textcolor>grey2</textcolor>
-            <colordiffuse>FFFFFFFF</colordiffuse>
-            <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
             <textoffsetx>45</textoffsetx>
+            <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus border="3">osd/osd_settings_buttonnf.png</texturenofocus>
+            <font>Font_Reg32</font>
+            <textcolor>grey2</textcolor>
         </control>
         <control type="radiobutton" id="8">
             <width>1172</width>
             <height>60</height>
-            <font>Font_Reg20</font>
-            <textcolor>grey2</textcolor>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
             <textoffsetx>45</textoffsetx>
-            <radioleft>934</radioleft>
-            <colordiffuse>FFFFFFFF</colordiffuse>
-            <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus border="3">osd/osd_settings_buttonnf.png</texturenofocus>
+            <font>Font_Reg32</font>
+            <textcolor>grey2</textcolor>
+            <radioposx>934</radioposx>
         </control>
         <control type="spincontrolex" id="9">
             <height>60</height>
-            <font>Font_Reg20</font>
             <textoffsetx>45</textoffsetx>
+            <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus border="3">osd/osd_settings_buttonnf.png</texturenofocus>
+            <font>Font_Reg32</font>
             <textcolor>grey2</textcolor>
-            <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
-            <spinleft>13</spinleft>
+            <spinposx>13</spinposx>
         </control>
     </controls>
 </window>

@@ -21,10 +21,10 @@
                 <control type="image">
                     <width>729</width>
                     <height>1080</height>
-                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                    <texture background="true">$INFO[Container(50).ListItem.Icon]</texture>
                 </control>
                 <control type="image">
-                    <left>709</left>
+                    <posx>709</posx>
                     <width>40</width>
                     <height>1080</height>
                     <texture>common/topbar_down.png</texture>
@@ -39,33 +39,33 @@
                 <animation effect="slide" end="1192,0" time="320" tween="quadratic">WindowClose</animation>
                 <animation effect="slide" start="1192,0" end="0,0" time="320" tween="quadratic">VisibleChange</animation>
                 <control type="image">
-                    <left>729</left>
+                    <posx>729</posx>
                     <width>1192</width>
                     <height>1080</height>
                     <texture>info/info_rightpanelbottom.png</texture>
-                    <visible>IsEmpty(ListItem.Property(Fanart_Image))</visible>
+                    <visible>IsEmpty(Container(50).ListItem.Art(fanart))</visible>
                 </control>
                 <control type="image">
-                    <left>729</left>
+                    <posx>729</posx>
                     <width>1192</width>
                     <height>1080</height>
                     <aspectratio align="center">scale</aspectratio>
-                    <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+                    <texture background="true">$INFO[Container(50).ListItem.Art(fanart)]</texture>
                     <fadetime>500</fadetime>
                 </control>
                 <control type="image">
-                    <left>729</left>
+                    <posx>729</posx>
                     <width>1192</width>
                     <height>1080</height>
                     <texture>info/info_rightpaneltop.png</texture>
                 </control>
                 <control type="group">
-                    <left>825</left>
-                    <top>68</top>
+                    <posx>825</posx>
+                    <posy>68</posy>
                     <width>1042</width>
                     <height>854</height>
                     <control type="label">
-                        <top>-850</top>
+                        <posy>-22</posy>
                         <width>1050</width>
                         <label>$INFO[ListItem.Title]</label>
                         <font>Font_Reg57_Caps</font>
@@ -74,7 +74,7 @@
                     <control type="group">
                         <visible>![[Control.HasFocus(10) + IntegerGreaterThan(Container(250).NumItems,0)] | ControlGroup(2500).HasFocus | ControlGroup(9000).HasFocus(20)]</visible>
                         <control type="grouplist">
-                            <top>60</top>
+                            <posy>60</posy>
                             <width>1050</width>
                             <itemgap>15</itemgap>
                             <orientation>horizontal</orientation>
@@ -95,7 +95,7 @@
                             </control>
                         </control>
                         <control type="grouplist">
-                            <top>120</top>
+                            <posy>120</posy>
                             <width>1050</width>
                             <itemgap>15</itemgap>
                             <orientation>horizontal</orientation>
@@ -116,7 +116,7 @@
                             </control>
                         </control>
                         <control type="grouplist">
-                            <top>180</top>
+                            <posy>180</posy>
                             <width>1050</width>
                             <itemgap>15</itemgap>
                             <orientation>horizontal</orientation>
@@ -137,7 +137,7 @@
                             </control>
                         </control>
                         <control type="grouplist">
-                            <top>240</top>
+                            <posy>240</posy>
                             <width>1050</width>
                             <itemgap>15</itemgap>
                             <orientation>horizontal</orientation>
@@ -158,7 +158,7 @@
                             </control>
                         </control>
                         <control type="grouplist">
-                            <top>300</top>
+                            <posy>300</posy>
                             <width>1050</width>
                             <itemgap>15</itemgap>
                             <orientation>horizontal</orientation>
@@ -179,7 +179,7 @@
                             </control>
                         </control>
                         <control type="grouplist">
-                            <top>360</top>
+                            <posy>360</posy>
                             <width>1050</width>
                             <itemgap>15</itemgap>
                             <orientation>horizontal</orientation>
@@ -202,19 +202,19 @@
                         </control>
                     </control>
                     <control type="textbox" id="400">
-                        <left>4</left>
-                        <top>480</top>
+                        <posx>4</posx>
+                        <posy>480</posy>
                         <width>1000</width>
                         <height>464</height>
-                        <label fallback="31006">$INFO[ListItem.Property(Biography)]</label>
+                        <label fallback="31003">$INFO[ListItem.Property(Biography)]</label>
                         <font>Font_Reg30_2</font>
                         <pagecontrol>60</pagecontrol>
                         <autoscroll delay="15000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll) + !Control.HasFocus(60)</autoscroll>
                         <visible>!Control.IsVisible(150)</visible>
                     </control>
                     <control type="list" id="150">
-                        <left>20</left>
-                        <top>520</top>
+                        <posx>20</posx>
+                        <posy>520</posy>
                         <width>1290</width>
                         <height>400</height>
                         <onleft>9000</onleft>
@@ -247,7 +247,7 @@
                                 <visible>!IsEmpty(ListItem.Property(LibraryHasMovie))</visible>
                             </control>
                             <control type="label">
-                                <left>690</left>
+                                <posx>690</posx>
                                 <width>100</width>
                                 <height>50</height>
                                 <textoffsetx>15</textoffsetx>
@@ -256,8 +256,8 @@
                                 <scroll>true</scroll>
                             </control>
                             <control type="image">
-                                <left>675</left>
-                                <top>7</top>
+                                <posx>675</posx>
+                                <posy>7</posy>
                                 <width>35</width>
                                 <height>35</height>
                                 <texture>OverlayWatched.png</texture>
@@ -290,7 +290,7 @@
                                     <scroll>true</scroll>
                                 </control>
                                 <control type="label">
-                                    <left>690</left>
+                                    <posx>690</posx>
                                     <width>100</width>
                                     <height>50</height>
                                     <textoffsetx>15</textoffsetx>
@@ -325,7 +325,7 @@
                                     <scroll>true</scroll>
                                 </control>
                                 <control type="label">
-                                    <left>690</left>
+                                    <posx>690</posx>
                                     <width>100</width>
                                     <height>50</height>
                                     <textoffsetx>15</textoffsetx>
@@ -335,8 +335,8 @@
                                 </control>
                             </control>
                             <control type="image">
-                                <left>675</left>
-                                <top>7</top>
+                                <posx>675</posx>
+                                <posy>7</posy>
                                 <width>35</width>
                                 <height>35</height>
                                 <texture>OverlayWatched.png</texture>
@@ -347,8 +347,8 @@
                 </control>
                 <control type="group">
                     <control type="group">
-                        <left>827</left>
-                        <top>120</top>
+                        <posx>827</posx>
+                        <posy>120</posy>
                         <visible>ControlGroup(9000).HasFocus(20)</visible>
                         <animation effect="fade" time="240">Visible</animation>
                         <animation effect="fade" time="240">Hidden</animation>
@@ -356,13 +356,13 @@
                             <width>1000</width>
                             <height>360</height>
                             <aspectratio>keep</aspectratio>
-                            <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+                            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
                             <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
                             <bordersize>7</bordersize>
-                            <visible>!IsEmpty(ListItem.Property(Fanart_Image))</visible>
+                            <visible>!IsEmpty(ListItem.Art(fanart))</visible>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(ListItem.Property(Fanart_Image))</visible>
+                            <visible>IsEmpty(ListItem.Art(fanart))</visible>
                             <control type="label">
                                 <width>1000</width>
                                 <height>360</height>
@@ -375,8 +375,8 @@
                         </control>
                     </control>
                     <control type="image">
-                        <left>1600</left>
-                        <top>588</top>
+                        <posx>1600</posx>
+                        <posy>588</posy>
                         <width>266</width>
                         <height>400</height>
                         <aspectratio>keep</aspectratio>
@@ -385,8 +385,8 @@
                         <visible>Control.IsVisible(150)</visible>
                     </control>
                     <control type="label">
-                        <left>1866</left>
-                        <top>988</top>
+                        <posx>1866</posx>
+                        <posy>988</posy>
                         <width>1000</width>
                         <height>50</height>
                         <align>right</align>
@@ -396,8 +396,8 @@
                         <visible>Control.HasFocus(150)</visible>
                     </control>
                     <control type="label">
-                        <left>1866</left>
-                        <top>1018</top>
+                        <posx>1866</posx>
+                        <posy>1018</posy>
                         <width>1000</width>
                         <height>50</height>
                         <align>right</align>
@@ -417,8 +417,8 @@
                         <focusedlayout height="1" width="1" />
                     </control>
                     <control type="group" id="2500">
-                        <left>827</left>
-                        <top>80</top>
+                        <posx>827</posx>
+                        <posy>80</posy>
                         <visible>[Control.HasFocus(10) + IntegerGreaterThan(Container(250).NumItems,0)] | ControlGroup(2500).HasFocus</visible>
                         <animation effect="fade" time="240">Visible</animation>
                         <animation effect="fade" time="240">Hidden</animation>
@@ -455,8 +455,8 @@
                                     <visible>!Control.HasFocus(250)</visible>
                                 </control>
                                 <control type="image">
-                                    <left>2</left>
-                                    <top>2</top>
+                                    <posx>2</posx>
+                                    <posy>2</posy>
                                     <width>210</width>
                                     <height>430</height>
                                     <aspectratio>keep</aspectratio>
@@ -467,8 +467,8 @@
                                     <visible>Control.HasFocus(250)</visible>
                                 </control>
                                 <control type="image">
-                                    <left>2</left>
-                                    <top>2</top>
+                                    <posx>2</posx>
+                                    <posy>2</posy>
                                     <width>210</width>
                                     <height>430</height>
                                     <aspectratio>keep</aspectratio>
@@ -480,8 +480,8 @@
                         </control>
                     </control>
                     <control type="grouplist" id="9000">
-                        <left>827</left>
-                        <top>488</top>
+                        <posx>827</posx>
+                        <posy>488</posy>
                         <width>1000</width>
                         <height>60</height>
                         <onleft>9000</onleft>
@@ -596,14 +596,14 @@
                         </control>
                         <control type="button" id="22">
                             <label>$LOCALIZE[31096]</label>
-                            <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search=$INFO[ListItem.Label],return)</onclick>
+                            <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search=$ESCINFO[ListItem.Label],return)</onclick>
                             <onclick>Dialog.Close(all,true)</onclick>
                             <include>DialogVideoInfoButton</include>
                         </control>
                     </control>
                 </control>
                 <control type="image">
-                    <left>709</left>
+                    <posx>709</posx>
                     <width>40</width>
                     <height>1080</height>
                     <texture>common/topbar_top.png</texture>

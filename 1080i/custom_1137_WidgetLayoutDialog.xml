@@ -2,27 +2,27 @@
 <window id="1137" type="dialog">
     <defaultcontrol>5400</defaultcontrol>
     <onload>Dialog.Close(1133)</onload>
-    <!--     <onunload>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title)</onunload>
+    <!--     <onunload>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)]Title)</onunload>
  -->
     <zorder>4</zorder>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
-    <include>Animation_DialogPopup</include>
+    <include>Animation_DialogPopupOpenClose</include>
     <controls>
         <control type="label" id="12112">
-            <label>$INFO[Window(1124).Property(CustomYesNoDialog)]$INFO[Window(1124).Property(WidgetType)]default </label>
+            <label>$INFO[Window(skinsettings).Property(CustomYesNoDialog)]$INFO[Window(skinsettings).Property(WidgetType)]default </label>
             <animation effect="fade" start="100" end="0" time="0" condition="true">conditional</animation>
         </control>
         <control type="group">
-            <animation effect="slide" end="0,-338" time="0" condition="Window.IsActive(1124)">Conditional</animation>
+            <animation effect="slide" end="0,-338" time="0" condition="Window.IsActive(skinsettings)">Conditional</animation>
             <control type="group">
-                <left>570</left>
-                <top>375</top>
+                <posx>570</posx>
+                <posy>375</posy>
                 <control type="group">
-                    <animation effect="zoom" end="100,130" center="960,0" time="0" condition="SubString(Window(1124).Property(CustomYesNoDialog),movie) | SubString(Window(1124).Property(CustomYesNoDialog),tv)">Conditional</animation>
+                    <animation effect="zoom" end="100,130" center="960,0" time="0" condition="SubString(Window(skinsettings).Property(CustomYesNoDialog),movie) | SubString(Window(skinsettings).Property(CustomYesNoDialog),tv)">Conditional</animation>
                     <control type="image">
                         <width>780</width>
                         <height>330</height>
@@ -39,13 +39,13 @@
                     </control>
                 </control>
                 <control type="image">
-                    <left>15</left>
+                    <posx>15</posx>
                     <width>750</width>
                     <height>60</height>
                     <texture border="1">osd/osd_settings_buttonnf.png</texture>
                 </control>
                 <control type="label" id="4">
-                    <top>88</top>
+                    <posy>88</posy>
                     <width>780</width>
                     <height>45</height>
                     <align>center</align>
@@ -54,7 +54,7 @@
                     <scroll>true</scroll>
                 </control>
                 <control type="grouplist" id="5400">
-                    <top>180</top>
+                    <posy>180</posy>
                     <width>740</width>
                     <height>200</height>
                     <align>center</align>
@@ -72,13 +72,12 @@
                         <textcolor>grey2</textcolor>
                         <focusedcolor>white3</focusedcolor>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                        <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),babe) | Substring(Window(1124).Property(CustomYesNoDialog),actors) | Substring(Window(1124).Property(CustomYesNoDialog),Icon) | Substring(Window(1124).Property(CustomYesNoDialog),addons) | Substring(Window(1124).Property(CustomYesNoDialog),albums) | Substring(Window(1124).Property(CustomYesNoDialog),artists)">SetProperty(WidgetType,panelcoversquare,1124)</onfocus>
-                        <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),tv) | Substring(Window(1124).Property(CustomYesNoDialog),images) | Substring(Window(1124).Property(CustomYesNoDialog),rss) | Substring(Window(1124).Property(CustomYesNoDialog),movie) | Substring(Window(1124).Property(CustomYesNoDialog),musicvideo)">SetProperty(WidgetType,panelcoverepisode,1124)</onfocus>
-                       <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),roms)">SetProperty(WidgetType,panel,1124)</onfocus>  <!--     <!--edit roms widgets-->
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus condition="Substring(Window(skinsettings).Property(CustomYesNoDialog),babe) | Substring(Window(skinsettings).Property(CustomYesNoDialog),actors) | Substring(Window(skinsettings).Property(CustomYesNoDialog),Icon) | Substring(Window(skinsettings).Property(CustomYesNoDialog),addons) | Substring(Window(skinsettings).Property(CustomYesNoDialog),albums) | Substring(Window(skinsettings).Property(CustomYesNoDialog),artists)">SetProperty(WidgetType,panelcoversquare,skinsettings)</onfocus>
+                        <onfocus condition="Substring(Window(skinsettings).Property(CustomYesNoDialog),tv) | Substring(Window(skinsettings).Property(CustomYesNoDialog),images) | Substring(Window(skinsettings).Property(CustomYesNoDialog),rss) | Substring(Window(skinsettings).Property(CustomYesNoDialog),movie) | Substring(Window(skinsettings).Property(CustomYesNoDialog),musicvideo)">SetProperty(WidgetType,panelcoverepisode,skinsettings)</onfocus>
+                        <onfocus condition="Substring(Window(skinsettings).Property(CustomYesNoDialog),roms)">SetProperty(WidgetType,panel,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
-						<!--<visible>!SubString(Window(1124).Property(CustomYesNoDialog),roms)</visible> new line  edit roms widgets--> -->
                     </control>
                     <control type="button" id="22">
                         <width>175</width>
@@ -89,11 +88,11 @@
                         <textcolor>grey2</textcolor>
                         <focusedcolor>white3</focusedcolor>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                        <onfocus>SetProperty(WidgetType,panelcoverposter,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus>SetProperty(WidgetType,panelcoverposter,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
-                        <visible>Substring(Window(1124).Property(CustomYesNoDialog),movie) | Substring(Window(1124).Property(CustomYesNoDialog),musicvideo) | Substring(Window(1124).Property(CustomYesNoDialog),tv)</visible>
+                        <visible>Substring(Window(skinsettings).Property(CustomYesNoDialog),movie) | Substring(Window(skinsettings).Property(CustomYesNoDialog),musicvideo) | Substring(Window(skinsettings).Property(CustomYesNoDialog),tv)</visible>
                     </control>
                     <control type="button" id="11">
                         <width>175</width>
@@ -104,8 +103,8 @@
                         <textcolor>grey2</textcolor>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <focusedcolor>white3</focusedcolor>
-                        <onfocus>SetProperty(WidgetType,classic,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus>SetProperty(WidgetType,classic,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
                     </control>
@@ -119,13 +118,13 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <focusedcolor>white3</focusedcolor>
                         <!-- widget style -->
-                        <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),movie) | Substring(Window(1124).Property(CustomYesNoDialog),musicvideo)">SetProperty(WidgetType,panel2poster,1124)</onfocus>
-                        <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),babe) | Substring(Window(1124).Property(CustomYesNoDialog),actors) | Substring(Window(1124).Property(CustomYesNoDialog),addons) | Substring(Window(1124).Property(CustomYesNoDialog),albums) | Substring(Window(1124).Property(CustomYesNoDialog),artists)">SetProperty(WidgetType,panel2square,1124)</onfocus>
-                        <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),tv) | Substring(Window(1124).Property(CustomYesNoDialog),images) | Substring(Window(1124).Property(CustomYesNoDialog),rss)">SetProperty(WidgetType,panel2episode,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus condition="Substring(Window(skinsettings).Property(CustomYesNoDialog),movie) | Substring(Window(skinsettings).Property(CustomYesNoDialog),musicvideo)">SetProperty(WidgetType,panel2poster,skinsettings)</onfocus>
+                        <onfocus condition="Substring(Window(skinsettings).Property(CustomYesNoDialog),babe) | Substring(Window(skinsettings).Property(CustomYesNoDialog),actors) | Substring(Window(skinsettings).Property(CustomYesNoDialog),addons) | Substring(Window(skinsettings).Property(CustomYesNoDialog),albums) | Substring(Window(skinsettings).Property(CustomYesNoDialog),artists)">SetProperty(WidgetType,panel2square,skinsettings)</onfocus>
+                        <onfocus condition="Substring(Window(skinsettings).Property(CustomYesNoDialog),tv) | Substring(Window(skinsettings).Property(CustomYesNoDialog),images) | Substring(Window(skinsettings).Property(CustomYesNoDialog),rss)">SetProperty(WidgetType,panel2episode,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
-                        <visible>!SubString(Window(1124).Property(CustomYesNoDialog),roms) + !Substring(Window(1124).Property(CustomYesNoDialog),Icon)</visible>
+                        <visible>!SubString(Window(skinsettings).Property(CustomYesNoDialog),roms) + !Substring(Window(skinsettings).Property(CustomYesNoDialog),Icon)</visible>
                     </control>
                     <control type="button" id="15">
                         <width>175</width>
@@ -136,16 +135,15 @@
                         <textcolor>grey2</textcolor>
                         <focusedcolor>white3</focusedcolor>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                        <onfocus>SetProperty(WidgetType,keeparpanel,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus>SetProperty(WidgetType,keeparpanel,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
-                     <!--   <visible>Substring(Window(1124).Property(CustomYesNoDialog),roms) | Substring(Window(1124).Property(CustomYesNoDialog),images)</visible>   disable line roms-->
-						<visible>Substring(Window(1124).Property(CustomYesNoDialog),images)</visible>  <!-- new line edit roms -->
+                        <visible>Substring(Window(skinsettings).Property(CustomYesNoDialog),roms) | Substring(Window(skinsettings).Property(CustomYesNoDialog),images)</visible>
                         <onclick>ActivateWindow(1146)</onclick>
                     </control>
                 </control>
                 <control type="grouplist" id="5401">
-                    <top>230</top>
+                    <posy>230</posy>
                     <width>740</width>
                     <height>200</height>
                     <align>center</align>
@@ -164,11 +162,11 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <focusedcolor>white3</focusedcolor>
                         <!-- widget style -->
-                        <onfocus>SetProperty(WidgetType,panellogolayout,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus>SetProperty(WidgetType,panellogolayout,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
-                        <visible>SubString(Window(1124).Property(CustomYesNoDialog),movie) | SubString(Window(1124).Property(CustomYesNoDialog),tv)</visible>
+                        <visible>SubString(Window(skinsettings).Property(CustomYesNoDialog),movie) | SubString(Window(skinsettings).Property(CustomYesNoDialog),tv)</visible>
                     </control>
                     <control type="button" id="14">
                         <width>175</width>
@@ -180,11 +178,11 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <focusedcolor>white3</focusedcolor>
                         <!-- widget style -->
-                        <onfocus>SetProperty(WidgetType,panelclearartlayout,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus>SetProperty(WidgetType,panelclearartlayout,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
-                        <visible>SubString(Window(1124).Property(CustomYesNoDialog),movie) | SubString(Window(1124).Property(CustomYesNoDialog),tv)</visible>
+                        <visible>SubString(Window(skinsettings).Property(CustomYesNoDialog),movie) | SubString(Window(skinsettings).Property(CustomYesNoDialog),tv)</visible>
                     </control>
                     <control type="button" id="17">
                         <width>175</width>
@@ -196,11 +194,11 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <focusedcolor>white3</focusedcolor>
                         <!-- widget style -->
-                        <onfocus>SetProperty(WidgetType,panelbannerlayout,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus>SetProperty(WidgetType,panelbannerlayout,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
-                        <visible>SubString(Window(1124).Property(CustomYesNoDialog),movie) | SubString(Window(1124).Property(CustomYesNoDialog),tv)</visible>
+                        <visible>SubString(Window(skinsettings).Property(CustomYesNoDialog),movie) | SubString(Window(skinsettings).Property(CustomYesNoDialog),tv)</visible>
                     </control>
                     <control type="button" id="171">
                         <width>175</width>
@@ -212,11 +210,11 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <focusedcolor>white3</focusedcolor>
                         <!-- widget style -->
-                        <onfocus>SetProperty(WidgetType,panellandscape,1124)</onfocus>
-                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
+                        <onfocus>SetProperty(WidgetType,panellandscape,skinsettings)</onfocus>
+                        <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(skinsettings).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>
-                        <visible>SubString(Window(1124).Property(CustomYesNoDialog),movie) | SubString(Window(1124).Property(CustomYesNoDialog),tv)</visible>
+                        <visible>SubString(Window(skinsettings).Property(CustomYesNoDialog),movie) | SubString(Window(skinsettings).Property(CustomYesNoDialog),tv)</visible>
                     </control>
                 </control>
             </control>

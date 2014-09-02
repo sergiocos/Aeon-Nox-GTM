@@ -2,6 +2,8 @@
 <window>
     <defaultcontrol always="true">5</defaultcontrol>
     <onload>SetFocus(5)</onload>
+    <onload>ClearProperty(image.map_image,home)</onload>
+    <onload condition="!IsEmpty(ListItem.PictureGPSLon)">RunScript(script.maps.browser,prefix=image,zoomlevel=9,location=geocode,lat=$INFO[ListItem.PictureGPSLat],lon=$INFO[ListItem.PictureGPSLon])</onload>
     <animation type="WindowOpen" reversible="false">
         <effect type="zoom" start="150" end="100" center="960,540" time="400" tween="cubic" />
         <effect type="fade" end="100" time="200" />
@@ -24,20 +26,24 @@
             <animation effect="slide" start="0" end="0,540" time="0" reversible="false" condition="!IntegerGreaterThan(Container(5).NumItems,4)">Conditional</animation>
             <animation effect="slide" start="0" end="0,180" time="0" reversible="false" condition="IntegerGreaterThan(Container(5).NumItems,4) + !IntegerGreaterThan(Container(5).NumItems,12)">Conditional</animation>
             <control type="image">
-                <top>204</top>
+                <posy>204</posy>
                 <width>1923</width>
                 <height>980</height>
                 <texture>home/nowplaying_shadow.png</texture>
+                <colordiffuse>black</colordiffuse>
             </control>
             <control type="image">
-                <top>204</top>
-                <width>1923</width>
-                <height>980</height>
-                <texture>home/nowplaying_shadow.png</texture>
-                <colordiffuse>grey2</colordiffuse>
+                <posx>1500</posx>
+                <posy>50</posy>
+                <height>300</height>
+                <width>400</width>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[Window(pictures).Property(image.map_image)]</texture>
+                <fadetime>FanartCrossfadeTime</fadetime>
+                <visible>!IsEmpty(ListItem.PictureGPSLon)</visible>
             </control>
             <control type="panel" id="5">
-                <top>660</top>
+                <posy>660</posy>
                 <width>1920</width>
                 <height>420</height>
                 <aligny>bottom</aligny>
@@ -55,7 +61,7 @@
                         <texture border="1">osd/osd_settings_buttonnf.png</texture>
                     </control>
                     <control type="label">
-                        <left>10</left>
+                        <posx>10</posx>
                         <width>640</width>
                         <height>60</height>
                         <textoffsetx>15</textoffsetx>
@@ -65,7 +71,7 @@
                         <textcolor>grey2</textcolor>
                     </control>
                     <control type="label">
-                        <left>640</left>
+                        <posx>640</posx>
                         <width>750</width>
                         <height>60</height>
                         <textoffsetx>15</textoffsetx>
@@ -84,7 +90,7 @@
                             <texture border="1">osd/osd_settings_buttonnf.png</texture>
                         </control>
                         <control type="label">
-                            <left>10</left>
+                            <posx>10</posx>
                             <width>640</width>
                             <height>60</height>
                             <textoffsetx>15</textoffsetx>
@@ -94,7 +100,7 @@
                             <textcolor>grey2</textcolor>
                         </control>
                         <control type="label">
-                            <left>640</left>
+                            <posx>640</posx>
                             <width>640</width>
                             <height>60</height>
                             <textoffsetx>15</textoffsetx>
@@ -113,7 +119,7 @@
                             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>10</left>
+                            <posx>10</posx>
                             <width>640</width>
                             <height>60</height>
                             <textoffsetx>15</textoffsetx>
@@ -122,7 +128,7 @@
                             <shadowcolor>black</shadowcolor>
                         </control>
                         <control type="label">
-                            <left>640</left>
+                            <posx>640</posx>
                             <width>640</width>
                             <height>60</height>
                             <textoffsetx>15</textoffsetx>

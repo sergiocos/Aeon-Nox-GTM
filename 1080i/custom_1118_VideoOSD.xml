@@ -2,40 +2,40 @@
 <window type="dialog" id="1118">
     <defaultcontrol always="true">450</defaultcontrol>
     <coordinates>
-        <left>0</left>
-        <top>0</top>
+        <posx>0</posx>
+        <posy>0</posy>
         <system>1</system>
     </coordinates>
-    <include>Animation_DialogPopup</include>
+    <include>Animation_DialogPopupOpenClose</include>
     <controls>
         <control type="image">
-            <left>357</left>
-            <top>180</top>
+            <posx>357</posx>
+            <posy>180</posy>
             <width>1212</width>
-            <height>670</height>
+            <height>630</height>
             <texture>osd/osd_settings_back_glow.png</texture>
             <visible>!Skin.HasSetting(DisableGlowbar)</visible>
             <include>PanelGlowFade</include>
             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
         </control>
         <control type="image">
-            <left>357</left>
-            <top>180</top>
+            <posx>357</posx>
+            <posy>180</posy>
             <width>1212</width>
-            <height>670</height>
+            <height>630</height>
             <texture>osd/osd_settings_back.png</texture>
             <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
         </control>
         <control type="image">
-            <left>375</left>
-            <top>212</top>
+            <posx>375</posx>
+            <posy>212</posy>
             <width>1172</width>
             <height>60</height>
             <texture border="1">osd/osd_settings_buttonnf.png</texture>
         </control>
         <control type="label">
-            <left>420</left>
-            <top>205</top>
+            <posx>420</posx>
+            <posy>205</posy>
             <width>600</width>
             <height>60</height>
             <label>$LOCALIZE[31619]</label>
@@ -43,8 +43,8 @@
             <textcolor>$VAR[TitleColorVar]</textcolor>
         </control>
         <control type="grouplist" id="450">
-            <left>375</left>
-            <top>272</top>
+            <posx>375</posx>
+            <posy>272</posy>
             <width>1172</width>
             <height>540</height>
             <aligny>center</aligny>
@@ -59,12 +59,6 @@
                 <onclick>Skin.ToggleSetting(Show_Info_Paused)</onclick>
                 <selected>Skin.HasSetting(Show_Info_Paused)</selected>
             </control>
-            <control type="radiobutton" id="453">
-                <label>31621</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(AlaskaPausedLabel)</onclick>
-                <selected>Skin.HasSetting(AlaskaPausedLabel)</selected>
-            </control>
             <control type="radiobutton" id="454">
                 <label>31627</label>
                 <include>Objects_CommonSettingsButton</include>
@@ -78,20 +72,6 @@
                 <onclick>Skin.ToggleSetting(DisableVideoThumb)</onclick>
                 <selected>Skin.HasSetting(DisableVideoThumb)</selected>
             </control>
-            <control type="radiobutton" id="459">
-                <label>   -Case on info screen</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(CaseVideoThumb)</onclick>
-                <selected>Skin.HasSetting(CaseVideoThumb)</selected>
-				<visible>!Skin.HasSetting(DisableVideoThumb)</visible>
-            </control>	
-            <control type="radiobutton" id="460">
-                <label>   -DiscArt on info screen</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(Discinfoscreen)</onclick>
-                <selected>Skin.HasSetting(Discinfoscreen)</selected>
-				<visible>!Skin.HasSetting(DisableVideoThumb)</visible>
-            </control>						
             <control type="radiobutton" id="456">
                 <label>31640</label>
                 <include>Objects_CommonSettingsButton</include>
@@ -104,12 +84,6 @@
                 <onclick>Skin.ToggleSetting(ClassicOSD)</onclick>
                 <selected>Skin.HasSetting(ClassicOSD)</selected>
             </control>
-            <control type="radiobutton" id="458">
-                <label>$LOCALIZE[462]/$LOCALIZE[31952]</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(AudioSubFlag)</onclick>
-                <selected>Skin.HasSetting(AudioSubFlag)</selected>
-            </control>			
         </control>
         <control type="scrollbar" id="60">
             <include>Objects_CommonSettingsScrollbar</include>

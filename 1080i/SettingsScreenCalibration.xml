@@ -24,16 +24,16 @@
             <texturenofocus>calibration/calibrate-topleft.png</texturenofocus>
         </control>
         <control type="mover" id="9">
-            <left>1050</left>
-            <top>750</top>
+            <posx>1050</posx>
+            <posy>750</posy>
             <width>192</width>
             <height>192</height>
             <texturefocus>calibration/calibrate-bottomright-focus.png</texturefocus>
             <texturenofocus>calibration/calibrate-bottomright.png</texturenofocus>
         </control>
         <control type="mover" id="10">
-            <left>300</left>
-            <top>750</top>
+            <posx>300</posx>
+            <posy>750</posy>
             <width>768</width>
             <height>192</height>
             <texturefocus>calibration/calibrate-subtitles-focus.png</texturefocus>
@@ -41,17 +41,17 @@
         </control>
         <control type="resize" id="11"></control>
         <control type="group">
-            <left>30</left>
-            <top>120</top>
+            <posx>30</posx>
+            <posy>120</posy>
             <control type="fadelabel" id="2">
-                <top>15</top>
+                <posy>15</posy>
                 <width>1860</width>
                 <align>center</align>
                 <label>-</label>
                 <font>Font_Bold34</font>
             </control>
             <control type="fadelabel" id="3">
-                <top>60</top>
+                <posy>60</posy>
                 <width>1860</width>
                 <align>center</align>
                 <label>-</label>

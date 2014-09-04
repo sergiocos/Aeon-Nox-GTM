@@ -741,7 +741,7 @@
                     <animation effect="slide" end="-1080,0" time="0" condition="Control.IsVisible(514)">Conditional</animation>
                     <!-- Label -->
                     <control type="group">
-                        <posx>1500</posx>
+                        <posx>1480</posx>
                         <posy>11</posy>
                         <visible>!Control.IsVisible(57)</visible>
                         <control type="image" id="76">
@@ -768,13 +768,13 @@
                     </control>
                     <control type="group">
                         <!--totals-->
-                        <posx>1630</posx>
+                        <posx>1625</posx>
                         <control type="label">
                             <width>135</width>
                             <height>65</height>
                             <align>center</align>
-                            <label>$INFO[Window(home).Property(Album.Songs.Count)]</label>
-                            <font>Font_Bold40</font>
+                            <label>$INFO[Window(home).Property(Album.Songs.Duration)]</label>
+                            <font>Font_Bold37_Caps</font>
                             <textcolor>floor</textcolor>
                         </control>
                         <control type="label">
@@ -782,25 +782,27 @@
                             <width>135</width>
                             <height>35</height>
                             <align>center</align>
-                            <label>$LOCALIZE[134]</label>
+                            <label>$INFO[Window(home).Property(Album.Songs.Count)] $LOCALIZE[134]</label>
                             <font>Font_Reg19_Caps</font>
                             <textcolor>floor</textcolor>
                         </control>
                     </control>
                     <control type="group">
                         <!-- Genre -->
+                            <posx>1743</posx>
                         <include>Animation_VisibleChange200</include>
                         <visible>!Control.IsVisible(53)</visible>
                         <control type="image">
-                            <posx>1795</posx>
+                            <posy>6</posy>
                             <width>175</width>
                             <height>88</height>
-                            <texture>flags/music/genre/genre.png</texture>
+                            <texture>defaulticons/DefaultAddonMusic.png</texture>
                             <colordiffuse>floor</colordiffuse>
+                            <aspectratio>keep</aspectratio>
                             <animation effect="fade" start="100" end="30" time="40" condition="true">Conditional</animation>
                         </control>
                         <control type="label">
-                            <posx>1768</posx>
+                            <posx>28</posx>
                             <posy>0</posy>
                             <width>135</width>
                             <height>88</height>
@@ -816,64 +818,26 @@
             </control>
             <control type="group">
                 <visible>Container.Content(songs)</visible>
-                <animation effect="slide" end="-1340,0" time="0" condition="Control.IsVisible(514)">Conditional</animation>
+                <animation effect="slide" end="-1240,0" time="0" condition="Control.IsVisible(514)">Conditional</animation>
                 <animation effect="slide" time="560" start="0,300" end="0,0" tween="cubic">Visible</animation>
                 <animation effect="slide" time="250" end="0,400" tween="cubic" easing="in">Hidden</animation>
-                <!-- Rating -->
-                <control type="image">
-                    <posx>1350</posx>
-                    <width>135</width>
-                    <height>88</height>
-                    <texture fallback="flags/music/rating/rating0.png">$INFO[ListItem.StarRating,flags/music/rating/]</texture>
-                    <fadetime>IconCrossfadeTime2</fadetime>
-                    <colordiffuse>floor</colordiffuse>
-                    <visible>!IsEmpty(ListItem.StarRating)</visible>
-                    <include>Animation_VisibleChange200</include>
-                </control>
-                <control type="group">
-                    <!-- Year -->
-                    <include>Animation_VisibleChange200</include>
-                    <visible>!IsEmpty(ListItem.Year)</visible>
-                    <control type="image">
-                        <posx>285</posx>
-                        <width>135</width>
-                        <height>88</height>
-                        <texture>flags/music/year/year.png</texture>
-                        <colordiffuse>floor</colordiffuse>
-                    </control>
-                    <control type="label">
-                        <posx>285</posx>
-                        <width>135</width>
-                        <height>83</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <label>$INFO[ListItem.Year]</label>
-                        <font>Font_Reg35</font>
-                        <textcolor>floor</textcolor>
-                    </control>
-                </control>
-                <!-- Codec -->
-                <control type="image">
-                    <posx>1500</posx>
-                    <posy>10</posy>
-                    <texture>$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
-                    <include>AudioFlagsVars</include>
-                    <visible>Container.Content(Songs)</visible>
-                </control>
-                <control type="group">
+                <posx>20</posx>
+                                <control type="group">
                     <!-- Genre -->
                     <visible>!IsEmpty(ListItem.Genre)</visible>
                     <include>Animation_VisibleChange200</include>
-                    <posx>1705</posx>
+                    <posx>1203</posx>
                     <control type="image">
                         <width>175</width>
                         <height>88</height>
-                        <texture>flags/music/genre/genre.png</texture>
+                            <posy>6</posy>
+                            <texture>defaulticons/DefaultAddonMusic.png</texture>
+                            <aspectratio>keep</aspectratio>
                         <colordiffuse>floor</colordiffuse>
                         <animation effect="fade" start="100" end="30" time="40" condition="true">Conditional</animation>
                     </control>
                     <control type="label">
-                        <posx>-27</posx>
+                        <posx>20</posx>
                         <posy>0</posy>
                         <width>135</width>
                         <height>88</height>
@@ -882,6 +846,46 @@
                         <wrapmultiline>true</wrapmultiline>
                         <label>$INFO[ListItem.Genre]</label>
                         <font>Font_Reg19_Caps</font>
+                        <textcolor>floor</textcolor>
+                    </control>
+                </control>
+                 <!-- Rating -->
+                <control type="image">
+                    <posx>1380</posx>
+                    <width>135</width>
+                    <height>88</height>
+                    <texture fallback="flags/music/rating/rating0.png">$INFO[ListItem.StarRating,flags/music/rating/]</texture>
+                    <fadetime>IconCrossfadeTime2</fadetime>
+                    <colordiffuse>floor</colordiffuse>
+                    <visible>!IsEmpty(ListItem.StarRating)</visible>
+                    <include>Animation_VisibleChange200</include>
+                </control>               
+                <!-- Codec -->
+                <control type="image">
+                    <posx>1540</posx>
+                    <posy>10</posy>
+                    <texture>$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
+                    <include>AudioFlagsVars</include>
+                    <visible>Container.Content(Songs)</visible>
+                </control>
+                <control type="group">
+                    <!-- Year -->
+                    <include>Animation_VisibleChange200</include>
+                    <visible>!IsEmpty(ListItem.Year)</visible>
+                    <posx>1725</posx>
+                    <control type="image">
+                        <width>135</width>
+                        <height>88</height>
+                        <texture>flags/music/year/year.png</texture>
+                        <colordiffuse>floor</colordiffuse>
+                    </control>
+                    <control type="label">
+                        <width>135</width>
+                        <height>83</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Year]</label>
+                        <font>Font_Reg35</font>
                         <textcolor>floor</textcolor>
                     </control>
                 </control>

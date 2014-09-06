@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window id="1128" type="dialog">
-    <defaultcontrol>10</defaultcontrol>
+    <defaultcontrol>13</defaultcontrol>
     <include condition="!Substring(Skin.CurrentTheme,whit)">ColorConfigDefaultTheme</include>
     <include condition="Substring(Skin.CurrentTheme,whit)">ColorConfigWhiteTheme</include>
     <onunload condition="!IsEmpty(Window(skinsettings).Property(ColorPicker)) + [Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]">Skin.SetString(diffuse_music,$INFO[Skin.String(diffuse_color)])</onunload>
@@ -74,12 +74,6 @@
                     <onclick>Skin.ToggleSetting(DisableGlowbar)</onclick>
                     <selected>!Skin.HasSetting(DisableGlowbar)</selected>
                 </control>
-                <control type="radiobutton" id="10">
-                    <label>$LOCALIZE[31177]</label>
-                    <include>ColorChooserButton</include>
-                    <onclick>Skin.ToggleSetting(randomcolor)</onclick>
-                    <selected>Skin.HasSetting(randomcolor)</selected>
-                </control>
                 <control type="radiobutton" id="15">
                     <label>$LOCALIZE[31182] $LOCALIZE[31061]</label>
                     <include>ColorChooserButton</include>
@@ -112,7 +106,6 @@
                     <include>ColorChooserButton</include>
                     <onclick>SetProperty(colordialog,diffuse_color,skinsettings)</onclick>
                     <onclick>ActivateWindow(1138)</onclick>
-                    <enable>!Skin.HasSetting(randomcolor)</enable>
                 </control>
                 <control type="button" id="12">
                     <label>$LOCALIZE[31192]</label>
@@ -147,7 +140,7 @@
             </control>
             <control type="image">
                 <posx>670</posx>
-                <posy>335</posy>
+                <posy>275</posy>
                 <width>50</width>
                 <height>50</height>
                 <texture>common/white.png</texture>
@@ -155,7 +148,7 @@
             </control>
             <control type="image">
                 <posx>670</posx>
-                <posy>395</posy>
+                <posy>335</posy>
                 <width>50</width>
                 <height>50</height>
                 <texture>common/white.png</texture>

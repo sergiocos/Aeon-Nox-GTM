@@ -2222,7 +2222,7 @@
                     <control type="panel" id="5051">
                         <posx>27</posx>
                         <posy>26</posy>
-                        <width>1595</width>
+                        <width>1596</width>
                         <height>348</height>
                         <orientation>horizontal</orientation>
                         <onleft>5051</onleft>
@@ -2273,7 +2273,7 @@
                                 <posy>110</posy>
                                 <width>375</width>
                                 <height>40</height>
-                                <label>$INFO[ListItem.Property(City)] - $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
                                 <font>Font_Reg26</font>
                                 <shadowcolor>black</shadowcolor>
                                 <textcolor>grey</textcolor>
@@ -2330,14 +2330,13 @@
                                 <posy>110</posy>
                                 <width>375</width>
                                 <height>40</height>
-                                <label>$INFO[ListItem.Property(City)] - $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
                                 <font>Font_Reg26</font>
                                 <shadowcolor>black</shadowcolor>
                                 <textcolor>grey</textcolor>
                             </control>
                         </focusedlayout>
                         <content>
-                            <include condition="Substring(Skin.String(widgetlist),concerts)">ConcertsPanelContentskinsettings</include>
                             <include condition="Substring(Skin.String(widgetlist),concerts)">ConcertsPanelContent</include>
                         </content>
                     </control>
@@ -3607,33 +3606,31 @@
                     <ondown condition="!IsEmpty(Window(home).Property(PanelWidget2Info))">SetFocus(6051)</ondown>
                     <ondown>ClearProperty(PanelWidgetInfo,Home)</ondown>
                     <ondown>ClearProperty(PanelWidget2Info,Home)</ondown>
+                    <onup>10</onup>
+                    <ondown>10</ondown>
+                    <onleft>11</onleft>
+                    <onright>11</onright>
                     <usecontrolcoords>true</usecontrolcoords>
                     <control type="button" id="5085">
-                        <width>250</width>
+                        <width>330</width>
                         <height>45</height>
                         <textoffsetx>20</textoffsetx>
                         <align>center</align>
                         <font>Font_Reg28</font>
-                        <onclick>SetProperty(1139WindowMode,artist,home)</onclick>
-                        <label>Artist schedule</label>
                         <textcolor>grey2</textcolor>
+                        <label>Show artist tour on map</label>
                         <focusedcolor>white3</focusedcolor>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                        <onclick>Dialog.Close(1165)</onclick>
-                        <onclick>RunScript(script.extendedinfo,info=artistevents,artistname=$INFO[Window(home).Property(Headliner)],silent=False)</onclick>
-                        <onclick>ActivateWindow(1139)</onclick>
-                        <onup>10</onup>
-                        <ondown>10</ondown>
-                        <onleft>11</onleft>
-                        <onright>11</onright>
+                        <onclick>Dialog.Close(all,true)</onclick>
+                        <onclick condition="!IsEmpty(Window(home).Property(Street))">RunScript(script.maps.browser,location=$INFO[Window(home).Property(City)] $INFO[Window(home).Property(Street)],artist=$INFO[Window(home).Property(Headliner)])</onclick>
+                        <onclick condition="IsEmpty(Window(home).Property(Street))">RunScript(script.maps.browser,location=$INFO[Window(home).Property(City)] $INFO[Window(home).Property(Name)],artist=$INFO[Window(home).Property(Headliner)])</onclick>
                     </control>
                     <control type="button" id="5086">
-                        <width>250</width>
+                        <width>330</width>
                         <height>45</height>
                         <textoffsetx>20</textoffsetx>
                         <align>center</align>
                         <font>Font_Reg28</font>
-                        <onclick>SetProperty(1139WindowMode,venue,home)</onclick>
                         <label>Venue schedule</label>
                         <textcolor>grey2</textcolor>
                         <focusedcolor>white3</focusedcolor>
@@ -3641,31 +3638,9 @@
                         <onclick>Dialog.Close(1165)</onclick>
                         <onclick>RunScript(script.extendedinfo,info=venueevents,id=$INFO[Window(home).Property(ID)],silent=False)</onclick>
                         <onclick>ActivateWindow(1139)</onclick>
-                        <onup>10</onup>
-                        <ondown>10</ondown>
-                        <onleft>11</onleft>
-                        <onright>11</onright>
-                    </control>
-                    <control type="button" id="5087">
-                        <width>250</width>
-                        <height>45</height>
-                        <font>Font_Reg28</font>
-                        <textoffsetx>20</textoffsetx>
-                        <align>center</align>
-                        <label>$LOCALIZE[31941]</label>
-                        <textcolor>grey2</textcolor>
-                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                        <focusedcolor>white3</focusedcolor>
-                        <onclick>Dialog.Close(all,true)</onclick>
-                        <onclick condition="!IsEmpty(Window(home).Property(Street))">RunScript(script.maps.browser,location=$INFO[Window(home).Property(City)] $INFO[Window(home).Property(Street)],artist=$INFO[Window(home).Property(Headliner)])</onclick>
-                        <onclick condition="IsEmpty(Window(home).Property(Street))">RunScript(script.maps.browser,location=$INFO[Window(home).Property(City)] $INFO[Window(home).Property(Name)],artist=$INFO[Window(home).Property(Headliner)])</onclick>
-                        <onup>11</onup>
-                        <ondown>11</ondown>
-                        <onleft>10</onleft>
-                        <onright>10</onright>
                     </control>
                     <control type="button" id="5088">
-                        <width>250</width>
+                        <width>330</width>
                         <height>45</height>
                         <textoffsetx>20</textoffsetx>
                         <align>center</align>
@@ -3676,10 +3651,6 @@
                         <focusedcolor>white3</focusedcolor>
                         <onclick>SetProperty(listcontent,$INFO[Window(home).Property(Headliner)],home)</onclick>
                         <onclick>ActivateWindow(1168)</onclick>
-                        <onup>11</onup>
-                        <ondown>11</ondown>
-                        <onleft>10</onleft>
-                        <onright>10</onright>
                     </control>
                     <control type="spincontrol" id="5089">
                         <posx>0</posx>
@@ -4601,7 +4572,7 @@
                     <control type="panel" id="6051">
                         <posx>27</posx>
                         <posy>26</posy>
-                        <width>1595</width>
+                        <width>1596</width>
                         <height>348</height>
                         <preloaditems>2</preloaditems>
                         <onleft>6051</onleft>
@@ -4652,7 +4623,7 @@
                                 <posy>110</posy>
                                 <width>375</width>
                                 <height>40</height>
-                                <label>$INFO[ListItem.Property(City)] - $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
                                 <font>Font_Reg26</font>
                                 <shadowcolor>black</shadowcolor>
                                 <textcolor>grey</textcolor>
@@ -4709,14 +4680,13 @@
                                 <posy>110</posy>
                                 <width>375</width>
                                 <height>40</height>
-                                <label>$INFO[ListItem.Property(City)] - $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
                                 <font>Font_Reg26</font>
                                 <shadowcolor>black</shadowcolor>
                                 <textcolor>grey</textcolor>
                             </control>
                         </focusedlayout>
                         <content>
-                            <include condition="Substring(Skin.String(widget2list),concerts)">ConcertsPanelContentskinsettings</include>
                             <include condition="Substring(Skin.String(widget2list),concerts)">ConcertsPanelContent</include>
                         </content>
                     </control>

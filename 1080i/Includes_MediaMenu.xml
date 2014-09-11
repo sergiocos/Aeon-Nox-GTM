@@ -76,9 +76,10 @@
         <control type="radiobutton" id="5">
             <label>24063</label>
             <include>Objects_MediaMenuButtonIcons</include>
-            <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/AlarmClock.png</textureradioon>
-            <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/AlarmClock.png</textureradiooff>
-            <selected>Control.HasFocus(5)</selected>
+            <textureradioonfocus colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/AlarmClock.png</textureradioonfocus>
+            <textureradioonnofocus colordiffuse="grey">special://skin/extras/BigIcons/AlarmClock.png</textureradioonnofocus>
+            <textureradioofffocus colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/Lock.png</textureradioofffocus>
+            <textureradiooffnofocus colordiffuse="grey">special://skin/extras/BigIcons/Lock.png</textureradiooffnofocus>
             <visible>Window.IsActive(Addonbrowser)</visible>
         </control>
         <control type="radiobutton" id="6">
@@ -291,8 +292,8 @@
         <control type="radiobutton" id="1665">
             <label>$LOCALIZE[31171]</label>
             <include>Objects_MediaMenuButtonIcons</include>
-            <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/Controlpanel.png</textureradioon>
-            <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/Controlpanel.png</textureradiooff>
+            <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/Paintbucket.png</textureradioon>
+            <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/Paintbucket.png</textureradiooff>
             <selected>Control.HasFocus(1665)</selected>
             <onclick condition="Control.IsVisible(50)">SetProperty(actualViewtype,List,home)</onclick>
             <onclick condition="Control.IsVisible(52)">SetProperty(actualViewtype,Tripanel,home)</onclick>
@@ -324,7 +325,43 @@
             <onclick>ActivateWindow(1126)</onclick>
         </control>
     </include>
-    <include name="Media_Menu_Tooltip">
+    <include name="GeneralSettingsButton">
+        <control type="radiobutton" id="1667">
+            <label>Video Settings</label>
+            <include>Objects_MediaMenuButtonIcons</include>
+            <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/Controlpanel.png</textureradioon>
+            <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/Controlpanel.png</textureradiooff>
+            <selected>Control.HasFocus(1667)</selected>
+            <onclick>ActivateWindow(videossettings)</onclick>
+            <visible>Window.IsActive(videos)</visible>
+        </control>
+        <control type="radiobutton" id="1668">
+            <label>Music Settings</label>
+            <include>Objects_MediaMenuButtonIcons</include>
+            <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/Controlpanel.png</textureradioon>
+            <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/Controlpanel.png</textureradiooff>
+            <selected>Control.HasFocus(1668)</selected>
+            <onclick>ActivateWindow(musicsettings)</onclick>
+            <visible>Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)</visible>
+        </control>
+    </include>
+    <include name="Media_Menu_Furniture">
+        <control type="group">
+            <animation type="Conditional" condition="!ControlGroup(9000).HasFocus">
+                <effect type="slide" end="-420" time="320" easing="in" tween="cubic" />
+            </animation>
+            <animation type="Conditional" condition="Window.IsActive(1126)">
+                <effect type="slide" end="75" time="320" easing="in" tween="cubic" />
+            </animation>
+            <animation type="Conditional" condition="Window.IsActive(1128) | Window.IsActive(1127) | Window.IsActive(1112)">
+                <effect type="slide" end="-600" time="320" easing="in" tween="cubic" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="slide" end="-450" time="320" easing="in" tween="cubic" />
+            </animation>
+            <animation type="WindowOpen">
+                <effect type="slide" start="-450" end="0" time="320" delay="800" tween="cubic" />
+            </animation>
         <control type="group">
             <posx>-12</posx>
             <posy>-38</posy>
@@ -383,25 +420,6 @@
                 <visible>!ControlGroup(9000).HasFocus + [Window.IsActive(musiclibrary) | Window.IsActive(videos)]</visible>
             </control>
         </control>
-    </include>
-    <include name="Media_Menu_Furniture">
-        <control type="group">
-            <animation type="Conditional" condition="!ControlGroup(9000).HasFocus">
-                <effect type="slide" end="-420" time="320" easing="in" tween="cubic" />
-            </animation>
-            <animation type="Conditional" condition="Window.IsActive(1126)">
-                <effect type="slide" end="75" time="320" easing="in" tween="cubic" />
-            </animation>
-            <animation type="Conditional" condition="Window.IsActive(1128) | Window.IsActive(1127) | Window.IsActive(1112)">
-                <effect type="slide" end="-600" time="320" easing="in" tween="cubic" />
-            </animation>
-            <animation type="WindowClose">
-                <effect type="slide" end="-450" time="320" easing="in" tween="cubic" />
-            </animation>
-            <animation type="WindowOpen">
-                <effect type="slide" start="-450" end="0" time="320" delay="800" tween="cubic" />
-            </animation>
-            <include>Media_Menu_Tooltip</include>
             <control type="image">
                 <posx>-42</posx>
                 <width>462</width>
@@ -496,6 +514,7 @@
                     <onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader,mode=custom,mediatype=movie,silent=true,extrafanart,poster,fanart,banner,clearlogo,clearart,landscape,discart,extrathumbs)</onclick>
                 </control>
                 <include condition="!Skin.HasSetting(hideoptions)">ViewtypeSettingsButton</include>
+                <include condition="!Skin.HasSetting(hideoptions) + [Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videos)]">GeneralSettingsButton</include>
                 <control type="radiobutton" id="612" description="GoToPlaylist">
                     <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/playlist.png</textureradioon>
                     <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/playlist.png</textureradiooff>

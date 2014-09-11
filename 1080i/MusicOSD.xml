@@ -126,30 +126,7 @@
                     <texture flipy="true">osd/osd_back.png</texture>
                     <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
                 </control>
-                <include condition="Skin.HasSetting(ClassicOSD)">ClassicMusicOSD</include>
-                <include condition="!Skin.HasSetting(ClassicOSD)">DefaultMusicOSD</include>
-            </control>
-            <control type="label">
-                <posx>440</posx>
-                <width>200</width>
-                <height>125</height>
-                <label>$INFO[System.CurrentControl]</label>
-                <font>Font_Reg32</font>
-                <textcolor>grey</textcolor>
-                <wrapmultiline>true</wrapmultiline>
-                <visible>ControlGroup(650).HasFocus</visible>
-            </control>
-            <control type="label">
-                <posx>440r</posx>
-                <width>200</width>
-                <height>125</height>
-                <align>right</align>
-                <label>$INFO[System.CurrentControl]</label>
-                <font>Font_Reg32</font>
-                <textcolor>grey</textcolor>
-                <wrapmultiline>true</wrapmultiline>
-                <visible>ControlGroup(651).HasFocus</visible>
-                <animation effect="slide" end="-30" condition="Skin.HasSetting(ClassicOSD)">Conditional</animation>
+                <include>ClassicMusicOSD</include>
             </control>
         </control>
         <control type="group">

@@ -79,7 +79,7 @@
                     <selected>Skin.HasSetting(showvisinfo)</selected>
                 </control>
                 <control type="button" id="451">
-                    <label>$LOCALIZE[31377]:</label>
+                    <label>$LOCALIZE[31377]</label>
                     <label2>[COLOR $VAR[FontColorVar]]$VAR[CDArtLabelVar][/COLOR]</label2>
                     <include>Objects_CommonSettingsButton</include>
                     <onclick condition="!Skin.HasSetting(CDArtinVis)">Skin.SetBool(CDArtinVis)</onclick>
@@ -96,7 +96,7 @@
                     <selected>Skin.HasSetting(musicvisinfomode)</selected>
                 </control>
                 <control type="button" id="462">
-                    <label>$LOCALIZE[31632]:</label>
+                    <label>$LOCALIZE[31632]</label>
                     <label2>[COLOR $VAR[FontColorVar]]$VAR[VisPanelLabelVar][/COLOR]</label2>
                     <include>Objects_CommonSettingsButton</include>
                     <onclick condition="!Skin.HasSetting(DisablePanelWidgetVis) + !Skin.HasSetting(activatepanelrotation)">Skin.SetBool(activatepanelrotation)</onclick>
@@ -105,13 +105,6 @@
                     <onclick condition="Skin.HasSetting(activatepanelrotation)">Skin.Reset(activatepanelrotation)</onclick>
                     <onclick condition="Skin.HasSetting(DisablePanelWidgetVis)">Skin.Reset(DisablePanelWidgetVis)</onclick>
                     <enable>!Skin.HasSetting(musicvisinfomode)</enable>
-                </control>
-                <control type="radiobutton" id="453">
-                    <label>31627</label>
-                    <include>Objects_CommonSettingsButton</include>
-                    <onclick>Skin.ToggleSetting(RemovePlayerControls)</onclick>
-                    <selected>Skin.HasSetting(RemovePlayerControls)</selected>
-                    <enable>!Skin.HasSetting(ClassicOSD)</enable>
                 </control>
                 <control type="radiobutton" id="454">
                     <label>31148</label>
@@ -124,12 +117,6 @@
                     <include>Objects_CommonSettingsButton</include>
                     <onclick>Skin.ToggleSetting(animation_bg)</onclick>
                     <selected>Skin.HasSetting(animation_bg)</selected>
-                </control>
-                <control type="radiobutton" id="457">
-                    <label>31097</label>
-                    <include>Objects_CommonSettingsButton</include>
-                    <onclick>Skin.ToggleSetting(ClassicOSD)</onclick>
-                    <selected>Skin.HasSetting(ClassicOSD)</selected>
                 </control>
                 <control type="button" id="461">
                     <label>$LOCALIZE[31127]</label>

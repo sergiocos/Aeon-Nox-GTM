@@ -627,8 +627,6 @@
     <variable name="LogoVar">
         <value condition="Container.Content(albums) + Substring(Container.FolderPath,musicdb://2/,left)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[Container.FolderName,,/logo.png]</value>
         <value condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</value>
-        <!--         <value condition="SubString(ListItem.FolderPath,videodb://movies/sets/,left)">$INFO[Control.GetLabel(4211)]</value>
- -->
         <value>$VAR[LogoVarList]</value>
     </variable>
     <variable name="cdArtVar">
@@ -641,17 +639,16 @@
         <value>$INFO[VideoPlayer.Cover]</value>
     </variable>
     <variable name="WatchedIconVar">
-        <value condition="Container.Content(movies) + ListItem.IsFolder + !Stringcompare(ListItem.Label,..) + !StringCompare(ListItem.Overlay,OverlayWatched.png)">common/set.png</value>
-        <value condition="Container.Content(movies) + ListItem.IsFolder + !Stringcompare(ListItem.Label,..)">common/setwatched.png</value>
-        <value condition="!Container.Content(songs) + !IsEmpty(ListItem.Property(Album_Description))">defaulticons/DefaultAddonAlbumInfo.png</value>
-        <value condition="!Container.Content(songs) + !IsEmpty(ListItem.Property(Artist_Description))">defaulticons/DefaultAddonArtistInfo.png</value>
+        <value condition="Stringcompare(ListItem.Label,..)">-</value>
+        <value condition="Container.Content(movies) + SubString(ListItem.FolderPath,videodb://movies/sets/,left) + !StringCompare(ListItem.Overlay,OverlayWatched.png)">common/set.png</value>
+        <value condition="Container.Content(movies) + SubString(ListItem.FolderPath,videodb://movies/sets/,left)">common/setwatched.png</value>
         <value condition="Container.Content(songs)">$INFO[ListItem.DiscNumber,flags/discnumber/,.png]</value>
         <value condition="Container.ListItem.IsResumable + !IsEmpty(ListItem.Top250)">dialogs/circletop250/$INFO[ListItem.PercentPlayed].png</value>
         <value condition="Container.ListItem.IsResumable + !StringCompare(ListItem.Overlay,OverlayWatched.png)">dialogs/circle/$INFO[ListItem.PercentPlayed].png</value>
         <value condition="Container.ListItem.IsResumable">dialogs/circlewatched/$INFO[ListItem.PercentPlayed].png</value>
-        <value condition="!Stringcompare(ListItem.Label,..) + Container.Content(tvshows) + [[Stringcompare(Window(Home).Property(RecommendedEpisode.1.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.2.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.3.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.4.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.5.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.6.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.7.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.8.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.9.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.10.TvShowTitle),ListItem.TvShowTitle)]]">common/inprogress.png</value>
-        <value condition="!Stringcompare(ListItem.Label,..) + !StringCompare(ListItem.Overlay,OverlayWatched.png) + [[Container.Content(movies) + [StringCompare(Window(Home).Property(RecentMovie.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.10.DBID),ListItem.DBID)]] | [Container.Content(tvshows) + [StringCompare(Window(Home).Property(RecentEpisode.1.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.2.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.3.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.4.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.5.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.6.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.7.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.8.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.9.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.10.TVshowTitle),ListItem.TvShowTitle)]] | [Container.Content(episodes) + [StringCompare(Window(Home).Property(RecentEpisode.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.10.DBID),ListItem.DBID)]]]">common/new.png</value>
-        <value condition="!Stringcompare(ListItem.Label,..) + [[Container.Content(movies) + [StringCompare(Window(Home).Property(RecentMovie.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.10.DBID),ListItem.DBID)]] | [Container.Content(tvshows) + [StringCompare(Window(Home).Property(RecentEpisode.1.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.2.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.3.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.4.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.5.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.6.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.7.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.8.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.9.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.10.TVshowTitle),ListItem.TvShowTitle)]] | [Container.Content(episodes) + [StringCompare(Window(Home).Property(RecentEpisode.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.10.DBID),ListItem.DBID)]]]">common/starwatched.png</value>
+        <value condition="Container.Content(tvshows) + [[Stringcompare(Window(Home).Property(RecommendedEpisode.1.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.2.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.3.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.4.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.5.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.6.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.7.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.8.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.9.TvShowTitle),ListItem.TvShowTitle)] |[Stringcompare(Window(Home).Property(RecommendedEpisode.10.TvShowTitle),ListItem.TvShowTitle)]]">common/inprogress.png</value>
+        <value condition="!StringCompare(ListItem.Overlay,OverlayWatched.png) + [[Container.Content(movies) + [StringCompare(Window(Home).Property(RecentMovie.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.10.DBID),ListItem.DBID)]] | [Container.Content(tvshows) + [StringCompare(Window(Home).Property(RecentEpisode.1.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.2.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.3.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.4.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.5.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.6.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.7.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.8.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.9.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.10.TVshowTitle),ListItem.TvShowTitle)]] | [Container.Content(episodes) + [StringCompare(Window(Home).Property(RecentEpisode.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.10.DBID),ListItem.DBID)]]]">common/new.png</value>
+        <value condition="[[Container.Content(movies) + [StringCompare(Window(Home).Property(RecentMovie.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentMovie.10.DBID),ListItem.DBID)]] | [Container.Content(tvshows) + [StringCompare(Window(Home).Property(RecentEpisode.1.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.2.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.3.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.4.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.5.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.6.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.7.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.8.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.9.TVshowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(RecentEpisode.10.TVshowTitle),ListItem.TvShowTitle)]] | [Container.Content(episodes) + [StringCompare(Window(Home).Property(RecentEpisode.1.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.2.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.3.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.4.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.5.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.6.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.7.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.8.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.9.DBID),ListItem.DBID) | StringCompare(Window(Home).Property(RecentEpisode.10.DBID),ListItem.DBID)]]]">common/starwatched.png</value>
         <value condition="!StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Top250)">common/imdb.png</value>
         <value condition="!IsEmpty(ListItem.Top250)">common/imdbwatched.png</value>
         <value condition="!IsEmpty(ListItem.Property(Addon.Broken))">common/wrench.png</value>
@@ -685,7 +682,7 @@
         <value condition="IntegerGreaterThan(Control.GetLabel(20),1)">FF28E600</value>
         <value>FF13E500</value>
     </variable>
-    <variable name="VolumeIconVar">
+    <variable name="VolumeCircleVar">
         <value condition="IntegerGreaterThan(Control.GetLabel(20),9)">dialogs/circle/$INFO[Control.GetLabel(20)].png</value>
         <value condition="Substring(Control.GetLabel(20),9)">dialogs/circle/9.png</value>
         <value condition="Substring(Control.GetLabel(20),8)">dialogs/circle/8.png</value>
@@ -697,6 +694,18 @@
         <value condition="Substring(Control.GetLabel(20),2)">dialogs/circle/2.png</value>
         <value condition="Substring(Control.GetLabel(20),1)">dialogs/circle/1.png</value>
         <value>-</value>
+    </variable>
+    <variable name="VolumeIconVar">
+        <value condition="IntegerGreaterThan(Control.GetLabel(20),66)">dialogs/volume.png</value>
+        <value condition="IntegerGreaterThan(Control.GetLabel(20),33)">dialogs/volume2.png</value>
+        <value condition="player.passthrough">dialogs/volume.png</value>
+        <value condition="Window.IsVisible(mutebug)">dialogs/mute.png</value>
+        <value>dialogs/volume1.png</value>
+    </variable>
+    <variable name="VolumeLabelVar">
+        <value condition="Window.IsVisible(mutebug)">$LOCALIZE[31832]</value>
+        <value condition="player.passthrough">$LOCALIZE[29802]</value>
+        <value>$INFO[Control.GetLabel(20)] %</value>
     </variable>
     <variable name="TVShowClearArtVar">
         <value condition="Container.Content(episodes) | Container.Content(seasons)">$INFO[ListItem.Art(tvshow.clearart)]</value>
@@ -888,18 +897,10 @@
         <value condition="Window.IsActive(1122)">$INFO[Skin.String(ItemToEdit.Widget2Title)]</value>
         <value>$INFO[Container(9000).ListItem.Property(Widget2Title)]</value>
     </variable>
-    <variable name="MusicOSDRepeatButtonVar">
-        <value condition="Playlist.IsRepeatOne">special://skin/extras/BigIcons/ButtonRepeatOne.png</value>
-        <value condition="Playlist.IsRepeat">special://skin/extras/BigIcons/ButtonReload.png</value>
-        <value>special://skin/extras/BigIcons/ButtonRepeatOff.png</value>
-    </variable>
     <variable name="MusicOSDRepeatClassicButtonVar">
-        <value condition="[!Playlist.IsRepeat + !Playlist.IsRepeatOne] + !Control.HasFocus(704)">osd/buttons/OSDRepeatNF.png</value>
-        <value condition="Playlist.IsRepeatOne+!Control.HasFocus(704)">osd/buttons/OSDRepeatOneNF.png</value>
-        <value condition="Playlist.IsRepeat+!Control.HasFocus(704)">osd/buttons/OSDRepeatAllNF.png</value>
-        <value condition="[!Playlist.IsRepeat + !Playlist.IsRepeatOne] + Control.HasFocus(704)">osd/buttons/OSDRepeatFO.png</value>
-        <value condition="Playlist.IsRepeatOne+ Control.HasFocus(704)">osd/buttons/OSDRepeatOneFO.png</value>
-        <value condition="Playlist.IsRepeat+ Control.HasFocus(704)">osd/buttons/OSDRepeatAllFO.png</value>
+        <value condition="Playlist.IsRepeatOne">osd/buttons/OSDRepeatOneNF.png</value>
+        <value condition="Playlist.IsRepeat">osd/buttons/OSDRepeatAllNF.png</value>
+        <value>osd/buttons/OSDRepeatNF.png</value>
     </variable>
     <variable name="OneOrMoreSeasonsVar">
         <value condition="StringCompare(ListItem.Property(TotalSeasons),1)">$LOCALIZE[20373]</value>
@@ -1371,6 +1372,13 @@
         <value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]$INFO[ListItem.Property(Artist_YearsActive), - ]</value>
         <value>$INFO[ListItem.Label2]</value>
     </variable>
+    <variable name="ListLabel2MusicVar">
+        <value condition="Container.Content(songs)">$INFO[ListItem.Artist]</value>
+        <value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Version)]</value>
+        <value condition="Container.Content(artists) + IsEmpty(ListItem.Property(Artist_Genre))">$INFO[ListItem.Property(Artist_YearsActive)]</value>
+        <value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]$INFO[ListItem.Property(Artist_YearsActive), - ]</value>
+        <value>$INFO[ListItem.Label2]</value>
+    </variable>
     <variable name="ExtraThumb1Var">
         <value condition="SubString(ListItem.FolderPath,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.1.Art(clearlogo))]</value>
         <value condition="SubString(ListItem.FolderPath,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.1.Art(fanart))]</value>
@@ -1495,7 +1503,7 @@
         <value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
         <value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
         <value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-        <value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+        <value condition="Container.Content(episodes) + !IsEmpty(Window(home).Property(SeasonPoster))">$INFO[Window(home).Property(SeasonPoster)]</value>
         <value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
@@ -2463,18 +2471,18 @@
         <value condition="Control.IsVisible(13) + !StringCompare(Container(13).ListItem.Icon,DefaultVideo.png)">$INFO[Container(13).ListItem.Icon]</value>
         <value>special://skin/backgrounds/fallback_record.jpg</value>
     </variable>
-	<variable name="LiveTvModOptionsClickVar">
-		<value condition="IsEmpty(Skin.String(LiveTV.EpgViewChannels))">Skin.SetString(LiveTV.EpgViewChannels,1)</value>
-		<value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),1)">Skin.SetString(LiveTV.EpgViewChannels,2)</value>
-		<value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),2)">Skin.Reset(LiveTV.EpgViewChannels)</value>
-	</variable>
-	<variable name="LiveTvModOptionsLabelVar">
-		<value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),1)">Icon only</value>
-		<value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),2)">Name &amp; Icon</value>
-		<value>Name only</value>
-	</variable>
+    <variable name="LiveTvModOptionsClickVar">
+        <value condition="IsEmpty(Skin.String(LiveTV.EpgViewChannels))">Skin.SetString(LiveTV.EpgViewChannels,1)</value>
+        <value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),1)">Skin.SetString(LiveTV.EpgViewChannels,2)</value>
+        <value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),2)">Skin.Reset(LiveTV.EpgViewChannels)</value>
+    </variable>
+    <variable name="LiveTvModOptionsLabelVar">
+        <value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),1)">Icon only</value>
+        <value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),2)">Name &amp; Icon</value>
+        <value>Name only</value>
+    </variable>
 
-    
+
     <variable name="PlayerArtworkVar">
         <value condition="VideoPlayer.Content(episodes) + !IsEmpty(Player.Art(tvshow.clearart))">$INFO[Player.Art(tvshow.clearart)]</value>
         <value condition="VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.clearlogo)]</value>

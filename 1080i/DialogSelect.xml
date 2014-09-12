@@ -63,13 +63,11 @@
             <width>307</width>
             <height>60</height>
             <align>center</align>
-            <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
-            <texturenofocus border="8">-</texturenofocus>
+            <texturenofocus>-</texturenofocus>
             <label>$LOCALIZE[31095]</label>
             <label>186</label>
             <font>Font_Bold33</font>
             <textcolor>grey2</textcolor>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
             <onclick>Dialog.Close(1122)</onclick>
             <onclick>Dialog.Close(1135)</onclick>
             <onclick>Dialog.Close(1136)</onclick>
@@ -132,8 +130,7 @@
                 <control type="image">
                     <width>1172</width>
                     <height>60</height>
-                    <texture border="8">views/tripanel/listselect_fo.png</texture>
-                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                            <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                     <animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3)">Conditional</animation>
                 </control>
                 <control type="label">
@@ -208,8 +205,7 @@
                     <posx>8</posx>
                     <width>765</width>
                     <height>90</height>
-                    <texture border="8">views/tripanel/listselect_fo.png</texture>
-                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                            <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                     <animation effect="fade" start="100" end="50" time="160" condition="!Control.HasFocus(6)">Conditional</animation>
                 </control>
                 <control type="label">

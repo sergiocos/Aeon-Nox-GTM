@@ -2243,8 +2243,7 @@
                                 <posy>-1</posy>
                                 <width>1118</width>
                                 <height>98</height>
-                                <texture border="8">views/tripanel/listselect_fo.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                                 <animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(58)">Conditional</animation>
                             </control>
                             <control type="label">
@@ -2323,8 +2322,7 @@
                                 <posx>10</posx>
                                 <width>1116</width>
                                 <height>58</height>
-                                <texture border="8">views/tripanel/listselect_fo.png</texture>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                                 <animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(58)">Conditional</animation>
                             </control>
                             <control type="label">
@@ -2540,12 +2538,10 @@
                         <posy>75</posy>
                         <width>300</width>
                         <height>45</height>
-                        <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
                         <texturenofocus>button-nofocus.png</texturenofocus>
                         <label>$ADDON[script.games.rom.collection.browser 50004]</label>
                         <font>Font_Reg29</font>
                         <textcolor>white2</textcolor>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                         <focusedcolor>white2</focusedcolor>
                         <onleft>900</onleft>
                         <onright>500</onright>
@@ -2561,12 +2557,10 @@
                         <textoffsetx>10</textoffsetx>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
                         <texturenofocus>button-nofocus.png</texturenofocus>
                         <label>$ADDON[script.games.rom.collection.browser 50005]</label>
                         <textcolor>white2</textcolor>
                         <visible>true</visible>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                         <onup>1000</onup>
                         <ondown>2</ondown>
                         <onleft>900</onleft>
@@ -2581,12 +2575,10 @@
                         <textoffsetx>10</textoffsetx>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
                         <texturenofocus>button-nofocus.png</texturenofocus>
                         <label>$ADDON[script.games.rom.collection.browser 50005]</label>
                         <textcolor>white2</textcolor>
                         <visible>true</visible>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                         <onup>1100</onup>
                         <ondown>50</ondown>
                         <onleft>900</onleft>

@@ -71,8 +71,7 @@
                         <control type="image">
                             <width>213</width>
                             <height>115</height>
-                            <texture border="8">views/tripanel/listselect_fo.png</texture>
-                            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                             <visible>Control.HasFocus(9011)</visible>
                         </control>
                         <control type="image">
@@ -106,8 +105,7 @@
                     <radioposx>2</radioposx>
                     <radioposy>5</radioposy>
                     <radiowidth>45</radiowidth>
-                    <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="8">views/tripanel/listselect_fo.png</texturefocus>
-                    <texturenofocus border="8">-</texturenofocus>
+                    <texturenofocus>-</texturenofocus>
                     <textureradioon>special://skin/extras/BigIcons/Gears.png</textureradioon>
                     <textureradiooff>special://skin/extras/BigIcons/ButtonStop.png</textureradiooff>
                     <selected>IsEmpty(Window(home).Property(quicknavsetup))</selected>

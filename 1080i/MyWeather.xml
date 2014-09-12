@@ -350,9 +350,8 @@
                                 <control type="image">
                                     <width>834</width>
                                     <height>109</height>
-                                    <texture border="8">views/tripanel/listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                                     <visible>Control.HasFocus(7500)</visible>
-                                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <posx>22</posx>
@@ -626,10 +625,11 @@
                                     <label>[COLOR grey2]$INFO[ListItem.Property(TemperatureHeading)] [/COLOR]$INFO[ListItem.Property(Temperature)]</label>
                                 </control>
                                 <control type="label">
-                                    <posx>390</posx>
+                                    <posx>820</posx>
                                     <posy>82</posy>
                                     <width>660</width>
                                     <height>34</height>
+                                    <align>right</align>
                                     <label>[COLOR grey2]$LOCALIZE[31917]: [/COLOR]$INFO[ListItem.Property(ChancePrecipitation)]</label>
                                 </control>
                                 <control type="image">
@@ -649,9 +649,8 @@
                                 <control type="image">
                                     <width>834</width>
                                     <height>135</height>
-                                    <texture border="8">views/tripanel/listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                                     <visible>Control.HasFocus(7502)</visible>
-                                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <posx>15</posx>
@@ -686,8 +685,9 @@
                                     <label>[COLOR grey2]$INFO[ListItem.Property(TemperatureHeading)] [/COLOR]$INFO[ListItem.Property(Temperature)]</label>
                                 </control>
                                 <control type="label">
-                                    <posx>390</posx>
+                                    <posx>820</posx>
                                     <posy>82</posy>
+                                    <align>right</align>
                                     <width>660</width>
                                     <height>34</height>
                                     <label>[COLOR grey2]$LOCALIZE[31917]: [/COLOR]$INFO[ListItem.Property(ChancePrecipitation)]</label>
@@ -805,9 +805,8 @@
                                 <control type="image">
                                     <width>834</width>
                                     <height>135</height>
-                                    <texture border="8">views/tripanel/listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                                     <visible>Control.HasFocus(7503)</visible>
-                                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <posx>15</posx>
@@ -926,16 +925,16 @@
                                     <info>ListItem.ActualIcon</info>
                                 </control>
                                 <control type="label">
-                                    <posx>165</posx>
-                                    <posy>5</posy>
+                                        <posx>145</posx>
+                                        <posy>35</posy>
                                     <width>375</width>
                                     <height>34</height>
                                     <label>$INFO[ListItem.Label]</label>
-                                    <font>Font_Reg31_Caps</font>
+                                    <font>Font_MainClassic4</font>
                                 </control>
                                 <control type="label">
-                                    <posx>165</posx>
-                                    <posy>35</posy>
+                                    <posx>315</posx>
+                                    <posy>17</posy>
                                     <width>660</width>
                                     <height>34</height>
                                     <label>$INFO[ListItem.Property(Outlook)]</label>
@@ -943,15 +942,15 @@
                                     <scroll>true</scroll>
                                 </control>
                                 <control type="label">
-                                    <posx>165</posx>
-                                    <posy>66</posy>
+                                    <posx>315</posx>
+                                    <posy>52</posy>
                                     <width>660</width>
                                     <height>34</height>
                                     <label>$INFO[ListItem.Property(Temperature)]  •  [COLOR grey2]$INFO[ListItem.Property(Humidity)][/COLOR]</label>
                                 </control>
                                 <control type="label">
-                                    <posx>390</posx>
-                                    <posy>66</posy>
+                                    <posx>540</posx>
+                                    <posy>52</posy>
                                     <width>660</width>
                                     <height>34</height>
                                     <label>$INFO[ListItem.Property(FeelsLike),[COLOR grey2]$LOCALIZE[402]: [/COLOR]]</label>
@@ -973,9 +972,8 @@
                                 <control type="image">
                                     <width>834</width>
                                     <height>109</height>
-                                    <texture border="8">views/tripanel/listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                                     <visible>Control.HasFocus(7504)</visible>
-                                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <posx>22</posx>
@@ -986,70 +984,35 @@
                                     <info>ListItem.ActualIcon</info>
                                 </control>
                                 <control type="group">
-                                    <visible>Control.HasFocus(7504)</visible>
                                     <control type="label">
-                                        <posx>165</posx>
-                                        <posy>5</posy>
+                                        <posx>145</posx>
+                                        <posy>35</posy>
                                         <width>375</width>
                                         <height>34</height>
                                         <label>$INFO[ListItem.Label]</label>
-                                        <font>Font_Reg31_Caps</font>
+                                        <font>Font_MainClassic4</font>
                                     </control>
                                     <control type="label">
-                                        <posx>165</posx>
-                                        <posy>35</posy>
+                                        <posx>315</posx>
+                                        <posy>17</posy>
                                         <width>660</width>
                                         <height>34</height>
                                         <label>$INFO[ListItem.Property(Outlook)]</label>
                                         <scroll>true</scroll>
                                     </control>
                                     <control type="label">
-                                        <posx>165</posx>
-                                        <posy>66</posy>
+                                        <posx>315</posx>
+                                        <posy>52</posy>
                                         <width>660</width>
                                         <height>34</height>
                                         <label>$INFO[ListItem.Property(Temperature)]  •  $INFO[ListItem.Property(Humidity)]</label>
                                     </control>
                                     <control type="label">
-                                        <posx>390</posx>
-                                        <posy>66</posy>
+                                        <posx>540</posx>
+                                        <posy>52</posy>
                                         <width>660</width>
                                         <height>34</height>
                                         <label>$INFO[ListItem.Property(FeelsLike),$LOCALIZE[402]: ]</label>
-                                    </control>
-                                </control>
-                                <control type="group">
-                                    <visible>!Control.HasFocus(7504)</visible>
-                                    <control type="label">
-                                        <posx>165</posx>
-                                        <posy>5</posy>
-                                        <width>375</width>
-                                        <height>34</height>
-                                        <label>$INFO[ListItem.Label]</label>
-                                        <font>Font_Reg31_Caps</font>
-                                    </control>
-                                    <control type="label">
-                                        <posx>165</posx>
-                                        <posy>35</posy>
-                                        <width>660</width>
-                                        <height>34</height>
-                                        <label>$INFO[ListItem.Property(Outlook)]</label>
-                                        <textcolor>grey2</textcolor>
-                                        <scroll>true</scroll>
-                                    </control>
-                                    <control type="label">
-                                        <posx>165</posx>
-                                        <posy>66</posy>
-                                        <width>660</width>
-                                        <height>34</height>
-                                        <label>$INFO[ListItem.Property(Temperature)]  •  [COLOR grey2]$INFO[ListItem.Property(Humidity)][/COLOR]</label>
-                                    </control>
-                                    <control type="label">
-                                        <posx>390</posx>
-                                        <posy>66</posy>
-                                        <width>660</width>
-                                        <height>34</height>
-                                        <label>$INFO[ListItem.Property(FeelsLike),[COLOR grey2]$LOCALIZE[402]: [/COLOR]]</label>
                                     </control>
                                 </control>
                             </focusedlayout>
@@ -1496,8 +1459,7 @@
                                     <control type="image">
                                         <width>834</width>
                                         <height>60</height>
-                                        <texture border="8">views/tripanel/listselect_fo.png</texture>
-                                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                                     </control>
                                     <control type="image">
                                         <posx>45</posx>
@@ -2035,7 +1997,6 @@
                         <textoffsetx>0</textoffsetx>
                         <textoffsety>10</textoffsety>
                         <aligny>top</aligny>
-                        <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
                         <texturenofocus border="3">settings/listselect_nf.png</texturenofocus>
                         <font>Font_Reg30_2</font>
                         <textcolor>$VAR[FontColorVar]</textcolor>

@@ -43,9 +43,7 @@
                 <include>Default_SettingRadioButton</include>
             </control>
             <control type="spincontrolex" id="9">
-                <textoffsetx>75</textoffsetx>
-                <include>Default_SettingButton</include>
-                <spinposx>-2</spinposx>
+                <include>Default_SettingSpinControlButton</include>
             </control>
             <control type="grouplist" id="9000">
                 <posx>63</posx>
@@ -64,12 +62,10 @@
                     <height>96</height>
                     <textoffsetx>30</textoffsetx>
                     <textoffsety>18</textoffsety>
-                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <label>186</label>
                     <font>Font_Bold34_Caps</font>
                     <textcolor>grey</textcolor>
-                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                 </control>
                 <control type="button" id="29">
                     <posx>3</posx>
@@ -78,12 +74,10 @@
                     <height>96</height>
                     <textoffsetx>30</textoffsetx>
                     <textoffsety>18</textoffsety>
-                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <label>222</label>
                     <font>Font_Bold34_Caps</font>
                     <textcolor>grey</textcolor>
-                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                 </control>
             </control>
         </control>

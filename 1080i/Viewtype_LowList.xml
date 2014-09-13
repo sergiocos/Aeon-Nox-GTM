@@ -188,6 +188,18 @@
                             <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
                             <bordersize>7</bordersize>
                         </control>
+						<control type="image"><!--sergiu: landscape for tvshows-->
+							<posx>405</posx>
+							<posy>607</posy>
+							<width>628</width>
+							<height>360</height>
+							<aspectratio>scale</aspectratio>
+							<fadetime>400</fadetime>
+							<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+							<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+							<bordersize>7</bordersize>
+							<visible>!Container.Content(episodes) + !Container.Content(movies)</visible>
+						</control><!--sergiu: end landscape for tvshows-->
                         <control type="multiimage">
                             <posx>412</posx>
                             <posy>614</posy>

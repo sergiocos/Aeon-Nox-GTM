@@ -1577,12 +1577,13 @@
         <value condition="[Container.Content(episodes) | IsEmpty(ListItem.TvShowTitle)]">$INFO[ListItem.Duration,, $LOCALIZE[12391]][COLOR grey]$INFO[ListItem.PercentPlayed, (,%)][/COLOR]</value>
         <value condition="[Container.Content(tvshows) | Container.Content(seasons)]">$INFO[Window(Home).Property(NextAired.AirTime)]</value>
     </variable>
-    <variable name="LowListSubTitleVar">
-        <value condition="SubString(ListItem.Path,videodb://movies/sets)">$LOCALIZE[20457]</value>
-        <value condition="Container.Content(movies) | Container.Content(tvshows)">$INFO[ListItem.Genre]</value>
-        <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered,$LOCALIZE[20416] ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
-        <value condition="Container.Content(seasons)">$INFO[ListItem.Episode,, [LOWERCASE]$LOCALIZE[20360] [/LOWERCASE]]$INFO[ListItem.Property(WatchedEpisodes), (,]$INFO[ListItem.Property(TotalEpisodes),/,)]</value>
-    </variable>
+     <variable name="LowListSubTitleVar"><!-- sergiu: mod info lowlist -->
+        <value condition="SubString(ListItem.Path,videodb://1/7)">$LOCALIZE[20457]</value>
+        <value condition="Container.Content(tvshows)">[LOWERCASE]$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[OneOrMoreEpisodesVar] $INFO[ListItem.Genre,• ,][/LOWERCASE]</value>
+		<value condition="Container.Content(movies)">[LOWERCASE]$INFO[ListItem.Duration,, minute] $INFO[ListItem.Genre,• ,][/LOWERCASE]</value>
+        <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
+        <value condition="Container.Content(seasons)">[LOWERCASE]$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[OneOrMoreEpisodesVar][/LOWERCASE]</value>
+    </variable><!-- sergiu: end mod info lowlist -->
     <!-- Global Search -->
     <variable name="GlobalSearchFanartVar">
         <value condition="Control.HasFocus(111)">$INFO[Container(111).ListItem.Art(fanart)]</value>

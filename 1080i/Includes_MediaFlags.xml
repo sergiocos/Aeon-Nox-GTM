@@ -570,22 +570,35 @@
                 </control>
                 <control type="group">
                     <posx>1630</posx>
-                    <control type="label">
-                        <posy>-27</posy>
-                        <width>330</width>
-                        <height>90</height>
-                        <align>left</align>
-                        <font>Font_Reg22</font>
-                        <label>$LOCALIZE[210]: [B]$VAR[LastEpisodeVar][/B]</label>
-                    </control>
-                    <control type="label">
-                        <posy>0</posy>
-                        <width>330</width>
-                        <height>90</height>
-                        <align>left</align>
-                        <font>Font_Reg22</font>
-                        <label>$LOCALIZE[209]: [B]$VAR[NextEpisodeVar][/B]</label>
-                    </control>
+                    <control type="label">  	
+	                    <posx>282</posx>
+						<posy>-30</posy>
+                        <width>330</width>	  	
+                        <height>90</height>	  	
+                        <align>right</align>	  	
+                        <font>Font_Reg32</font>	  	
+                        <label>[LOWERCASE]$LOCALIZE[210]: [B]$VAR[LastEpisodeVar][/B][/LOWERCASE]</label>	  	
+                    </control>  	
+                    <control type="label">	  	
+                        <posx>282</posx>	  	
+                        <posy>-1</posy>	  	
+                        <width>330</width>	  	
+                        <height>90</height>	  	
+                        <align>right</align>	  	
+                        <font>Font_Reg32</font>	  	
+                        <label>[LOWERCASE]$LOCALIZE[209]: [B]$VAR[NextEpisodeVar][/B][/LOWERCASE]</label>	  	
+						<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)</visible>	  	
+                    </control> 	
+					<control type="label">	  	
+                        <posx>282</posx>  	
+                        <posy>-1</posy>	  	
+                        <width>330</width>	  	
+                        <height>90</height>	  	
+                       <align>right</align>	  	
+                        <font>Font_Reg32</font>
+	  	                <label>$INFO[Window(Home).Property(NextAired.Status)]</label>
+						<visible>IsEmpty(Window(Home).Property(NextAired.NextDate)</visible>
+                     </control>
                 </control>
             </control>
         </control>

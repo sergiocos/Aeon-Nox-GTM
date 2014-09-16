@@ -418,8 +418,6 @@
         <onup condition="!Skin.HasSetting(lowermainmenu) + !Control.IsVisible(4445)">SetFocus(9000)</onup>
         <ondown>9010</ondown>
         <ondown condition="IsEmpty(Window(home).Property(DisableWidgets)) + !IntegerGreaterThan(Container(9010).NumItems,0) + !Skin.HasSetting(lowermainmenu) + Control.IsVisible(4444)">4444</ondown>
-        <onback condition="!Skin.HasSetting(DisableWidgetToggle) + IsEmpty(Window(home).Property(DisableWidgets))">SetProperty(DisableWidgets,1,home)</onback>
-        <onback condition="!Skin.HasSetting(DisableWidgetToggle) + !IsEmpty(Window(home).Property(DisableWidgets))">ClearProperty(DisableWidgets,home)</onback>
         <scrolltime tween="quadratic">300</scrolltime>
         <include condition="Skin.HasSetting(mainmenuicons)">FocusPosition4</include>
         <include condition="!Skin.HasSetting(mainmenuicons)">FocusPosition2</include>
@@ -592,25 +590,25 @@
     </include>
     <include name="MainMenuFixedList">
         <control type="fixedlist" id="9000">
-            <include condition="Window.IsActive(home)">MainMenuListContent</include>
+            <include condition="Window.IsActive(script-HomeWindow Script-main.xml)">MainMenuListContent</include>
             <include condition="Window.IsActive(skinsettings)">MainMenuListContentskinsettings</include>
         </control>
     </include>
     <include name="MainMenuWrapList">
         <control type="wraplist" id="9000">
-            <include condition="Window.IsActive(home)">MainMenuListContent</include>
+            <include condition="Window.IsActive(script-HomeWindow Script-main.xml)">MainMenuListContent</include>
             <include condition="Window.IsActive(skinsettings)">MainMenuListContentskinsettings</include>
         </control>
     </include>
     <include name="SubMenuFixedList">
         <control type="fixedlist" id="9010">
-            <include condition="Window.IsActive(home)">SubMenuListContent</include>
+            <include condition="Window.IsActive(script-HomeWindow Script-main.xml)">SubMenuListContent</include>
             <include condition="Window.IsActive(skinsettings)">SubMenuListContentskinsettings</include>
         </control>
     </include>
     <include name="SubMenuWrapList">
         <control type="wraplist" id="9010">
-            <include condition="Window.IsActive(home)">SubMenuListContent</include>
+            <include condition="Window.IsActive(script-HomeWindow Script-main.xml)">SubMenuListContent</include>
             <include condition="Window.IsActive(skinsettings)">SubMenuListContentskinsettings</include>
         </control>
     </include>

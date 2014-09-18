@@ -1413,7 +1413,7 @@
             <posx>1542</posx>
             <posy>678</posy>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
-            <visible>Substring(Control.GetLabel(4321),classic) + !Window.IsActive(1120)</visible>
+            <visible>Substring(Control.GetLabel(4321),classic)</visible>
             <include>Animation_Widgets</include>
             <visible>![IsEmpty(Window(Home).Property(NextAired.1.Label)) + Substring(Control.GetLabel(4321),nextairedtv)]</visible>
             <visible>![IsEmpty(Window(Home).Property(RecommendedMovie.1.Title)) + Substring(Control.GetLabel(4321),watchlistmovies)]</visible>
@@ -2359,6 +2359,45 @@
                     <onclick condition="Substring(Control.GetLabel(4321),wunderground)">SetProperty(weatherwidget,wunderground,home)</onclick>
                     <visible>SubString(Control.GetLabel(4321),wunderground)</visible>
                 </control>
+                <include>FeaturedWidget</include>
+                <control type="image">
+                    <posx>21</posx>
+                    <posy>21</posy>
+                    <width>1608</width>
+                    <height>360</height>
+                    <texture border="50">featured/panel_featured_overlay.png</texture>
+                    <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+                    <include>Animation_VisibleChange200</include>
+                    <visible>Substring(Control.GetLabel(4321),default)</visible>
+                </control>
+                <control type="button">
+                    <description>left Arrow</description>
+                    <posx>-40</posx>
+                    <posy>180</posy>
+                    <width>40</width>
+                    <height>40</height>
+                    <texturefocus flipx="true">arrowright.png</texturefocus>
+                    <texturenofocus flipx="true">arrowright.png</texturenofocus>
+                    <onclick>Control.Move(5010,-1)</onclick>
+                    <visible>Control.HasFocus(5010) + Container(5010).HasPrevious</visible>
+                    <include>Animation_DialogPopupVisibleChange</include>
+                </control>
+                <control type="button">
+                    <description>right Arrow</description>
+                    <posx>1650</posx>
+                    <posy>180</posy>
+                    <width>40</width>
+                    <height>40</height>
+                    <texturefocus>arrowright.png</texturefocus>
+                    <texturenofocus>arrowright.png</texturenofocus>
+                    <onclick>Control.Move(5010,1)</onclick>
+                    <visible>Control.HasFocus(5010) + Container(5010).HasNext</visible>
+                    <include>Animation_DialogPopupVisibleChange</include>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="FeaturedWidget">
                 <control type="group">
                     <posy>31</posy>
                     <visible>Substring(Control.GetLabel(4321),featured)</visible>
@@ -2442,7 +2481,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(5001).ListItem.Label]$INFO[Container(5001).ListItem.TVShowTitle, - ]$INFO[Container(5001).ListItem.Artist, - ]</label>
@@ -2452,7 +2491,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(5001).ListItem.Label]$INFO[Container(5001).ListItem.TVShowTitle, - ]$INFO[Container(5001).ListItem.Artist, - ]</label>
@@ -2460,12 +2499,14 @@
                             <textcolor>$VAR[FontColorVar]</textcolor>
                             <visible>Control.HasFocus(5010) | Control.HasFocus(5001)</visible>
                         </control>
-                        <control type="image">
-                            <posx>466</posx>
+                        <control type="label">
+                            <posx>600</posx>
                             <posy>315</posy>
                             <width>138</width>
                             <height>12</height>
-                            <texture>$INFO[Container(5001).CurrentPage,featured/panel_mid/item,.png]</texture>
+                            <align>right</align>
+                            <font>Font_Reg22</font>
+                            <label>$INFO[Container(5001).CurrentPage] / $INFO[Container(5001).NumItems]</label>
                         </control>
                         <control type="image">
                             <width>614</width>
@@ -2496,7 +2537,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>246</width>
+                            <width>310</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(5002).ListItem.Label]</label>
@@ -2506,7 +2547,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>246</width>
+                            <width>310</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(5002).ListItem.Label]</label>
@@ -2514,12 +2555,14 @@
                             <textcolor>$VAR[FontColorVar]</textcolor>
                             <visible>Control.HasFocus(5011) | Control.HasFocus(5002)</visible>
                         </control>
-                        <control type="image">
-                            <posx>246</posx>
+                        <control type="label">
+                            <posx>340</posx>
                             <posy>315</posy>
                             <width>84</width>
                             <height>12</height>
-                            <texture>$INFO[Container(5002).CurrentPage,featured/panel_right/item,.png]</texture>
+                            <align>right</align>
+                            <font>Font_Reg22</font>
+                            <label>$INFO[Container(5002).CurrentPage] / $INFO[Container(5002).NumItems]</label>
                         </control>
                         <control type="image">
                             <width>340</width>
@@ -2562,7 +2605,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(5003).ListItem.Label]$INFO[Container(5003).ListItem.TVShowTitle, - ]$INFO[Container(5003).ListItem.Artist, - ]</label>
@@ -2572,7 +2615,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(5003).ListItem.Label]$INFO[Container(5003).ListItem.TVShowTitle, - ]$INFO[Container(5003).ListItem.Artist, - ]</label>
@@ -2580,12 +2623,14 @@
                             <textcolor>$VAR[FontColorVar]</textcolor>
                             <visible>Control.HasFocus(5012) | Control.HasFocus(5003)</visible>
                         </control>
-                        <control type="image">
-                            <posx>466</posx>
+                        <control type="label">
+                            <posx>600</posx>
                             <posy>315</posy>
                             <width>138</width>
                             <height>12</height>
-                            <texture>$INFO[Container(5003).CurrentPage,featured/panel_mid/item,.png]</texture>
+                            <align>right</align>
+                            <font>Font_Reg22</font>
+                            <label>$INFO[Container(5003).CurrentPage] / $INFO[Container(5003).NumItems]</label>
                         </control>
                         <control type="image">
                             <width>614</width>
@@ -2597,42 +2642,6 @@
                         </control>
                     </control>
                 </control>
-                <control type="image">
-                    <posx>21</posx>
-                    <posy>21</posy>
-                    <width>1608</width>
-                    <height>360</height>
-                    <texture border="50">featured/panel_featured_overlay.png</texture>
-                    <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-                    <include>Animation_VisibleChange200</include>
-                    <visible>Substring(Control.GetLabel(4321),default)</visible>
-                </control>
-                <control type="button">
-                    <description>left Arrow</description>
-                    <posx>-40</posx>
-                    <posy>180</posy>
-                    <width>40</width>
-                    <height>40</height>
-                    <texturefocus flipx="true">arrowright.png</texturefocus>
-                    <texturenofocus flipx="true">arrowright.png</texturenofocus>
-                    <onclick>Control.Move(5010,-1)</onclick>
-                    <visible>Control.HasFocus(5010) + Container(5010).HasPrevious</visible>
-                    <include>Animation_DialogPopupVisibleChange</include>
-                </control>
-                <control type="button">
-                    <description>right Arrow</description>
-                    <posx>1650</posx>
-                    <posy>180</posy>
-                    <width>40</width>
-                    <height>40</height>
-                    <texturefocus>arrowright.png</texturefocus>
-                    <texturenofocus>arrowright.png</texturenofocus>
-                    <onclick>Control.Move(5010,1)</onclick>
-                    <visible>Control.HasFocus(5010) + Container(5010).HasNext</visible>
-                    <include>Animation_DialogPopupVisibleChange</include>
-                </control>
-            </control>
-        </control>
     </include>
     <include name="WidgetInfoPanel">
         <control type="group">
@@ -3624,7 +3633,7 @@
             <posy>13</posy>
             <animation effect="slide" end="0,40" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
-            <visible>Substring(Control.GetLabel(4325),classic) + !Window.IsActive(1120)</visible>
+            <visible>Substring(Control.GetLabel(4325),classic)</visible>
             <animation effect="slide" end="0,25" time="320" tween="cubic" easing="inout" condition="[Skin.HasSetting(totalshomehigh)">Conditional</animation>
             <visible>![IsEmpty(Window(Home).Property(NextAired.1.Label)) + Substring(Control.GetLabel(4325),nextairedtv)]</visible>
             <visible>![IsEmpty(Window(Home).Property(RecommendedMovie.1.Title)) + Substring(Control.GetLabel(4325),watchlistmovies)]</visible>
@@ -4500,7 +4509,46 @@
                     <onclick condition="Substring(Control.GetLabel(4325),wunderground)">SetProperty(weatherwidget,wunderground,home)</onclick>
                     <visible>SubString(Control.GetLabel(4325),wunderground)</visible>
                 </control>
-                <control type="group">
+                <include>FeaturedWidget2</include>
+                <control type="image">
+                    <posx>21</posx>
+                    <posy>21</posy>
+                    <width>1608</width>
+                    <height>360</height>
+                    <texture border="50">featured/panel_featured_overlay.png</texture>
+                    <include>Animation_VisibleChange200</include>
+                    <visible>Substring(Control.GetLabel(4325),default)</visible>
+                    <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+                </control>
+                <control type="button">
+                    <description>left Arrow</description>
+                    <posx>-40</posx>
+                    <posy>180</posy>
+                    <width>40</width>
+                    <height>40</height>
+                    <texturefocus flipx="true">arrowright.png</texturefocus>
+                    <texturenofocus flipx="true">arrowright.png</texturenofocus>
+                    <onclick>Control.Move(6010,-1)</onclick>
+                    <visible>Control.HasFocus(6010) + Container(6010).HasPrevious</visible>
+                    <include>Animation_DialogPopupVisibleChange</include>
+                </control>
+                <control type="button">
+                    <description>right Arrow</description>
+                    <posx>1650</posx>
+                    <posy>180</posy>
+                    <width>40</width>
+                    <height>40</height>
+                    <texturefocus>arrowright.png</texturefocus>
+                    <texturenofocus>arrowright.png</texturenofocus>
+                    <onclick>Control.Move(6010,1)</onclick>
+                    <visible>Control.HasFocus(6010) + Container(6010).HasNext</visible>
+                    <include>Animation_DialogPopupVisibleChange</include>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="FeaturedWidget2">
+                        <control type="group">
                     <posy>31</posy>
                     <visible>Substring(Control.GetLabel(4325),featured)</visible>
                     <include>Animation_VisibleChange400</include>
@@ -4586,7 +4634,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(6001).ListItem.Label]$INFO[Container(6001).ListItem.TVShowTitle, - ]$INFO[Container(6001).ListItem.Artist, - ]</label>
@@ -4596,7 +4644,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(6001).ListItem.Label]$INFO[Container(6001).ListItem.TVShowTitle, - ]$INFO[Container(6001).ListItem.Artist, - ]</label>
@@ -4604,12 +4652,14 @@
                             <textcolor>$VAR[FontColorVar]</textcolor>
                             <visible>Control.HasFocus(6010) | Control.HasFocus(6001)</visible>
                         </control>
-                        <control type="image">
-                            <posx>466</posx>
+                        <control type="label">
+                            <posx>600</posx>
                             <posy>315</posy>
                             <width>138</width>
                             <height>12</height>
-                            <texture>$INFO[Container(6001).CurrentPage,featured/panel_mid/item,.png]</texture>
+                            <align>right</align>
+                            <font>Font_Reg22</font>
+                            <label>$INFO[Container(6001).CurrentPage] / $INFO[Container(6001).NumItems]</label>
                         </control>
                         <control type="image">
                             <width>614</width>
@@ -4644,7 +4694,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>246</width>
+                            <width>310</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(6002).ListItem.Label]</label>
@@ -4654,7 +4704,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>246</width>
+                            <width>310</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(6002).ListItem.Label]</label>
@@ -4662,13 +4712,15 @@
                             <textcolor>$VAR[FontColorVar]</textcolor>
                             <visible>Control.HasFocus(6011) | Control.HasFocus(6002)</visible>
                         </control>
-                        <control type="image">
-                            <posx>246</posx>
+                        <control type="label">
+                            <posx>340</posx>
                             <posy>315</posy>
                             <width>84</width>
                             <height>12</height>
-                            <texture>$INFO[Container(6002).CurrentPage,featured/panel_right/item,.png]</texture>
-                        </control>
+                            <align>right</align>
+                            <font>Font_Reg22</font>
+                            <label>$INFO[Container(6002).CurrentPage] / $INFO[Container(6002).NumItems]</label>
+                        </control>i
                         <control type="image">
                             <width>340</width>
                             <height>340</height>
@@ -4714,7 +4766,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(6003).ListItem.Label]$INFO[Container(6003).ListItem.TVShowTitle, - ]$INFO[Container(6003).ListItem.Artist, - ]</label>
@@ -4724,7 +4776,7 @@
                         </control>
                         <control type="label">
                             <posy>300</posy>
-                            <width>466</width>
+                            <width>566</width>
                             <height>40</height>
                             <textoffsetx>15</textoffsetx>
                             <label>$INFO[Container(6003).ListItem.Label]$INFO[Container(6003).ListItem.TVShowTitle, - ]$INFO[Container(6003).ListItem.Artist, - ]</label>
@@ -4732,12 +4784,14 @@
                             <textcolor>$VAR[FontColorVar]</textcolor>
                             <visible>Control.HasFocus(6012) | Control.HasFocus(6003)</visible>
                         </control>
-                        <control type="image">
-                            <posx>466</posx>
+                        <control type="label">
+                            <posx>600</posx>
                             <posy>315</posy>
                             <width>138</width>
                             <height>12</height>
-                            <texture>$INFO[Container(6003).CurrentPage,featured/panel_mid/item,.png]</texture>
+                            <align>right</align>
+                            <font>Font_Reg22</font>
+                            <label>$INFO[Container(6003).CurrentPage] / $INFO[Container(6003).NumItems]</label>
                         </control>
                         <control type="image">
                             <width>614</width>
@@ -4749,43 +4803,10 @@
                         </control>
                     </control>
                 </control>
-                <control type="image">
-                    <posx>21</posx>
-                    <posy>21</posy>
-                    <width>1608</width>
-                    <height>360</height>
-                    <texture border="50">featured/panel_featured_overlay.png</texture>
-                    <include>Animation_VisibleChange200</include>
-                    <visible>Substring(Control.GetLabel(4325),default)</visible>
-                    <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-                </control>
-                <control type="button">
-                    <description>left Arrow</description>
-                    <posx>-40</posx>
-                    <posy>180</posy>
-                    <width>40</width>
-                    <height>40</height>
-                    <texturefocus flipx="true">arrowright.png</texturefocus>
-                    <texturenofocus flipx="true">arrowright.png</texturenofocus>
-                    <onclick>Control.Move(6010,-1)</onclick>
-                    <visible>Control.HasFocus(6010) + Container(6010).HasPrevious</visible>
-                    <include>Animation_DialogPopupVisibleChange</include>
-                </control>
-                <control type="button">
-                    <description>right Arrow</description>
-                    <posx>1650</posx>
-                    <posy>180</posy>
-                    <width>40</width>
-                    <height>40</height>
-                    <texturefocus>arrowright.png</texturefocus>
-                    <texturenofocus>arrowright.png</texturenofocus>
-                    <onclick>Control.Move(6010,1)</onclick>
-                    <visible>Control.HasFocus(6010) + Container(6010).HasNext</visible>
-                    <include>Animation_DialogPopupVisibleChange</include>
-                </control>
-            </control>
-        </control>
     </include>
+
+
+
     <include name="5010List">
         <control type="group">
             <visible>!Substring(Control.GetLabel(4321),concerts) + !Substring(Control.GetLabel(4321),weather)</visible>

@@ -21,11 +21,18 @@
     <onload condition="!Window.Previous(startup) + Substring(Skin.String(SmartPlaylist12.Call),random)">$INFO[Skin.String(SmartPlaylist12.Call)]</onload>
     <onunload>ClearProperty(PanelWidgetInfo,Home)</onunload>
     <onunload>ClearProperty(PanelWidget2Info,Home)</onunload>
+        <onunload>Skin.SetString(widgetlist,$INFO[Control.GetLabel(11111)])</onunload>
+    <onunload>Skin.SetString(widget2list,$INFO[Control.GetLabel(11112)])</onunload>
+    <onunload>Skin.SetString(backgroundlist,$INFO[Control.GetLabel(11113)])</onunload>
     <allowoverlay>yes</allowoverlay>
     <controls>
+                     <include>InvisibleIncludeLabels</include>
+
         <control type="button" id="9004">
             <include>HiddenObject</include>
             <onfocus condition="Window.Previous(startup) + !IsEmpty(Skin.String(CustomFocusOffset))">$VAR[HomeCustomStartupFocus]</onfocus>
+            <onfocus condition="!IsEmpty(Window(home).Property(SettingsFocusOffset))">$VAR[SettingsCustomStartupFocus]</onfocus>
+            <onfocus>ClearProperty(SettingsFocusOffset,home)</onfocus>
             <onfocus>SetFocus(9000)</onfocus>
             <onleft>SetFocus(9000)</onleft>
             <onright>SetFocus(9000)</onright>
@@ -101,42 +108,40 @@
         <control type="group">
             <!--              <visible>![[Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo)] | [Player.HasAudio + !Skin.HasSetting(ShowBackgroundVis)]]</visible>
  -->
+            <control type="group">
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" delay="480" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
+                <animation effect="slide" start="-15,-15" end="15,15" time="6000" pulse="true" delay="480" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
+
             <control type="multiimage">
                 <aspectratio align="center" aligny="top">scale</aspectratio>
                 <imagepath background="true" fallback="special://skin/backgrounds/videos">$VAR[HomeMainFanartVar]</imagepath>
                 <fadetime>600</fadetime>
                 <animation effect="fade" time="480">Visible</animation>
                 <animation effect="fade" time="480">Hidden</animation>
-                <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" delay="480" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
-                <animation effect="slide" start="-15,-15" end="15,15" time="6000" pulse="true" delay="480" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
-                <visible>!Substring(Control.GetLabel(4322),case) + !Substring(Control.GetLabel(4322),wall)</visible>
             </control>
-            <control type="image">
-                <aspectratio align="center" aligny="top">scale</aspectratio>
-                <texture background="true" fallback="special://skin/backgrounds/speakergrill.jpg">$INFO[Skin.String(LiveBG)]</texture>
-                <fadetime>600</fadetime>
-                <include>FullscreenDimensions</include>
-                <include>Animation_WindowFade200</include>
-                <animation effect="fade" time="400">Visible</animation>
-                <animation effect="fade" time="400">Hidden</animation>
-                <visible>Substring(Control.GetLabel(4322),case)</visible>
-            </control>
-            <include condition="SubString(Skin.String(backgroundlist),dvdcase)">InteractiveCasesBackground</include>
-            <include condition="SubString(Skin.String(backgroundlist), case)">LiveCDCasesbackground</include>
-            <include condition="SubString(Skin.String(backgroundlist), nocase)">LiveNoCasesbackground</include>
-            <include condition="[Skin.HasSetting(homecdwall) | SubString(Skin.String(backgroundlist),cdwall)]">cdwall-musicvisualisation</include>
-            <include condition="SubString(Skin.String(backgroundlist),moviewall)">MovieWall</include>
+            <include>InteractiveCasesBackground</include>
+            <include>LiveCDCasesbackground</include>
+            <include>LiveNoCasesbackground</include>
+            <include>cdwall-musicvisualisation</include>
+            <include>MovieWall</include>
             <control type="image">
                 <aspectratio align="center" aligny="top">scale</aspectratio>
                 <texture background="true">$VAR[HomeWidgetFanartVar]</texture>
                 <fadetime>600</fadetime>
                 <include>FullscreenDimensions</include>
-                <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
-                <animation effect="slide" start="-15,-15" end="15,15" time="6000" pulse="true" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
             </control>
             <!-- Music ExtraFanart -->
             <include condition="!IsEmpty(Skin.String(ArtistsLogosPath))">MusicExtraFanartHome</include>
-            <include condition="Skin.HasSetting(artistslideshowhome)">MusicArtistSlideshowHome</include>
+        <control type="multiimage">
+            <aspectratio align="center" aligny="top">scale</aspectratio>
+            <imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+            <fadetime>600</fadetime>
+            <visible>Player.HasAudio + Skin.HasSetting(artistslideshowhome)</visible>
+            <include>Animation_VisibleChange400</include>
+        </control>
+                    </control>
+
+
             <include>CommonMediaPlayingBackground</include>
         </control>
         <!-- Home Fullscreen Video -->
@@ -286,7 +291,7 @@
             </control>
             <!-- Featured widget -->
             <control type="group">
-                <visible>IsEmpty(Window(home).Property(PanelWidget2Info))</visible>
+                <visible>IsEmpty(Window(home).Property(PanelWidget2Info)) + !Window.IsActive(1122)</visible>
                 <animation type="Visible">
                     <effect type="zoom" delay="400" start="150" end="100" center="960,540" time="400" tween="cubic" />
                     <effect type="fade" delay="400" end="100" time="240" />
@@ -300,7 +305,7 @@
                 <include>RecentWidget</include>
             </control>
             <control type="group">
-                <visible>IsEmpty(Window(home).Property(PanelWidgetInfo))</visible>
+                <visible>IsEmpty(Window(home).Property(PanelWidgetInfo)) + !Window.IsActive(1122)</visible>
                 <animation type="Visible">
                     <effect type="zoom" delay="400" start="150" end="100" center="960,540" time="400" tween="cubic" />
                     <effect type="fade" delay="400" end="100" time="240" />

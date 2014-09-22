@@ -863,9 +863,8 @@
         <value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
     </variable>
     <variable name="WidgetSubTitleVar">
-        <value condition="!IsEmpty(ListItem.Property(Tagline))">$INFO[ListItem.Property(Tagline)]</value>
-        <value condition="!IsEmpty(ListItem.Property(NextTitle))">$INFO[ListItem.Property(EpisodeNumber),,:] $INFO[ListItem.Property(NextTitle)]</value>
-        <value condition="!IsEmpty(ListItem.Property(EpisodeNumber))">$INFO[ListItem.Property(EpisodeNumber),,:] $INFO[ListItem.Label]</value>
+        <value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
+        <value condition="!IsEmpty(ListItem.Episode)">$INFO[ListItem.Episode,,:] $INFO[ListItem.Label]</value>
     </variable>
     <variable name="WidgetTypeLabelVar">
         <value condition="Window.IsActive(1122)">$INFO[Skin.String(ItemToEdit.WidgetTitle)]</value>
@@ -903,14 +902,14 @@
         <value>$LOCALIZE[20360]</value>
     </variable>
     <variable name="HomeWidgetFanartVar">
-        <value condition="[Control.HasFocus(8000) | Control.HasFocus(8020)] + !IsEmpty(Container(8000).ListItem.Property(Fanart))">$INFO[Container(8000).ListItem.Property(Fanart)]</value>
-        <value condition="[Control.HasFocus(7000) | Control.HasFocus(7020)] + !IsEmpty(Container(7000).ListItem.Property(Fanart))">$INFO[Container(7000).ListItem.Property(Fanart)]</value>
+        <value condition="[Control.HasFocus(8000) | Control.HasFocus(8020)] + !IsEmpty(Container(8000).ListItem.Art(fanart))">$INFO[Container(8000).ListItem.Art(fanart)]</value>
+        <value condition="[Control.HasFocus(7000) | Control.HasFocus(7020)] + !IsEmpty(Container(7000).ListItem.Art(fanart))">$INFO[Container(7000).ListItem.Art(fanart)]</value>
         <value condition="[ControlGroup(5020).HasFocus | ControlGroup(5030).HasFocus] + !IsEmpty(Window(home).Property(Fanart))">$INFO[Window(home).Property(Fanart)]</value>
-        <value condition="Control.HasFocus(5010) + !IsEmpty(Container(5010).ListItem.Property(Fanart))">$INFO[Container(5010).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(5010) + !IsEmpty(Container(5010).ListItem.Art(fanart))">$INFO[Container(5010).ListItem.Art(fanart)]</value>
         <value condition="Control.HasFocus(5010) + Substring(Container(9000).ListItem.Property(Widget),featured) + !IsEmpty(Container(5001).ListItem.Art(fanart))">$INFO[Container(5001).ListItem.Art(fanart)]</value>
         <value condition="Control.HasFocus(5012) + !IsEmpty(Container(5003).ListItem.Art(fanart))">$INFO[Container(5003).ListItem.Art(fanart)]</value>
         <value condition="Control.HasFocus(5011) + !IsEmpty(Container(5002).ListItem.Art(fanart))">$INFO[Container(5002).ListItem.Art(fanart)]</value>
-        <value condition="[Control.HasFocus(6010) | ControlGroup(6014).HasFocus] + !IsEmpty(Container(6010).ListItem.Property(Fanart))">$INFO[Container(6010).ListItem.Property(Fanart)]</value>
+        <value condition="[Control.HasFocus(6010) | ControlGroup(6014).HasFocus] + !IsEmpty(Container(6010).ListItem.Art(fanart))">$INFO[Container(6010).ListItem.Art(fanart)]</value>
         <value condition="Control.HasFocus(6010) + Substring(Container(9000).ListItem.Property(Widget2),featured) + !IsEmpty(Container(6001).ListItem.Art(fanart))">$INFO[Container(6001).ListItem.Art(fanart)]</value>
         <value condition="Control.HasFocus(6012) + !IsEmpty(Container(6003).ListItem.Art(fanart))">$INFO[Container(6003).ListItem.Art(fanart)]</value>
         <value condition="Control.HasFocus(6011) + !IsEmpty(Container(6002).ListItem.Art(fanart))">$INFO[Container(6002).ListItem.Art(fanart)]</value>
@@ -960,7 +959,7 @@
         <value condition="Substring(Control.GetLabel(4322),case) + !IsEmpty(Skin.String(LiveBG))">$INFO[Skin.String(LiveBG)]</value>
         <value condition="Substring(Control.GetLabel(4322),case)">special://skin/backgrounds/speakergrill.jpg</value>
         <value condition="Substring(Control.GetLabel(4322),wall)">common/bgcolor.png</value>
-        <value condition="Control.IsVisible(8998) + !IsEmpty(Container(8000).ListItem.Property(Fanart)) + StringCompare(Control.GetLabel(4322),widgetfanart)">$INFO[Container(8000).ListItem.Property(Fanart)]</value>
+        <value condition="Control.IsVisible(8998) + !IsEmpty(Container(8000).ListItem.Art(fanart)) + StringCompare(Control.GetLabel(4322),widgetfanart)">$INFO[Container(8000).ListItem.Art(fanart)]</value>
         <value condition="!Substring(Control.GetLabel(4322),/) + !Substring(Control.GetLabel(4322),\)">$INFO[Control.GetLabel(4324)]</value>
         <value>$VAR[MultiFanartVar]</value>
     </variable>
@@ -1469,8 +1468,6 @@
     </variable>
     <variable name="VideoInfoPosterVar">
         <value condition="[[Control.HasFocus(601) + Stringcompare(Window(home).Property(ListType),Actors)] | Control.HasFocus(600)] + !IsEmpty(Container(50).ListItem.Thumb)">$INFO[Container(50).ListItem.Thumb]</value>
-        <value condition="Control.HasFocus(700) + !IsEmpty(Container(700).ListItem.Property(Poster))">$INFO[Container(700).ListItem.Property(Poster)]</value>
-        <value condition="Control.HasFocus(701) + !IsEmpty(Container(701).ListItem.Property(Poster))">$INFO[Container(701).ListItem.Property(Poster)]</value>
         <value>$VAR[PosterVar]</value>
     </variable>
     <variable name="1159PosterVar">
@@ -1478,6 +1475,9 @@
         <value condition="Control.HasFocus(8002)">$INFO[Container(8002).ListItem.Property(Poster)]</value>
         <value condition="Control.HasFocus(8003)">$INFO[Container(8003).ListItem.Property(Poster)]</value>
         <value condition="Control.HasFocus(8004)">$INFO[Container(8004).ListItem.Property(Poster)]</value>
+        <value condition="Control.HasFocus(8005)">$INFO[Container(8005).ListItem.Property(Poster)]</value>
+        <value condition="Control.HasFocus(8006)">$INFO[Container(8006).ListItem.Property(Poster)]</value>
+        <value condition="Control.HasFocus(8007)">$INFO[Container(8007).ListItem.Property(Poster)]</value>
     </variable>
     <variable name="1159TitleVar">
         <value condition="Control.HasFocus(8001)">News</value>
@@ -1813,6 +1813,103 @@
         <value condition="Skin.HasSetting(homeartistslideshow)">$LOCALIZE[31044]</value>
         <value>$LOCALIZE[16039]</value>
     </variable>
+    <variable name="Widget1ContentVar">
+        <value condition="Substring(Control.GetLabel(4321),randomartists)">special://skin/extras/playlists/randomartists8.xsp</value>
+        <value condition="Substring(Control.GetLabel(4321),randomalbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),recentalbums)">plugin://service.library.data.provider?type=recentalbums&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),watchlistalbums)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),recentmovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),randommovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),watchlistmovies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),recentmusicvideos)">special://skin/extras/playlists/recentmusicvideos8.xsp</value>
+        <value condition="Substring(Control.GetLabel(4321),randommusicvideos)">special://skin/extras/playlists/randommusicvideos8.xsp</value>
+        <value condition="Substring(Control.GetLabel(4321),watchlistmusicvideos)">special://skin/extras/playlists/recommendedmusicvideos8.xsp</value>
+        <value condition="Substring(Control.GetLabel(4321),randomtv)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),recentvideos)">plugin://service.library.data.provider?type=recentvideos&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),recenttv)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),watchlisttv)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4321),randomaddons)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),comingsoonmovies)">plugin://script.extendedinfo?info=comingsoon</value>
+        <value condition="Substring(Control.GetLabel(4321),intheatersmovies)">plugin://script.extendedinfo?info=intheaters</value>
+        <value condition="Substring(Control.GetLabel(4321),boxofficemovies)">plugin://script.extendedinfo?info=boxoffice</value>
+        <value condition="Substring(Control.GetLabel(4321),toprentalsmovies)">plugin://script.extendedinfo?info=toprentals</value>
+        <value condition="Substring(Control.GetLabel(4321),openingmovies)">plugin://script.extendedinfo?info=opening</value>
+        <value condition="Substring(Control.GetLabel(4321),trendingshows)">plugin://script.extendedinfo?info=trendingshows</value>
+        <value condition="Substring(Control.GetLabel(4321),trendingmovies)">plugin://script.extendedinfo?info=trendingmovies</value>
+        <value condition="Substring(Control.GetLabel(4321),incinemasmovies)">plugin://script.extendedinfo?info=incinemas</value>
+        <value condition="Substring(Control.GetLabel(4321),upcomingmovies)">plugin://script.extendedinfo?info=upcoming</value>
+        <value condition="Substring(Control.GetLabel(4321),trailersmovies)">plugin://plugin.video.the.trailers/apple/movies/</value>
+        <value condition="Substring(Control.GetLabel(4321),premiereshows)">plugin://script.extendedinfo?info=premiereshows</value>
+        <value condition="Substring(Control.GetLabel(4321),xkcd)">plugin://script.extendedinfo?info=xkcd</value>
+        <value condition="Substring(Control.GetLabel(4321),cyanide)">plugin://script.extendedinfo?info=cyanide</value>
+        <value condition="Substring(Control.GetLabel(4321),rss1)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL1)]</value>
+        <value condition="Substring(Control.GetLabel(4321),rss2)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL2)]</value>
+        <value condition="Substring(Control.GetLabel(4321),rss3)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL3)]</value>
+        <value condition="Substring(Control.GetLabel(4321),://)">$INFO[Control.GetLabel(4321)]</value>
+
+
+        <value condition="Substring(Control.GetLabel(4321),randompics)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),recentpics)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),thebigpicture)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),mostplayedroms)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),actors)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),rss1)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),rss2)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),rss3)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),nextaired)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),Icon1)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),Icon2)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),favourite)">bla</value>
+        <value condition="Substring(Control.GetLabel(4321),babesimagespanel)">plugin://script.extendedinfo?info=dailybabes</value>
+    </variable>
+    <variable name="Widget2ContentVar">
+        <value condition="Substring(Control.GetLabel(4325),randomartists)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),randomalbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),recentalbums)">plugin://service.library.data.provider?type=recentalbums&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),watchlistalbums)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),recentmovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),randommovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),watchlistmovies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),recentmusicvideos)">special://skin/extras/playlists/recentmusicvideos8.xsp</value>
+        <value condition="Substring(Control.GetLabel(4325),randommusicvideos)">special://skin/extras/playlists/randommusicvideos8.xsp</value>
+        <value condition="Substring(Control.GetLabel(4325),watchlistmusicvideos)">special://skin/extras/playlists/recommendedmusicvideos8.xsp</value>
+        <value condition="Substring(Control.GetLabel(4325),randomtv)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),recentvideos)">plugin://service.library.data.provider?type=recentvideos&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),recenttv)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),watchlisttv)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=10&amp;limit=10</value>
+        <value condition="Substring(Control.GetLabel(4325),randomaddons)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),comingsoonmovies)">plugin://script.extendedinfo?info=comingsoon</value>
+        <value condition="Substring(Control.GetLabel(4325),intheatersmovies)">plugin://script.extendedinfo?info=intheaters</value>
+        <value condition="Substring(Control.GetLabel(4325),boxofficemovies)">plugin://script.extendedinfo?info=boxoffice</value>
+        <value condition="Substring(Control.GetLabel(4325),toprentalsmovies)">plugin://script.extendedinfo?info=toprentals</value>
+        <value condition="Substring(Control.GetLabel(4325),openingmovies)">plugin://script.extendedinfo?info=opening</value>
+        <value condition="Substring(Control.GetLabel(4325),trendingshows)">plugin://script.extendedinfo?info=trendingshows</value>
+        <value condition="Substring(Control.GetLabel(4325),trendingmovies)">plugin://script.extendedinfo?info=trendingmovies</value>
+        <value condition="Substring(Control.GetLabel(4325),incinemasmovies)">plugin://script.extendedinfo?info=incinemas</value>
+        <value condition="Substring(Control.GetLabel(4325),upcomingmovies)">plugin://script.extendedinfo?info=upcoming</value>
+        <value condition="Substring(Control.GetLabel(4325),premiereshows)">plugin://script.extendedinfo?info=premiereshows</value>
+        <value condition="Substring(Control.GetLabel(4325),trailersmovies)">plugin://plugin.video.the.trailers/apple/movies/</value>
+        <value condition="Substring(Control.GetLabel(4325),xkcd)">plugin://script.extendedinfo?info=xkcd</value>
+        <value condition="Substring(Control.GetLabel(4325),cyanide)">plugin://script.extendedinfo?info=cyanide</value>
+        <value condition="Substring(Control.GetLabel(4325),rss1)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL1)]</value>
+        <value condition="Substring(Control.GetLabel(4325),rss2)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL2)]</value>
+        <value condition="Substring(Control.GetLabel(4325),rss3)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL3)]</value>
+        <value condition="Substring(Control.GetLabel(4325),://)">$INFO[Control.GetLabel(4325)]</value>
+
+        <value condition="Substring(Control.GetLabel(4325),randompics)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),recentpics)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),thebigpicture)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),mostplayedroms)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),actors)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),rss1)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),rss2)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),rss3)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),nextaired)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),Icon1)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),Icon2)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),favourite)">bla</value>
+        <value condition="Substring(Control.GetLabel(4325),babesimagespanel)">plugin://script.extendedinfo?info=dailybabes</value>
+    </variable>
     <variable name="CDArtLabelVar">
         <value condition="Skin.HasSetting(vinylart)">$LOCALIZE[31227]</value>
         <value condition="Skin.HasSetting(blurayart)">$LOCALIZE[31255]</value>
@@ -1975,6 +2072,8 @@
     <variable name="WidgetTextboxVar">
         <value condition="Substring(Window(home).Property(WidgetType),pics)">$INFO[Window(home).Property(Fanart)]</value>
         <value condition="!IsEmpty(Window(home).Property(Plot))">$INFO[Window(home).Property(Plot)]</value>
+        <value condition="!IsEmpty(Window(home).Property(Album_Description))">$INFO[Window(home).Property(Album_Description)]</value>
+        <value condition="!IsEmpty(Window(home).Property(Artist_Description))">$INFO[Window(home).Property(Artist_Description)]</value>
         <value>$INFO[Window(home).Property(Description)]</value>
     </variable>
     <!-- Cases Background Vars-->

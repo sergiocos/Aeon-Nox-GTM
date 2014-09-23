@@ -1263,6 +1263,7 @@
             <posy>678</posy>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <visible>Substring(Control.GetLabel(4321),classic)</visible>
+            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
             <include>Animation_Widgets</include>
             <visible>![IsEmpty(Window(Home).Property(NextAired.1.Label)) + Substring(Control.GetLabel(4321),nextairedtv)]</visible>
             <visible>![IsEmpty(Window(Home).Property(RecommendedMovie.1.Title)) + Substring(Control.GetLabel(4321),watchlistmovies)]</visible>
@@ -1271,7 +1272,7 @@
             <animation effect="slide" time="160" end="0,-38" condition="!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(rsshomelow)">Conditional</animation>
             <!--Unfocused widget-->
             <control type="group">
-                <visible>![Control.HasFocus(8000) | Control.HasFocus(8020)]</visible>
+                <visible>!Control.HasFocus(8000)</visible>
                 <animation effect="slide" start="450" end="0" time="240" delay="240" tween="quadratic">Visible</animation>
                 <control type="group">
                     <visible>Substring(Control.GetLabel(4321),default) | Substring(Control.GetLabel(4321),glass)</visible>
@@ -1391,7 +1392,7 @@
             <control type="group">
                 <posx>-3050</posx>
                 <posy>-13</posy>
-                <visible>Control.HasFocus(8000) | Control.HasFocus(8020)</visible>
+                <visible>Control.HasFocus(8000)</visible>
                 <visible>Substring(Control.GetLabel(4321),movie) | Substring(Control.GetLabel(4321),musicvideo) | Substring(Control.GetLabel(4321),actors)</visible>
                 <animation type="Conditional" condition="true">
                     <effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
@@ -1541,7 +1542,7 @@
             <control type="group">
                 <posx>-3050</posx>
                 <posy>-16</posy>
-                <visible>Control.HasFocus(8000) | Control.HasFocus(8020)</visible>
+                <visible>Control.HasFocus(8000)</visible>
                 <visible>Substring(Control.GetLabel(4321),tv) | Substring(Control.GetLabel(4321),rss) | Substring(Control.GetLabel(4321),roms)</visible>
                 <animation effect="slide" start="0" end="1530,0" time="400" easing="inout" tween="cubic">VisibleChange</animation>
                 <control type="group">
@@ -1649,7 +1650,7 @@
             <control type="group">
                 <posx>-3050</posx>
                 <posy>-10</posy>
-                <visible>Control.HasFocus(8000) | Control.HasFocus(8020)</visible>
+                <visible>Control.HasFocus(8000)</visible>
                 <visible>Substring(Control.GetLabel(4321),artists) | Substring(Control.GetLabel(4321),album) | Substring(Control.GetLabel(4321),addons) | Substring(Control.GetLabel(4321),pics) | Substring(Control.GetLabel(4321),Icon)</visible>
                 <animation effect="slide" start="0" end="1530,0" time="400" easing="inout" tween="cubic">VisibleChange</animation>
                 <control type="image">
@@ -1733,7 +1734,7 @@
             <control type="group">
                 <posx>513</posx>
                 <posy>-20</posy>
-                <animation effect="slide" end="-570,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(8000) | Control.HasFocus(8020)">Conditional</animation>
+                <animation effect="slide" end="-570,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(8000)">Conditional</animation>
                 <animation type="Conditional" condition="true">
                     <effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
                 </animation>
@@ -1816,7 +1817,6 @@
                     <preloaditems>2</preloaditems>
                     <autoscroll time="7000">!Control.HasFocus(8000)</autoscroll>
                     <scrolltime tween="quadratic">800</scrolltime>
-                    <animation effect="fade" time="160" start="100" end="0" condition="Control.HasFocus(8020)">Conditional</animation>
                     <itemlayout height="34" width="450">
                         <control type="image">
                             <posx>-15</posx>
@@ -1850,57 +1850,6 @@
                         </control>
                     </focusedlayout>
                     <content>$VAR[Widget1ContentVar]</content>
-                </control>
-                <control type="list" id="8020">
-                    <posx>8</posx>
-                    <posy>64</posy>
-                    <width>450</width>
-                    <height>280</height>
-                    <onup>8020</onup>
-                    <ondown>8020</ondown>
-                    <onback>SetFocus(8000)</onback>
-                    <onleft>SetFocus(8000)</onleft>
-                    <onright>SetFocus(8000)</onright>
-                    <preloaditems>2</preloaditems>
-                    <scrolltime tween="quadratic">200</scrolltime>
-                    <visible allowhiddenfocus="true">Control.HasFocus(8020)</visible>
-                    <animation type="VisibleChange">
-                        <effect type="fade" delay="160" end="100" time="160" />
-                    </animation>
-                    <itemlayout height="68" width="450">
-                        <control type="image">
-                            <posx>-15</posx>
-                            <width>424</width>
-                            <height>68</height>
-                            <texture>dialogs/context_nofocus.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>15</posx>
-                            <width>375</width>
-                            <height>68</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font_Reg33_Caps</font>
-                            <textcolor>grey2</textcolor>
-                        </control>
-                    </itemlayout>
-                    <focusedlayout height="68" width="450">
-                        <control type="image">
-                            <posx>1</posx>
-                            <width>390</width>
-                            <height>68</height>
-                            <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>15</posx>
-                            <width>368</width>
-                            <height>68</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font_Reg33_Caps</font>
-                        </control>
-                    </focusedlayout>
-                    <content>
-                        <include>ClassicWidgetPlayItems</include>
-                    </content>
                 </control>
             </control>
         </control>
@@ -1952,11 +1901,10 @@
             <width>1920</width>
             <height>825</height>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
-            <visible>[Substring(Control.GetLabel(4321),featured) | Substring(Control.GetLabel(4321),panel)]</visible>
-            <visible>![IsEmpty(Window(Home).Property(NextAired.1.Label)) + Substring(Control.GetLabel(4321),nextairedtv)]</visible>
-            <visible>![IsEmpty(Window(Home).Property(RecommendedMovie.1.Title)) + Substring(Control.GetLabel(4321),watchlistmovies)]</visible>
-            <visible>![IsEmpty(Window(Home).Property(RecommendedEpisode.1.Title)) + Substring(Control.GetLabel(4321),watchlisttv)]</visible>
-            <include>Animation_Widgets</include>
+            <visible>Substring(Control.GetLabel(4321),featured) | Substring(Control.GetLabel(4321),panel)</visible>
+            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
+<!--             <animation effect="fade" start="100" end="0" time="0" condition="Stringcompare(Container(5010).NumItems,0) + !Substring(Control.GetLabel(4321),featured) + !Window.IsAcive(1122)">Conditional</animation>
+ -->            <include>Animation_Widgets</include>
             <animation type="Conditional" condition="true">
                 <effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
             </animation>
@@ -1996,130 +1944,6 @@
                     </control>
                 </control>
                 <include>5010List</include>
-                <control type="group">
-                    <visible>Substring(Control.GetLabel(4321),concertspanel)</visible>
-                    <include>Animation_VisibleChange400</include>
-                    <control type="panel" id="5051">
-                        <posx>27</posx>
-                        <posy>26</posy>
-                        <width>1596</width>
-                        <height>348</height>
-                        <orientation>horizontal</orientation>
-                        <onleft>5051</onleft>
-                        <onright>5051</onright>
-                        <preloaditems>2</preloaditems>
-                        <scrolltime>200</scrolltime>
-                        <include>NavigationWidget1</include>
-                        <itemlayout height="174" width="399">
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">common/bgcolor.png</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio aligny="top">scale</aspectratio>
-                                <colordiffuse>77FFFFFF</colordiffuse>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">button-nofocus.png</texture>
-                            </control>
-                            <control type="textbox">
-                                <posx>12</posx>
-                                <width>375</width>
-                                <height>66</height>
-                                <align>left</align>
-                                <font>Font_Reg30</font>
-                                <shadowcolor>black</shadowcolor>
-                                <info>ListItem.Label</info>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>80</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                                <info>ListItem.Label2</info>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>110</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout height="174" width="399">
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">common/bgcolor.png</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio aligny="top">scale</aspectratio>
-                                <colordiffuse>77FFFFFF</colordiffuse>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="3">button-nofocus.png</texture>
-                                <visible>!Control.HasFocus(5051)</visible>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
-                                <animation effect="fade" time="280" reversible="false">Focus</animation>
-                            </control>
-                            <control type="textbox">
-                                <posx>12</posx>
-                                <width>375</width>
-                                <height>66</height>
-                                <align>left</align>
-                                <font>Font_Reg30</font>
-                                <shadowcolor>black</shadowcolor>
-                                <info>ListItem.Label</info>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>80</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                                <info>ListItem.Label2</info>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>110</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                            </control>
-                        </focusedlayout>
-                        <content>
-                            <include>ConcertsPanelContent</include>
-                        </content>
-                    </control>
-                </control>
                 <control type="group">
                     <visible>Substring(Control.GetLabel(4321),wunderground)</visible>
                     <include>Animation_VisibleChange400</include>
@@ -2207,6 +2031,7 @@
                 <posy>-5</posy>
                 <width>624</width>
                 <height>350</height>
+                <visible>Substring(Control.GetLabel(4321),featured)</visible>
                 <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="6">views/addonwall_select.png</texturefocus>
                 <texturenofocus>-</texturenofocus>
                 <onleft>5012</onleft>
@@ -3346,13 +3171,11 @@
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <visible>Substring(Control.GetLabel(4325),classic)</visible>
             <animation effect="slide" end="0,25" time="320" tween="cubic" easing="inout" condition="[Skin.HasSetting(totalshomehigh)">Conditional</animation>
-            <visible>![IsEmpty(Window(Home).Property(NextAired.1.Label)) + Substring(Control.GetLabel(4325),nextairedtv)]</visible>
-            <visible>![IsEmpty(Window(Home).Property(RecommendedMovie.1.Title)) + Substring(Control.GetLabel(4325),watchlistmovies)]</visible>
-            <visible>![IsEmpty(Window(Home).Property(RecommendedEpisode.1.Title)) + Substring(Control.GetLabel(4325),watchlisttv)]</visible>
+            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
             <include>Animation_Widgets</include>
             <!--Unfocused widget-->
             <control type="group">
-                <visible>![Control.HasFocus(7000) | Control.HasFocus(7020)]</visible>
+                <visible>!Control.HasFocus(7000)</visible>
                 <animation effect="slide" start="450" end="0" time="240" delay="240" tween="quadratic">Visible</animation>
                 <control type="group">
                     <visible>Substring(Control.GetLabel(4325),default) | Substring(Control.GetLabel(4325),glass)</visible>
@@ -3472,7 +3295,7 @@
             <control type="group">
                 <posx>-3050</posx>
                 <posy>-13</posy>
-                <visible>Control.HasFocus(7000) | Control.HasFocus(7020)</visible>
+                <visible>Control.HasFocus(7000)</visible>
                 <visible>Substring(Control.GetLabel(4325),movie) | Substring(Control.GetLabel(4325),musicvideo) | Substring(Control.GetLabel(4325),actors)</visible>
                 <animation type="Conditional" condition="true">
                     <effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
@@ -3622,7 +3445,7 @@
             <control type="group">
                 <posx>-3050</posx>
                 <posy>-16</posy>
-                <visible>Control.HasFocus(7000) | Control.HasFocus(7020)</visible>
+                <visible>Control.HasFocus(7000)</visible>
                 <visible>Substring(Control.GetLabel(4325),tv) | Substring(Control.GetLabel(4325),rss) | Substring(Control.GetLabel(4325),roms)</visible>
                 <animation effect="slide" start="0" end="1530,0" time="400" easing="inout" tween="cubic">VisibleChange</animation>
                 <control type="group">
@@ -3731,7 +3554,7 @@
             <control type="group">
                 <posx>-3050</posx>
                 <posy>-16</posy>
-                <visible>Control.HasFocus(7000) | Control.HasFocus(7020)</visible>
+                <visible>Control.HasFocus(7000)</visible>
                 <visible>Substring(Control.GetLabel(4325),artists) | Substring(Control.GetLabel(4325),album) | Substring(Control.GetLabel(4325),addons) | Substring(Control.GetLabel(4325),pics) | Substring(Control.GetLabel(4325),Icon)</visible>
                 <animation effect="slide" start="0" end="1530,0" time="400" easing="inout" tween="cubic">VisibleChange</animation>
                 <control type="image">
@@ -3808,7 +3631,7 @@
             <control type="group">
                 <posx>513</posx>
                 <posy>-18</posy>
-                <animation effect="slide" end="-570,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(7000) | Control.HasFocus(7020)">Conditional</animation>
+                <animation effect="slide" end="-570,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(7000)">Conditional</animation>
                 <animation type="Conditional" condition="true">
                     <effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
                 </animation>
@@ -3889,7 +3712,6 @@
                     <onright>9000</onright>
                     <include>NavigationWidget2</include>
                     <preloaditems>2</preloaditems>
-                    <animation effect="fade" time="160" start="100" end="0" condition="Control.HasFocus(7020)">Conditional</animation>
                     <autoscroll time="7000">!Control.HasFocus(7000)</autoscroll>
                     <scrolltime tween="quadratic">800</scrolltime>
                     <itemlayout height="34" width="450">
@@ -3925,57 +3747,6 @@
                     </focusedlayout>
                     <content>$VAR[Widget2ContentVar]</content>
                 </control>
-                <control type="list" id="7020">
-                    <posx>8</posx>
-                    <posy>64</posy>
-                    <width>450</width>
-                    <height>280</height>
-                    <onup>7020</onup>
-                    <ondown>7020</ondown>
-                    <onback>SetFocus(7000)</onback>
-                    <onleft>SetFocus(7000)</onleft>
-                    <onright>SetFocus(7000)</onright>
-                    <preloaditems>2</preloaditems>
-                    <scrolltime tween="quadratic">200</scrolltime>
-                    <visible allowhiddenfocus="true">Control.HasFocus(7020)</visible>
-                    <animation type="VisibleChange">
-                        <effect type="fade" delay="160" end="100" time="160" />
-                    </animation>
-                    <itemlayout height="68" width="450">
-                        <control type="image">
-                            <posx>-15</posx>
-                            <width>424</width>
-                            <height>68</height>
-                            <texture>dialogs/context_nofocus.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>15</posx>
-                            <width>375</width>
-                            <height>68</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font_Reg33_Caps</font>
-                            <textcolor>grey2</textcolor>
-                        </control>
-                    </itemlayout>
-                    <focusedlayout height="68" width="450">
-                        <control type="image">
-                            <posx>1</posx>
-                            <width>390</width>
-                            <height>68</height>
-                            <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>15</posx>
-                            <width>368</width>
-                            <height>68</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font_Reg33_Caps</font>
-                        </control>
-                    </focusedlayout>
-                    <content>
-                        <include>ClassicWidgetPlayItems</include>
-                    </content>
-                </control>
             </control>
         </control>
     </include>
@@ -3987,9 +3758,9 @@
             <height>825</height>
             <animation effect="slide" end="0,35" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
             <animation effect="slide" end="0,25" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(totalshomehigh)">Conditional</animation>
-            <visible>[Substring(Control.GetLabel(4325),featured) | Substring(Control.GetLabel(4325),panel)]</visible>
-            <visible>![IsEmpty(Window(Home).Property(NextAired.1.Label)) + Substring(Control.GetLabel(4325),nextairedtv)]</visible>
-            <visible>![IsEmpty(Window(Home).Property(RecommendedMovie.1.Title)) + Substring(Control.GetLabel(4325),watchlistmovies,left)]</visible>
+<!--             <animation effect="fade" start="100" end="0" time="0" condition="Stringcompare(Container(6010).NumItems,0) + !Substring(Control.GetLabel(4325),featured) + !Window.IsAcive(1122)">Conditional</animation>
+ -->            <visible>Substring(Control.GetLabel(4325),featured) | Substring(Control.GetLabel(4325),panel)</visible>
+            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <include>Animation_Widgets</include>
             <animation type="Conditional" condition="true">
@@ -4027,130 +3798,6 @@
                     </control>
                 </control>
                 <include>6010List</include>
-                <control type="group">
-                    <visible>Substring(Control.GetLabel(4325),concertspanel)</visible>
-                    <include>Animation_VisibleChange400</include>
-                    <control type="panel" id="6051">
-                        <posx>27</posx>
-                        <posy>26</posy>
-                        <width>1596</width>
-                        <height>348</height>
-                        <preloaditems>2</preloaditems>
-                        <onleft>6051</onleft>
-                        <onright>6051</onright>
-                        <include>NavigationWidget2</include>
-                        <orientation>horizontal</orientation>
-                        <scrolltime>200</scrolltime>
-                        <itemlayout height="174" width="399">
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">common/bgcolor.png</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio aligny="top">scale</aspectratio>
-                                <colordiffuse>77FFFFFF</colordiffuse>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">button-nofocus.png</texture>
-                            </control>
-                            <control type="textbox">
-                                <posx>12</posx>
-                                <width>375</width>
-                                <height>66</height>
-                                <align>left</align>
-                                <font>Font_Reg30</font>
-                                <shadowcolor>black</shadowcolor>
-                                <info>ListItem.Label</info>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>80</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                                <label>$INFO[ListItem.Label2]</label>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>110</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout height="174" width="399">
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">common/bgcolor.png</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="6">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio aligny="top">scale</aspectratio>
-                                <colordiffuse>77FFFFFF</colordiffuse>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture border="3">button-nofocus.png</texture>
-                                <visible>!Control.HasFocus(6051)</visible>
-                            </control>
-                            <control type="image">
-                                <width>399</width>
-                                <height>174</height>
-                                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
-                                <animation effect="fade" time="280" reversible="false">Focus</animation>
-                            </control>
-                            <control type="textbox">
-                                <posx>12</posx>
-                                <width>375</width>
-                                <height>66</height>
-                                <align>left</align>
-                                <font>Font_Reg30</font>
-                                <shadowcolor>black</shadowcolor>
-                                <info>ListItem.Label</info>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>80</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                                <info>ListItem.Label2</info>
-                            </control>
-                            <control type="label">
-                                <posx>12</posx>
-                                <posy>110</posy>
-                                <width>375</width>
-                                <height>40</height>
-                                <label>$INFO[ListItem.Property(City)]$INFO[ListItem.Property(Name), - ]</label>
-                                <font>Font_Reg26</font>
-                                <shadowcolor>black</shadowcolor>
-                                <textcolor>grey</textcolor>
-                            </control>
-                        </focusedlayout>
-                        <content>
-                            <include>ConcertsPanelContent</include>
-                        </content>
-                    </control>
-                </control>
                 <control type="group">
                     <visible>Substring(Control.GetLabel(4325),wunderground)</visible>
                     <include>Animation_VisibleChange400</include>
@@ -4238,6 +3885,7 @@
                 <posy>-5</posy>
                 <width>624</width>
                 <height>350</height>
+                <visible>Substring(Control.GetLabel(4325),featured)</visible>
                 <texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="6">views/addonwall_select.png</texturefocus>
                 <texturenofocus></texturenofocus>
                 <include>NavigationWidget2</include>
@@ -4391,17 +4039,15 @@
     </include>
     <include name="5010List">
         <control type="group">
-            <visible>!Substring(Control.GetLabel(4321),concerts) + !Substring(Control.GetLabel(4321),weather)</visible>
+            <visible>!Substring(Control.GetLabel(4321),weather)</visible>
             <include>Animation_VisibleChange400</include>
             <control type="panel" id="5010">
                 <posx>27</posx>
                 <visible>!Substring(Control.GetLabel(4321),featured)</visible>
-                <include>Animation_VisibleChange400</include>
                 <posy>26</posy>
                 <width>1596</width>
                 <height>360</height>
                 <orientation>horizontal</orientation>
-                <animation effect="fade" start="100" end="0" time="0" condition="!Substring(Control.GetLabel(4321),panel)">Conditional</animation>
                 <onleft>5010</onleft>
                 <onright>5010</onright>
                 <include>NavigationWidget1</include>
@@ -4780,17 +4426,15 @@
     </include>
     <include name="6010List">
         <control type="group">
-            <visible>!Substring(Control.GetLabel(4325),concerts) + !Substring(Control.GetLabel(4325),weather)</visible>
+            <visible>!Substring(Control.GetLabel(4325),weather)</visible>
             <include>Animation_VisibleChange400</include>
             <control type="panel" id="6010">
                 <visible>!Substring(Control.GetLabel(4325),featured)</visible>
-                <include>Animation_VisibleChange400</include>
                 <posx>27</posx>
                 <posy>26</posy>
                 <width>1596</width>
                 <height>360</height>
                 <orientation>horizontal</orientation>
-                <animation effect="fade" start="100" end="0" time="0" condition="!Substring(Control.GetLabel(4325),panel)">Conditional</animation>
                 <onleft>6010</onleft>
                 <onright>6010</onright>
                 <include>NavigationWidget2</include>

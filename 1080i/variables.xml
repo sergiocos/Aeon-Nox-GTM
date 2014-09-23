@@ -10,8 +10,8 @@
         <value>http://pipes.yahoo.com/pipes/pipe.run?_id=5cc10db1ae3a763e4919c6de8fb58551&amp;_render=json&amp;youtubeid=Channel4News</value>
     </variable>
     <variable name="YouTubeContentVar">
-        <value condition="Container.Content(albums)">plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search=$INFO[ListItem.Artist] $INFO[ListItem.Album]</value>
-        <value>plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search=$ESCINFO[ListItem.Artist] Music</value>
+        <value condition="Container.Content(albums)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[ListItem.Artist] $INFO[ListItem.Album]</value>
+        <value>plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] Music</value>
     </variable>
     <variable name="InfoWidgetPlayOnclickVar">
         <value condition="Substring(Window(home).Property(WidgetType),trendingmovies)">$INFO[Window(home).Property(Path)]</value>
@@ -1842,9 +1842,9 @@
         <value condition="Substring(Control.GetLabel(4321),premiereshows)">plugin://script.extendedinfo?info=premiereshows</value>
         <value condition="Substring(Control.GetLabel(4321),xkcd)">plugin://script.extendedinfo?info=xkcd</value>
         <value condition="Substring(Control.GetLabel(4321),cyanide)">plugin://script.extendedinfo?info=cyanide</value>
-        <value condition="Substring(Control.GetLabel(4321),rss1)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL1)]</value>
-        <value condition="Substring(Control.GetLabel(4321),rss2)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL2)]</value>
-        <value condition="Substring(Control.GetLabel(4321),rss3)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL3)]</value>
+        <value condition="Substring(Control.GetLabel(4321),rss1)">plugin://script.extendedinfo?info=json&amp;&amp;feed=$INFO[Skin.String(CustomHomeFeedURL1)]</value>
+        <value condition="Substring(Control.GetLabel(4321),rss2)">plugin://script.extendedinfo?info=json&amp;&amp;feed=$INFO[Skin.String(CustomHomeFeedURL2)]</value>
+        <value condition="Substring(Control.GetLabel(4321),rss3)">plugin://script.extendedinfo?info=json&amp;&amp;feed=$INFO[Skin.String(CustomHomeFeedURL3)]</value>
         <value condition="Substring(Control.GetLabel(4321),://)">$INFO[Control.GetLabel(4321)]</value>
 
 
@@ -1861,6 +1861,7 @@
         <value condition="Substring(Control.GetLabel(4321),Icon2)">bla</value>
         <value condition="Substring(Control.GetLabel(4321),favourite)">bla</value>
         <value condition="Substring(Control.GetLabel(4321),babesimagespanel)">plugin://script.extendedinfo?info=dailybabes</value>
+        <value condition="Substring(Control.GetLabel(4321),babeimagespanel)">plugin://script.extendedinfo?info=dailybabe</value>
     </variable>
     <variable name="Widget2ContentVar">
         <value condition="Substring(Control.GetLabel(4325),randomartists)">bla</value>
@@ -1891,9 +1892,9 @@
         <value condition="Substring(Control.GetLabel(4325),trailersmovies)">plugin://plugin.video.the.trailers/apple/movies/</value>
         <value condition="Substring(Control.GetLabel(4325),xkcd)">plugin://script.extendedinfo?info=xkcd</value>
         <value condition="Substring(Control.GetLabel(4325),cyanide)">plugin://script.extendedinfo?info=cyanide</value>
-        <value condition="Substring(Control.GetLabel(4325),rss1)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL1)]</value>
-        <value condition="Substring(Control.GetLabel(4325),rss2)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL2)]</value>
-        <value condition="Substring(Control.GetLabel(4325),rss3)">plugin://script.extendedinfo?info=json&amp;feed=$INFO[Skin.String(CustomHomeFeedURL3)]</value>
+        <value condition="Substring(Control.GetLabel(4325),rss1)">plugin://script.extendedinfo?info=json&amp;&amp;feed=$INFO[Skin.String(CustomHomeFeedURL1)]</value>
+        <value condition="Substring(Control.GetLabel(4325),rss2)">plugin://script.extendedinfo?info=json&amp;&amp;feed=$INFO[Skin.String(CustomHomeFeedURL2)]</value>
+        <value condition="Substring(Control.GetLabel(4325),rss3)">plugin://script.extendedinfo?info=json&amp;&amp;feed=$INFO[Skin.String(CustomHomeFeedURL3)]</value>
         <value condition="Substring(Control.GetLabel(4325),://)">$INFO[Control.GetLabel(4325)]</value>
 
         <value condition="Substring(Control.GetLabel(4325),randompics)">bla</value>
@@ -1909,6 +1910,7 @@
         <value condition="Substring(Control.GetLabel(4325),Icon2)">bla</value>
         <value condition="Substring(Control.GetLabel(4325),favourite)">bla</value>
         <value condition="Substring(Control.GetLabel(4325),babesimagespanel)">plugin://script.extendedinfo?info=dailybabes</value>
+        <value condition="Substring(Control.GetLabel(4325),babeimagespanel)">plugin://script.extendedinfo?info=dailybabe</value>
     </variable>
     <variable name="CDArtLabelVar">
         <value condition="Skin.HasSetting(vinylart)">$LOCALIZE[31227]</value>

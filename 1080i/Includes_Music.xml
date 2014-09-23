@@ -1410,7 +1410,7 @@
                                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                                 </control>
                             </focusedlayout>
-                                    <content>plugin://script.extendedinfo?info=similarartistsinlibrary&amp;artistname=$INFO[MusicPlayer.Artist]</content>
+                                    <content>plugin://script.extendedinfo?info=similarartistsinlibrary&amp;&amp;artistname=$INFO[MusicPlayer.Artist]</content>
                         </control>
                         <!--content-->
                     </control>
@@ -1528,7 +1528,7 @@
                                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                                 </control>
                             </focusedlayout>
-                            <content>plugin://script.extendedinfo?info=discography&amp;artistname=$INFO[MusicPlayer.Artist]</content>
+                            <content>plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[MusicPlayer.Artist]</content>
                         </control>
                         <!--content-->
                     </control>
@@ -1622,7 +1622,7 @@
                             <posy>-10</posy>
                             <width>724</width>
                             <height>474</height>
-                            <label>$INFO[Window(visualisation).Property(ArtistSlideshow.ArtistBiography)]</label>
+                            <label>$VAR[NowPlayingTextBoxLabelVar]</label>
                             <font>Font_Reg30_2</font>
                             <pagecontrol>7010</pagecontrol>
                             <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
@@ -2125,7 +2125,7 @@
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                     </control>
                 </focusedlayout>
-                <content>plugin://script.extendedinfo?info=musicvideos&amp;artistname=$INFO[MusicPlayer.Artist]</content>
+                <content>plugin://script.extendedinfo?info=musicvideos&amp;&amp;artistname=$INFO[MusicPlayer.Artist]</content>
             </control>
             <!--content-->
         </control>

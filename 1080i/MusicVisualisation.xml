@@ -678,7 +678,6 @@
                         <control type="group">
                             <posx>1436</posx>
                             <posy>672</posy>
-                            <visible>IsEmpty(Window(Visualisation).Property(ArtistSlideshowRefresh))</visible>
                             <animation effect="fade" time="320">VisibleChange</animation>
                             <control type="image">
                                 <posy>3</posy>
@@ -860,7 +859,7 @@
                                 <textcolor>$VAR[TitleColorVar]</textcolor>
                             </control>
                         </focusedlayout>
-                        <content>plugin://script.extendedinfo?info=similarartistsinlibrary&amp;artistname=$INFO[MusicPlayer.Artist]</content>
+                        <content>plugin://script.extendedinfo?info=similarartistsinlibrary&amp;&amp;artistname=$INFO[MusicPlayer.Artist]</content>
                     </control>
                 </control>
                 <control type="textbox">
@@ -940,7 +939,7 @@
                             <textcolor>$VAR[TitleColorVar]</textcolor>
                         </control>
                     </focusedlayout>
-                    <content>plugin://script.extendedinfo?info=discography&amp;artistname=$INFO[MusicPlayer.Artist]</content>
+                    <content>plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[MusicPlayer.Artist]</content>
                 </control>
             </control>
         </control>

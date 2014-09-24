@@ -556,7 +556,26 @@
             <visible>IsEmpty(Window(home).Property(PanelWidgetInfo)) + IsEmpty(Window(home).Property(PanelWidget2Info))</visible>
             <visible>[IsEmpty(Control.GetLabel(4325)) + !Skin.HasSetting(movenowplayingwidget)] | [IsEmpty(Control.GetLabel(4321)) + Skin.HasSetting(movenowplayingwidget)] | !IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <animation effect="slide" end="0,35" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
-            <include>Animation_Widgets</include>
+        <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
+            <effect type="zoom" start="150" end="100" center="960,540" delay="2000" time="800" tween="cubic" />
+            <effect type="fade" delay="2000" start="50" end="100" time="240" />
+        </animation>
+        <animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+            <effect type="zoom" delay="640" start="150" end="100" center="960,540" time="640" tween="cubic" />
+            <effect type="fade" delay="640" start="50" end="100" time="640" />
+        </animation>
+        <animation type="WindowClose" reversible="false">
+            <effect type="fade" start="100" end="0" time="240" />
+            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+        </animation>
+        <animation type="Visible">
+            <effect type="zoom" start="150" delay="1300" end="100" center="960,540" time="400" tween="cubic" />
+            <effect type="fade" end="100" delay="1300" time="240" />
+        </animation>
+        <animation type="Hidden">
+            <effect type="fade" start="100" end="0" time="240" />
+            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+        </animation>
             <animation effect="slide" end="0,390" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(movenowplayingwidget) + Skin.HasSetting(lowermainmenu)">Conditional</animation>
             <animation effect="slide" end="0,600" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(movenowplayingwidget) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
             <animation effect="slide" end="0,11" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(totalshomehigh) + Window.IsActive(script-HomeWindow Script-main.xml)">Conditional</animation>
@@ -1263,7 +1282,14 @@
             <posy>678</posy>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <visible>Substring(Control.GetLabel(4321),classic)</visible>
-            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
+                    <animation type="Conditional" condition="IsEmpty(Window(home).Property(scrolling))">
+            <effect type="zoom" start="150" delay="800" end="100" center="960,540" time="400" tween="cubic" />
+            <effect type="fade" end="100" delay="800" time="240" />
+        </animation>
+        <animation type="Conditional" condition="!IsEmpty(Window(home).Property(scrolling))">
+            <effect type="fade" start="100" end="0" time="240" />
+            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+        </animation>
             <include>Animation_Widgets</include>
             <visible>![IsEmpty(Window(Home).Property(NextAired.1.Label)) + Substring(Control.GetLabel(4321),nextairedtv)]</visible>
             <visible>![IsEmpty(Window(Home).Property(RecommendedMovie.1.Title)) + Substring(Control.GetLabel(4321),watchlistmovies)]</visible>
@@ -1308,7 +1334,6 @@
                     <font>Font_Reg33_Caps</font>
                     <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
                     <include>Animation_HomeWidget</include>
-                    <visible>!SubString(Control.GetLabel(4321),panel)</visible>
                 </control>
                 <control type="image">
                     <posx>105</posx>
@@ -1332,12 +1357,12 @@
                     <scrollspeed>30</scrollspeed>
                     <scroll>true</scroll>
                     <include>Animation_HomeWidget</include>
-                    <visible>Substring(Control.GetLabel(4321),tv) + !Substring(Control.GetLabel(4321),featured) + !Substring(Control.GetLabel(4321),panel)</visible>
+                    <visible>Substring(Control.GetLabel(4321),tv)</visible>
                 </control>
                 <control type="group">
                     <posx>7</posx>
                     <posy>63</posy>
-                    <control type="image">
+                    <control type="image" id="80100">
                         <width>345</width>
                         <height>240</height>
                         <aspectratio aligny="top" align="center">keep</aspectratio>
@@ -1357,7 +1382,7 @@
                         <bordersize>7</bordersize>
                         <animation effect="fade" time="240">Visible</animation>
                         <animation effect="fade" time="40">Hidden</animation>
-                        <visible>Substring(Control.GetLabel(4321),movie) | Substring(Control.GetLabel(4321),tv) | Substring(Control.GetLabel(4321),rss) | Substring(Control.GetLabel(4321),musicvideo)</visible>
+                        <visible>!Control.IsVisible(80100) + !Substring(Control.GetLabel(4321),systemclassic)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -1375,7 +1400,6 @@
                     <textcolor>grey</textcolor>
                     <scrollspeed>30</scrollspeed>
                     <scroll>true</scroll>
-                    <visible>!Substring(Control.GetLabel(4321),panel)</visible>
                 </control>
             </control>
             <!--Button to set focus to classic widget with mouse
@@ -1766,7 +1790,6 @@
                     <font>Font_Reg33_Caps</font>
                     <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
                     <include>Animation_HomeWidget</include>
-                    <visible>!SubString(Control.GetLabel(4321),panel)</visible>
                 </control>
                 <control type="image">
                     <posx>116</posx>
@@ -1902,7 +1925,14 @@
             <height>825</height>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <visible>Substring(Control.GetLabel(4321),featured) | Substring(Control.GetLabel(4321),panel)</visible>
-            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
+                    <animation type="Conditional" condition="IsEmpty(Window(home).Property(scrolling))">
+            <effect type="zoom" start="150" delay="800" end="100" center="960,540" time="400" tween="cubic" />
+            <effect type="fade" end="100" delay="800" time="240" />
+        </animation>
+        <animation type="Conditional" condition="!IsEmpty(Window(home).Property(scrolling))">
+            <effect type="fade" start="100" end="0" time="240" />
+            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+        </animation>
 <!--             <animation effect="fade" start="100" end="0" time="0" condition="Stringcompare(Container(5010).NumItems,0) + !Substring(Control.GetLabel(4321),featured) + !Window.IsAcive(1122)">Conditional</animation>
  -->            <include>Animation_Widgets</include>
             <animation type="Conditional" condition="true">
@@ -2292,36 +2322,22 @@
                         <include>WidgetMenuLabel</include>
                         <onclick condition="!IsEmpty(Window(home).Property(PanelWidgetInfo))">SetFocus(5010)</onclick>
                         <onclick condition="!IsEmpty(Window(home).Property(PanelWidget2Info))">SetFocus(6010)</onclick>
+                        <onclick>ClearProperty(PanelWidgetInfo,Home)</onclick>
+                        <onclick>ClearProperty(PanelWidget2Info,Home)</onclick>
                         <onclick>Dialog.Close(1165)</onclick>
-                        <onclick>$VAR[InfoWidgetPlayOnclickVar]</onclick>
-                        <visible>[!Substring(Window(home).Property(WidgetType),online) + !Substring(Window(home).Property(WidgetType),trending)] | !IsEmpty(Window(home).Property(Play))</visible>
-                    </control>
-                    <control type="button" id="5018">
-                        <label>$LOCALIZE[13404] $INFO[Window(home).Property(PercentPlayed),(,)]</label>
-                        <include>WidgetMenuLabel</include>
-                        <onclick>Dialog.Close(1165)</onclick>
-                        <onclick>$INFO[Window(home).Property(Path)]</onclick>
-                        <visible>!Substring(Window(home).Property(WidgetType),nextaired)</visible>
-                        <visible>!IsEmpty(Window(home).Property(DBID)) + !Stringcompare(Window(home).Property(PercentPlayed),0%)</visible>
+                        <onclick>Action(select)</onclick>
+                        <visible>[!Substring(Window(home).Property(WidgetType),online) + !Substring(Window(home).Property(WidgetType),trending)]</visible>
                     </control>
                     <control type="button" id="5016">
                         <label>$LOCALIZE[20410]</label>
                         <onclick>PlayMedia($ESCINFO[Window(home).Property(Trailer)])</onclick>
                         <include>WidgetMenuLabel</include>
                         <include>Animation_VisibleChange400</include>
-                        <visible>!IsEmpty(Window(home).Property(Trailer))</visible>
-                    </control>
-                    <control type="button" id="5017">
-                        <label>$LOCALIZE[13319]</label>
-                        <onclick>RunScript(script.metadata.actors,borntoday,10,random)</onclick>
-                        <include>WidgetMenuLabel</include>
-                        <visible>Substring(Window(home).Property(WidgetType),actors)</visible>
+                        <visible>!IsEmpty(Window(home).Property(Trailer)) + !IsEmpty(Window(home).Property(DBID))</visible>
                     </control>
                     <control type="button" id="50191">
                         <include>WidgetMenuLabel</include>
                         <label>$LOCALIZE[31925]</label>
-                        <!--
-                        <onclick>RunScript(script.extendedinfo,info=movielists,id=$INFO[Window(home).Property(ID)],silent=False)</onclick>-->
                         <onclick condition="IsEmpty(Window(home).Property(DBID)) + Substring(Window(home).Property(WidgetType),tv)">RunScript(script.extendedinfo,info=directormovies,info=writermovies,info=studio,info=similartvshowstrakt,director=$INFO[Window(home).Property(Director)],writer=$INFO[Window(home).Property(Writer)],studio=$INFO[Window(home).Property(Studio)],id=$INFO[Window(home).Property(ID)],silent=False)</onclick>
                         <onclick condition="!IsEmpty(Window(home).Property(DBID)) + Substring(Window(home).Property(WidgetType),tv)">RunScript(script.extendedinfo,info=directormovies,info=writermovies,info=studio,info=similartvshowstrakt,director=$INFO[Window(home).Property(Director)],writer=$INFO[Window(home).Property(Writer)],studio=$INFO[Window(home).Property(Studio)],dbid=$INFO[Window(home).Property(DBID)],silent=False)</onclick>
                         <onclick condition="IsEmpty(Window(home).Property(DBID)) + Substring(Window(home).Property(WidgetType),movie)">RunScript(script.extendedinfo,info=similarlocal,info=directormovies,info=writermovies,info=set,info=studio,info=similarmovies,director=$INFO[Window(home).Property(Director)],writer=$INFO[Window(home).Property(Writer)],studio=$INFO[Window(home).Property(Studio)],setid=$INFO[Window(home).Property(SetId)],id=$INFO[Window(home).Property(ID)],type=movie,silent=False)</onclick>
@@ -3171,7 +3187,14 @@
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <visible>Substring(Control.GetLabel(4325),classic)</visible>
             <animation effect="slide" end="0,25" time="320" tween="cubic" easing="inout" condition="[Skin.HasSetting(totalshomehigh)">Conditional</animation>
-            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
+                    <animation type="Conditional" condition="IsEmpty(Window(home).Property(scrolling))">
+            <effect type="zoom" start="150" delay="800" end="100" center="960,540" time="400" tween="cubic" />
+            <effect type="fade" end="100" delay="800" time="240" />
+        </animation>
+        <animation type="Conditional" condition="!IsEmpty(Window(home).Property(scrolling))">
+            <effect type="fade" start="100" end="0" time="240" />
+            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+        </animation>
             <include>Animation_Widgets</include>
             <!--Unfocused widget-->
             <control type="group">
@@ -3211,7 +3234,6 @@
                     <font>Font_Reg33_Caps</font>
                     <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
                     <include>Animation_HomeWidget</include>
-                    <visible>!SubString(Control.GetLabel(4325),panel)</visible>
                 </control>
                 <control type="image">
                     <posx>105</posx>
@@ -3235,9 +3257,9 @@
                     <scrollspeed>30</scrollspeed>
                     <scroll>true</scroll>
                     <include>Animation_HomeWidget</include>
-                    <visible>Substring(Control.GetLabel(4325),tv) + !Substring(Control.GetLabel(4325),featured) + !Substring(Control.GetLabel(4325),panel)</visible>
+                    <visible>Substring(Control.GetLabel(4325),tv)</visible>
                 </control>
-                <control type="image">
+                <control type="image" id="70100">
                     <posx>7</posx>
                     <posy>63</posy>
                     <width>345</width>
@@ -3261,7 +3283,7 @@
                     <bordersize>7</bordersize>
                     <animation effect="fade" time="240">Visible</animation>
                     <animation effect="fade" time="40">Hidden</animation>
-                    <visible>Substring(Control.GetLabel(4325),movie) | Substring(Control.GetLabel(4325),tv) | Substring(Control.GetLabel(4325),rss) | Substring(Control.GetLabel(4325),musicvideo)</visible>
+                    <visible>!Control.IsVisible(70100) + !Substring(Control.GetLabel(4325),systemclassic)</visible>
                 </control>
                 <control type="group">
                     <visible>Substring(Control.GetLabel(4325),systemclassic)</visible>
@@ -3278,7 +3300,6 @@
                     <textcolor>grey</textcolor>
                     <scrollspeed>30</scrollspeed>
                     <scroll>true</scroll>
-                    <visible>!Substring(Control.GetLabel(4325),panel)</visible>
                 </control>
             </control>
             <!--Button to set focus to classic widget with mouse
@@ -3574,7 +3595,7 @@
                         <posy>330</posy>
                         <width>900</width>
                         <height>38</height>
-                        <label>$INFO[Container(7000).ListItem.Label][COLOR=$VAR[HomeMenuWidgetTextVar]]$INFO[Container(7000).ListItem.Property(Year), [,]][/COLOR]</label>
+                        <label>$INFO[Container(7000).ListItem.Label][COLOR=$VAR[HomeMenuWidgetTextVar]]$INFO[Container(7000).ListItem.Year, [,]][/COLOR]</label>
                         <font>Font_Reg37_Caps</font>
                         <textcolor>white3</textcolor>
                     </control>
@@ -3582,7 +3603,7 @@
                         <posy>125</posy>
                         <width>800</width>
                         <height>38</height>
-                        <label>$INFO[Container(7000).ListItem.Property(Genre)]</label>
+                        <label>$INFO[Container(7000).ListItem.Property(Album_Genre)]$INFO[Container(7000).ListItem.Property(Artist_Genre)]</label>
                         <font>Font_Reg34_Caps</font>
                         <textcolor>white3</textcolor>
                         <wrapmultiline>true</wrapmultiline>
@@ -3592,9 +3613,9 @@
                         <width>688</width>
                         <height>200</height>
                         <aligny>top</aligny>
-                        <label fallback="-">$INFO[Container(7000).ListItem.Property(Description)]</label>
+                        <label fallback="-">$INFO[Container(7000).ListItem.Property(Addon.Description)]$INFO[Container(7000).ListItem.Property(Artist_Description)]$INFO[Container(7000).ListItem.Property(Album_Description)]</label>
                         <textcolor>white3</textcolor>
-                        <visible>IsEmpty(Container(7000).ListItem.Property(Genre))</visible>
+                        <visible>IsEmpty(Container(7000).ListItem.Property(Artist_Genre)) + IsEmpty(Container(7000).ListItem.Property(Album_Genre))</visible>
                         <autoscroll delay="5000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
                     </control>
                 </control>
@@ -3663,7 +3684,6 @@
                     <font>Font_Reg33_Caps</font>
                     <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
                     <include>Animation_HomeWidget</include>
-                    <visible>!SubString(Control.GetLabel(4325),panel)</visible>
                 </control>
                 <control type="image">
                     <posx>116</posx>
@@ -3760,7 +3780,14 @@
             <animation effect="slide" end="0,25" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(totalshomehigh)">Conditional</animation>
 <!--             <animation effect="fade" start="100" end="0" time="0" condition="Stringcompare(Container(6010).NumItems,0) + !Substring(Control.GetLabel(4325),featured) + !Window.IsAcive(1122)">Conditional</animation>
  -->            <visible>Substring(Control.GetLabel(4325),featured) | Substring(Control.GetLabel(4325),panel)</visible>
-            <visible>IsEmpty(Window(home).Property(scrolling))</visible>
+                    <animation type="Conditional" condition="IsEmpty(Window(home).Property(scrolling))">
+            <effect type="zoom" start="150" delay="800" end="100" center="960,540" time="400" tween="cubic" />
+            <effect type="fade" end="100" delay="800" time="240" />
+        </animation>
+        <animation type="Conditional" condition="!IsEmpty(Window(home).Property(scrolling))">
+            <effect type="fade" start="100" end="0" time="240" />
+            <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+        </animation>
             <visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <include>Animation_Widgets</include>
             <animation type="Conditional" condition="true">

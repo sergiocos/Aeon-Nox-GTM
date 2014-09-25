@@ -6,7 +6,6 @@
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
     <onload>RunScript(script.favourites)</onload>
     <onload>RunScript(script.extendedinfo,info=flickr)</onload>
-    <onload>AlarmClock(News,RunScript(script.extendedinfo,info=json,feed=$VAR[NewsFeedVar],prefix=News),00:01,silent)</onload>
     <onload>RunScript(script.extendedinfo,info=NearEvents,info=incinema,info=trendingshows,info=trendingmovies,info=premiereshows)</onload>
     <onload>RunScript(script.extendedinfo,info=NearEvents,prefix=Festivals,festivalsonly=true)</onload>
     <onload>RunScript(script.skin.info.service)</onload>
@@ -47,7 +46,7 @@
             <width>74</width>
             <height>74</height>
             <texture>loader.gif</texture>
-            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+            <colordiffuse>$VAR[AreaColorVar]</colordiffuse>
             <animation effect="fade" start="70" time="1200" condition="true" pulse="true">Conditional</animation>
         </control>
         <control type="image">

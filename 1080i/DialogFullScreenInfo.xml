@@ -205,7 +205,7 @@
         <lefttexture>osd/info/osd_progresscache_left.png</lefttexture>
         <midtexture>osd/info/osd_progresscache_mid.png</midtexture>
         <righttexture>osd/info/osd_progresscache_right.png</righttexture>
-		<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+		<colordiffuse>$VAR[AreaColorVar]</colordiffuse>
         <overlaytexture>-</overlaytexture>
         <visible>true</visible>
       </control>
@@ -220,7 +220,7 @@
         <lefttexture>osd/info/osd_progress_left.png</lefttexture>
         <midtexture>osd/info/osd_progress_mid.png</midtexture>
         <righttexture>osd/info/osd_progress_right.png</righttexture>
-		<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+		<colordiffuse>$VAR[AreaColorVar]</colordiffuse>
         <overlaytexture>-</overlaytexture>
         <visible>true</visible>
       </control>
@@ -322,7 +322,7 @@
                 <posx>709</posx>
                 <width>40</width>
                 <height>1080</height>
-                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                <colordiffuse>$VAR[AreaColorVar]</colordiffuse>
                 <texture>common/topbar_down.png</texture>
                 <include>TopbarPulseAnimationRight</include>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
@@ -350,7 +350,7 @@
                     <width>1042</width>
                     <height>854</height>
                     <texture>info/info_panellines_movie.png</texture>
-                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <colordiffuse>$VAR[AreaColorVar]</colordiffuse>
                 </control>
                 <control type="grouplist">
                     <posx>0</posx>
@@ -810,7 +810,7 @@
                 <width>40</width>
                 <height>1080</height>
                 <texture>common/topbar_top.png</texture>
-                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                <colordiffuse>$VAR[AreaColorVar]</colordiffuse>
                 <include>TopbarPulseAnimationLeft</include>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
             </control>
@@ -838,7 +838,7 @@
                     <width>1042</width>
                     <height>710</height>
                     <texture>info/info_panellines_livetv.png</texture>
-                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <colordiffuse>$VAR[AreaColorVar]</colordiffuse>
                 </control>
                 <control type="image">
                     <posx>1100</posx>

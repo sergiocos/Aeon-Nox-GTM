@@ -32,7 +32,6 @@
             <textureradioofffocus colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/ButtonNoShuffle.png</textureradioofffocus>
             <textureradiooffnofocus colordiffuse="grey">special://skin/extras/BigIcons/ButtonNoShuffle.png</textureradiooffnofocus>    
             <selected>Playlist.IsRandom</selected>
-            <visible>Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)</visible>
         </control>
         <!--             <control type="button" id="26">
             <label>$LOCALIZE[486]</label>
@@ -53,7 +52,6 @@
             <textureradioofffocus colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/ButtonRepeatOff.png</textureradioofffocus>
             <textureradiooffnofocus colordiffuse="grey">special://skin/extras/BigIcons/ButtonRepeatOff.png</textureradiooffnofocus>    
             <selected>Playlist.IsRepeat | Playlist.IsRepeatOne</selected>
-            <visible>Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)</visible>
         </control>
         <control type="radiobutton" id="21">
             <label>190</label>
@@ -61,7 +59,6 @@
             <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/flpp.png</textureradioon>
             <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/flpp.png</textureradiooff>
             <selected>Control.HasFocus(21)</selected>
-            <visible>Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)</visible>
         </control>
         <control type="radiobutton" id="22">
             <label>192</label>
@@ -69,7 +66,6 @@
             <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/tf.png</textureradioon>
             <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/tf.png</textureradiooff>
             <selected>Control.HasFocus(22)</selected>
-            <visible>Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)</visible>
         </control>
     </include>
     <include name="AddonBrowserButtons">
@@ -80,7 +76,6 @@
             <textureradioonnofocus colordiffuse="grey">special://skin/extras/BigIcons/AlarmClock.png</textureradioonnofocus>
             <textureradioofffocus colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/Lock.png</textureradioofffocus>
             <textureradiooffnofocus colordiffuse="grey">special://skin/extras/BigIcons/Lock.png</textureradiooffnofocus>
-            <visible>Window.IsActive(Addonbrowser)</visible>
         </control>
         <control type="radiobutton" id="6">
             <label>25000</label>
@@ -89,7 +84,6 @@
             <textureradioonnofocus colordiffuse="grey">special://skin/extras/BigIcons/Message.png</textureradioonnofocus>
             <textureradioofffocus colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/noMessage.png</textureradioofffocus>
             <textureradiooffnofocus colordiffuse="grey">special://skin/extras/BigIcons/noMessage.png</textureradiooffnofocus>
-            <visible>Window.IsActive(Addonbrowser)</visible>
         </control>
         <control type="radiobutton" id="7">
             <label>25001</label>
@@ -97,7 +91,6 @@
             <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/CHAT.png</textureradioon>
             <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/CHAT.png</textureradiooff>
             <selected>Control.HasFocus(7)</selected>
-            <visible>Window.IsActive(Addonbrowser)</visible>
         </control>
         <control type="radiobutton" id="223">
             <label>$LOCALIZE[31173]</label>
@@ -105,7 +98,6 @@
             <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/Inbox.png</textureradioon>
             <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/Inbox.png</textureradiooff>
             <selected>Control.HasFocus(223)</selected>
-            <visible>Window.IsActive(Addonbrowser)</visible>
             <onclick>UpdateAddonRepos</onclick>
             <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31911])</onclick>
         </control>
@@ -115,7 +107,6 @@
             <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/so.png</textureradioon>
             <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/so.png</textureradiooff>
             <selected>Control.HasFocus(224)</selected>
-            <visible>Window.IsActive(Addonbrowser)</visible>
             <onclick>UpdateLocalAddons</onclick>
             <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31912])</onclick>
         </control>
@@ -142,7 +133,6 @@
             <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/Folder.png</textureradiooff>
             <selected>Control.HasFocus(100)</selected>
             <onclick>ReplaceWindow(MusicFiles)</onclick>
-            <visible>Window.IsActive(MusicLibrary)</visible>
         </control>
         <control type="radiobutton" id="20">
             <description>Update library</description>
@@ -227,7 +217,6 @@
             <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/BigIcons/book2.png</textureradioon>
             <textureradiooff colordiffuse="grey">special://skin/extras/BigIcons/book2.png</textureradiooff>
             <selected>Control.HasFocus(102)</selected>
-            <visible>Window.IsActive(MusicFiles)</visible>
         </control>
         <control type="radiobutton" id="17">
             <label>527</label>
